@@ -17,7 +17,7 @@ var board_schema = new schema({
 	date : Date
 });//end of board_schema
 
-var documents = mongoose.model('boards', board_schema);//DB 삽입위한 모델 생성
+var documents = mongoose.model('board', board_schema);//DB 삽입위한 모델 생성
 
 module.exports = {
 
@@ -69,7 +69,7 @@ module.exports = {
 	//게시판 id를 받아와서 해당 id와 일치하는 게시판의 정보를 획득한다.
 	//성공하면 결과값(JSON) 반환, 실패하면 null 반환
 	,get : function(condition, callback) {
-		documents.findOne(condition, function(err, result) {
+		documents.find(condition, function(err, result) {
 			if(result) {
 				callback(result);
 			}//end of if
@@ -84,8 +84,7 @@ module.exports = {
 	//성공하면 true, 실패하면 false 반환
 	,remove : function(index, callback) {
 		var condition = { index : index };
-		
-		documents.remove(condition, function(err){
+		documents.update(condition, update, null, function(err){
 			if(!err) {
 				console.log('dao.boards.del_board : del_board success');
 				callback(true);
@@ -101,7 +100,13 @@ module.exports = {
 	//성공하면 true, 실패하면 false 반환
 	,update : function(index, update, callback) {
 		var condition = { index : index };
-				
+		
+		/*
+// console.log(id, update);
+		for(var attrname in board_schema.){
+						
+		}
+*/
 		documents.update(condition, update, null, function(err) {
 			if(!err){
 				console.log('dao.boards.update_board : update_board success', condition, update);
@@ -143,5 +148,4 @@ module.exports = {
 			}
 		}); //end of count
 	}//end of check_overlap
-	
 }//end of module export
