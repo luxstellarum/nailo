@@ -91,7 +91,7 @@ module.exports = {
 	// 성공시, true 리턴, 실패시, false 리턴
 	,remove: function(id, callback){
 		var condition = {id: id};
-		documents.remove(condition, remove, null, function(err){
+		documents.remove(condition, function(err){
 			if(!err){
 				console.log('member_remove_success');
 				callback(true);

@@ -60,9 +60,9 @@ module.export = {
 	
 	
 	// 댓글 삭제를 한다.
-	// 성공시, true 리턴, 실패시 false 리
-	,remove: function(name, callback){
-		var condition = { name: name};
+	// 성공시, true 리턴, 실패시 false 리턴
+	,remove: function(index, callback){
+		var condition = { index: index};
 		documents.remove(condition, remove, null, function(err){
 			if(!err){
 				console.log('comment_remove_success');
@@ -79,8 +79,8 @@ module.export = {
 	// 댓글을 수정한다.
 	// 성공시, true, 실패시 false 반환
 	,modify: function(name, modify, callback){
-		var condition = {name : name};
-		console.log(name, modify);
+		var condition = {index : index};
+		console.log(index, modify);
 		documents.update(condition, modify, null, function(err){
 			if(!err){
 				console.log('comment_modify_success');
