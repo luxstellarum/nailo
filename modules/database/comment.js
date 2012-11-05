@@ -1,0 +1,96 @@
+// Mongoose DB
+var mongooose = require('monogose');		// mongoose module 사용
+var Schema = mongoose.Schema;				// mongoose.Schema 객체선언
+
+mongoose.connect('mongodb://localhost/nailo');	// nailo db connect
+
+//  comment schema 의 정의
+var comment_schema = new Schema({
+	name: String,
+	content: String,
+	index_board: Number,
+	index: Number,
+	date: Date
+});		// end of comment_schema
+
+var documents = mongoose.model('comments', comment_schema);		// DB 삽입 위한 모델
+
+module.export = {
+
+	// comment 를 생성하여 DB 에 넣는다.
+	// 성공하면 true, 실패하면, false 반환
+	add: function(comment, callback){
+		var self = this;
+		var doc = new documents();
+		
+		// 값 넣기
+		doc.name = comment.name;
+		doc.content = comment.content;
+		doc.index_board = comment.index_board;
+		doc.index = comment.index;
+		doc.date = comment.date;
+		
+		doc.save(function(err){
+			if(!err){
+				console.log('comment_add_success');
+				callback(true);
+			}	// end of if
+			else {
+				console.log('comment_add_fail');
+				callback(false);
+			}	// end of else
+		}); // end of save
+	}	// end of add
+	
+	
+	// 게시물 id에 맞는 데이터베이스에서 해당 id 와 일치하는 댓글의 정보를 획득
+	// 성공시, 결과값 (JSON) 반환, 실패하면 null 반환
+	,get: function(condition, callback) {
+		documents.findOne(condition, function(err, result){
+			if(result){
+				console.log('comment_get_success');
+				callback(result);
+			} 	// end of if
+			else {
+				console.log('comment_get_fail_');
+				callback(false);
+			}	// end of else
+		}); 	// end of findOne
+	} // end of get
+	
+	
+	// 댓글 삭제를 한다.
+	// 성공시, true 리턴, 실패시 false 리
+	,remove: function(name, callback){
+		var condition = { name: name};
+		documents.remove(condition, remove, null, function(err){
+			if(!err){
+				console.log('comment_remove_success');
+				callback(true);
+			}
+			else {
+				console.log('comment_remove_fail');
+				callback(false);
+			}
+		})	// end of remove
+	}	// end of remove
+	
+	
+	// 댓글을 수정한다.
+	// 성공시, true, 실패시 false 반환
+	,modify: function(name, modify, callback){
+		var condition = {name : name};
+		console.log(name, modify);
+		documents.update(condition, modify, null, function(err){
+			if(!err){
+				console.log('comment_modify_success');
+				callback(true);
+			}
+			else{
+				console.log('comment_modify_fail');
+				callback(false);
+			}
+		});	// end of update
+	}	// end of modify
+	
+}	// end of module export

@@ -69,7 +69,7 @@ module.exports = {
 	//게시판 id를 받아와서 해당 id와 일치하는 게시판의 정보를 획득한다.
 	//성공하면 결과값(JSON) 반환, 실패하면 null 반환
 	,get : function(condition, callback) {
-		documents.findOne(condition, function(err, result) {
+		documents.find(condition, function(err, result) {
 			if(result) {
 				callback(result);
 			}//end of if
@@ -82,10 +82,11 @@ module.exports = {
 	
 	//게시판 전체를 삭제한다.
 	//성공하면 true, 실패하면 false 반환
-	,del_board : function(index, callback) {
-		var condition = { index : index };
+	,del_board : function(id, callback) {
+		var condition = { id : id };
+		var update = { deleted : true };
 		
-		documents.remove(condition, function(err){
+		documents.update(condition, update, null, function(err){
 			if(!err) {
 				console.log('dao.boards.del_board : del_board success');
 				callback(true);
@@ -99,9 +100,20 @@ module.exports = {
 	
 	//게시판의 설정값들을 업데이트한다.
 	//성공하면 true, 실패하면 false 반환
-	,update_board : function(index, update, callback) {
-		var condition = { index : index };
-				
+	,update_board : function(id, update, callback) {
+		var condition = { id : id, deleted:false};
+		// console.log(id, update);
+		for(var attrname in update){
+			if(attrname=="use_category") {
+				console.log(attrname, update[attrname]);
+			}
+			
+			if(update[attrname] ==='false') update[attrname] = false;
+			if(update[attrname] ==='true') {
+				update[attrname] = true;
+			}
+			
+		}
 		documents.update(condition, update, null, function(err) {
 			if(!err){
 				console.log('dao.boards.update_board : update_board success', condition, update);
@@ -114,7 +126,7 @@ module.exports = {
 		});//end of update
 	}//end of update_board
 	
-	,get_board_list : function(current_page, paging_size, callback) {
+	,get_board_list : function(current_page, paging_size, deleted, callback) {
 		var skip_size = (current_page * paging_size) - paging_size;
 		
 		documents.find({deleted : deleted}).sort('make_date', -1).skip(skip_size).limit(paging_size).exec(function(err,docs){
@@ -143,5 +155,29 @@ module.exports = {
 			}
 		}); //end of count
 	}//end of check_overlap
+	
+	//게시판  article count 증가/ 감소. 두번째 인자로 반드시 1 (늘어나는경우) 또는 -1 (감소하는경우)을 넘겨줘야한다.
+	,calculate_count_article : function(id, operator ,callback) {
+		documents.update({id:id},{$inc : {count_article : operator}}, null, function(err){
+			if(!err) {
+				callback(true);
+			}
+			else {
+				callback(false);
+			}
+		});//end of update
+	}//end of calculate_count_article
+	
+	//게시판  comment count 증가/ 감소. 두번째 인자로 반드시 1 (늘어나는경우) 또는 -1 (감소하는경우)을 넘겨줘야한다.
+	,calculate_count_comment : function(id, operator ,callback) {
+		documents.update({id:id},{$inc : {count_comment : operator}}, null, function(err){
+			if(!err) {
+				callback(true);
+			}
+			else {
+				callback(false);
+			}
+		});//end of update
+	}
 	
 }//end of module export
