@@ -1,6 +1,7 @@
 var board_db = require('../database/board.js');
 
 module.exports = {
+	//게시물 작성
 	write : function (req, res) {
 		board_db.add(req.body, function(result){
 			if(result == true) {
@@ -14,8 +15,9 @@ module.exports = {
 		});
 	}//end of write
 	
+	//게시물 전체 목록을 받는다.
 	,list : function(req, res) {
-		var current_page = req.body.current_page | 1;
+		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
 		board_db.get_list(current_page, paging_size, function(result){
 			if(result != false) {
@@ -29,9 +31,11 @@ module.exports = {
 		});//end of get_list
 	}//end of list
 	
+	//게시물 수정
 	,modify : function(req, res) {
 		var tmp = req.body;
 		var update = {};
+		
 		update[province] = tmp.province;
 		update[city] = tmp.city;
 		update[time_start] = tmp.time_start;
@@ -70,7 +74,6 @@ module.exports = {
 			}
 		}); //end of get
 	}//end of view
-	
-	,
+
 	
 }

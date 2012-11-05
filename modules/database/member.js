@@ -15,7 +15,7 @@ var member_schema = new Schema({
 
 var documents = mongoose.model('members', member_schema);	// db 삽입을 위한 모델 선언
 
-module.exports = {
+module.exports = function(){
 	
 	// member 를 생성하여 DB 에 넣는다.
 	// 성공하면 true, 실패하면 false 반환
