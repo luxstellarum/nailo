@@ -100,13 +100,7 @@ module.exports = {
 	//성공하면 true, 실패하면 false 반환
 	,update : function(index, update, callback) {
 		var condition = { index : index };
-		
-		/*
-// console.log(id, update);
-		for(var attrname in board_schema.){
-						
-		}
-*/
+
 		documents.update(condition, update, null, function(err) {
 			if(!err){
 				console.log('dao.boards.update_board : update_board success', condition, update);

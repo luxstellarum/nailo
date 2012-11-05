@@ -5,11 +5,11 @@ module.exports = {
 		board_db.add(req.body, function(result){
 			if(result == true) {
 				console.log('service/board.js, write success');
-				res.render({result:true});
+				res.json({result:true});
 			}
 			else {
 				console.log('service/board.js, write fail');
-				res.render({result:false});
+				res.json({result:false});
 			}
 		});
 	}//end of write
@@ -20,17 +20,38 @@ module.exports = {
 		board_db.get_list(current_page, paging_size, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');
-				res.render(result);
+				res.json(result);
 			}
 			else {
 				console.log('service/board.js, list fail');
-				res.render({result:false});
+				res.json({result:false});
 			}
 		});//end of get_list
 	}//end of list
 	
 	,modify : function(req, res) {
-		
+		var tmp = req.body;
+		var update = {};
+		update[province] = tmp.province;
+		update[city] = tmp.city;
+		update[time_start] = tmp.time_start;
+		update[time_end] = tmp.time_end;
+		update[location] = tmp.location;
+		update[what] = tmp.what;
+		update[population] = tmp.population;
+		update[subject] = tmp.subject;
+		update[date] = tmp.date;
+
+		board_db.update(tmp.index, update, function(result){
+			if(result == true) {
+				console.log('service/board.js, modify success');
+				res.json({result:true});
+			}
+			else {
+				console.log('service/board.js, modify fail');
+				res.json({result:false});
+			}
+		}); //end of update
 	}//end of modify
 	
 	//게시물의 내용을 database에서 받아와서 결과에 따라 JSON형식으로 return
@@ -41,11 +62,11 @@ module.exports = {
 		board_db.get(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, view success');
-				res.render(result);
+				res.json(result);
 			}//end of if
 			else {
 				console.log('service/board.js, view fail');
-				res.render({result:false});
+				res.json({result:false});
 			}
 		}); //end of get
 	}//end of view
