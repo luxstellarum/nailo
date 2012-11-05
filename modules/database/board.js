@@ -82,7 +82,7 @@ module.exports = {
 	
 	//게시판 전체를 삭제한다.
 	//성공하면 true, 실패하면 false 반환
-	,del_board : function(index, callback) {
+	,remove : function(index, callback) {
 		var condition = { index : index };
 		
 		documents.remove(condition, function(err){
@@ -99,7 +99,7 @@ module.exports = {
 	
 	//게시판의 설정값들을 업데이트한다.
 	//성공하면 true, 실패하면 false 반환
-	,update_board : function(index, update, callback) {
+	,update : function(index, update, callback) {
 		var condition = { index : index };
 				
 		documents.update(condition, update, null, function(err) {
@@ -114,16 +114,16 @@ module.exports = {
 		});//end of update
 	}//end of update_board
 	
-	,get_board_list : function(current_page, paging_size, callback) {
+	,get_list : function(current_page, paging_size, callback) {
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({deleted : deleted}).sort('make_date', -1).skip(skip_size).limit(paging_size).exec(function(err,docs){
+		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if
 			else {
 				console.log('dao.boards.get_board_list : fail');
-				callback(null);
+				callback(false);
 			}//end of else
 		});//end of find
 	}//end of get_board_list

@@ -14,11 +14,22 @@ module.exports = {
 		});
 	}//end of write
 	
-	,list : function() {
-		
+	,list : function(req, res) {
+		var current_page = req.body.current_page | 1;
+		var paging_size = 10;
+		board_db.get_list(current_page, paging_size, function(result){
+			if(result != false) {
+				console.log('service/board.js, list success');
+				res.render(result);
+			}
+			else {
+				console.log('service/board.js, list fail');
+				res.render({result:false});
+			}
+		});//end of get_list
 	}//end of list
 	
-	,modify : function() {
+	,modify : function(req, res) {
 		
 	}//end of modify
 	
@@ -29,9 +40,11 @@ module.exports = {
 		
 		board_db.get(condition, function(result){
 			if(result != false) {
+				console.log('service/board.js, view success');
 				res.render(result);
 			}//end of if
 			else {
+				console.log('service/board.js, view fail');
 				res.render({result:false});
 			}
 		}); //end of get
