@@ -44,7 +44,11 @@ module.exports = {
 	// 회원의 id 를 받아와서 데이터베이스에서 해당 id와 일치하는 멤버의 정보를 획득.
 	// 성공시, 결과값(JSON) 변환, 실패하면 null 반환
 	,get: function(condition, callback) {
+		
+		
+		/******** 	error	 **********/
 		documents.findone(condition, function(err, result){
+	/******** 	error	 *********/
 			if(result) {
 				console.log('member_get_success');
 				callback(result);
