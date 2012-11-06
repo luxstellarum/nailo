@@ -23,7 +23,7 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	
 	//session용
-  app.use(express.cookieParser('sldj0JFJ3ljksL'));
+  app.use(express.cookieParser('mjjhyshs123151251201'));
   app.use(express.session());
   
 	app.use(express.methodOverride());
