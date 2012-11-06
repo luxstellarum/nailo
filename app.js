@@ -21,6 +21,11 @@ app.configure(function(){
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
+	
+	//session용
+  app.use(express.cookieParser('sldj0JFJ3ljksL'));
+  app.use(express.session());
+  
 	app.use(express.methodOverride());
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
