@@ -75,5 +75,17 @@ module.exports = {
 		}); //end of get
 	}//end of view
 
-	
+	,remove : function(req, res) {
+		board_db.remove(req.body.index, function(result) {
+			if(result == true) {
+				console.log('service/board.js, remove success');
+				res.json({result:true});
+			}
+			else {
+				console.log('service/board.js, remove fail');
+				res.json({result:false});
+			}
+
+		});
+	}
 }
