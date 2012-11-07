@@ -2,27 +2,31 @@ var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
 mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
 
-var sights_schema = new schema({
+var train_schema = new schema({
 	index : Number,
-	name : String,
-	location : String,
-	time : String,
-	extra : String
-});//end of sights_schema
+	id : String,
+	type : String,
+	dept_station : String,
+	arrv_station : String,
+	dept_time : String,
+	arrv_time : String
+});//end of train_schema
 
-var documents = mongoose.model('sights', sights_schema);//DB 삽입위한 모델 생성
+var documents = mongoose.model('train', train_schema);//DB 삽입위한 모델 생성
 
 module.exports = {
 
-	add : function(sights, callback) {
+	add : function(train, callback) {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
 		doc.index = self.get_index();
-		doc.name = sights.name;
-		doc.location = sights.location;
-		doc.time = sights.time;
-		doc.extra = sights.extra;
+		doc.id = train.id;
+		doc.type = train.type;
+		doc.dept_station = train.dept_station;
+		doc.arrv_station = train.arrv_station;
+		doc.dept_time = train.dept_time;
+		doc.arrv_time = trian.arrv_time;
 				
 		doc.save(function(err){
 			if(!err){
@@ -32,7 +36,7 @@ module.exports = {
 				callback(false);
 			}//end of else
 		}); //end of save
-	}//end of add_sights
+	}//end of add_train
 	
 	,get_index : function() {
 		documents.findOne({}).sort('index','-1').exec(function(err, result){
@@ -57,11 +61,11 @@ module.exports = {
 				callback(result);
 			}//end of if
 			else {
-				console.log('database/sights.js : get fail');
+				console.log('database/train.js : get fail');
 				callback(false);
 			}//end of else
 		});//end of findOne
-	}//end of get_sights
+	}//end of get_train
 	
 	//게시판 전체를 삭제한다.
 	//성공하면 true, 실패하면 false 반환
@@ -69,15 +73,15 @@ module.exports = {
 		var condition = { index : index };
 		documents.update(condition, update, null, function(err){
 			if(!err) {
-				console.log('database/sights.js : del_sights success');
+				console.log('database/train.js : del_train success');
 				callback(true);
 			}//end of if
 			else {
-				console.log('database/sights.js : del_sights fail');
+				console.log('database/train.js : del_train fail');
 				callback(false);
 			}//end of else
 		});//end of update
-	}//end of del_sights
+	}//end of del_train
 	
 	//게시판의 설정값들을 업데이트한다.
 	//성공하면 true, 실패하면 false 반환
@@ -86,15 +90,15 @@ module.exports = {
 
 		documents.update(condition, update, null, function(err) {
 			if(!err){
-				console.log('database/sights.js : update_sights success', condition, update);
+				console.log('database/train.js : update_train success', condition, update);
 				callback(true);
 			}//end of if
 			else{
-				console.log('database/sights.js : update_sights fail', condition, update, err);
+				console.log('database/train.js : update_train fail', condition, update, err);
 				callback(false);
 			}//end of else
 		});//end of update
-	}//end of update_sights
+	}//end of update_train
 	
 	,get_list : function(current_page, paging_size, callback) {
 		var skip_size = (current_page * paging_size) - paging_size;
@@ -104,9 +108,9 @@ module.exports = {
 				callback(docs);
 			}//end of if
 			else {
-				console.log('database/sights.js : fail');
+				console.log('database/train.js : fail');
 				callback(false);
 			}//end of else
 		});//end of find
-	}//end of get_sights_list
+	}//end of get_train_list
 }//end of module export
