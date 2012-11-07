@@ -10,7 +10,8 @@ var train_schema = new schema({
 	dept_station : String,
 	arrv_station : String,
 	dept_time : String,
-	arrv_time : String
+	arrv_time : String,
+	date : Date
 });//end of train_schema
 
 var documents = mongoose.model('train', train_schema);//DB 삽입위한 모델 생성
