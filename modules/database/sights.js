@@ -23,7 +23,7 @@ module.exports = {
 		doc.location = sights.location;
 		doc.time = sights.time;
 		doc.extra = sights.extra;
-				
+
 		doc.save(function(err){
 			if(!err){
 				callback(true);
