@@ -1,19 +1,19 @@
 include top
-				div(data-role="content", id="myPage_main", data-add-back-btn="true")
-					h3(align='right',style='margin-bottom:0') MyPage
-					hr(style='padding-left:5px; padding-right:5px;')
-					br br
-					div(align='center')
-						label(style='margin-right:8px') 닉네임
-							input(type='text', value='별빛', style='text-align:right; padding:5px; margin:5px')
-					div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
-						div(align='left', style='display:inline-block;')
-							a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
-							hr
-							a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
-							hr				
-							a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
-							hr
-							a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
-							hr
-				include bottom
+				h2(align='right',style='margin-bottom:1; height:20px; padding-right:5px') MyPage
+				hr
+				br
+			div(data-role="content", id="myPage_main", data-add-back-btn="true",style="height:320px; margin:0 0 0px")
+				div(align='center')
+					label(style='margin-right:8px') 닉네임
+						input(type='text', value='별빛', style='text-align:right; padding:5px; margin:5px')
+				div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
+					div(align='left', style='display:inline-block;')
+						a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
+						hr
+						a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
+						hr				
+						a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
+						hr
+						a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
+						hr
+			include bottom
