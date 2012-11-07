@@ -1,4 +1,4 @@
-var member_db = requie('../database/member.js');
+var member_db = require('../database/member.js');
 
 module.exports = {
 	
