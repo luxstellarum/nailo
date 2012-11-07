@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('myPage', { title: 'IlowaNailo' });
+  res.render('commun_bun', { title: 'IlowaNailo' });
 };
 
 exports.my = function(req,res){
