@@ -22,7 +22,7 @@ module.exports = {
 		comment_db.remove(req.body.index, function(result){
 			if(result == true){
 				console.log('service/comment.js, remove)success');
-				res.json({result:ture});
+				res.json({result:true});
 			}
 			else {
 				console.log('service/comment.js, remove_fail');
@@ -49,7 +49,7 @@ module.exports = {
 				res.json({result:true});
 			}
 			else {
-				console.log('servec/comment.js, modify_fail');
+				console.log('service/comment.js, modify_fail');
 				res.json({result:false});
 			}
 		}); 	// end of update
@@ -67,6 +67,7 @@ module.exports = {
 			}
 			else {
 				console.log('service/comment.js, list_fail');
+				res.json({result:false});
 			}
 		}); // end of get_list
 	}		// end of list

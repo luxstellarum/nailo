@@ -13,7 +13,14 @@ module.exports = {
 	}
 	
 	,remove : function(req, res) {
-		
+		train_db.remove(req.body.index, function(result){
+			if(result == true) {
+				res.json({result : true});
+			}
+			else {
+				res.json({result : false});				
+			}
+		});
 	}
 	
 	,modify : function(req, res) {
