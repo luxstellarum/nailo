@@ -2,9 +2,6 @@
 var mongoose = require('mongoose');		// mongoose module 사용
 var Schema = mongoose.Schema;				// mongoose.Schema 객체 선언
 
-mongoose.connect('mongodb://localhost/nailo'); 	// nailo db connect
-
-
 // member schema 의 정의
 var member_schema = new Schema({
 	id: String,
@@ -17,7 +14,6 @@ var member_schema = new Schema({
 var documents = mongoose.model('members', member_schema);	// db 삽입을 위한 모델 선언
 
 module.exports = {
-	
 	// member 를 생성하여 DB 에 넣는다.
 	// 성공하면 true, 실패하면 false 반환
 	add: function(member, callback)  {

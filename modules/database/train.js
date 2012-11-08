@@ -1,17 +1,17 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
-mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
+//mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
 
 var train_schema = new schema({
-	index : Number,
-	id : String,
-	type : String,
-	url : String,
-	dept_station : String,
-	arrv_station : String,
-	dept_time : String,
-	arrv_time : String,
-	date : Date
+	index : Number, //고유 index
+	id : String, //기차번호
+	type : String, //차종
+	url : String, //정보 가져온 url
+	dept_station : String, //출발역
+	arrv_station : String, //도착역
+	dept_time : String, //출발시간
+	arrv_time : String, //도착시간
+	update_date : Date //업데이트한 날짜
 });//end of train_schema
 
 var documents = mongoose.model('train', train_schema);//DB 삽입위한 모델 생성
@@ -30,7 +30,8 @@ module.exports = {
 		doc.arrv_station = train.arrv_station;
 		doc.dept_time = train.dept_time;
 		doc.arrv_time = trian.arrv_time;
-				
+		doc.update_date = new Date();
+		
 		doc.save(function(err){
 			if(!err){
 				callback(true);

@@ -1,8 +1,7 @@
 // Mongoose DB
-var mongooose = require('monogose');		// mongoose module 사용
+var mongoose = require('mongoose');		// mongoose module 사용
 var Schema = mongoose.Schema;				// mongoose.Schema 객체선언
 
-mongoose.connect('mongodb://localhost/nailo');	// nailo db connect
 
 //  comment schema 의 정의
 var comment_schema = new Schema({

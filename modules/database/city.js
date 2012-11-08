@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
-mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
 
 var city_schema = new schema({
 	index : Number,
