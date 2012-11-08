@@ -1,10 +1,9 @@
 // Mongoose DB
 var mongoose = require('mongoose');		// mongoose module 사용
-var Schema = mongoose.Schema;				// mongoose.Schema 객체선언
-
+var schema = mongoose.Schema;				// mongoose.Schema 객체선언
 
 //  comment schema 의 정의
-var comment_schema = new Schema({
+var comment_schema = new schema({
 	name: String,
 	content: String,
 	index_board: Number,
