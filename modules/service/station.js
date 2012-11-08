@@ -35,7 +35,7 @@ module.exports = {
 		var tmp = req.body;
 		var update = {};
 
-		update[station] = tmp.tmp_name;
+		update[station_name] = tmp.station_name;
 		update[city_name] = tmp.city_name;
 		update[city_index] = tmp.city_index;
 		update[extra] = tmp.extra;
