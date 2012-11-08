@@ -1,25 +1,25 @@
 include top
-		div(class="css3droppanel",align="center")
-			input(type="checkbox", id="paneltoggle")
-			label(for="paneltoggle",id="searchdrawer")
-			div(id="searchbrowser")
-				include search	
-		div(class="header")
-			h2(align='right',style='padding-right:5px') MyPage
-			hr
-			br
-		div(class="section")
-			div(align='center')
-				label(style='margin-right:8px') 닉네임
+			div(class="css3droppanel",align="center")
+				input(type="checkbox", id="paneltoggle")
+				label(for="paneltoggle",id="searchdrawer")
+				div(id="searchbrowser")
+					include search	
+			div(class="header")
+				h2(align='right',style='padding-right:5px') MyPage
+				hr
+				br
+			div(class="section")
+				div(align="center",style='margin-top:10px')
+					label(for="nickname",style='margin-right:8px') 닉네임
 					input(type='text', value='별빛', id='nickname',style='text-align:right; padding:5px; margin:5px')
-			div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
-				div(align='left', style='display:inline-block;')
-					a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
-					hr
-					a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
-					hr				
-					a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
-					hr
-					a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
-					hr
-		include bottom
+				div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
+					div(align='left', style='display:inline-block;')
+						a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
+						hr
+						a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
+						hr				
+						a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
+						hr
+						a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
+						hr
+			include bottom
