@@ -25,6 +25,7 @@ module.exports = {
 		update[name] = tmp.name;
 		update[sex] = tmp.sex;
 		update[pw] = tmp.pw;
+		update[bookmark] = tmp.bookmark;
 		
 		member_db.update(tmp.id, update, function(result){
 			if(result == true) {

@@ -7,7 +7,8 @@ var member_schema = new Schema({
 	id: String,
 	name: String,
 	sex: Boolean,
-	pw: String	
+	pw: String	,
+	bookmark: Array
 }); 		// end of member_schema 
 
 var documents = mongoose.model('members', member_schema);	// db 삽입을 위한 모델 선언
@@ -25,6 +26,7 @@ module.exports = {
 		doc.name = member.name;
 		doc.sex = member.sex;
 		doc.pw = member.pw;
+		doc.bookmark = member.bookmark;
 		
 		doc.save(function(err){
 			if(!err){
