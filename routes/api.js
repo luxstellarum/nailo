@@ -219,8 +219,4 @@ module.exports = function(app){
 	app.post('/plan/view', function(req, res) {
 		plan.view(req, res);
 	});
-	
-	
-	
-	
 }
