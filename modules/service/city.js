@@ -34,15 +34,18 @@ module.exports = {
 	
 	//도시 전체 목록을 받는다.
 	,list : function(req, res) {
-		var current_page = req.body.current_page || 1;
-		var paging_size = 10;
-		city_db.get_list(current_page, paging_size, function(result){
+		var condition = {};
+		condition[do_name] = req.body.do_name;
+		city_db.get_list(condition function(result){
 			if(result != false) {
 				console.log('service/city.js, list success');
 				res.json(result);
 			}
 			else {
 				console.log('service/city.js, list fail');
+			}
+		});
+	}//end of list
 	
 	//도시 수정
 	,modify : function(req, res) {
