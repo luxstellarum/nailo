@@ -4,7 +4,7 @@ var schema = mongoose.Schema; // mongoose.schema 획득
 var sights_schema = new schema({
 	index : Number,
 	name : String,
-	location : String,
+	city_name : String,
 	time : String,
 	extra : String
 });//end of sights_schema

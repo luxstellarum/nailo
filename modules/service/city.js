@@ -25,14 +25,12 @@ module.exports = {
 	,modify : function(req, res) {
 		var tmp = req.body;
 		var update = {};
-		
-		update[url] = tmp.url;
-		update[dept_station] = tmp.dept_station;
-		update[arrv_station] = tmp.arrv_station;
-		update[dept_time] = tmp.dept_time;
-		update[arrv_time] = tmp.arrv_time;
-		update[update_date] = new Date();
-		
+	
+		update[city_name] = tmp.city_name;
+		update[do_name] = tmp.do_name;
+		update[station_names] = tmp.station_names;
+		update[extra] = tmp.extra;
+				
 		city_db.update(tmp.index, update, function(result){
 			if(result == true) {
 				res.json({result: true});
@@ -44,6 +42,6 @@ module.exports = {
 		
 	}//end of modify
 	
-	/* 기차 시간 검색 등의 로직	파트 */
+	,
 	
 }
