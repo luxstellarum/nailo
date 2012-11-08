@@ -1,10 +1,9 @@
 // Mongoose DB
 var mongoose = require('mongoose');		// mongoose module 사용
-var Schema = mongoose.Schema;				// mongoose.Schema 객체선언
-
+var schema = mongoose.Schema;				// mongoose.Schema 객체선언
 
 //  comment schema 의 정의
-var comment_schema = new Schema({
+var comment_schema = new schema({
 	name: String,
 	content: String,
 	index_board: Number,
@@ -27,8 +26,8 @@ module.export = {
 		doc.name = comment.name;
 		doc.content = comment.content;
 		doc.index_board = comment.index_board;
-		doc.index = comment.index;
 		doc.date = comment.date;
+		doc.index = self.get_index();
 		
 		doc.save(function(err){
 			if(!err){
@@ -57,6 +56,25 @@ module.export = {
 			}	// end of else
 		}); 	// end of findOne
 	} // end of get
+	
+	
+	// 새로운 댓글이 가지 index를 부여한다.
+	,get_index: function(){
+		documnets.findOne({}, function(err, result){
+			if(!err){
+				if(result != null){
+					return (result.index +1);
+				}
+				else {
+					return 1;					
+				}
+			}
+			else {
+				console.log('get_index : error is coming haha');
+				return false;
+			}
+		}); // end of findOne
+	}	// end of get_index
 	
 	
 	// 댓글 삭제를 한다.

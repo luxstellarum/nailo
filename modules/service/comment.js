@@ -40,7 +40,6 @@ module.exports = {
 		update[name] = tmp.name;
 		update[content] = tmp.content;
 		update[index_board] = tmp.index_board;
-		update[index] = tmp.index;
 		update[date] = tmp.date;
 		
 		comment_db.update(tmp.index, update, function(result){

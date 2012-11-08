@@ -7,15 +7,14 @@ var express = require('express')
 	, routes = require('./routes')
 	, user = require('./routes/user')
 	, http = require('http')
-	, path = require('path');
+	, path = require('path')
+	, mongoose = require('mongoose');
 
 var api = require('./routes/api.js');
 
 var app = express();
 
-var mongoose = require('mongoose'); //mongoose module 사용
-mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
-
+mongoose.connect('mongodb://localhost/nailo');
 
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);

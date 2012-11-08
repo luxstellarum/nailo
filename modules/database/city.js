@@ -5,7 +5,7 @@ var city_schema = new schema({
 	index : Number,
 	city_name : String,
 	do_name : String,
-	stations : String,
+	station_names : String,
 	extra : String
 });//end of city_schema
 
@@ -20,7 +20,7 @@ module.exports = {
 		doc.index = self.get_index();
 		doc.city_name = city.city_name;
 		doc.do_name = city.do_name;
-		doc.stations = city.stations;
+		doc.station_names = city.station_names;
 		doc.extra = city.extra;
 		
 		doc.save(function(err){
@@ -31,7 +31,7 @@ module.exports = {
 				callback(false);
 			}//end of else
 		}); //end of save
-	}//end of add_city
+	}//end of add
 	
 
 	,get_index : function() {
@@ -63,9 +63,10 @@ module.exports = {
 		});//end of findOne
 	}//end of get_city
 	
+	
 	,remove : function(index, callback) {
 		var condition = { index : index };
-		documents.update(condition, update, null, function(err){
+		documents.remove(condition, function(err){
 			if(!err) {
 				console.log('database/city.js : del_city success');
 				callback(true);
@@ -76,6 +77,7 @@ module.exports = {
 			}//end of else
 		});//end of update
 	}//end of del_city
+	
 	
 	,update : function(index, update, callback) {
 		var condition = { index : index };
@@ -92,10 +94,8 @@ module.exports = {
 		});//end of update
 	}//end of update_city
 	
-	,get_list : function(current_page, paging_size, callback) {
-		var skip_size = (current_page * paging_size) - paging_size;
-		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
+	,get_list : function(condition, callback) {
+		documents.find(condition, function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if

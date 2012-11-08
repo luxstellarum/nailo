@@ -4,8 +4,9 @@ var schema = mongoose.Schema; // mongoose.schema 획득
 var sights_schema = new schema({
 	index : Number,
 	name : String,
-	location : String,
-	time : String,
+	city_name : String,
+	city_index : Number,
+	times : String,
 	extra : String
 });//end of sights_schema
 
@@ -19,8 +20,9 @@ module.exports = {
 		//값 넣기
 		doc.index = self.get_index();
 		doc.name = sights.name;
-		doc.location = sights.location;
-		doc.time = sights.time;
+		doc.city_name = sights.city_name;
+		doc.city_index = sights.city_index;
+		doc.times = sights.times;
 		doc.extra = sights.extra;
 
 		doc.save(function(err){
@@ -68,11 +70,11 @@ module.exports = {
 		var condition = { index : index };
 		documents.update(condition, update, null, function(err){
 			if(!err) {
-				console.log('database/sights.js : del_sights success');
+				console.log('database/sights.js : remove success');
 				callback(true);
 			}//end of if
 			else {
-				console.log('database/sights.js : del_sights fail');
+				console.log('database/sights.js : remove fail');
 				callback(false);
 			}//end of else
 		});//end of update
@@ -95,10 +97,9 @@ module.exports = {
 		});//end of update
 	}//end of update_sights
 	
-	,get_list : function(current_page, paging_size, callback) {
-		var skip_size = (current_page * paging_size) - paging_size;
+	,get_list : function(condition, callback) {
 		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
+		documents.find(condition, function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if
