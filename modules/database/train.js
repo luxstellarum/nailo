@@ -6,10 +6,12 @@ var train_schema = new schema({
 	index : Number,
 	id : String,
 	type : String,
+	url : String,
 	dept_station : String,
 	arrv_station : String,
 	dept_time : String,
-	arrv_time : String
+	arrv_time : String,
+	date : Date
 });//end of train_schema
 
 var documents = mongoose.model('train', train_schema);//DB 삽입위한 모델 생성
@@ -23,6 +25,7 @@ module.exports = {
 		doc.index = self.get_index();
 		doc.id = train.id;
 		doc.type = train.type;
+		doc.url = train.url;
 		doc.dept_station = train.dept_station;
 		doc.arrv_station = train.arrv_station;
 		doc.dept_time = train.dept_time;
