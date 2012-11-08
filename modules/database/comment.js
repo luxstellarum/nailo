@@ -59,6 +59,25 @@ module.export = {
 	} // end of get
 	
 	
+	// 새로운 댓글이 가지 index를 부여한다.
+	,get_index: function(){
+		documnets.findOne({}, function(err, result){
+			if(!err){
+				if(result != null){
+					return (result.index +1);
+				}
+				else {
+					return 1;					
+				}
+			}
+			else {
+				console.log('get_index : error is coming haha');
+				return false;
+			}
+		}); // end of findOne
+	}	// end of get_index
+	
+	
 	// 댓글 삭제를 한다.
 	// 성공시, true 리턴, 실패시 false 리턴
 	,remove: function(index, callback){
