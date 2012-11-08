@@ -70,9 +70,6 @@ module.exports = {
 			}
 		}); 	// end of get
 	}	// end of login
-	
-		
-	,
 
 
 }		// end of module exports

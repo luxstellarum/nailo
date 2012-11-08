@@ -13,6 +13,10 @@ var api = require('./routes/api.js');
 
 var app = express();
 
+var mongoose = require('mongoose'); //mongoose module 사용
+mongoose.connect('mongodb://localhost/nailo'); //nailo db connect
+
+
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
