@@ -84,7 +84,7 @@ module.exports = {
 	//성공하면 true, 실패하면 false 반환
 	,remove : function(index, callback) {
 		var condition = { index : index };
-		documents.update(condition, update, null, function(err){
+		documents.remove(condition, function(err){
 			if(!err) {
 				console.log('dao.boards.del_board : del_board success');
 				callback(true);
@@ -93,8 +93,8 @@ module.exports = {
 				console.log('dao.boards.del_board : del_board fail');
 				callback(false);
 			}//end of else
-		});//end of update
-	}//end of del_board
+		});//end of remove
+	}//end of remove
 	
 	//게시판의 설정값들을 업데이트한다.
 	//성공하면 true, 실패하면 false 반환
