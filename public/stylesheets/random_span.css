@@ -1,0 +1,42 @@
+div .s1{
+	position: absolute;
+	right: 50px;
+	top: 100px;
+	font-size: 40px;
+	color: red;
+}
+div .s2{
+	position: absolute;
+	right: 100px;
+	top: 200px;
+	font-size: 35px;
+	color: blue;
+}
+div .s3{
+	position: absolute;
+	right: 200px;
+	top: 150px;
+	font-size: 30px;
+	color: green;
+}
+div .s4{
+	position: absolute;
+	right: 150px;
+	top: 50px;
+	font-size: 25px;
+	color: yellow;
+}
+div .s5{
+	position: absolute;
+	right: 45px;
+	top: 230px;
+	font-size: 20px;
+	color: #A78132;
+}
+div .s6{
+	position: absolute;
+	right: 250px;
+	top: 250px;
+	font-size: 15px;
+	color: #DB2ED4;
+}
