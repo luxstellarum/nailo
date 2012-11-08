@@ -14,12 +14,12 @@ include top
 					input(type='text', value='별빛', id='nickname',style='text-align:right; padding:5px; margin:5px')
 				div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
 					div(align='left', style='display:inline-block;')
-						a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
+						a(href='/bookmark',style='color:gray; text-decoration:none; margin-left:8px',rel='external')나의 즐겨찾기
 						hr
-						a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
+						a(href='/mynailo',style='color:gray; text-decoration:none; margin-left:8px',rel='external')나의 내일로
 						hr				
 						a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
 						hr
-						a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
+						a(href='/share',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
 						hr
 			include bottom

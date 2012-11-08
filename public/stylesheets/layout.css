@@ -14,10 +14,6 @@ html, body{
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
-    -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
-    -webkit-transition: all 0.2s ease-in-out 0.1s;
-    transition: all 0.2s ease-in-out 0.1s;
 }
 
 .section {
@@ -29,10 +25,6 @@ html, body{
 	bottom: 100px;
 	overflow-x: hidden;
 	overflow-y: auto;
-	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
-    -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
-    -webkit-transition: all 0.2s ease-in-out 0.1s;
-    transition: all 0.2s ease-in-out 0.1s;
 }
 
 .footer{

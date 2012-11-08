@@ -40,7 +40,9 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/mypage', routes.my);
+app.get('/share', routes.share);
+app.get('/bookmark', routes.book);
+app.get('/mynailo', routes.my);
 
 
 api(app);
