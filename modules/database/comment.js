@@ -26,8 +26,8 @@ module.export = {
 		doc.name = comment.name;
 		doc.content = comment.content;
 		doc.index_board = comment.index_board;
-		doc.index = comment.index;
 		doc.date = comment.date;
+		doc.index = self.get_index();
 		
 		doc.save(function(err){
 			if(!err){
