@@ -3,10 +3,44 @@ html
 	head
 		title=title
 		meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
-		link(rel="stylesheet",href="http://code.jquery.com/mobile/1.1/jquery.mobile-1.1.min.css)
+		link(rel="stylesheet",href="http://code.jquery.com/mobile/1.1/jquery.mobile-1.1.min.css")
+		link(rel='stylesheet', href='/stylesheets/layout.css')
+		link(rel='stylesheet', href='/stylesheets/searchbar.css')
+		script
+			function setHeight(){
+				var headerH = $(".header").height();
+				var footerH = $(".footer").height();
+				var sectionHeight = window.innerHeight - headerH - footerH ;
+				$('.section').css('height',sectionHeight);
+			};
+			window.addEventListener('onorientationchange' in window ? 'orientationchange':'resize',setHeight,false);
 		script(src="http://code.jquery.com/jquery-1.7.js")
 		script(src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.1.min.js")
-	body(style="height:100%; margin:0; padding:0")
-		div(data-role="page")
-			div(data-role="header", data-position="fixed")
-				div(style='height:10px; background:gray')
+		script
+			$(document).ready(function() {
+				setHeight()
+				$('#paneltoggle').on("click",function(e){
+					var check = $(this).is(":checked");
+					if(check)
+					{
+						//$('.header').css("opacity","0.2");
+						//$('.section').css("opacity","0.2");
+						$('.header').css("display","none");
+						$('.section').css("display","none");
+						$('#searchbrowser').css("height","380px");
+						$('#searchbrowser').css("overflow","auto");
+						$('#searchbrowser').focus().select();
+					}
+					else
+					{
+						$('.header').css("opacity","1");
+						$('.section').css("opacity","1");
+						$('.header').css("display","block");
+						$('.section').css("display","block");
+						$('#searchbrowser').css("height","10px");
+						$('#searchbrowser').css("overflow","hidden");
+						$('#nickname').focus().select();
+					}
+				});
+			});
+	body
