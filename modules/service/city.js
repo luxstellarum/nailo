@@ -36,7 +36,7 @@ module.exports = {
 	,list : function(req, res) {
 		var condition = {};
 		condition[do_name] = req.body.do_name;
-		city_db.get_list(condition function(result){
+		city_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/city.js, list success');
 				res.json(result);

@@ -103,7 +103,7 @@ module.exports = {
 		});//end of update
 	}//end of update_train
 	
-	,get_list : function(condition callback) {
+	,get_list : function(condition, callback) {
 		documents.find(condition, function(err, docs){
 			if(!err) {
 				callback(docs);
