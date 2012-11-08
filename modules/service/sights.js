@@ -18,9 +18,9 @@ module.exports = {
 	
 	//sights전체 목록을 받는다.
 	,list : function(req, res) {
-		var current_page = req.body.current_page || 1;
-		var paging_size = 10;
-		board_db.get_list(current_page, paging_size, function(result){
+		var condition = {};
+		condition[city_index] = req.body.city_index;
+		board_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/sights.js, list success');
 				res.json(result);
