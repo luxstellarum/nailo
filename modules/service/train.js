@@ -1,7 +1,7 @@
 var train_db = require('../database/train.js');
 
 module.exports = {
-	add : function(req, res) {
+	write : function(req, res) {
 		train_db.add(req.body, function(result){
 			if(result == true) {
 				res.json({result:true});
@@ -10,7 +10,8 @@ module.exports = {
 				res.json({result:false});
 			}
 		});
-	} // and of add	
+	} // end of write	
+	
 	,remove : function(req, res) {
 		train_db.remove(req.body.index, function(result){
 			if(result == true) {
@@ -41,8 +42,41 @@ module.exports = {
 				res.json({result: false});
 			}
 		});
-		
 	}//end of modify
+
+	,view : function(req, res) {
+		var condition = {};
+		condition[index] = req.body.index;
+		
+		train_db.get(condition, function(result){
+			if(result != false) {
+				console.log('service/train.js, view success');
+				res.json(result);
+			}//end of if
+			else {
+				console.log('service/train.js, view fail');
+				res.json({result:false});
+			}
+		}); //end of get
+	}//end of view
+
+
+
+	,list : function(req, res) {
+		var current_page = req.body.current_page || 1;
+		var paging_size = 10;
+		train_db.get_list(current_page, paging_size, function(result){
+			if(result != false) {
+				console.log('service/train.js, list success');
+				res.json(result);
+			}
+			else {
+				console.log('service/train.js, list fail');
+				res.json({result:false});
+			}
+		});//end of get_list
+	}//end of list
+	
 	
 	/* 기차 시간 검색 등의 로직	파트 */
 	
