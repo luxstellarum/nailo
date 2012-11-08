@@ -24,7 +24,7 @@ module.exports = {
 		
 		// 값 넣기
 		doc.id = plan.id;
-		doc.index = plan.index;
+		doc.index = self.get_index;
 		doc.subject = plan.subject;
 		doc.date = plan.date;
 		

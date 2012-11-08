@@ -40,7 +40,6 @@ module.exports = {
 		var update = {};
 		
 		update[id]=tmp.id;
-		update[index]=tmp.index;
 		update[subject]=tmp.subject;
 		update[date]=tmp.date;
 		
