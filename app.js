@@ -39,9 +39,12 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 });
 
+<<<<<<< HEAD
 app.get('/', routes.index);
 app.get('/users', user.list);
 
+=======
+>>>>>>> 90fc0f29b16ca43ae48a386e1508fde0b7426722
 adr(app);
 api(app);
 
