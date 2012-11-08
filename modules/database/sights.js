@@ -4,8 +4,8 @@ var schema = mongoose.Schema; // mongoose.schema 획득
 var sights_schema = new schema({
 	index : Number,
 	name : String,
-	location : String,
-	time : String,
+	city_name : String,
+	times : String,
 	extra : String
 });//end of sights_schema
 
@@ -19,8 +19,8 @@ module.exports = {
 		//값 넣기
 		doc.index = self.get_index();
 		doc.name = sights.name;
-		doc.location = sights.location;
-		doc.time = sights.time;
+		doc.city_name = sights.city_name;
+		doc.times = sights.times;
 		doc.extra = sights.extra;
 
 		doc.save(function(err){
@@ -68,11 +68,11 @@ module.exports = {
 		var condition = { index : index };
 		documents.update(condition, update, null, function(err){
 			if(!err) {
-				console.log('database/sights.js : del_sights success');
+				console.log('database/sights.js : remove success');
 				callback(true);
 			}//end of if
 			else {
-				console.log('database/sights.js : del_sights fail');
+				console.log('database/sights.js : remove fail');
 				callback(false);
 			}//end of else
 		});//end of update
