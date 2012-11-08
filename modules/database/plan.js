@@ -2,8 +2,6 @@
 var mongoose = require('mongoose');	// mongoose module 사용
 var Schema = mongoose.Schema;			// mongoose.Schema 객체 선언
 
-mongoose.connect('mongodb://localhost/nailo'); 	// nailo db connect
-
 // plan Schema 정의
 var plan_schema = new Schema({
 	id : String,		// 사용자  id
