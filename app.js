@@ -11,6 +11,7 @@ var express = require('express')
 	, mongoose = require('mongoose');
 
 var api = require('./routes/api.js');
+var adr = require('./routes/address.js');
 
 var app = express();
 
@@ -40,9 +41,8 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/mypage', routes.my);
 
-
+adr(app);
 api(app);
 
 http.createServer(app).listen(app.get('port'), function(){
