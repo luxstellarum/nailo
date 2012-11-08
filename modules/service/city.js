@@ -48,8 +48,6 @@ module.exports = {
 	,modify : function(req, res) {
 		var tmp = req.body;
 		var update = {};
-		
-		update[index] = tmp.index;
 		update[city_name] = tmp.city_name;
 		update[do_name] = tmp.do_name;
 		update[station_names] = tmp.station_names;
@@ -88,6 +86,6 @@ module.exports = {
 
 	
 	
-	/* 기차 시간 검색 등의 로직	파트 */
+	,
 	
 }

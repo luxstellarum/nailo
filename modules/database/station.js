@@ -2,10 +2,14 @@ var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
 
 var station_schema = new schema({
-	index : Number,
-	name : String,
-	location : String,
-	extra : String
+	index : Number, 
+	station_name : String,
+	city_name : String,
+	city_index : Number,
+	extra : String,
+	website : String,
+	telephone : String,
+	train_type : String
 });//end of station_schema
 
 var documents = mongoose.model('station', station_schema);//DB 삽입위한 모델 생성
@@ -17,9 +21,13 @@ module.exports = {
 		var doc = new documents();		
 		//값 넣기
 		doc.index = self.get_index();
-		doc.name = station.name;
-		doc.location = station.location;
+		doc.station_name = station.station_name;
+		doc.city_name = station.city_name;
+		doc.city_index = station.city_index;
 		doc.extra = station.extra;
+		doc.website = station.website;
+		doc.telephone = station.telephone;
+		doc.train_type = station.train_type;
 						
 		doc.save(function(err){
 			if(!err){
@@ -49,7 +57,7 @@ module.exports = {
 	}
 	
 	,get : function(condition, callback) {
-		documents.find(condition, function(err, result) {
+		documents.findOne(condition, function(err, result) {
 			if(result) {
 				callback(result);
 			}//end of if
@@ -64,7 +72,7 @@ module.exports = {
 	//성공하면 true, 실패하면 false 반환
 	,remove : function(index, callback) {
 		var condition = { index : index };
-		documents.update(condition, update, null, function(err){
+		documents.remove(condition, function(err){
 			if(!err) {
 				console.log('database/station.js : del_station success');
 				callback(true);
@@ -93,10 +101,8 @@ module.exports = {
 		});//end of update
 	}//end of update_station
 	
-	,get_list : function(current_page, paging_size, callback) {
-		var skip_size = (current_page * paging_size) - paging_size;
-		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
+	,get_list : function(condition, callback) {
+		documents.find(condition, function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if

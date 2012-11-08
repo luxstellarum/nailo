@@ -66,7 +66,7 @@ module.exports = {
 	
 	,remove : function(index, callback) {
 		var condition = { index : index };
-		documents.update(condition, update, null, function(err){
+		documents.remove(condition, function(err){
 			if(!err) {
 				console.log('database/city.js : del_city success');
 				callback(true);
