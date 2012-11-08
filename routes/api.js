@@ -5,7 +5,7 @@ var comment = require('../modules/service/comment.js');
 var sights = require('../modules/service/sights.js');
 var station = require('../modules/service/station.js');
 var train = require('../modules/service/train.js');
-
+var plan = require('../modules/service/plan.js');
 
 
 module.exports = function(app){
