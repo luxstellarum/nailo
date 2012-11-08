@@ -63,9 +63,9 @@ module.exports = {
 
 
 	,list : function(req, res) {
-		var current_page = req.body.current_page || 1;
-		var paging_size = 10;
-		train_db.get_list(current_page, paging_size, function(result){
+		var condition = {};
+		//condition[]; 추후 필요에 따라 추가
+		train_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/train.js, list success');
 				res.json(result);

@@ -103,10 +103,8 @@ module.exports = {
 		});//end of update
 	}//end of update_train
 	
-	,get_list : function(current_page, paging_size, callback) {
-		var skip_size = (current_page * paging_size) - paging_size;
-		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
+	,get_list : function(condition callback) {
+		documents.find(condition, function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if
