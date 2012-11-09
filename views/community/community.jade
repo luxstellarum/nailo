@@ -10,33 +10,37 @@ include ../top.jade
 					div(class='header')
 						span(style='height:20px; padding-left:20px; font-size:45pt') 1
 					p
-					div.wrapper(id="community_num",style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto;")
-						img(src="/images/map.png", style='position:absolute; width:100%; height:100%; top:0px; left:0px; z-index:0;')
+					div.wrapper(id="community_num",style="position:relative; top:0px; left:55px; width:200px; height:0px; padding-bottom:100%; overflow:auto;")
+						img(src="/images/map.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 70
-						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 100
-						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 30
-						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 52
-						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 65
+						a.province(id="kyunggido",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 100
+						a.province(id="chungcheongdo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 30
+						a.province(id="kyungsangdo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 52
+						a.province(id="jeollado",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 65
 						
 				div(id="community_2",class="slide")
 					div(class='header')
 						span(style='height:20px; padding-left:20px; font-size:45pt; z-index:4') 2
-						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')강원도
+						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
 					p
-					div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto;")
+					div.wrapper(id="kangwondo_map",style="position:relative; top:40px; left:30px; width:250px; height:0px; padding-bottom:100%; overflow:auto;display:none")
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:75%; z-index:2;') 강릉 65
 						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
-						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 강릉 65
-					div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
-						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						
+					div.wrapper(id="kyunggido_map",style="position:relative; top:40px; left:60px; width:200px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyunggido.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
-					div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
-						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+					
+					div.wrapper(id="chungcheongdo_map",style="position:relative; top:100px; left:20px; width:270px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_chungcheongdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
-					div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
-						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+					
+					div.wrapper(id="jeollado_map",style="position:relative; top:40px; left:60px; width:200px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_jeollado.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
-					div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
-						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+					
+					div.wrapper(id="kyungsangdo_map",style="position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyungsangdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 						
 				div(id="community_3",class="slide",style="height:100%")
