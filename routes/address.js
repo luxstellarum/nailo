@@ -8,12 +8,15 @@ module.exports = function(app){
 	app.get('/mypage/mypage', function(req, res){
 		res.render('mypage/mypage', {title:'/mypage/mypage'});
 	});
+
 	app.get('/mypage/bookmark', function(req, res){
 		res.render('mypage/bookmark', {title:'/mypage/bookmark'});
 	});
+
 	app.get('/mypage/my_nailo', function(req, res){
 		res.render('mypage/my_nailo', {title:'/mypage/my_nailo'});
 	});
+
 	app.get('/mypage/my_community', function(req, res){
 		res.render('mypage/my_community', {title:'/mypage/my_community'});
 	});
@@ -35,9 +38,11 @@ module.exports = function(app){
 	app.get('/community/community', function(req, res){
 		res.render('community/community', {title:'/community/community'});
 	});	
+
 	app.get('/community/bun_make', function(req, res){
 		res.render('community/bun_make', {title:'/community/bun_make'});
 	});	
+
 	app.get('/community/bun_show', function(req, res){
 		res.render('community/bun_show', {title:'/community/bun_show'});
 	});	
@@ -47,6 +52,7 @@ module.exports = function(app){
 	app.get('/plan/plan', function(req, res){
 		res.render('plan/plan', {title:'/plan/plan'});
 	});	
+
 	// 이후 plan 1~3 합체
 	app.get('/plan/plan2', function(req, res){
 		res.render('plan/plan2', {title:'/plan/plan2'});
@@ -54,7 +60,6 @@ module.exports = function(app){
 	app.get('/plan/plan3', function(req, res){
 		res.render('plan/plan3', {title:'/plan/plan3'});
 	});	
-	
 
 	app.get('/plan/see', function(req, res){
 		res.render('plan/see', {title:'/plan/see'});
