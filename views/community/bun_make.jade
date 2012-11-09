@@ -1,0 +1,63 @@
+include ../top.jade
+		div(class="css3droppanel",align="center")
+			input(type="checkbox", id="paneltoggle")
+			label(for="paneltoggle",id="searchdrawer")
+			div(id="searchbrowser")
+					include ../search.jade
+		div(class="header")
+			h2(align='right',style='padding-right:5px') community > 번개생성
+			hr
+			br
+		div(class="section")
+			table(align='center',style='margin-left:8px')
+				td(valign='top',width='100px') 시간
+				td(width='200px')
+					span(style='margin-right:20px')
+						input(type='text',style='width:40px;')
+						&nbsp;월 
+					span
+						input(type='text',style='width:40px')
+						&nbsp;일
+					p
+						span(style='margin-right:20px')
+							input(type='text',style='width:40px;')
+							&nbsp;시 
+						span
+							input(type='text',style='width:40px;')
+							&nbsp;분 부터
+					p
+						span(style='margin-right:20px')
+							input(type='text',style='width:40px;')
+							&nbsp;시
+						span
+							&nbsp;
+							input(type='text',style='width:40px;')
+							&nbsp;분 까지
+			table(align='center',style='margin-left:8px')
+				td(valign='top',width='100px') 장소
+				td(width='200px')
+					span(style='margin-right:20px')
+						input(type='text',style='width:180px;')
+						br
+						span(style='float:right; margin-right:20px')
+							네이버 지도에 표시
+							input(type='checkbox', style='margin-bottom:0;width:15px; height:15px')
+			table(align='center',style='margin-left:8px')
+				td(width='100px') 무엇을
+				td(valign='top',width='200px')
+					span(style='margin-right:20px')
+						table(cellpadding='5px',border='1',style='border-collapse:collapse',width="180px")
+							tr
+								td(width="40px",align='center') 밥
+								td(width="40px",align='center') 술
+								td(width="40px",align='center') 놀이
+								td(width="40px",align='center') 기타
+			table(align='center',style='margin-left:8px')
+				td(width='100px') 인원
+				td(width='200px')
+					span(style='margin-right:20px')
+						input(type='text',style='width:80px;')
+						명
+			form(align='right')
+				input(type='submit',value='작성',style='margin:0 20px; width:50px; height:30px')
+include ../bottom.jade
