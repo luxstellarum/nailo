@@ -1,77 +1,63 @@
-<<<<<<< HEAD
-
 module.exports = function(app){
-
-app.get('/', function(req, res){
-	res.render('mypage', {title:'index_page'});
-});
-
-
-app.get('/mypage', function(req,res){
-	res.render('mypage',{title:'IlowaNailo'});
-});
-
-app.get('/mypage/bookmark', function(req,res){
-	res.render('bookmark',{title:'IlowaNailo'});
-});
-
-
-app.get('/share', function(req,res){});
-app.get('/bookmark', routes.book);
-app.get('/mynailo', routes.my);
-
-<<<<<<< HEAD
-=======
-exports.index = function(req, res){
-  res.render('myPage', { title: 'IlowaNailo' });
-};
-
-exports.share = function(req,res){
-	res.render('share',{title:'IlowaNailo'});
-};
-
-exports.book = function(req,res){
-	res.render('bookmark',{title:'IlowaNailo'});
-};
-
-exports.my = function(req, res){
-	res.render('mynailo',{title:'IlowaNailo'});
-};
->>>>>>> a49364a3225a01944f413b8d49548e35542dac0c
-
-
-
-
-=======
-module.exports = function(app){
-
+	
 	app.get('/', function(req, res){
-	  res.render('myPage', { title: 'IlowaNailo' });
+		res.render('mypage', {title:'index'});
 	});
-	
-	app.get('/share', function(req,res){
-		res.render('share',{title:'IlowaNailo'});
-	});
-	
-	app.get('/mypage/bookmark', function(req,res){
-		res.render('bookmark',{title:'IlowaNailo'});
-	});
-	
-	app.get('/mypage/mynailo', function(req, res){
-		res.render('mynailo',{title:'IlowaNailo'});
-	});
-	
-	app.get('/mypage', function(req, res){
-		res.render('mynailo',{title:'IlowaNailo'});
-	});
-	
-	app.get('/plan', function(req,res){
-		res.render('plan', { title: 'Plan' });
-	});
-	
-	app.get('/plan2', function(req,res){
-		res.render('plan2', { title: 'Plan2' });
-	});
->>>>>>> 90fc0f29b16ca43ae48a386e1508fde0b7426722
 
-}
+	// mypage 카테고리 라우팅
+	app.get('/mypage/mypage', function(req, res){
+		res.render('mypage', {title:'/my/mypage'});
+	});
+	app.get('/mypage/bookmark', function(req, res){
+		res.render('bookmark', {title:'/my/bookmark'});
+	});
+	app.get('/mypage/my_nailo', function(req, res){
+		res.render('my_nailo', {title:'/my/my_nailo'});
+	});
+	app.get('/mypage/my_community', function(req, res){
+		res.render('my_community', {title:'/my/my_community'});
+	});
+	app.get('/mypage/share', function(req, res){
+		res.render('share', {title:'/my/share'});
+	});
+	app.get('/mypage/login', function(req, res){
+		res.render('login', {title:'/my/login'});
+	});
+	app.get('/mypage/phone_auth', function(req, res){
+		res.render('phone_auth', {title:'/my/phone_auth'});
+	});
+
+
+	// community 카테고리 라우팅
+	app.get('/community/community', function(req, res){
+		res.render('community', {title:'/community/community'});
+	});	
+	app.get('/community/bun_make', function(req, res){
+		res.render('bun_make', {title:'/community/bun_make'});
+	});	
+	app.get('/community/bun_show', function(req, res){
+		res.render('bun_show', {title:'/community/bun_show'});
+	});	
+	
+	
+	// plan 카테고리 라우팅
+	app.get('/plan/plan', function(req, res){
+		res.render('plan', {title:'/plan/plan'});
+	});	
+	app.get('/plan/see', function(req, res){
+		res.render('see', {title:'/plan/see'});
+	});	
+	
+	
+	// etc 카테고리 라우팅
+	app.get('/etc/notice', function(req, res){
+		res.render('notice', {title:'/etc/notice'});
+	});	
+	app.get('/etc/setting', function(req, res){
+		res.render('setting', {title:'/etc/setting'});
+	});	
+	app.get('/etc/notice', function(req, res){
+		res.render('tip', {title:'/etc/tip'});
+	});	
+	
+
