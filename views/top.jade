@@ -40,6 +40,7 @@ html
 		script(src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js")
 		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", type="text/javascript")
 		script(src="/javascripts/datepicker.js")
+		script(src="/javascripts/plan.js")
 		script
 			$(document).ready(function() {
 				console.log("Hi");
@@ -63,32 +64,8 @@ html
 					}
 				});
 
-				$(".gangwon").bind('touchend', function(e){
-
-				});
-
-				// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
-				$('a.province').click(function() {
-					var text = '';
-					text += $(this).text();
-					alert(text);
-					$('p. province_name').append(text);
-					});
-				
-				//
-				// plan2.jade: 도시를 누르면 날짜를 선택할 수 있다
-				$('.city').live('click', function (e) {
-					// var div = "div#datepicker";
-					$(this).css('color', 'Red');
-					$('<div></div>').attr('id', 'datepicker').appendTo(this);
-					var offset = $(this).offset();	//
-					$('#datepicker').css('position', 'absolute');
-					$('#datepicker').css('left', offset.left);
-					$('#datepicker').css('top', offset.top);
-					$('#datepicker').css('width', '100px');
-					$('#datepicker').css('height', '100px');
-
-				});
+				var window_width = $(window).width();
+				$('#plan_bar').css('width', window_width);
 			});
 	body
 		div(data-role="page")
