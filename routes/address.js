@@ -17,7 +17,7 @@ module.exports = function(app){
 	});
 	
 	app.get('/mypage', function(req, res){
-		res.render('mynailo',{title:'IlowaNailo'});
+		res.render('myPage',{title:'IlowaNailo'});
 	});
 	
 	app.get('/plan', function(req,res){
