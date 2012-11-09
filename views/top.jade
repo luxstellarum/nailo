@@ -64,8 +64,12 @@ html
 					}
 				});
 
+				// plan 하단 bar에 div 크기를 화면크기에 맞게 동적으로 할당
 				var window_width = $(window).width();
-				$('#plan_bar').css('width', window_width);
+				var window_width_4 = window_width * 4;
+				$('#plan_bar').css('width', window_width_4);
+				$('#plan_bar .plan_bar_wrapper').css(''width', window_width);
+				$('#plan_bar .plan_bar_1st')
 			});
 	body
 		div(data-role="page")

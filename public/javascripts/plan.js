@@ -23,6 +23,13 @@ $(document).ready(function() {
 		$('#datepicker').css('top', '-100px');
 		//e.preventDefault();
 	});
+
+	// plan.jade: 맵의 크기를 동적으로 지정한다
+	var window_width = $(window).width();
+	$('.wrapper_map').css('width', window_width);
+	var map_width = $('.wrapper_map').width();
+	var map_height = map_width * 1.5;
+	$('.wrapper_map').css('padding-bottom', map_height);
 	
 	//
 	// plan2.jade: 도시를 누르면 날짜를 선택할 수 있다
