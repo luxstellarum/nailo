@@ -9,17 +9,19 @@ include ../top.jade
 			hr
 			br
 		div(class="section")
-			div(align='center')
-				label(style='margin-right:8px') 닉네임
-					input(type='text', value='별빛', id='nickname',style='text-align:right; padding:5px; margin:5px')
-			div(width='300px', height='300px',align='center',style='margin-top:50px; margin-bottom:40px')
-				div(align='left', style='display:inline-block;')
-					a(href='./myBookmark',style='color:gray; text-decoration:none; margin-left:8px')나의 즐겨찾기
-					hr
-					a(href='./myNailo',style='color:gray; text-decoration:none; margin-left:8px')나의 내일로
-					hr				
-					a(href='./myCommun',style='color:gray; text-decoration:none; margin-left:8px')나의 커뮤니티 활동 내역
-					hr
-					a(href='/mypage',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
-					hr
+			table(align='center',style='margin-left:8px')
+				tr		
+					td(valign='top',width='100px') 아이디
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(type='text',style='width:100px;')
+				tr		
+					td(valign='top',width='100px') 비밀번호
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(name='pw', type='password',style='width:100px;')
+
+			form(align='right')
+				input(type='submit',value='작성',style='margin:0 20px; width:50px; height:30px')
+				
 include ../bottom.jade
