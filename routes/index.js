@@ -3,6 +3,8 @@
  * GET home page.
  */
 
+<<<<<<< HEAD
+=======
 exports.index = function(req, res){
   res.render('myPage', { title: 'IlowaNailo' });
 };
@@ -26,3 +28,4 @@ exports.plan = function(req,res){
 exports.plan2 = function(req,res){
 	res.render('plan2', { title: 'Plan2' });
 };
+>>>>>>> 90fc0f29b16ca43ae48a386e1508fde0b7426722
