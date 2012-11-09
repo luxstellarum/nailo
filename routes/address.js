@@ -1,7 +1,11 @@
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
+<<<<<<< HEAD
 		res.render('mypage', {title:'index'});
+=======
+		res.render('myPage', { title: 'IlowaNailo' });
+>>>>>>> bd443f47bf36e3ec2d66b269049d430d92737408
 	});
 
 	// mypage 카테고리 라우팅
@@ -61,3 +65,15 @@ module.exports = function(app){
 	});	
 	
 
+<<<<<<< HEAD
+=======
+	app.get('/plan3', function(req,res){
+		res.render('plan3', { title: 'Plan3' });
+	});
+
+	app.get('/untitled', function(req,res){
+		res.render('untitled', { title: 'Plan3' });
+	});
+
+}
+>>>>>>> bd443f47bf36e3ec2d66b269049d430d92737408
