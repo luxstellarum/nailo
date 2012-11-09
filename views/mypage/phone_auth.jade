@@ -1,3 +1,28 @@
 include ../top.jade
+		div(class="css3droppanel",align="center")
+			input(type="checkbox", id="paneltoggle")
+			label(for="paneltoggle",id="searchdrawer")
+			div(id="searchbrowser")
+					include ../search.jade		
+		div(class="header")
+			h2(align='right',style='padding-right:5px') MyPage
+			hr
+			br
+		div(class="section")
+			div(style='margin-top:20px; width:100%')
+				p(align="center",style="margin-bottom:0px; padding-left:50px")
+					label(style='float:left; margin-left:-30px') 전화번호
+					input(type='text', value='', id='phone_number',style='width:150px;text-align:right; padding:5px;')
+				
+				p(align="center",style="margin-top:0px;margin-bottom:5px; padding-right:30px")
+					label(style='float:right; margin-right:-10px') 
+						a(href="#",style="text-decoration:none; color:gray")인증번호 전송
 
+				p(align="center",style="margin-bottom:0px; padding-left:50px")
+					label(style='float:left; margin-left:-30px') 인증번호
+					input(type='text', value='', id='phone_number',style='width:150px;text-align:right; padding:5px;')
+				
+				p(align="center",style="margin-top:0px;margin-bottom:5px; padding-right:30px")
+					label(style='float:right; margin-right:-10px') 
+						a(href="#",style="text-decoration:none; color:gray")인증하기
 include ../bottom.jade

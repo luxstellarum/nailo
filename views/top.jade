@@ -58,6 +58,9 @@ html
 							
 					changePage($(nextPage),effect);
 				});
+				$('#community_num a').on("click",function(e){
+					console.log("ok");
+				});
 				$('#paneltoggle').on("click",function(e){
 					var check = $(this).is(":checked");
 					if(check)
@@ -81,7 +84,7 @@ html
 				var window_width_4 = window_width * 4;
 				$('#plan_bar').css('width', window_width_4);
 				$('#plan_bar .plan_bar_wrapper').css('width', window_width);
-				$('#plan_bar .plan_bar_1st')
+
 			});
 	body
 		div(data-role="page")
