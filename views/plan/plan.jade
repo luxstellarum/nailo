@@ -1,8 +1,17 @@
 include ../top.jade
-				input(type="button", value="SAVE", name="save", style='display:block; width:50px; margin:0 0 0 auto; width:100px;')
-				p
-				div.wrapper(style="position:relative; top:0px; left:0px; width:100%; height:800px; overflow:hidden;")
+			div(class="css3droppanel",align="center")
+				input(type="checkbox", id="paneltoggle")
+				label(for="paneltoggle",id="searchdrawer")
+				div(id="searchbrowser")
+						include ../search.jade
+			div(class='container')
+
+				div(id="community_1",class="slide current")
+					div(class='header')
+						span(style='height:20px; padding-left:20px; font-size:45pt') 1
+						input(type="button", value="SAVE", name="save", style='width:100px; height:50px; float:right')
+					p
+					div.wrapper(style="position:relative; top:0px; left:0px; width:100px; height:0px; padding-bottom:100%; overflow:auto;")
 					img(src="/images/map.png", style='position:absolute; width:100%; height: 100%; top:0px; left:0px; z-index:0;')
 					a.province(href="/plan/plan2", rel='external', style='position:absolute; width:50px; height: 50px; top:20%; left:60%; z-index:2;')강원도
-
 include ../bottom.jade
