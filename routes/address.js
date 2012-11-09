@@ -1,7 +1,7 @@
 module.exports = function(app){
 
 	app.get('/', function(req, res){
-	  res.render('myPage', { title: 'IlowaNailo' });
+		res.render('myPage', { title: 'IlowaNailo' });
 	});
 	
 	app.get('/share', function(req,res){
@@ -26,6 +26,14 @@ module.exports = function(app){
 	
 	app.get('/plan2', function(req,res){
 		res.render('plan2', { title: 'Plan2' });
+	});
+
+	app.get('/plan3', function(req,res){
+		res.render('plan3', { title: 'Plan3' });
+	});
+
+	app.get('/untitled', function(req,res){
+		res.render('untitled', { title: 'Plan3' });
 	});
 
 }
