@@ -20,6 +20,7 @@ module.exports = function(app){
 	app.get('/mypage/my_community', function(req, res){
 		res.render('mypage/my_community', {title:'/mypage/my_community'});
 	});
+	
 	app.get('/mypage/share', function(req, res){
 		res.render('mypage/share', {title:'/mypage/share'});
 	});
@@ -38,6 +39,14 @@ module.exports = function(app){
 	app.get('/community/community', function(req, res){
 		res.render('community/community', {title:'/community/community'});
 	});	
+	
+		app.get('/community/community#community_2', function(req, res){
+		res.render('community/community#community_2',{title:'/community/community'});
+	});
+	
+	app.get('/community/community#community_3', function(req, res){
+		res.render('community/community#community_3',{title:'/community/community'});
+	});
 
 	app.get('/community/bun_make', function(req, res){
 		res.render('community/bun_make', {title:'/community/bun_make'});
