@@ -10,13 +10,12 @@ html
 		link(rel='stylesheet', href='/stylesheets/slide.css')
 		link(rel='stylesheet', href='/stylesheets/nailo_record.css')
 		link(rel='stylesheet', href='/stylesheets/datepicker.css')
-		script(src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js")
-		script(src="http://code.jquery.com/jquery-1.8.2.min.js")
 		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", type="text/javascript")
+		script(src="http://code.jquery.com/jquery-1.8.2.min.js")
+		script(src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js")
 		script(src="/javascripts/datepicker.js")
 		script(src="/javascripts/slide.js")
 		script(src="/javascripts/plan.js")
-		script
 		script
 			function displayRandom(){
 				
@@ -76,11 +75,10 @@ html
 					}
 				});
 
-				// plan 하단 bar에 div 크기를 화면크기에 맞게 동적으로 할당
 				var window_width = $(window).width();
 				var window_width_4 = window_width * 4;
 				$('#plan_bar').css('width', window_width_4);
-				$('#plan_bar .plan_bar_wrapper').css(''width', window_width);
+				$('#plan_bar .plan_bar_wrapper').css('width', window_width);
 				$('#plan_bar .plan_bar_1st')
 			});
 	body
