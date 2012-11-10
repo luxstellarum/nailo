@@ -4,15 +4,34 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 					include ../search.jade
-		div(style='header')
-			span(style='height:20px; padding-left:20px; font-size:45pt') 3
-			span(style='height:20px; margin-right:10px; margin-top:12px; font-size:30pt; float:right') 태백
-		div(class="section")
-			table(cellspacing='0',align='center',cellpadding='8px',
-				,style='border-top:thin solid gray; border-bottom:thin solid gray; width:300px; margin-top:20px')
+		div(class="header",style="height:60px")
+			span(id="bun_area",style='position:absolute; bottom:5px; padding-left:10px; font-size:35pt') 부산
+			span(style='position:absolute; bottom:5px; right:10px')
+				font(style="margin-bottom:0px") No.
+				font(id="bun_no",style='margin-bottom:0px') 000001
+			br
+		div(class="section",style="top:60px")
+			table(cellspacing='0',align='center'
+				,style='background-color:yellow; color:black;border-top:thick solid gray; width:100%; margin-top:10px')
 				tr
-					td(style='padding-left:10px; border-bottom:thick solid gray;',width='40px') 시간
-					td(style='padding-left:10px; border-bottom:thick solid gray;',width='60px') 장소 
-					td(style='padding-left:10px; border-bottom:thick solid gray;') 무엇을
-					td(style='padding-left:10px; border-bottom:thick solid gray;') 인원								
+					td(style='padding-left:10px; width:100px') 8/21
+					td(rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;') 2~4명
+				tr
+					td(style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;') 19:00 까지					
+				tr
+					td(align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 내일 진주에서 밥 먹을 사람(여자 두분)								
+
+			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
+				span(id="",style="padding:0 5px;") yong8
+				span >
+				span(id="") 전 남잔데 괜찮나요?
+			
+			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
+				span(id="",style="padding:0 5px;") lux
+				span >
+				span(id="") 니 미칬나?
+			
+		form(id="",style="position:absolute; bottom:140px; width:100%;",align="center")
+			input(id="",type="text",style="padding:5px; width:60%")
+			input(id="",type="submit",value="댓글 작성",style="padding:5px")
 include ../bottom.jade
