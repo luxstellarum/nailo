@@ -16,49 +16,46 @@ html
 		script(src="/javascripts/datepicker.js")
 		script(src="/javascripts/slide.js")
 		script(src="/javascripts/plan.js")
+		script(src="/javascripts/random_display.js")
 		script
-			function displayRandom(){
-				
-				if(document.getElementById("wrapper")){
-					tags=document.querySelectorAll("#wrapper div");
-					console.log(tags.length);
-					for(var i=0; i<tags.length; i++){
-						tags[i].className = "s"+(i+1);
-						console.log(tags[i].className);
-					}	
-				}
-				
-				if(document.getElementById("wrapper2")){
-					tags2=document.querySelectorAll("#wrapper2 div");
-					for(var i=0; i<tags.length; i++){
-						tags2[i].className = "s"+(i+1);
-					}	
-				}
-				
-				if(document.getElementById("nailo_record")){
-					board=document.querySelectorAll("#nailo_record div");
-					for(var i=0; i<board.length; i++){
-						board[i].className = "color"+(i+1);
-						console.log(tags[i].className);
-					}	
-				}
-			};
 			$(document).ready(function() {
 				displayRandom()
 				$('.slide a').bind("touchstart mousedown",function(e){
 					e.preventDefault();
-						
+					
+
 					var nextPage = $(this).get(0).hash;
+					var area_name = $(this).attr("id");
 					
 					console.log(nextPage);
+					
+					if(nextPage=='#community_2')
+					{
+						console.log(nextPage+' > #'+area_name+'_map');
+						$(nextPage+' > #'+area_name+'_map').css("display","block");
+						
+						var area_head = $("#selected_area");
+						while(area_head.firstChild)
+							area_head.removeChild(area_head.firstChild);
+						if(area_name=='kangwondo')
+							area_head.append(document.createTextNode("강원도"));
+						else if(area_name=='kyunggido')
+							area_head.append(document.createTextNode("경기도"));
+						else if(area_name=='chungcheongdo')
+							area_head.append(document.createTextNode("충청도"));
+						else if(area_name=='jeollado')
+							area_head.append(document.createTextNode("전라도"));
+						else if(area_name=='kyungsangdo')
+							area_head.append(document.createTextNode("경상도"));
+							
+					}
+					
 					
 					var effect = $(this).attr("data-effect");
 							
 					changePage($(nextPage),effect);
-				});
-				$('#community_num a').on("click",function(e){
-					console.log("ok");
-				});
+				});	
+
 				$('#paneltoggle').on("click",function(e){
 					var check = $(this).is(":checked");
 					if(check)
