@@ -21,8 +21,16 @@ $(document).ready(function() {
 		$('#datepicker').css('height', '100px');
 		$('#datepicker').css('left', '-100px');
 		$('#datepicker').css('top', '-100px');
+
+		var picker = $( "div[id='datepicker']", this );
+    	picker.mobipick();
 		//e.preventDefault();
 	});
+
+	$('#plan3').live( "pagecreate", function() {
+    var picker = $( "input[type='text']", this );
+    picker.mobipick();
+});
 
 	// plan.jade: 맵의 크기를 동적으로 지정한다
 	var window_width = $(window).width();
