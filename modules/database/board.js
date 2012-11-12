@@ -7,8 +7,12 @@ var board_schema = new schema({
 	id : String,
 	province : String,
 	city : String,
-	time_start : String,
-	time_end : String,
+	event_month : Number,
+	event_day : Number,
+	start_hour : Number,
+	end_hour : Number,
+	start_minute : Number,
+	end_minute : Number,
 	location : String,
 	what : String,
 	population : Number,
@@ -29,8 +33,12 @@ module.exports = {
 		doc.id = board.id;
 		doc.province = board.province;
 		doc.city = board.city;
-		doc.time_start = board.time_start;
-		doc.time_end = board.time_end;
+		doc.event_month = board.event_month;
+		doc.event_day = board.event_day;
+		doc.start_hour = board.start_hour;
+		doc.end_hour = board.end_hour;
+		doc.start_minute = board.start_minute;
+		doc.end_minute = board.end_minute;
 		doc.location = board.location;
 		doc.what = board.what;
 		doc.population = board.population;
