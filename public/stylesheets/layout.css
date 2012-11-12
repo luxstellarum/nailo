@@ -1,3 +1,8 @@
+A:link {text-decoration:none; color:#000080}
+A:visited {text-decoration:none; color:#000080}
+A:active {text-decoration:none; color:#000080}
+A:hover {text-decoration:none; color:#529CFF}
+
 html, body{
 	margin: 0;
 	padding: 0;
@@ -6,11 +11,21 @@ html, body{
 	font-size: 100%;
 	vertical-align: baseline;
 }
-
+.container {
+	top: 80px;
+	width:100%;
+	left: 0px;
+	bottom:100px;
+	margin-top:-70px;
+	overflow-y: auto;
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 1000px
+}
 .header {
 	padding: 5px;
 	height: 80px;
-	position: absolute;
+	position: relative;
+	margin-top: 60px;
 	top: 0px;
 	left: 0px;
 	width: 100%;
@@ -31,7 +46,6 @@ html, body{
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	margin-top:-100px;
 	width: 100%;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
     -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
