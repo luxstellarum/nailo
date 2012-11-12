@@ -10,36 +10,37 @@ include ../top.jade
 			br
 		div(class="section")
 			table(align='center',style='margin-left:8px')
-				input(type='hidden', value='test1', name='province')
-				input(type='hidden', value='test2', name='city')
+				input.input_form(type='hidden', value='test1', name='province')
+				input.input_form(type='hidden', value='test2', name='city')
 				td(valign='top',width='100px') 시간
 				td(width='200px')
+					input.datepicker(type='text', name='date_picker');
 					span(style='margin-right:20px')
-						input(type='number',style='width:40px;', name='event_month')
+						input.input_form(type='number',style='width:40px;', name='event_month')
 						&nbsp;월 
 					span
-						input(type='number',style='width:40px', name='event_day')
+						input.input_form(type='number',style='width:40px', name='event_day')
 						&nbsp;일
 					p
 						span(style='margin-right:20px')
-							input(type='number',style='width:40px;', name='start_hour')
+							input.input_form(type='number',style='width:40px;', name='start_hour')
 							&nbsp;시 
 						span
-							input(type='number',style='width:40px;', name='start_minute')
+							input.input_form(type='number',style='width:40px;', name='start_minute')
 							&nbsp;분 부터
 					p
 						span(style='margin-right:20px')
-							input(type='number',style='width:40px;', name='end_hour')
+							input.input_form(type='number',style='width:40px;', name='end_hour')
 							&nbsp;시
 						span
 							&nbsp;
-							input(type='number',style='width:40px;', name='end_minute')
+							input.input_form(type='number',style='width:40px;', name='end_minute')
 							&nbsp;분 까지
 			table(align='center',style='margin-left:8px')
 				td(valign='top',width='100px') 장소
 				td(width='200px')
 					span(style='margin-right:20px')
-						input(type='text',style='width:180px;', name='location')
+						input.input_form(type='text',style='width:180px;', name='location')
 						br
 						span(style='float:right; margin-right:20px')
 							네이버 지도에 표시
@@ -61,5 +62,5 @@ include ../top.jade
 						input(type='number',style='width:80px;', name='population')
 						명
 			form(align='right')
-				input(type='submit',value='작성',style='margin:0 20px; width:50px; height:30px')
+				input.write_button(type='button',value='작성',style='margin:0 20px; width:50px; height:30px')
 include ../bottom.jade
