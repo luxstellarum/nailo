@@ -15,6 +15,7 @@ div.css3droppanel > div { /* Content DIV DIV inside wrapper */
 		background: #0A0F0F; /* background of content DIV */
 		position: relative;
 		opacity: 1;
+		z-index:3;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
     -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
     -webkit-transition: all 0.2s ease-in-out 0.1s;
@@ -28,6 +29,7 @@ div.css3droppanel:after { /* Add bottom bar beneath wrapper */
 		position: absolute;
 		width: 100%;
 		height: 10px;
+		z-index: 4;
 		box-shadow: 0 1px 2px gray, 3px 3px 4px brown inset;
 		background: #5a1619; /* dark redish background and its gradient versions */
 		background: -moz-linear-gradient(top,  rgba(118,36,41,1) 0%, rgba(117,5,11,1) 50%, rgba(56,38,39,0.72) 100%);

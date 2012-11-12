@@ -1,36 +1,37 @@
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
-		res.render('mypage/mypage', {title:'index'});
+		res.render('mypage/login', {title:'index'});
 	});
 
 	// mypage 카테고리 라우팅
 	app.get('/mypage/mypage', function(req, res){
-		res.render('mypage/mypage', {title:'/my/mypage'});
+		res.render('mypage/mypage', {title:'/mypage/mypage'});
 	});
 
 	app.get('/mypage/bookmark', function(req, res){
-		res.render('mypage/bookmark', {title:'/my/bookmark'});
+		res.render('mypage/bookmark', {title:'/mypage/bookmark'});
 	});
 
 	app.get('/mypage/my_nailo', function(req, res){
-		res.render('mypage/my_nailo', {title:'/my/my_nailo'});
+		res.render('mypage/my_nailo', {title:'/mypage/my_nailo'});
 	});
 
 	app.get('/mypage/my_community', function(req, res){
-		res.render('mypage/my_community', {title:'/my/my_community'});
-
+		res.render('mypage/my_community', {title:'/mypage/my_community'});
 	});
+	
 	app.get('/mypage/share', function(req, res){
-		res.render('mypage/share', {title:'/my/share'});
+		res.render('mypage/share', {title:'/mypage/share'});
 	});
-
 	app.get('/mypage/login', function(req, res){
-		res.render('mypage/login', {title:'/my/login'});
+		res.render('mypage/login', {title:'/mypage/login'});
 	});
-
 	app.get('/mypage/phone_auth', function(req, res){
-		res.render('mypage/phone_auth', {title:'/my/phone_auth'});
+		res.render('mypage/phone_auth', {title:'/mypage/phone_auth'});
+	});
+	app.get('/mypage/join', function(req, res){
+		res.render('mypage/join', {title:'/mypage/join'});
 	});
 
 
@@ -38,6 +39,14 @@ module.exports = function(app){
 	app.get('/community/community', function(req, res){
 		res.render('community/community', {title:'/community/community'});
 	});	
+	
+		app.get('/community/community#community_2', function(req, res){
+		res.render('community/community#community_2',{title:'/community/community'});
+	});
+	
+	app.get('/community/community#community_3', function(req, res){
+		res.render('community/community#community_3',{title:'/community/community'});
+	});
 
 	app.get('/community/bun_make', function(req, res){
 		res.render('community/bun_make', {title:'/community/bun_make'});

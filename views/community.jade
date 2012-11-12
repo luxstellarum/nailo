@@ -1,0 +1,38 @@
+include top
+			div(class="css3droppanel",align="center")
+				input(type="checkbox", id="paneltoggle")
+				label(for="paneltoggle",id="searchdrawer")
+				div(id="searchbrowser")
+					include search
+			div(class='container')
+				
+				div(id="community_1",class="slide current")
+					div(class='header')
+						span(style='height:20px; padding-left:20px; font-size:45pt') 1
+				
+					
+					img(src="/images/map.png",style="width:250px; height:400px; margin-left:20px")	
+					a(href="/community#community_2",rel='external',data-effect="slide",style='top:25%; left:53%;') 70
+				
+				div(id="community_2",class="slide")
+					div(class='header')
+						span(style='height:20px; padding-left:20px; font-size:45pt') 2
+						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')강원도
+				
+					img(src="/images/map_kangwondo.png",style='margin-top:50px')
+					a(href="/community#community_3",rel='external',data-effect="slide",style='top:60%; left:65%;') 강릉 65
+				
+				div(id="community_3",class="slide",style="height:100%")
+					div(class='header')
+						span(style='height:20px; padding-left:20px; font-size:45pt') 3
+						span(id='selected_city',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')태백
+					
+					div(style="height:300px; top:80px; left:10%; position:absolute")
+						table(cellspacing='0',align='center',cellpadding='8px',
+							,style='border-top:thin solid gray; border-bottom:thin solid gray; width:100%;')
+								tr
+									td(style='padding-left:10px; border-bottom:thick solid gray;',width='40px') 시간
+									td(style='padding-left:10px; border-bottom:thick solid gray;',width='60px') 장소 
+									td(style='padding-left:10px; border-bottom:thick solid gray;') 무엇을
+									td(style='padding-left:10px; border-bottom:thick solid gray;') 인원	
+			include bottom

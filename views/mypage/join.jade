@@ -1,0 +1,62 @@
+include ../top.jade
+		div(class="css3droppanel",align="center")
+			input(type="checkbox", id="paneltoggle")
+			label(for="paneltoggle",id="searchdrawer")
+			div(id="searchbrowser")
+					include ../search.jade	
+		div(class="header")
+			h2(align='right',style='padding-right:5px') MyPage
+			hr
+			br
+			
+		script
+			function check_pw() {
+				if(document.getElementsByName('pw')[0].value != document.getElementsByName('pw2')[0].value){
+					alert('password error! Retype the Password');
+				}
+				else {
+					document.getElementById('add_mem').submit();
+				}
+			}
+		
+		h5 If u want to join us.... :)
+	
+		form(method='post', action='/mypage/mypage', id='add_mem')
+		div(class="section")
+			table(align='center',style='margin-left:8px')
+				tr		
+					td(valign='top',width='100px') 아이디
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(type='text',style='width:100px;')
+				tr		
+					td(valign='top',width='100px') 비밀번호
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(name='pw', type='password',style='width:100px;')
+				tr		
+					td(valign='top',width='100px') 비밀번호 확인
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(name='pw2', type='password',style='width:100px;')
+				tr		
+					td(valign='top',width='100px') 닉네임
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(name='nick_name', type='text',style='width:100px;')							
+				tr		
+					td(valign='top',width='100px') 성별
+					td(width='200px')
+						span(style='margin-right:20px')
+							input(name='sex', type='radio', value='male', style='width:10px;')
+							| 남자							
+							input(name='sex', type='radio', value='female', style='width:10px;')
+							| 여자						
+				tr
+					td
+						input.btn1(type='reset', value='Reset')
+					td
+						input.btn2(type='button', value='Submit', onclick='check_pw()')
+			
+				
+include ../bottom.jade

@@ -1,18 +1,17 @@
-include ../top.jade
+include top
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-				include ../search.jade	
+				include search	
 		div(class="header")
-			h2(align='right',style='padding-right:5px') My > 나의 커뮤니티 활동 내역
+			h2(align='right',style='padding-right:5px') 공지사항
 			hr
 			br
 		div(class="section")
-			div(style='margin-top:20px')
+			div(style='margin-bottom:40px')
 				span(style='margin-left:15px;')
 					span
 						font(size='3')내용ㅎ
 					hr(style='margin-left:8px; margin-right:8px')
-	
-include ../bottom.jade
+		include bottom
