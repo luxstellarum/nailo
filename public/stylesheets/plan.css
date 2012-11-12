@@ -1,5 +1,17 @@
+// global
+.btn_save{
+	width:100px; height:50px; float:right;
+}
+
 
 // plan.jade
+.wrapper_plan{
+	position:relative; 
+	top:0px; left:0px; 
+	width:100px; height:0px; 
+	padding-bottom:100%; 
+	overflow:auto;
+}
 .map{
 	position:absolute; 
 	width:100%; 
@@ -7,6 +19,14 @@
 	top:0px; 
 	left:0px; 
 	z-index:0;
+}
+.province{
+	position:absolute; 
+	width:50px; 
+	height: 50px; 
+	top:20%; 
+	left:60%; 
+	z-index:2;
 }
 // plan2.jade
 p.city{
