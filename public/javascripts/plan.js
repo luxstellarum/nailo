@@ -2,14 +2,16 @@ $(document).ready(function() {
 	$('.city2').focus();
 
 	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
-	$('a.province').click(function() {
-		var text = '';
-		text += $(this).text();
-		alert(text);
-		$('p. province_name').append(text);
+	/*a.province').click(function() {
+		$.get('plan.js', function(data) {
+			var province = $(data).find('a.province').text();
+			alert(province);
+			$('.province_name').text(province);
 		});
+	});*/
 
-	$('.city').bind('click', function(e) {
+	// plan2.jade: 도시를 클릭하면 날짜선택창이 나온다
+	$('.city2').bind('click', function(e) {
 		//var event = e.originalEvent;
 		//var a = '<div class="datepicker"></div>';
 		$(this).css('color', 'Red');
@@ -23,7 +25,6 @@ $(document).ready(function() {
 
 		//e.preventDefault();
 	});
-
 
 	// datepicker
 	

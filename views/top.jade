@@ -22,8 +22,10 @@ html
 		script(type="text/javascript", src="/lib/xdate.i18n.js")
 		script(type="text/javascript", src="/lib/mobipick.js")
 		script(type="text/javascript", src="/javascripts/community/community.js")
+		script(type="text/javascript", src="http://davidlynch.org/projects/maphilight/jquery.maphilight.min.js")
 		script
 			$(document).ready(function() {
+				alert("ddd");
 				displayRandom()
 				$('.slide a').bind("touchstart mousedown",function(e){
 					e.preventDefault();
@@ -74,6 +76,21 @@ html
 				$('#plan_bar').css('width', window_width);
 				$('#plan_bar .plan_bar_wrapper').css('width', window_width_4);
 
-			});
+					// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
+				$('input[type=image]').bind('click', function(e) {
+					//var event = e.originalEvent;
+					//var a = '<div class="datepicker"></div>';
+					$(this).addClass('item');
+					alert($(this).text());
+					$(this).css('color', 'Red');
+					$(this).append('<div>');
+					$($(this).find('div')).attr('id','other_menus');
+					$('#other_menus').css('position', 'absolute');
+					$('#other_menus').css('width', '100px');
+					$('#other_menus').css('height', '100px');
+					$('#other_menus').css('left', '-100px');
+					$('#other_menus').css('top', '-100px');
+					$('#other_menus').css('backgroud', 'Yellow');
+				});
 	body
 		div(data-role="page")
