@@ -1,7 +1,5 @@
 $(document).ready(function() {
-	$(".gangwon").bind('touchend', function(e){
-
-	});
+	$('.city2').focus();
 
 	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
 	$('a.province').click(function() {
@@ -14,6 +12,7 @@ $(document).ready(function() {
 	$('.city').bind('click', function(e) {
 		//var event = e.originalEvent;
 		//var a = '<div class="datepicker"></div>';
+		$(this).css('color', 'Red');
 		$(this).append('<div>');
 		$($(this).find('div')).attr('id','datepicker');
 		$('#datepicker').css('position', 'absolute');
@@ -22,15 +21,12 @@ $(document).ready(function() {
 		$('#datepicker').css('left', '-100px');
 		$('#datepicker').css('top', '-100px');
 
-		var picker = $( "div[id='datepicker']", this );
-    	picker.mobipick();
 		//e.preventDefault();
 	});
 
-	$('#plan3').live( "pagecreate", function() {
-    var picker = $( "input[type='text']", this );
-    picker.mobipick();
-});
+
+	// datepicker
+	
 
 	// plan.jade: 맵의 크기를 동적으로 지정한다
 	var window_width = $(window).width();

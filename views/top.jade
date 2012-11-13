@@ -6,16 +6,22 @@ html
 		link(rel="stylesheet",href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css")
 		link(rel='stylesheet', href='/stylesheets/layout.css')
 		link(rel='stylesheet', href='/stylesheets/searchbar.css')
+		link(rel='stylesheet', href='/stylesheets/plan.css')
 		link(rel='stylesheet', href='/stylesheets/random_span.css')
 		link(rel='stylesheet', href='/stylesheets/slide.css')
 		link(rel='stylesheet', href='/stylesheets/nailo_record.css')
 		link(rel='stylesheet', href='/stylesheets/datepicker.css')
 		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", type="text/javascript")
 		script(src="http://code.jquery.com/jquery-1.8.2.min.js")
-		script(src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js")s
+		script(src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js")
 		script(src="/javascripts/slide.js")
 		script(src="/javascripts/plan.js")
 		script(src="/javascripts/random_display.js")
+		link(rel="stylesheet", type="text/css", href="/lib/mobipick.css")
+		script(type="text/javascript", src="/lib/xdate.js")
+		script(type="text/javascript", src="/lib/xdate.i18n.js")
+		script(type="text/javascript", src="/lib/mobipick.js")
+		script(type="text/javascript", src="/javascripts/community/community.js")
 		script
 			$(document).ready(function() {
 				displayRandom()
@@ -65,8 +71,8 @@ html
 
 				var window_width = $(window).width();
 				var window_width_4 = window_width * 4;
-				$('#plan_bar').css('width', window_width_4);
-				$('#plan_bar .plan_bar_wrapper').css('width', window_width);
+				$('#plan_bar').css('width', window_width);
+				$('#plan_bar .plan_bar_wrapper').css('width', window_width_4);
 
 			});
 	body

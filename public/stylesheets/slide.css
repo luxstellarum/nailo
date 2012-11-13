@@ -1,20 +1,8 @@
-.container {
-	position:absolute;
-	top: 80px;
-	width:100%;
-	left: 0px;
-	bottom:100px;
-	margin-top:-70px;
-	overflow-y: auto;
-	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 1000px
-}
-
 .slide {
 	width:100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	position: absolute;
+	position: relative;
 	display:none;
 }
 
