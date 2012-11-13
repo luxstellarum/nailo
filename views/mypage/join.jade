@@ -28,35 +28,35 @@ include ../top.jade
 					td(valign='top',width='100px') 아이디
 					td(width='200px')
 						span(style='margin-right:20px')
-							input(type='text',style='width:100px;')
+							input.input_form(type='text', name='id', style='width:100px;')
 				tr		
 					td(valign='top',width='100px') 비밀번호
 					td(width='200px')
 						span(style='margin-right:20px')
-							input(name='pw', type='password',style='width:100px;')
+							input.input_form(type='password', name='pw', style='width:100px;')
 				tr		
 					td(valign='top',width='100px') 비밀번호 확인
 					td(width='200px')
 						span(style='margin-right:20px')
-							input(name='pw2', type='password',style='width:100px;')
+							input.input_form(type='password', name='pw2', style='width:100px;')
 				tr		
 					td(valign='top',width='100px') 닉네임
 					td(width='200px')
 						span(style='margin-right:20px')
-							input(name='nick_name', type='text',style='width:100px;')							
+							input.input_form(type='text', name='nick_name', style='width:100px;')							
 				tr		
 					td(valign='top',width='100px') 성별
 					td(width='200px')
 						span(style='margin-right:20px')
-							input(name='sex', type='radio', value='male', style='width:10px;')
+							input.input_form(name='sex', type='radio', value='male', style='width:10px;')
 							| 남자							
-							input(name='sex', type='radio', value='female', style='width:10px;')
+							input.input_form(name='sex', type='radio', value='female', style='width:10px;')
 							| 여자						
 				tr
 					td
-						input.btn1(type='reset', value='Reset')
+						input#reset_btn.btn1(type='reset', value='Reset')
 					td
-						input.btn2(type='button', value='Submit', onclick='check_pw()')
+						input#submit_btn.btn2(type='button', value='Submit', onclick='check_pw()')
 			
 				
 include ../bottom.jade
