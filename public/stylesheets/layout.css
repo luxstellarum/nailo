@@ -42,13 +42,24 @@ html, body{
 }
 
 .footer{
-	position: relative;
+	position: absolute;
 	left: 0;
-	bottom: 0;
 	width: 100%;
 	z-index: 2;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
     -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
     -webkit-transition: all 0.2s ease-in-out 0.1s;
     transition: all 0.2s ease-in-out 0.1s;
+}
+/* + 버튼을 누르면 나오는 추가메뉴 팝업창 */
+.othermenu{
+	position: absolute;
+	width: 50px;
+	height: 100px;
+	left: 270px;
+	top: -120px;
+	background-color: yellow;
+	z-index: 1000;
+	list-style: none;
+	display: none;
 }
