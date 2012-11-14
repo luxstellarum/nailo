@@ -4,15 +4,12 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 						include ../search.jade
-			div(class='container')
-
+			div.container
 				div(id="community_1",class="slide current")
-					div.header
-						span(style='height:20px; padding-left:20px; font-size:45pt') 1
-						input.btn_save(type="button", value="SAVE", name="save")
-					div.wrapper_plan
-						div.map(src="/images/map.png")
-						map(name="korea")
-							area(href="#", title="gangwon", shape="poly", coords="600,30,600,50,500,405")
-						a.province(href="/plan/plan2?province='강원도'", rel='external')강원도
-include ../bottom.jade
+				div.header
+					span(style='height:20px; padding-left:20px; font-size:45pt') 1
+					input.btn_save(type="button", value="SAVE", name="save")
+				div.content
+					img.map(src="/images/map.png")
+					a.province(href="/plan/plan2?province='강원도'", rel='external')강원도
+				include ../bottom.jade

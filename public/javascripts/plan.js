@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	$('.city2').focus();
 
 	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
 	/*a.province').click(function() {
