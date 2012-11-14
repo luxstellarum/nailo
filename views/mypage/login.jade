@@ -1,4 +1,5 @@
 include ../top.jade
+		script(src="/javascripts/member/login.js")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
@@ -12,16 +13,16 @@ include ../top.jade
 			div(style='margin-top:20px')
 				p(align="center",style="margin-bottom:0px; padding-left:50px")
 					label(style='float:left; margin-left:-30px') 아이디 &nbsp;&nbsp;
-					input(type='text', value='', id='id', name='id', style='width:150px;text-align:right; padding:5px;')
+					input.input_form(type='text', value='', id='id', name='id', style='width:150px;text-align:right; padding:5px;')
 
 				p(align="center",style="margin-bottom:0px; padding-left:50px")
 					label(style='float:left; margin-left:-30px') 비밀번호
-					input(type='text', value='', id='pw', name='pw', style='width:150px;text-align:right; padding:5px;')
+					input.input_form(type='text', value='', id='pw', name='pw', style='width:150px;text-align:right; padding:5px;')
 
 				p(align="center",style="margin-top:0px; padding-right:20px")
 					label(style='float:right; margin-right:-5px') 
-						a(href="#",style="text-decoration:none; color:gray")로그인
+						a#login_btn(href="#",style="text-decoration:none; color:gray")로그인
 						font(color="gray") /
-						a(href='#',style="text-decoration:none; color:gray")회원가입
+						a#join.btn(href='#',style="text-decoration:none; color:gray")회원가입
 
 include ../bottom.jade

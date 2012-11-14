@@ -1,4 +1,5 @@
 include ../top.jade
+		script(src="/javascripts/member/join.js")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
@@ -9,19 +10,8 @@ include ../top.jade
 			hr
 			br
 			
-		script
-			function check_pw() {
-				if(document.getElementsByName('pw')[0].value != document.getElementsByName('pw2')[0].value){
-					alert('password error! Retype the Password');
-				}
-				else {
-					document.getElementById('add_mem').submit();
-				}
-			}
-		
 		h5 If u want to join us.... :)
 	
-		form(method='post', action='/mypage/mypage', id='add_mem')
 		div(class="section")
 			table(align='center',style='margin-left:8px')
 				tr		
@@ -54,9 +44,7 @@ include ../top.jade
 							| 여자						
 				tr
 					td
-						input#reset_btn.btn1(type='reset', value='Reset')
-					td
-						input#submit_btn.btn2(type='button', value='Submit', onclick='check_pw()')
+						input#submit_btn.btn2(type='button', value='Submit')
 			
 				
 include ../bottom.jade
