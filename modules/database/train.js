@@ -28,7 +28,7 @@ module.exports = {
 		doc.dept_station = train.dept_station;
 		doc.arrv_station = train.arrv_station;
 		doc.dept_time = train.dept_time;
-		doc.arrv_time = trian.arrv_time;
+		doc.arrv_time = train.arrv_time;
 		doc.update_date = new Date();
 		
 		doc.save(function(err){
@@ -42,7 +42,7 @@ module.exports = {
 	}//end of add_train
 	
 	,get_index : function() {
-		documents.findOne({}).sort('index','-1').exec(function(err, result){
+		documents.findOne({}).sort({'index':'desc'}).exec(function(err, result){
 			if(!err) {
 				if(result != null) {
 					return (result.index + 1);
