@@ -60,20 +60,14 @@ $(document).ready(function(){
 	$('#plan_bar .plan_bar_wrapper').css('width', window_width_4);
 
 		// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
-	$('.ui-block-d').bind('click', function(e) {
-		//var event = e.originalEvent;
-		//var a = '<div class="datepicker"></div>';
-		$(this).css('color', 'Red');
-		$(this).append('<div>');
-		$($(this).find('div')).attr('id','other_menus');
-		$($(this).find('div')).text('dkdkdk');
-		$('#other_menus').css('position', 'absolute');
-		$('#other_menus').css('width', '100px');
-		$('#other_menus').css('height', '100px');
-		$('#other_menus').css('left', '-1px');
-		$('#other_menus').css('top', '-100px');
-		$('#other_menus').css('background-color', 'Yellow');
-		$('#other_menus').css('z-index', '100');
-		$('#other_menus').css('display', 'inline-block');
-	});
+	$(".more").click(function(){
+            var submenu = $(".othermenu");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":invisible") ){
+                submenu.slideDown();
+            }else{
+                submenu.slideUp();
+            }
+        })
 });
