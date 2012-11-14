@@ -1,4 +1,8 @@
 div.footer
+	ul.othermenu(style='position:absolute; width:100px; height:100px; left:-100px; top:-100px; background-color:yellow; z-index:1000')
+		li ddd
+		li ddd
+		li ddd
 	div(class='ui-grid-c')
 		div(class='ui-block-a',align='center')
 			input(type='image',src="/images/btn_my.png",width="30px")
@@ -7,13 +11,7 @@ div.footer
 		div(class='ui-block-c',align='center')
 			input(type='image',src="/images/btn_community.png",width="30px")
 		div(class='ui-block-d',align='center', style='position:relative;')
-			a
-				input(type='image',src="/images/btn_more.png",width="30px")
-			ul(style='position:absolute; width:100px; height:100px; left:100px; top:100px; background-color:yellow; z-index:1000')
-				li ddd
-				li ddd
-				li ddd
-
+			input.more(type='image',src="/images/btn_more.png",width="30px")
 	div#plan_bar
 		div.plan_bar_wrapper
 			div.plan_bar_1st

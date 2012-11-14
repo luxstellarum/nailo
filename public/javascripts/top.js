@@ -1,6 +1,4 @@
-$(document).ready(function() {
-	console.log("top.js");
-	alert('ddd');
+$(document).ready(function(){
 	displayRandom()
 	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
@@ -45,6 +43,17 @@ $(document).ready(function() {
 		}
 	});
 
+	$("input.more").click(function(){
+            var submenu = $(".othermenu");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+
 	var window_width = $(window).width();
 	var window_width_4 = window_width * 4;
 	$('#plan_bar').css('width', window_width);
@@ -54,7 +63,6 @@ $(document).ready(function() {
 	$('.ui-block-d').bind('click', function(e) {
 		//var event = e.originalEvent;
 		//var a = '<div class="datepicker"></div>';
-		alert($(this).text());
 		$(this).css('color', 'Red');
 		$(this).append('<div>');
 		$($(this).find('div')).attr('id','other_menus');
@@ -67,5 +75,5 @@ $(document).ready(function() {
 		$('#other_menus').css('background-color', 'Yellow');
 		$('#other_menus').css('z-index', '100');
 		$('#other_menus').css('display', 'inline-block');
-});
+	});
 });

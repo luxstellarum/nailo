@@ -42,9 +42,8 @@ html, body{
 }
 
 .footer{
-	position: relative;
+	position: absolute;
 	left: 0;
-	bottom: 0;
 	width: 100%;
 	z-index: 2;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
