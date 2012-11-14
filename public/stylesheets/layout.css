@@ -43,10 +43,11 @@ html, body{
 }
 
 .footer{
-	position: absolute;
+	position: relative;
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	z-index: 2;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
     -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
     -webkit-transition: all 0.2s ease-in-out 0.1s;
