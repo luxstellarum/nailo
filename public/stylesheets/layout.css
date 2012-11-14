@@ -23,7 +23,6 @@ html, body{
 }
 .header {
 	padding: 5px;
-	height: 80px;
 	position: relative;
 	margin-top: 60px;
 	top: 0px;
@@ -32,10 +31,10 @@ html, body{
 }
 
 .section {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	height: auto;
-	top: 80px;
+	top: 0px;
 	left: 0px;
 	bottom: 100px;
 	overflow-x: hidden;

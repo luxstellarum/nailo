@@ -6,26 +6,57 @@ module.exports = function(app){
 
 	// mypage 카테고리 라우팅
 	app.get('/mypage/mypage', function(req, res){
-		res.render('mypage/mypage', {title:'/mypage/mypage'});
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {
+			res.render('mypage/mypage', {title:'/mypage/mypage'});
+		}
 	});
 
 	app.get('/mypage/bookmark', function(req, res){
-		res.render('mypage/bookmark', {title:'/mypage/bookmark'});
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {			
+			res.render('mypage/bookmark', {title:'/mypage/bookmark'});
+		}
 	});
 
 	app.get('/mypage/my_nailo', function(req, res){
-		res.render('mypage/my_nailo', {title:'/mypage/my_nailo'});
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {			
+			res.render('mypage/my_nailo', {title:'/mypage/my_nailo'});
+		}
 	});
 
 	app.get('/mypage/my_community', function(req, res){
-		res.render('mypage/my_community', {title:'/mypage/my_community'});
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {
+			res.render('mypage/my_community', {title:'/mypage/my_community'});
+		}
 	});
 	
 	app.get('/mypage/share', function(req, res){
-		res.render('mypage/share', {title:'/mypage/share'});
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {
+			res.render('mypage/share', {title:'/mypage/share'});
+		}
 	});
 	app.get('/mypage/login', function(req, res){
-		res.render('mypage/login', {title:'/mypage/login'});
+		// session 이 있는 경우
+		if(!req.session.userid){
+			res.render('mypage/login', {title:'/mypage/login'});	
+		}	
+		else {
+			res.render('mypage/mypage', {title:'/mypage/mypage'});		
+		}
 	});
 	app.get('/mypage/phone_auth', function(req, res){
 		res.render('mypage/phone_auth', {title:'/mypage/phone_auth'});

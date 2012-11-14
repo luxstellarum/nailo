@@ -56,21 +56,28 @@ module.exports = {
 	
 	
 	// 로그인 기능
-	,login: function(req, callback){
+	,login: function(req, res){
 		member_db.get({id: req.body.id}, function(member){
 			if(member){
 				if(req.body.pw == member.pw){
-					callback({result: true, user: member});
+					req.session.userid = req.body.id;
+					res.json({result: true, user: member});					
 				}
 				else {
-					callback({result: false, message: "패스워드가 일치하지 않습니다."});
+					res.json({result: false, message: "패스워드가 일치하지 않습니다."});
 				}
 			}
 			else {
-				callback({result: false, message: "존재하지 않는 회원입니다."});
+				res.json({result: false, message: "존재하지 않는 회원입니다."});
 			}
 		}); 	// end of get
 	}	// end of login
+	
+
+	,logout: function(req, res){
+		req.session.userid = null;
+		res.json({result:true, message: "정상적으로 로그아웃 되었습니다."});	
+	}
 
 
 }		// end of module exports
