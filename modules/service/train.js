@@ -1,13 +1,12 @@
+var jsdom = require('jsdom');
 var train_db = require('../database/train.js');
+var strlib = require('../lib/string.js');
 
 module.exports = {
-	write : function(req, res) {
-		train_db.add(req.body, function(result){
-			if(result == true) {
-				res.json({result:true});
-			}
-			else {
-				res.json({result:false});
+	write : function(data) {
+		train_db.add(data, function(result){
+			if(result != true) {
+				console.log('error');
 			}
 		});
 	} // end of write	
@@ -78,6 +77,50 @@ module.exports = {
 	}//end of list
 	
 	
-	/* 기차 시간 검색 등의 로직	파트 */
+	/* 기차 시간 검색 등의 로직 파트 */
+	,get_html : function(req, res) {
+		var self = this;
+		var uri_form = "http://www.korail.com/servlets/pr.pr11100.sw_pr11131_i1Svt?txtRunDt=20121107&txtTrnNo=";
+		var train_number = "00302";
+		var uri = uri_form + train_number;
+		var train_info = {};
+		
+		jsdom.env({
+			html : uri,
+			setEncoding : 'euc-kr',
+			scripts : ['http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'],
+			done : function(err, window){
+				var $ = window.jQuery;
+				
+				/***********차량 번호 따내기************/
+				train_info['id'] = parseInt(train_number);
+				/***********************************/
+
+				/***********차종 따내기****************/
+				var tmp = strlib.trim($('thead tr:first').find('td').text());
+				var split_str = tmp.split('[');
+				
+				tmp = strlib.trim(split_str[1]);
+				split_str = tmp.split(']');
+
+				train_info['type'] = strlib.trim(split_str[0]);
+				/***********************************/
+				
+				/************출발시각 및 도착시각 따내기********************/
+				$('tr[bgcolor="#FFFFFF"]').each(function(){
+					train_info['dept_station'] = strlib.trim($(this).find('td:first').text());
+					train_info['arrv_time'] = strlib.trim($(this).find('td:first').next().next().text());
+					train_info['dept_time'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').next().text());
+					train_info['arrv_station'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').text());
+					console.log(train_info);
+					self.write(train_info);
+				});
+				/****************************************************/
+
+				res.json({'result' : true});
+			}//end of function
+		});//end of jsdon.env
+
+	}//end of get_html
 	
 }

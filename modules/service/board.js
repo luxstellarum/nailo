@@ -4,9 +4,9 @@ module.exports = {
 	//게시물 작성
 	write : function (req, res) {
 		board_db.add(req.body, function(result){
-			if(result == true) {
+			if(result != false) {
 				console.log('service/board.js, write success');
-				res.json({result:true});
+				res.json({result:true, index:result.index});
 			}
 			else {
 				console.log('service/board.js, write fail');
