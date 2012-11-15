@@ -17,36 +17,42 @@ module.exports = {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
-		doc.index = self.get_index();
-		doc.city_name = city.city_name;
-		doc.do_name = city.do_name;
-		doc.station_names = city.station_names;
-		doc.extra = city.extra;
+		self.get_index(function(result){
+			if(result != false) {
+				doc.index = result;
+				doc.city_name = city.city_name;
+				doc.do_name = city.do_name;
+				doc.station_names = city.station_names;
+				doc.extra = city.extra;
+				
+				doc.save(function(err){
+					if(!err){
+						callback(true);
+					}//end of if
+					else {
+						callback(false);
+					}//end of else
+				}); //end of save
+			}
+		});
 		
-		doc.save(function(err){
-			if(!err){
-				callback(true);
-			}//end of if
-			else {
-				callback(false);
-			}//end of else
-		}); //end of save
 	}//end of add
 	
 
-	,get_index : function() {
-		documents.findOne({}).sort('index','-1').exec(function(err, result){
+	,get_index : function(callback) {
+		documents.findOne({}, function(err, result){
 			if(!err) {
+				console.log('result : ', result);
 				if(result != null) {
-					return (result.index + 1);
+					callback(result.index + 1);
 				}
 				else {
-					return 1; 
+					callback(1); 
 				}
 			}
 			else {
 				console.log('get_index : error(01)');
-				return false;
+				callback(false);
 			}
 		});
 	}

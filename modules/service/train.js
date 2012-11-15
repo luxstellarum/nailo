@@ -1,4 +1,7 @@
 var jsdom = require('jsdom');
+var Iconv = require('iconv').Iconv;
+var iconv = new Iconv('CP949', 'UTF-8//TRANSLIT//IGNORE');//'UTF-8//TRANSLIT//IGNORE');
+//CP949, EUC-KR, UTF-8, ISO-8859-1
 var train_db = require('../database/train.js');
 var strlib = require('../lib/string.js');
 
@@ -87,7 +90,8 @@ module.exports = {
 		
 		jsdom.env({
 			html : uri,
-			setEncoding : 'euc-kr',
+			//encoding : 'CP949',
+			setEncoding : 'CP949',
 			scripts : ['http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'],
 			done : function(err, window){
 				var $ = window.jQuery;
@@ -108,12 +112,19 @@ module.exports = {
 				
 				/************출발시각 및 도착시각 따내기********************/
 				$('tr[bgcolor="#FFFFFF"]').each(function(){
-					train_info['dept_station'] = strlib.trim($(this).find('td:first').text());
+					tmp = strlib.trim($(this).find('td:first').text());
+					if(tmp!="") {
+						var buf = new Buffer(tmp.length);
+						buf.write(tmp, 0, tmp.length, 'binary');
+						console.log('buf', buf);
+						train_info['dept_station'] = iconv.convert(tmp).toString();
+						
+					}
 					train_info['arrv_time'] = strlib.trim($(this).find('td:first').next().next().text());
 					train_info['dept_time'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').next().text());
 					train_info['arrv_station'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').text());
 					console.log(train_info);
-					self.write(train_info);
+					//self.write(train_info);
 				});
 				/****************************************************/
 
