@@ -30,46 +30,52 @@ module.exports = {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
-		doc.id = board.id;
-		doc.province = board.province;
-		doc.city = board.city;
-		doc.event_month = board.event_month;
-		doc.event_day = board.event_day;
-		doc.start_hour = board.start_hour;
-		doc.end_hour = board.end_hour;
-		doc.start_minute = board.start_minute;
-		doc.end_minute = board.end_minute;
-		doc.location = board.location;
-		doc.what = board.what;
-		doc.population = board.population;
-		doc.subject = board.subject;
-		doc.date = new Date();
-		doc.index = self.get_index();
+		self.get_index(function(result){
+			if(result != false) {
+				doc.index = result;
+				doc.id = board.id;
+				doc.province = board.province;
+				doc.city = board.city;
+				doc.event_month = board.event_month;
+				doc.event_day = board.event_day;
+				doc.start_hour = board.start_hour;
+				doc.end_hour = board.end_hour;
+				doc.start_minute = board.start_minute;
+				doc.end_minute = board.end_minute;
+				doc.location = board.location;
+				doc.what = board.what;
+				doc.population = board.population;
+				doc.subject = board.subject;
+				doc.date = new Date();
+
+				doc.save(function(err){
+					if(!err){
+						callback({result:true, index:doc.index});
+					}//end of if
+					else {
+						callback(false);
+					}//end of else
+				}); //end of save
+			}
+		});
 		
-		doc.save(function(err){
-			if(!err){
-				callback(doc.index);
-			}//end of if
-			else {
-				callback(false);
-			}//end of else
-		}); //end of save
 	}//end of add_board
 	
 	//새 글이 가질 index를 반환해준다.
-	,get_index : function() {
+	,get_index : function(callback) {
 		documents.findOne({}, function(err, result){
 			if(!err) {
+				console.log('result : ', result);
 				if(result != null) {
-					return (result.index + 1);
+					callback(result.index + 1);
 				}
 				else {
-					return 1; 
+					callback(1); 
 				}
 			}
 			else {
 				console.log('get_index : error(01)');
-				return false;
+				callback(false);
 			}
 		});
 	}

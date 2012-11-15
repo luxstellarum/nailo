@@ -28,12 +28,10 @@
 	left:0px; 
 	z-index:1;
 }
-.province{
+#province_name{
 	position:absolute; 
 	width:50px; 
 	height: 50px; 
-	top:20%; 
-	left:60%; 
 	z-index:2;
 }
 // plan2.jade
@@ -44,6 +42,14 @@ p.city{
 	top:20%; 
 	left:60%; 
 	z-index:2;
+}
+.map_province{
+	position:absolute; 
+	width:80%; 
+	height:80%; 
+	top:0px; 
+	left:0px; 
+	z-index:0;
 }
 
 #plan_bar{

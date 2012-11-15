@@ -22,39 +22,44 @@ module.exports = {
 		var self = this;
 		var doc = new documents();
 		
-		// 값 넣기
-		doc.id = plan.id;
-		doc.index = self.get_index;
-		doc.subject = plan.subject;
-		doc.date = plan.date;
+		self.get_index(function(result){
+			if(result != false) {
+				// 값 넣기
+				doc.id = plan.id;
+				doc.index = result;
+				doc.subject = plan.subject;
+				doc.date = plan.date;
+				
+				doc.save(function(err){
+					if(!err){
+						callback(true);
+					}
+					else{
+						callback(false);
+					}
+				}); 	// end of save
+			}
+		});
 		
-		doc.save(function(err){
-			if(!err){
-				callback(true);
-			}
-			else{
-				callback(false);
-			}
-		}); 	// end of save
 	}	// end of add
 
 
 	// 새 plan 이 가질 index를 부여한다.
-	,get_index: function() {
+	,get_index : function(callback) {
 		documents.findOne({}, function(err, result){
-			if(!err){
-				if(result != null){
-					return (result.index +1);
+			if(!err) {
+				if(result != null) {
+					callback(result.index + 1);
 				}
 				else {
-					return 1;
+					callback(1); 
 				}
 			}
 			else {
-				console.log('get_index : error');
-				return false;
+				console.log('get_index : error(01)');
+				callback(false);
 			}
-		}); 	// end of findOne
+		});
 	}	// end of get_index
 	
 	

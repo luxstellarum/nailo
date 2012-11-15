@@ -58,6 +58,10 @@ module.exports = function(app){
 	app.post('/member/login', function(req, res) {
 		member.login(req, res);
 	});
+	// 로그아웃
+	app.post('/member/logout', function(req, res) {
+		member.logout(req, res);
+	});
 	
 
 
@@ -192,6 +196,9 @@ module.exports = function(app){
 		train.view(req, res);
 	});
 
+	app.get('/train/get_html', function(req, res) {
+		train.get_html(req, res);
+	});
 		
 		
 	
