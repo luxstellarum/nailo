@@ -23,22 +23,27 @@ module.export = {
 		var doc = new documents();
 		
 		// 값 넣기
-		doc.name = comment.name;
-		doc.content = comment.content;
-		doc.index_board = comment.index_board;
-		doc.date = comment.date;
-		doc.index = self.get_index();
+		self.get_index(function(result){
+			if(result != false) {
+				doc.name = comment.name;
+				doc.content = comment.content;
+				doc.index_board = comment.index_board;
+				doc.date = comment.date;
+				doc.index = result;
+				
+				doc.save(function(err){
+					if(!err){
+						console.log('comment_add_success');
+						callback(true);
+					}	// end of if
+					else {
+						console.log('comment_add_fail');
+						callback(false);
+					}	// end of else
+				}); // end of save
+			}
+		});
 		
-		doc.save(function(err){
-			if(!err){
-				console.log('comment_add_success');
-				callback(true);
-			}	// end of if
-			else {
-				console.log('comment_add_fail');
-				callback(false);
-			}	// end of else
-		}); // end of save
 	}	// end of add
 	
 	
@@ -59,21 +64,21 @@ module.export = {
 	
 	
 	// 새로운 댓글이 가지 index를 부여한다.
-	,get_index: function(){
-		documnets.findOne({}, function(err, result){
-			if(!err){
-				if(result != null){
-					return (result.index +1);
+	,get_index : function(callback) {
+		documents.findOne({}, function(err, result){
+			if(!err) {
+				if(result != null) {
+					callback(result.index + 1);
 				}
 				else {
-					return 1;					
+					callback(1); 
 				}
 			}
 			else {
-				console.log('get_index : error is coming haha');
-				return false;
+				console.log('get_index : error(01)');
+				callback(false);
 			}
-		}); // end of findOne
+		});
 	}	// end of get_index
 	
 	

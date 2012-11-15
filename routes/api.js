@@ -196,6 +196,9 @@ module.exports = function(app){
 		train.view(req, res);
 	});
 
+	app.get('/train/get_html', function(req, res) {
+		train.get_html(req, res);
+	});
 		
 		
 	
