@@ -48,7 +48,7 @@ module.exports = {
 		
 		doc.save(function(err){
 			if(!err){
-				callback(true);
+				callback(doc.index);
 			}//end of if
 			else {
 				callback(false);

@@ -18,6 +18,15 @@ $(document).ready(function(){
 			setHead(area_head,area_name);	
 		}
 		
+		if(nextPage=='#plan_2')
+		{
+			console.log(nextPage+' > #'+area_name+'_map');
+			$(nextPage+' > #'+area_name+'_map').css("display","block");
+			
+			var area_head = $("#selected_area");
+			setHead(area_head,area_name);	
+		}
+		
 		
 		var effect = $(this).attr("data-effect");
 				
