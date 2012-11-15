@@ -1,17 +1,38 @@
 div.footer
-	ul.othermenu
-		li ddd
-		li ddd
-		li ddd
+	ul.popup_othermenu
+		li 
+			p
+				img(src="/images/btn_plan.png")
+			p 불러오기
+		li 
+			p
+				img(src="/images/btn_plan.png")
+			p 공지사항
+		li 
+			p 
+				img(src="/images/btn_plan.png")
+			p Tip
+		li 
+			p
+				img(src="/images/btn_plan.png")
+			p 도움말
+		li 
+			p 
+				img(src="/images/btn_plan.png")
+			p 설정
+	ul.popup_beongae
+		li 번개방 생성하기
+		li 나의 번개 활동내역
+		li 다른 번개 검색하기
 	div(class='ui-grid-c')
 		div(class='ui-block-a',align='center')
 			input(type='image',src="/images/btn_my.png",width="30px")
 		div(class='ui-block-b',align='center')
 			input(type='image',src="/images/btn_plan.png",width="30px")
 		div(class='ui-block-c',align='center')
-			input(type='image',src="/images/btn_community.png",width="30px")
+			input.btn_beongae(type='image',src="/images/btn_community.png",width="30px")
 		div(class='ui-block-d',align='center', style='position:relative;')
-			input.more(type='image',src="/images/btn_more.png",width="30px")
+			input.btn_more(type='image',src="/images/btn_more.png",width="30px")
 	div#plan_bar
 		div.plan_bar_wrapper
 			div.plan_bar_1st
