@@ -84,6 +84,7 @@ module.exports = {
 		var train_number = "00302";
 		var uri = uri_form + train_number;
 		var train_info = {};
+		
 		jsdom.env({
 			html : uri,
 			setEncoding : 'euc-kr',
@@ -108,8 +109,8 @@ module.exports = {
 				/************출발시각 및 도착시각 따내기********************/
 				$('tr[bgcolor="#FFFFFF"]').each(function(){
 					train_info['dept_station'] = strlib.trim($(this).find('td:first').text());
-					train_info['arrv_time'] = strlib.trim($(this).find('td:first').next().text());
-					train_info['dept_time'] = strlib.trim($(this).find('td:first').next().next().text());
+					train_info['arrv_time'] = strlib.trim($(this).find('td:first').next().next().text());
+					train_info['dept_time'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').next().text());
 					train_info['arrv_station'] = strlib.trim($(this).find('td:first').parent().next().find('td:first').text());
 					console.log(train_info);
 					self.write(train_info);
