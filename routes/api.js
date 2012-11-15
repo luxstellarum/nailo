@@ -58,6 +58,10 @@ module.exports = function(app){
 	app.post('/member/login', function(req, res) {
 		member.login(req, res);
 	});
+	// 로그아웃
+	app.post('/member/logout', function(req, res) {
+		member.logout(req, res);
+	});
 	
 
 
