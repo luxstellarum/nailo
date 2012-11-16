@@ -54,9 +54,13 @@ $(document).ready(function(){
 	});
 
 	var window_width = $(window).width();
-	var window_width_4 = window_width * 4;
+	var window_width_3 = window_width * 3;
 	$('#plan_bar').css('width', window_width);
-	$('#plan_bar .plan_bar_wrapper').css('width', window_width_4);
+	$('.plan_bar_wrapper').css('width', window_width_3);
+	//$('.plan_bar_wrapper').children().css('height', '60px');
+	$('.plan_bar_1st').css('width', window_width);
+	$('.plan_bar_2nd').css('width', window_width);
+	$('.plan_bar_3rd').css('width', window_width);
 
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
