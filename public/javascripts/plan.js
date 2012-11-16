@@ -33,7 +33,7 @@ $(document).ready(function() {
 	$('.submit').bind('click', function(e){
 		var div = $('.plan_bar_1st');
 		div.append('<div>');
-	$(div.find('div')).addClass('plan_1');
+		$(div.find('div')).addClass('plan_1');
 	});
 
 	// datepicker

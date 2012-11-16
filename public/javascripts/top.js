@@ -83,4 +83,40 @@ $(document).ready(function(){
 		    submenu.slideDown();
 		}
 	});
+
+	// 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
+	$('.submit').bind('click',function() {
+		var plan_bar_offset = $('.plan_bar_1st').offset();
+
+		$('.plan_bar_1st').append('<div>');
+		$($('.plan_bar_1st').find('div')).addClass('plan_1');
+		$('.plan_1').css('width', '100px');
+		$('.plan_1').css('height', '100px');
+		$('.plan_1').css('background-color', 'Red');
+
+		$(".plan2").draggable();
+		$(".plan_1").draggable({
+			axis: "x",
+			containment: ".plan_bar_1st"
+		});
+		$('.plan_1').resizable();
+	});
+
+	var size = $(".plan_1").position.width;
+	alert(size);
+
+	$('.plan_1').bind('mousedown', function(e) {
+		var width = me.height();
+		var y = e.clientY;
+		var movehandler = function(e) {
+		    me.height(Math.max(40, e.clientY + h - y));
+		};
+		var uphandler = function(e) {
+		    jQuery('html').unbind('mousemove',movehandler)
+		          .unbind('mouseup',uphandler);
+		};
+		jQuery('html') .bind('mousemove', movehandler)
+		    .bind('mouseup', uphandler);
+	});
+
 });
