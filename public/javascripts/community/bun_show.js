@@ -5,11 +5,13 @@ $(document).unbind().bind('pagecreate',function(){
 		
 		var tmp = location.search.split("?")[1];
 		var index = tmp.split("val=")[1];
+		console.log(index);
 	}
-		
-	var output_data={};
-	output_data[index] = index;
 	
+	var output_data={};
+	output_data['index'] = index;
+	
+
 	$.ajax({ 
 			//1. 어떤 type으로 request를 보낼지 결정
 			type : 'post',
@@ -24,7 +26,7 @@ $(document).unbind().bind('pagecreate',function(){
 			//response
 			//5. 성공했을때 처리할 함수
 			success : function(data) {
-				console.log(data);
+				console.log(data.result);
 				if(data.result == true ) {
 					alert('success');
 					$('.output_form').each(function(){

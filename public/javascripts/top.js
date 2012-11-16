@@ -28,10 +28,6 @@ $(document).ready(function(){
 			var area_head = $("#selected_area");
 			setHead(area_head,area_name);	
 		}
-<<<<<<< HEAD
-		
-=======
->>>>>>> d16017d2e1dbce4673758b7503c6d4e2d2c71a9a
 		
 		var effect = $(this).attr("data-effect");
 				

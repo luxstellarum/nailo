@@ -42,7 +42,7 @@ $(document).unbind().bind('pagecreate',function(){
 			});//end of ajax
 		});//end of live
 	
-	
+/*	
 	//mobi pick
 	var picker = $('.datepicker', this);
 	picker.mobipick();
@@ -53,5 +53,5 @@ $(document).unbind().bind('pagecreate',function(){
 
 		var dateObject = $(this).mobipick("option", "date");
 	});
-
+*/
 });//end of bind
