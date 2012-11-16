@@ -2,7 +2,6 @@ var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
 
 var train_schema = new schema({
-	index : Number, //고유 index
 	id : String, //기차번호
 	type : String, //차종
 	url : String, //정보 가져온 url
@@ -21,47 +20,24 @@ module.exports = {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
-		self.get_index(function(result){
-			if(result != false) {
-				doc.index = result;
-				doc.id = train.id;
-				doc.type = train.type;
-				doc.url = train.url;
-				doc.dept_station = train.dept_station;
-				doc.arrv_station = train.arrv_station;
-				doc.dept_time = train.dept_time;
-				doc.arrv_time = train.arrv_time;
-				doc.update_date = new Date();
-				
-				doc.save(function(err){
-					if(!err){
-						callback(true);
-					}//end of if
-					else {
-						callback(false);
-					}//end of else
-				}); //end of save
-			}
-		});
+		doc.id = train.id;
+		doc.type = train.type;
+		doc.url = train.url;
+		doc.dept_station = train.dept_station;
+		doc.arrv_station = train.arrv_station;
+		doc.dept_time = train.dept_time;
+		doc.arrv_time = train.arrv_time;
+		doc.update_date = new Date();
 		
-	}//end of add_train
-	
-	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
-			if(!err) {
-				if(result != null) {
-					callback(result.index + 1);
-				}
-				else {
-					callback(1); 
-				}
-			}
+		doc.save(function(err){
+			if(!err){
+				callback(true);
+			}//end of if
 			else {
-				console.log('get_index : error(01)');
 				callback(false);
-			}
-		});
-	}
+			}//end of else
+		}); //end of save
+	}//end of add_train
 	
 	,get : function(condition, callback) {
 		documents.find(condition, function(err, result) {

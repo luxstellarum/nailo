@@ -60,12 +60,14 @@ module.exports = {
 	
 	//게시물의 내용을 database에서 받아와서 결과에 따라 JSON형식으로 return
 	,view : function(req, res) {
+		
 		var condition = {};
-		condition[index] = req.body.index;
+		condition['index'] = req.body.index;
 		
 		board_db.get(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, view success');
+				result[result] = true;
 				res.json(result);
 			}//end of if
 			else {

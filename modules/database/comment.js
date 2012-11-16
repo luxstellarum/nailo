@@ -46,23 +46,6 @@ module.export = {
 		
 	}	// end of add
 	
-	
-	// 게시물 id에 맞는 데이터베이스에서 해당 id 와 일치하는 댓글의 정보를 획득
-	// 성공시, 결과값 (JSON) 반환, 실패하면 null 반환
-	,get: function(condition, callback) {
-		documents.findOne(condition, function(err, result){
-			if(result){
-				console.log('comment_get_success');
-				callback(result);
-			} 	// end of if
-			else {
-				console.log('comment_get_fail_');
-				callback(false);
-			}	// end of else
-		}); 	// end of findOne
-	} // end of get
-	
-	
 	// 새로운 댓글이 가지 index를 부여한다.
 	,get_index : function(callback) {
 		documents.findOne({}, function(err, result){
@@ -80,6 +63,22 @@ module.export = {
 			}
 		});
 	}	// end of get_index
+	
+	
+	// 게시물 id에 맞는 데이터베이스에서 해당 id 와 일치하는 댓글의 정보를 획득
+	// 성공시, 결과값 (JSON) 반환, 실패하면 null 반환
+	,get: function(condition, callback) {
+		documents.findOne(condition, function(err, result){
+			if(result){
+				console.log('comment_get_success');
+				callback(result);
+			} 	// end of if
+			else {
+				console.log('comment_get_fail_');
+				callback(false);
+			}	// end of else
+		}); 	// end of findOne
+	} // end of get
 	
 	
 	// 댓글 삭제를 한다.

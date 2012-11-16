@@ -71,7 +71,7 @@ module.exports = function(app){
 		
 	// 댓글 등록
 	app.post('/comment/write', function(req, res) {
-		comment.write(req, res기);
+		comment.write(req, res);
 	});
 	// 댓글 삭제
 	app.post('/comment/remove', function(req, res) {
