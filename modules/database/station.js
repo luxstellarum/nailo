@@ -20,38 +20,43 @@ module.exports = {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
-		doc.index = self.get_index();
-		doc.station_name = station.station_name;
-		doc.city_name = station.city_name;
-		doc.city_index = station.city_index;
-		doc.extra = station.extra;
-		doc.website = station.website;
-		doc.telephone = station.telephone;
-		doc.train_type = station.train_type;
-						
-		doc.save(function(err){
-			if(!err){
-				callback(true);
-			}//end of if
-			else {
-				callback(false);
-			}//end of else
-		}); //end of save
+		self.get_index(function(result){
+			if(result != false) {
+				doc.index = result;
+				doc.station_name = station.station_name;
+				doc.city_name = station.city_name;
+				doc.city_index = station.city_index;
+				doc.extra = station.extra;
+				doc.website = station.website;
+				doc.telephone = station.telephone;
+				doc.train_type = station.train_type;
+								
+				doc.save(function(err){
+					if(!err){
+						callback(true);
+					}//end of if
+					else {
+						callback(false);
+					}//end of else
+				}); //end of save
+			}
+		});
+		
 	}//end of add_station
 	
-	,get_index : function() {
-		documents.findOne({}).sort('index','-1').exec(function(err, result){
+	,get_index : function(callback) {
+		documents.findOne({}, function(err, result){
 			if(!err) {
 				if(result != null) {
-					return (result.index + 1);
+					callback(result.index + 1);
 				}
 				else {
-					return 1; 
+					callback(1); 
 				}
 			}
 			else {
 				console.log('get_index : error(01)');
-				return false;
+				callback(false);
 			}
 		});
 	}

@@ -1,0 +1,39 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'nodejs', '/usr/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.62
+3 info using node@v0.8.11
+4 verbose install where,what [ '/usr/lib', [ 'iconv' ] ]
+5 verbose read json /usr/lib/package.json
+6 verbose read json /usr/lib/node_modules/express/package.json
+7 verbose read json /usr/lib/node_modules/mongoose/package.json
+8 verbose read json /usr/lib/node_modules/connect-mongodb/package.json
+9 verbose read json /usr/lib/node_modules/jsdom/package.json
+10 verbose read json /usr/lib/node_modules/nodemon/package.json
+11 verbose read json /usr/lib/package.json
+12 verbose cache add [ 'iconv', null ]
+13 silly cache add name=undefined spec="iconv" args=["iconv",null]
+14 verbose parsed url { pathname: 'iconv', path: 'iconv', href: 'iconv' }
+15 silly lockFile b77bb132-iconv iconv
+16 verbose lock iconv /home/blacky512/.npm/b77bb132-iconv.lock
+17 silly lockFile b77bb132-iconv iconv
+18 verbose addNamed [ 'iconv', '' ]
+19 verbose addNamed [ null, '' ]
+20 silly lockFile 7ff3175f-iconv iconv@
+21 verbose lock iconv@ /home/blacky512/.npm/7ff3175f-iconv.lock
+22 silly lockFile 7ff3175f-iconv iconv@
+23 error Error: EACCES, open '/home/blacky512/.npm/7ff3175f-iconv.lock'
+23 error  { [Error: EACCES, open '/home/blacky512/.npm/7ff3175f-iconv.lock']
+23 error   errno: 3,
+23 error   code: 'EACCES',
+23 error   path: '/home/blacky512/.npm/7ff3175f-iconv.lock' }
+24 error Please try running this command again as root/Administrator.
+25 error System Linux 3.2.0-31-generic
+26 error command "nodejs" "/usr/bin/npm" "link" "iconv"
+27 error cwd /home/blacky512/workspace/nailo
+28 error node -v v0.8.11
+29 error npm -v 1.1.62
+30 error path /home/blacky512/.npm/7ff3175f-iconv.lock
+31 error code EACCES
+32 error errno 3
+33 error stack Error: EACCES, open '/home/blacky512/.npm/7ff3175f-iconv.lock'
+34 verbose exit [ 3, true ]

@@ -1,17 +1,6 @@
 
 //page 로딩이 끝난 후에 각종 이벤트 및 함수를 로딩 
 $(document).unbind().bind('pagecreate',function(){
-	//mobi pick
-	var picker = $('.datepicker', this);
-	picker.mobipick();
-
-	picker.bind('change', function(){
-		var date = $(this).val();
-		alert(date);
-
-		var dateObject = $(this).mobipick("option", "date");
-	});
-
 	//write button을 클릭했을 때 동작할 함수
 	$('.write_button').live('click', function(){
 		var input_data = {}; //json object로 선언
