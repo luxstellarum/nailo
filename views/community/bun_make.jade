@@ -1,5 +1,5 @@
 include ../top.jade
-		script(type="text/javascript", src="/javascripts/community/community.js")
+		script(type="text/javascript", src="/javascripts/community/bun_make.js")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
@@ -15,7 +15,6 @@ include ../top.jade
 				input.input_form(type='hidden', value='test2', name='city')
 				td(valign='top',width='100px') 시간
 				td(width='200px')
-					input.datepicker(type='text', name='date_picker')
 					span(style='margin-right:20px')
 						input.input_form(type='number',style='width:40px;', name='event_month')
 						&nbsp;월 
@@ -62,6 +61,6 @@ include ../top.jade
 					span(style='margin-right:20px')
 						input(type='number',style='width:80px;', name='population')
 						명
-			form(align='right')
+			form(id="submit",align='right',action="/community/bun_show",rel="export")
 				input.write_button(type='button',value='작성',style='margin:0 20px; width:50px; height:30px')
 include ../bottom.jade

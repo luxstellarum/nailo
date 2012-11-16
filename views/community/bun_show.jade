@@ -1,24 +1,25 @@
 include ../top.jade
+		script(type="text/javascript", src="/javascripts/community/bun_show.js")
 		div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 					include ../search.jade
 		div(class="header")
-			span(id="bun_area",style='position:absolute; bottom:5px; padding-left:10px; font-size:35pt') 부산
+			span(name="province",style='padding-left:10px; font-size:35pt') 
 			span(style='position:absolute; bottom:5px; right:10px')
 				font(style="margin-bottom:0px") No.
-				font(id="bun_no",style='margin-bottom:0px') 000001
+				font(name="index",style='margin-bottom:0px')
 		div(class="section")
 			table(cellspacing='0',align='center'
 				,style='background-color:yellow; color:black;border-top:thick solid gray; width:100%;')
 				tr
-					td(name="",style='padding-left:10px; width:100px') 8/21
-					td(rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;') 2~4명
+					td(name="event_day",style='padding-left:10px; width:100px')
+					td(name="population",rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;')
 				tr
-					td(style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;') 19:00 까지					
+					td(name="",style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;')		
 				tr
-					td(align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 내일 진주에서 밥 먹을 사람(여자 두분)								
+					td(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
 
 			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
 				span(style="padding:0 5px;") yong8

@@ -30,7 +30,7 @@
 @-webkit-keyframes slideOut{
 	from{
 		-webkit-transform: translateX(0%);
-		z-index: 2;
+		z-index: 1000;
 	}
 	to{
 		-webkit-transform: translateX(-100%);
@@ -46,7 +46,7 @@
 @-webkit-keyframes slideIn{
 	from{
 		-webkit-transform: translateX(100%);
-		z-index: 1;
+		z-index: 999;
 	}
 	to{
 		-webkit-transform: translateX(0%);
