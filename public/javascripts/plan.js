@@ -15,14 +15,25 @@ $(document).ready(function() {
 		//var a = '<div class="datepicker"></div>';
 		$(this).css('color', 'Red');
 		$(this).append('<div>');
-		$($(this).find('div')).attr('id','datepicker');
-		$('#datepicker').css('position', 'absolute');
-		$('#datepicker').css('width', '100px');
-		$('#datepicker').css('height', '100px');
-		$('#datepicker').css('left', '-100px');
-		$('#datepicker').css('top', '-100px');
+		$($(this).find('div')).addClass('datepicker');
+		$('.datepicker').css('position', 'absolute');
+		$('.datepicker').css('width', '100px');
+		$('.datepicker').css('height', '100px');
+		$('.datepicker').css('left', '-100px');
+		$('.datepicker').css('top', '-100px');
+		$('.datepicker').css('z-index', '100');
+		$('.datepicker').css('background-color', 'Red');
+
+		$('.datepicker').append('input');
 
 		//e.preventDefault();
+	});
+
+	// 일정에 막대가 추가된다
+	$('.submit').bind('click', function(e){
+		var div = $('.plan_bar_1st');
+		div.append('<div>');
+	$(div.find('div')).addClass('plan_1');
 	});
 
 	// datepicker
@@ -35,6 +46,8 @@ $(document).ready(function() {
 	var map_height = map_width * 1.5;
 	$('.wrapper_map').css('padding-bottom', map_height);
 	
+
+
 	//
 	// plan2.jade: 도시를 누르면 날짜를 선택할 수 있다
 	/*$('.city').live('click', function (e) {
