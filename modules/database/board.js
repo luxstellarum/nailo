@@ -83,7 +83,7 @@ module.exports = {
 	//게시판 id를 받아와서 해당 id와 일치하는 게시판의 정보를 획득한다.
 	//성공하면 결과값(JSON) 반환, 실패하면 null 반환
 	,get : function(condition, callback) {
-		documents.find(condition, function(err, result) {
+		documents.findOne(condition, function(err, result) {
 			if(result) {
 				callback(result);
 			}//end of if

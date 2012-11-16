@@ -67,7 +67,7 @@ module.exports = {
 		board_db.get(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, view success');
-				result['result'] = true;
+				result[result] = true;
 				res.json(result);
 			}//end of if
 			else {
