@@ -17,6 +17,7 @@ var board_schema = new schema({
 	what : String,
 	population : Number,
 	subject : String,
+	contents : String,
 	index : Number,
 	date : Date
 });//end of board_schema
@@ -46,6 +47,7 @@ module.exports = {
 				doc.what = board.what;
 				doc.population = board.population;
 				doc.subject = board.subject;
+				doc.contents = board.contents;
 				doc.date = new Date();
 
 				doc.save(function(err){
