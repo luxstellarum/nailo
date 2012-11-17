@@ -30,7 +30,12 @@ $(document).unbind().bind('pagecreate',function(){
 				if(data.result != false ) {
 					alert('success');
 					$('.output_form').each(function(){
-						$(this).append(output_data[$(this).attr('name')]);
+						console.log($(this).attr('name'));
+						if($(this).attr('name')=='end_hour'||$(this).attr('name')=='end_minute'){
+							data[$(this).attr('name')]=SetZeros(data[$(this).attr('name')],2);
+							console.log(data[$(this).attr('name')]);
+						}
+						$(this).append(document.createTextNode(data[$(this).attr('name')]));
 					});//end of each
 				}
 				else {
@@ -43,3 +48,13 @@ $(document).unbind().bind('pagecreate',function(){
 		});//end of ajax
 		
 });//end of bind
+
+function SetZeros(num, digits) {
+	var Zeros = '';
+	num = num.toString();
+	if (num.length < digits) {
+		for (i = 0; i < digits - num.length; i++)
+		Zeros += '0';
+	}
+	return Zeros + num;
+}
