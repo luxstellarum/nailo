@@ -1,4 +1,5 @@
 include ../top.jade
+			script(src="/javascripts/plan/see.js", type="text/javascript")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
@@ -12,19 +13,18 @@ include ../top.jade
 					img(src="/images/weather_sunny.png",style="float:right; width:60px; margin-right:10px; margin-top:10px")
 				p
 				div.wrapper(class="tour",id="kangwondo_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map_kangneung.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+					img(src="/images/map_kangneung.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
 					span(style='position:absolute; top:40%; left:48%; z-index:2;')						
 						label(for="o_juk_hun",style="font-size:8pt;z-index:4;") 오죽헌
 						br
-						input(id="o_juk_hun",type="radio",style="z-index:3; background:blue")
+						input(id="o_juk_hun",type="checkbox",style="z-index:3; background:blue")
 					span(style='position:absolute; top:34%; left:56%; z-index:2;')						
 						label(for="kyungpodae",style="font-size:8pt;z-index:4;") 경포대
 						br
-						input(id="kyungpodae",type="radio",style="z-index:3;")
+						input(id="kyungpodae",type="checkbox",style="z-index:3;")
 					span(style='position:absolute; top:30%; left:63%; z-index:2;')						
 						label(for="kyungposea",style="font-size:8pt;z-index:4;") 경포 해수욕장
 						br
-						input(id="kyungposea",type="radio",style="z-index:3;")
-						
-						
+						input(id="kyungposea",type="checkbox",style="z-index:3;")
+div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white")
 include ../bottom.jade
