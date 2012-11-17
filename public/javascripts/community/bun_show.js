@@ -26,8 +26,8 @@ $(document).unbind().bind('pagecreate',function(){
 			//response
 			//5. 성공했을때 처리할 함수
 			success : function(data) {
-				console.log(data.result);
-				if(data.result == true ) {
+				console.log(data);
+				if(data.result != false ) {
 					alert('success');
 					$('.output_form').each(function(){
 						$(this).append(output_data[$(this).attr('name')]);
