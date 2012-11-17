@@ -13,6 +13,7 @@ $(document).unbind().bind('pagecreate',function(){
 			var img = document.createElement('img'); // 이미지 객체 생성
 		
 			img.src = '/images/picture_' + name + '.png'; // 이미지 경로 설정
+			img.width = '50';
 			$('#board').append(img); // board DIV 에 이미지 동적 추가
 	
 	        $('#board').css("position","absolute");
