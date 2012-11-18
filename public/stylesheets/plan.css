@@ -52,15 +52,20 @@ p.city{
 	z-index:0;
 }
 
+#datepicker{
+	position: absolute;
+	z-index: 100;
+	display: none;
+}
+
 #plan_bar{
 	height:80px; 
 	background:gray; 
-	border:thin solid gray; 
-	margin-top:5px; 
+	border-top: thick black;
 	overflow:auto;
 }
 .plan_bar_wrapper{
-	height:60px;
+	height:57px;
 }
 div.plan_bar_wrapper span{
 	height:60px; float:left;

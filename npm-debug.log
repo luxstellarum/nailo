@@ -1,52 +1,43 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link', 'Iconv' ]
-2 info using npm@1.1.61
-3 info using node@v0.8.9
-4 verbose install where,what [ '/usr/local/lib', [ 'Iconv' ] ]
-5 verbose read json /usr/local/lib/package.json
-6 verbose read json /usr/local/lib/node_modules/nodemon/package.json
-7 verbose read json /usr/local/lib/node_modules/jsdom/package.json
-8 verbose read json /usr/local/lib/node_modules/npm/package.json
-9 verbose read json /usr/local/lib/node_modules/express/package.json
-10 verbose read json /usr/local/lib/node_modules/iconv/package.json
-11 verbose read json /usr/local/lib/node_modules/connect-mongodb/package.json
-12 verbose read json /usr/local/lib/node_modules/mongoose/package.json
-13 verbose read json /usr/local/lib/node_modules/node-gyp/package.json
-14 verbose read json /usr/local/lib/node_modules/connect/package.json
-15 verbose read json /usr/local/lib/package.json
-16 verbose cache add [ 'Iconv', null ]
-17 silly cache add name=undefined spec="Iconv" args=["Iconv",null]
-18 verbose parsed url { pathname: 'Iconv', path: 'Iconv', href: 'Iconv' }
-19 silly lockFile ea62103c-Iconv Iconv
-20 verbose lock Iconv /home/righ120/.npm/ea62103c-Iconv.lock
-21 silly lockFile ea62103c-Iconv Iconv
-22 verbose addNamed [ 'Iconv', '' ]
-23 verbose addNamed [ null, '' ]
-24 silly lockFile bc94bf2e-Iconv Iconv@
-25 verbose lock Iconv@ /home/righ120/.npm/bc94bf2e-Iconv.lock
-26 silly addNameRange { name: 'Iconv', range: '', hasData: false }
-27 verbose url raw Iconv
-28 verbose url resolving [ 'https://registry.npmjs.org/', './Iconv' ]
-29 verbose url resolved https://registry.npmjs.org/Iconv
-30 info trying registry request attempt 1 at 23:16:42
-31 http GET https://registry.npmjs.org/Iconv
-32 http 404 https://registry.npmjs.org/Iconv
-33 silly registry.get cb [ 404,
-33 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
-33 silly registry.get     date: 'Thu, 15 Nov 2012 14:16:21 GMT',
-33 silly registry.get     'content-type': 'application/json',
-33 silly registry.get     'content-length': '52',
-33 silly registry.get     'cache-control': 'must-revalidate' } ]
-34 silly lockFile bc94bf2e-Iconv Iconv@
-35 error 404 'Iconv' is not in the npm registry.
-35 error 404 You should bug the author to publish it
-35 error 404
-35 error 404 Note that you can also install from a
-35 error 404 tarball, folder, or http url, or git url.
-36 error System Linux 3.0.0-26-generic
-37 error command "/usr/local/bin/node" "/usr/local/bin/npm" "link" "Iconv"
-38 error cwd /home/righ120/nailo
-39 error node -v v0.8.9
-40 error npm -v 1.1.61
-41 error code E404
-42 verbose exit [ 1, true ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.48
+3 info using node@v0.8.6
+4 verbose config file /Users/yong8/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 info /Users/yong8/Workspace/nailo/node_modules/iconv unbuild
+8 verbose read json /Users/yong8/Workspace/nailo/node_modules/iconv/package.json
+9 verbose link symlinking /usr/local/lib/node_modules/iconv to /Users/yong8/Workspace/nailo/node_modules/iconv
+10 info build /Users/yong8/Workspace/nailo/node_modules/iconv
+11 verbose read json /Users/yong8/Workspace/nailo/node_modules/iconv/package.json
+12 info preinstall iconv@1.2.4
+13 verbose linkStuff [ false,
+13 verbose linkStuff   false,
+13 verbose linkStuff   false,
+13 verbose linkStuff   '/Users/yong8/Workspace/nailo/node_modules' ]
+14 info linkStuff iconv@1.2.4
+15 verbose linkBins iconv@1.2.4
+16 verbose linkMans iconv@1.2.4
+17 verbose rebuildBundles iconv@1.2.4
+18 info install iconv@1.2.4
+19 verbose unsafe-perm in lifecycle true
+20 silly exec sh "-c" "node-gyp rebuild"
+21 silly sh,-c,node-gyp rebuild,/Users/yong8/Workspace/nailo/node_modules/iconv spawning
+22 info iconv@1.2.4 Failed to exec install script
+23 error iconv@1.2.4 install: `node-gyp rebuild`
+23 error `sh "-c" "node-gyp rebuild"` failed with 1
+24 error Failed at the iconv@1.2.4 install script.
+24 error This is most likely a problem with the iconv package,
+24 error not with npm itself.
+24 error Tell the author that this fails on your system:
+24 error     node-gyp rebuild
+24 error You can get their info via:
+24 error     npm owner ls iconv
+24 error There is likely additional logging output above.
+25 error System Darwin 12.2.0
+26 error command "node" "/usr/local/bin/npm" "link" "iconv"
+27 error cwd /Users/yong8/Workspace/nailo
+28 error node -v v0.8.6
+29 error npm -v 1.1.48
+30 error code ELIFECYCLE
+31 verbose exit [ 1, true ]
