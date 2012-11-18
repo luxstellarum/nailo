@@ -59,7 +59,8 @@ module.exports = {
 	,list: function(req, res){
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
-		comment_db.get_list(current_page, paging_size, function(result){
+		var index_board = req.body.index_board;
+		comment_db.get_list(index_board, current_page, paging_size, function(result){
 			if(result != false){
 				console.log('service/comment.js, list_success');
 				res.json(result);

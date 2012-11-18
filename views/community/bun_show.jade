@@ -6,30 +6,34 @@ include ../top.jade
 				div(id="searchbrowser")
 					include ../search.jade
 		div(class="header")
-			span(name="province",style='padding-left:10px; font-size:35pt') 
+			span(class="output_form",name="province",style='padding-left:10px; font-size:35pt') 
 			span(style='position:absolute; bottom:5px; right:10px')
-				font(style="margin-bottom:0px") No.
-				font(name="index",style='margin-bottom:0px')
+				font(style="margin-bottom:0px") No. &nbsp
+				font.output_form(name="index",style='margin-bottom:0px')
 		div(class="section")
 			table(cellspacing='0',align='center'
 				,style='background-color:yellow; color:black;border-top:thick solid gray; width:100%;')
 				tr
-					td(name="event_day",style='padding-left:10px; width:100px')
-					td(name="population",rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;')
+					td(style='padding-left:10px; width:100px')
+						font.output_form(name="event_month")
+						font /
+						font.output_form(name="event_day")
+					td(rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;')
+						font.output_form(name="population")
+						font 명
 				tr
-					td(name="",style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;')		
+					td(style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;')
+						font.output_form(name="end_hour")
+						font :
+						font.output_form(name="end_minute")
+						font 까지		
 				tr
-					td(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
+					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
 
 			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
 				span(style="padding:0 5px;") yong8
 				span >
 				span 전 남잔데 괜찮나요?
-			
-			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
-				span(style="padding:0 5px;") lux
-				span >
-				span 니 미칬나?
 			
 		form(id="",style="position:absolute; bottom:140px; width:100%;",align="center")
 			input(id="",type="text",style="padding:5px; width:60%")
