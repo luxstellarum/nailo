@@ -43,6 +43,11 @@ p.city{
 	left:60%; 
 	z-index:2;
 }
+.city2{
+	position:absolute;
+	width:50px; height: 50px;
+	z-index:1000;
+}
 .map_province{
 	position:absolute; 
 	width:80%; 
@@ -68,6 +73,8 @@ p.city{
 	height:57px;
 }
 div.plan_bar_wrapper span{
+	position: relative;
 	height:60px; float:left;
 	display: inline;
+	z-index: 20;
 }
