@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	displayRandom()
+	displayRandom();
+	
 	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
 		
@@ -29,6 +30,12 @@ $(document).ready(function(){
 			setHead(area_head,area_name);	
 		}
 		
+		if(nextPage=="#plan_3")
+		{	 
+			var startX=	$('.header').position();
+			console.log($('.header').offset());
+			console.log(startX.top);
+		}
 		var effect = $(this).attr("data-effect");
 				
 		changePage($(nextPage),effect);
@@ -120,3 +127,4 @@ $(document).ready(function(){
 	});
 
 });
+

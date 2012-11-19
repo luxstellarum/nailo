@@ -8,8 +8,8 @@ $(document).unbind().bind('pagecreate',function(){
 		console.log(index);
 	}
 	
-	var output_data={};
-	output_data['index'] = index;
+	var index_board={};
+	index_board['index']=index;
 	
 
 	$.ajax({ 
@@ -20,7 +20,7 @@ $(document).unbind().bind('pagecreate',function(){
 			//3. 요청할 url
 			url : '/board/view',
 			//4. 보낼 data를 위에 선언한 type에 맞춰서 넣어줌
-			data : output_data,
+			data : index_board,
 			//request
 			
 			//response
@@ -36,7 +36,24 @@ $(document).unbind().bind('pagecreate',function(){
 							console.log(data[$(this).attr('name')]);
 						}
 						$(this).append(document.createTextNode(data[$(this).attr('name')]));
+
 					});//end of each
+					$.ajax({
+						type:'post',
+						dataType:'jason',
+						url:'/comment/list',
+						data: index_board,
+						
+						success:function(data){
+							console.log(data);
+							if(data.result !=false){
+								alert('success');	
+							}
+							else{
+								alert('fail');
+							}
+						}	
+					});
 				}
 				else {
 					alert('fail');
