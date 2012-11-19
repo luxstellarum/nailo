@@ -1,4 +1,48 @@
 0 info it worked if it ends with ok
+<<<<<<< HEAD
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.48
+3 info using node@v0.8.6
+4 verbose config file /Users/yong8/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 info /Users/yong8/Workspace/nailo/node_modules/iconv unbuild
+8 verbose read json /Users/yong8/Workspace/nailo/node_modules/iconv/package.json
+9 verbose link symlinking /usr/local/lib/node_modules/iconv to /Users/yong8/Workspace/nailo/node_modules/iconv
+10 info build /Users/yong8/Workspace/nailo/node_modules/iconv
+11 verbose read json /Users/yong8/Workspace/nailo/node_modules/iconv/package.json
+12 info preinstall iconv@1.2.4
+13 verbose linkStuff [ false,
+13 verbose linkStuff   false,
+13 verbose linkStuff   false,
+13 verbose linkStuff   '/Users/yong8/Workspace/nailo/node_modules' ]
+14 info linkStuff iconv@1.2.4
+15 verbose linkBins iconv@1.2.4
+16 verbose linkMans iconv@1.2.4
+17 verbose rebuildBundles iconv@1.2.4
+18 info install iconv@1.2.4
+19 verbose unsafe-perm in lifecycle true
+20 silly exec sh "-c" "node-gyp rebuild"
+21 silly sh,-c,node-gyp rebuild,/Users/yong8/Workspace/nailo/node_modules/iconv spawning
+22 info iconv@1.2.4 Failed to exec install script
+23 error iconv@1.2.4 install: `node-gyp rebuild`
+23 error `sh "-c" "node-gyp rebuild"` failed with 1
+24 error Failed at the iconv@1.2.4 install script.
+24 error This is most likely a problem with the iconv package,
+24 error not with npm itself.
+24 error Tell the author that this fails on your system:
+24 error     node-gyp rebuild
+24 error You can get their info via:
+24 error     npm owner ls iconv
+24 error There is likely additional logging output above.
+25 error System Darwin 12.2.0
+26 error command "node" "/usr/local/bin/npm" "link" "iconv"
+27 error cwd /Users/yong8/Workspace/nailo
+28 error node -v v0.8.6
+29 error npm -v 1.1.48
+30 error code ELIFECYCLE
+31 verbose exit [ 1, true ]
+=======
 1 verbose cli [ 'nodejs', '/usr/bin/npm', 'link', 'iconv' ]
 2 info using npm@1.1.62
 3 info using node@v0.8.11
@@ -38,3 +82,4 @@
 26 error npm -v 1.1.62
 27 error code ELIFECYCLE
 28 verbose exit [ 1, true ]
+>>>>>>> 2060aa599edcf5bd95a48865f143cfb1d8795ac5
