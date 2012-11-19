@@ -13,7 +13,7 @@ var comment_schema = new schema({
 
 var documents = mongoose.model('comments', comment_schema);		// DB 삽입 위한 모델
 
-module.export = {
+module.exports = {
 
 
 	// comment 를 생성하여 DB 에 넣는다.
@@ -118,10 +118,10 @@ module.export = {
 	
 	// 게시물 index 에 맞는 댓글 목록을 가져온다.
 	// 성공시, docs, 실패시 false 반환
-	, get_list: function(current_page, paging_size, callback){
+	,get_list: function(index_board, current_page, paging_size, callback){
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err,docs){
+		documents.find({index_board : index_board}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err,docs){
 			if(!err){
 				callback(docs);
 			}

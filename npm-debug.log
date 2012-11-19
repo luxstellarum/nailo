@@ -1,12 +1,12 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link', 'iconv' ]
-2 info using npm@1.1.61
-3 info using node@v0.8.9
-4 info /home/righ120/nailo/node_modules/iconv unbuild
-5 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
-6 verbose link symlinking /usr/local/lib/node_modules/iconv to /home/righ120/nailo/node_modules/iconv
-7 info build /home/righ120/nailo/node_modules/iconv
-8 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
+1 verbose cli [ 'nodejs', '/usr/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.62
+3 info using node@v0.8.11
+4 info /home/blacky512/workspace/nailo/node_modules/iconv unbuild
+5 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
+6 verbose link symlinking /usr/lib/node_modules/iconv to /home/blacky512/workspace/nailo/node_modules/iconv
+7 info build /home/blacky512/workspace/nailo/node_modules/iconv
+8 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
 9 info preinstall iconv@1.2.4
 10 verbose linkStuff [ false, false, false, '/home/righ120/nailo/node_modules' ]
 11 info linkStuff iconv@1.2.4
