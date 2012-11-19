@@ -1,4 +1,6 @@
 var jsdom = require('jsdom');
+var fs = require('fs');
+var jquery_lib = fs.readFileSync("public/lib/jquery/jquery-1.8.3.js").toString();
 var Iconv = require('iconv').Iconv;
 var iconv = new Iconv('EUC-KR', 'UTF-8//TRANSLIT//IGNORE');
 var train_db = require('../database/train.js');
@@ -96,10 +98,10 @@ module.exports = {
 			var train_info = {};
 			jsdom.env({
 				html : uri,
-				scripts : ['http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'],
+				scripts : [jquery_lib],
 				encoding : 'binary',
 				done : function(err, window){
-					var $ = window.$;
+					var $ = window.jQuery;
 					/***********차량 번호 따내기************/
 					train_info['id'] = train_number + count;
 					/***********************************/
