@@ -1,11 +1,11 @@
 include ../top.jade
 				include ../datepicker.html
-				div#plan2
+				div.container
 					p.province_name(style="position:relative;") dkdkdk
 					div.wrapper(style='position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:60%; overflow:hidden;')
 						img.map_province(src="/images/map_choongcheong.png", style='position:absolute; width:100%; height: 100%; top:0px; left:0px; z-index:0;')
-						a.city2(value='클릭', style='position:absolute; width:50px; height: 50px; top:40%; left:60%; z-index:2;') 충주
+						div.city2(city_name="choongjoo", style='top:40%; left:60%; ') 충주
 						div.datepicker2(style='position:absolute; width:280px; height:400px; background-color:red; z-index:50; display:none;')
 							input.submit(type='button', value="create")
 							
-include ../bottom.jade
+			include ../bottom.jade
