@@ -101,7 +101,7 @@ module.exports = {
 				scripts : [jquery_lib],
 				encoding : 'binary',
 				done : function(err, window){
-					var $ = window.jQuery;
+					var $ = window.$;
 					/***********차량 번호 따내기************/
 					train_info['id'] = train_number + count;
 					/***********************************/

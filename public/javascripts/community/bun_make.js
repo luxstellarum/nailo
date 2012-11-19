@@ -1,8 +1,11 @@
 
 //page 로딩이 끝난 후에 각종 이벤트 및 함수를 로딩 
-$(document).unbind().bind('pagecreate',function(){
+//$(document).unbind().bind('pagecreate',function(){
+$(document).ready(function(){
+	console.log('binding success');
 	//write button을 클릭했을 때 동작할 함수
 	$('.write_button').live('click', function(){
+		console.log('click');
 		var input_data = {}; //json object로 선언
 
 		//페이지에 존재하는 모든 input_form class 들을 찾아서
