@@ -10,7 +10,7 @@
 						activateTrafficMap : false,
 						activateBicycleMap : false,
 						minMaxLevel : [ 1, 14 ],
-						size : new nhn.api.map.Size(800, 480)		});
+						size : new nhn.api.map.Size(480, 600)		});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
@@ -32,7 +32,7 @@
 		});
 		oMap.addControl(oThemeMapBtn);
 
-		var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
+/*		var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
 		oBicycleGuide.setPosition({
 			top : 10,
 			right : 10
@@ -52,6 +52,7 @@
 			right:150
 		}); // - 실시간 교통지도 버튼 위치 지정
 		oMap.addControl(trafficButton);
+	*/
 
 		var oSize = new nhn.api.map.Size(28, 37);
 		var oOffset = new nhn.api.map.Size(14, 37);
@@ -74,14 +75,14 @@
 				oLabel.setVisible(false);
 			}
 		});
-		
-		var oPolyline = new nhn.api.map.Polyline([], {
+	
+/*		var oPolyline = new nhn.api.map.Polyline([], {
 			strokeColor : '#f00', // - 선의 색깔
 			strokeWidth : 5, // - 선의 두께
 			strokeOpacity : 0.5 // - 선의 투명도
 		}); // - polyline 선언, 첫번째 인자는 선이 그려질 점의 위치. 현재는 없음.
 		oMap.addOverlay(oPolyline); // - 지도에 선을 추가함.
-
+*/ 
 		oMap.attach('mouseenter', function(oCustomEvent) {
 
 			var oTarget = oCustomEvent.target;
@@ -129,7 +130,8 @@
 			oMarker.setPoint(oPoint);
 			oMap.addOverlay(oMarker);
 
-			var aPoints = oPolyline.getPoints(); // - 현재 폴리라인을 이루는 점을 가져와서 배열에 저장.
+/*			var aPoints = oPolyline.getPoints(); // - 현재 폴리라인을 이루는 점을 가져와서 배열에 저장.
 			aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
 			oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
+*/
 		});

@@ -6,5 +6,22 @@ html
 	body
 		div#map(style="border:1px;")
 		script(type="text/javascript", src="/javascripts/map/map.js")	
-
-				
+		
+		form(method="post", action="/map/map_result")
+		table
+			tr
+				td
+					| 출발지
+				td 
+					input(type="text", name="start_dest", value="출발지를 입력하세요")
+			tr
+				td
+					| 도착지
+				td
+					input(type="text", name="fini_dest", value="도착지를 입력하세요")
+			tr
+				td
+					| 길찾기
+				td
+					input(type='submit', value='Submit')
+		
