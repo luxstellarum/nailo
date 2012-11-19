@@ -98,7 +98,7 @@ module.exports = {
 			var train_info = {};
 			jsdom.env({
 				html : uri,
-				scripts : [jquery_lib],
+				scripts : ['https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'],
 				encoding : 'binary',
 				done : function(err, window){
 					var $ = window.$;
