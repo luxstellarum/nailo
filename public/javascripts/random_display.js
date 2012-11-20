@@ -2,10 +2,8 @@ function displayRandom(){
 	
 	if(document.getElementById("wrapper")){
 		tags=document.querySelectorAll("#wrapper div");
-		console.log(tags.length);
 		for(var i=0; i<tags.length; i++){
 			tags[i].className = "s"+(i+1);
-			console.log(tags[i].className);
 		}	
 	}
 	

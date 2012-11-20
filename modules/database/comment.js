@@ -28,7 +28,7 @@ module.exports = {
 				doc.name = comment.name;
 				doc.content = comment.content;
 				doc.index_board = comment.index_board;
-				doc.date = comment.date;
+				doc.date = new Date();
 				doc.index = result;
 				
 				doc.save(function(err){
@@ -48,10 +48,10 @@ module.exports = {
 	
 	// 새로운 댓글이 가지 index를 부여한다.
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
-					callback(result.index + 1);
+					callback(result.index+ 1);
 				}
 				else {
 					callback(1); 
@@ -121,7 +121,7 @@ module.exports = {
 	,get_list: function(index_board, current_page, paging_size, callback){
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({index_board : index_board}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err,docs){
+		documents.find({index_board : index_board}).sort('-index').skip(skip_size).limit(paging_size).exec(function(err,docs){
 			if(!err){
 				callback(docs);
 			}

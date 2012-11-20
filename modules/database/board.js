@@ -63,9 +63,10 @@ module.exports = {
 		
 	}//end of add_board
 	
+
 	//새 글이 가질 index를 반환해준다.
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				console.log('result : ', result);
 				if(result != null) {
@@ -132,7 +133,7 @@ module.exports = {
 	,get_list : function(current_page, paging_size, callback) {
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({}).sort('date', -1).skip(skip_size).limit(paging_size).exec(function(err, docs){
+		documents.find({}).sort('date -1').skip(skip_size).limit(paging_size).exec(function(err, docs){
 			if(!err) {
 				callback(docs);
 			}//end of if

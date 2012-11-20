@@ -5,11 +5,10 @@ $(document).unbind().bind('pagecreate',function(){
 		
 		var tmp = location.search.split("?")[1];
 		var index = tmp.split("val=")[1];
-		console.log(index);
 	}
 	
-	var output_data={};
-	output_data['index'] = index;
+	var index_board={};
+	index_board['index']=index;
 	
 
 	$.ajax({ 
@@ -20,23 +19,36 @@ $(document).unbind().bind('pagecreate',function(){
 			//3. 요청할 url
 			url : '/board/view',
 			//4. 보낼 data를 위에 선언한 type에 맞춰서 넣어줌
-			data : output_data,
+			data : index_board,
 			//request
 			
 			//response
 			//5. 성공했을때 처리할 함수
 			success : function(data) {
-				console.log(data);
 				if(data.result != false ) {
-					alert('success');
 					$('.output_form').each(function(){
-						console.log($(this).attr('name'));
-						if($(this).attr('name')=='end_hour'||$(this).attr('name')=='end_minute'){
+							if($(this).attr('name')=='end_hour'||$(this).attr('name')=='end_minute'){
 							data[$(this).attr('name')]=SetZeros(data[$(this).attr('name')],2);
-							console.log(data[$(this).attr('name')]);
 						}
 						$(this).append(document.createTextNode(data[$(this).attr('name')]));
+
 					});//end of each
+					$.ajax({
+						type:'post',
+						dataType:'json',
+						url:'/comment/list',
+						data: index_board,
+						
+						success:function(data){
+							console.log(data);
+							if(data.result != false){
+								alert('success');
+							}
+							else{
+								alert('fail');
+							}
+						}	
+					});
 				}
 				else {
 					alert('fail');
@@ -46,6 +58,23 @@ $(document).unbind().bind('pagecreate',function(){
 			error : function(data, status, err) {
 				}//end of error
 		});//end of ajax
+		
+		$('#comment_button').live('click',function(event){
+			console.log($('#comment_text').val());
+			if($('#comment_text').val()){
+				index_board['content']=$('#comment_text').val();
+				$.ajax({
+					type:'post',
+					dataType: 'json',
+					url:'/comment/write',
+					data: index_board,
+					success:function(data){
+						console.log(data.content);
+						location.reload();
+					}	
+				});
+			}
+		});
 		
 });//end of bind
 
@@ -57,4 +86,15 @@ function SetZeros(num, digits) {
 		Zeros += '0';
 	}
 	return Zeros + num;
+}
+
+function add_item(){
+	// pre_set 에 있는 내용을 읽어와서 처리..
+	var div = document.createElement('div');
+	div.innerHTML = $('#pre_set').innerHTML;
+	$('#field').append(div);
+}
+function remove_item(obj){
+	// obj.parentNode 를 이용하여 삭제
+	document.getElementById('field').removeChild(obj.parentNode);
 }

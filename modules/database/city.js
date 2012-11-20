@@ -40,7 +40,7 @@ module.exports = {
 	
 
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				console.log('result : ', result);
 				if(result != null) {

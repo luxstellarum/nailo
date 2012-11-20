@@ -1,13 +1,12 @@
 $(document).ready(function(){
 	displayRandom();
+
 	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
 		
 
 		var nextPage = $(this).get(0).hash;
 		var area_name = $(this).attr("id");
-		alert(nextPage);
-		alert(area_name);
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
@@ -28,6 +27,7 @@ $(document).ready(function(){
 			
 			setHead(area_head,area_name);
 		}
+		
 		
 		var effect = $(this).attr("data-effect");
 				
@@ -58,9 +58,9 @@ $(document).ready(function(){
 	$('#plan_bar').css('width', window_width);
 	$('.plan_bar_wrapper').css('width', window_width_3);
 	//$('.plan_bar_wrapper').children().css('height', '60px');
-	$('.plan_bar_1st').css('width', window_width);
-	$('.plan_bar_2nd').css('width', window_width);
-	$('.plan_bar_3rd').css('width', window_width);
+	$('.plan_bar_1st').css('width', window_width*0.9);
+	$('.plan_bar_2nd').css('width', window_width*0.9);
+	$('.plan_bar_3rd').css('width', window_width*0.9);
 
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
@@ -90,9 +90,9 @@ $(document).ready(function(){
 		helper: "clone"
 	});
 	$(".plan_bar_1st").droppable({
-		accept: ".plan_3",
+		items: "div",
 		drop: function(event, ui){
-			$(this).addClass("plan_2");
+			$(this).append("ul").addClass(".plan_city");
 			dragcity(ui.draggable);
 		}
 	});
@@ -101,7 +101,7 @@ $(document).ready(function(){
 		$item.fadeOut(function() {
 			var city_name = $(".city2").attr("city_name");
 			var plan_city_cnt = $(".plan_city").last().attr("plan_city_cnt");
-			
+
 			$item.appendTo( $list ).addClass(city_name).fadeIn(function() {
 				$item
 					.animate({ width: "48px" });
@@ -139,8 +139,8 @@ $(document).ready(function(){
 
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
 	$('.btn_set').bind('click',function() {
-		$('.plan_bar_1st').append('<div>');
-		$($('.plan_bar_1st').find('div')).addClass('plan_city');
+		$('.plan_bar_1st').append('<li>');
+		$($('.plan_bar_1st').find('li')).addClass('plan_city');
 
 		var window_width = $(window).width();	//창의 너비를 구한다
 		var plan_start = window_width/12*3;
@@ -158,10 +158,13 @@ $(document).ready(function(){
 			containment: "parent",	// 움직이는 영역을 부모영역으로 한정시킨다
 			grid: [window_width/24, 20]	//x, y 축으로 지정된 길이만큼씩 움직인다
 		});
-		$(".plan[0]").resizable({
+		$(".plan_city").resizable({
 			handles: 'e, w',
 			grid: [window_width/24, 20]
 		});
 
 	});
+
 });
+
+
