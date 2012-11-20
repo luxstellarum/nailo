@@ -28,7 +28,7 @@ module.exports = {
 				doc.name = comment.name;
 				doc.content = comment.content;
 				doc.index_board = comment.index_board;
-				doc.date = comment.date;
+				doc.date = new Date();
 				doc.index = result;
 				
 				doc.save(function(err){
