@@ -101,23 +101,20 @@ $(document).ready(function(){
 	
 	$('#btn123').click(function(){
 		
-		$.ajaxPrefilter('xml',function(options, orig, jqXHR){
-			return'jsonp';
-		});
-
-		$.ajax({
-//			 headers: {"Access-Control-Allow-Origin":"*",
-//						 "Access-Control-Allow-Methods":"GET, POST, OPTIONS",
-//						 "Access-Control-Allow-Headers":"X-Requested-With"},
-			url: "http://openapi.map.naver.com/api/geocode.php?key=d6ebc311beeac40f91914fb491c7cb95&encoding=utf-8&coord=LatLng&query=경기도성남시정자1동25-1"
-			, crossDomain:true
-			, contentType: "text/plain"
-			, dataType :"xml"
-			, type:'GET'
-			, success: function(xml){
-				console.log(xml);
+ 		$.ajax({
+			url: "/map/get_point"
+			, dataType :"json"
+			, data : { 'location' : "경기도성남시정자1동25-1"}
+			, type:'POST'
+			, success: function(data){
+				console.log('x : ', data.x);
+				console.log('y : ', data.y);
+			}
+			, error : function (jqXHR, textStatus, errorThrown) {
+				alert( textStatus + ", " + errorThrown );
 			}
 		}); // end of ajax		
-	}); // end of test click	
+ 	}); // end of test click
+
 });		// end of ready
 	

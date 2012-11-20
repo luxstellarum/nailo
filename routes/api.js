@@ -6,7 +6,7 @@ var sights = require('../modules/service/sights.js');
 var station = require('../modules/service/station.js');
 var train = require('../modules/service/train.js');
 var plan = require('../modules/service/plan.js');
-
+var map = require('../modules/service/map.js');
 
 module.exports = function(app){
 
@@ -208,7 +208,7 @@ module.exports = function(app){
 		
 	// plan 등록
 	app.post('/plan/write', function(req, res) {
-		plan.write(req, res기);
+		plan.write(req, res);
 	});
 	// plan 삭제
 	app.post('/plan/remove', function(req, res) {
@@ -225,5 +225,12 @@ module.exports = function(app){
 	// plan정보 보기
 	app.post('/plan/view', function(req, res) {
 		plan.view(req, res);
+	});
+
+	/*******************************
+		/service/map.js
+		******************************/			
+	app.post('/map/get_point', function(req, res) {
+		map.get_point(req, res);
 	});
 }
