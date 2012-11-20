@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
+var event_emitter = require('events').EventEmitter;
 
 var train_schema = new schema({
 	id : String, //기차번호

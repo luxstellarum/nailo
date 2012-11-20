@@ -1,8 +1,11 @@
 var jsdom = require('jsdom');
+var fs = require('fs');
+var jquery_lib = fs.readFileSync("public/lib/jquery/jquery-1.8.3.js").toString();
 var Iconv = require('iconv').Iconv;
 var iconv = new Iconv('EUC-KR', 'UTF-8//TRANSLIT//IGNORE');
 var train_db = require('../database/train.js');
 var strlib = require('../lib/string.js');
+var event_emitter = require('events').EventEmitter;
 
 module.exports = {
 	write : function(data) {
@@ -86,19 +89,21 @@ module.exports = {
 	,get_html : function(req, res) {
 		var self = this;
 		var uri_form = "http://www.korail.com/servlets/pr.pr11100.sw_pr11131_i1Svt?txtRunDt=20121107&txtTrnNo=";
-		var train_number = "00301";
-		var uri = uri_form + train_number;
-		var train_info = {};
+		var train_number = 301;
+		var evt = new event_emitter();
+		var i = 0;
 		
-		for(var i=0; i<10; i++) {
+		evt.on('get_train_info', function(evt, uri, count){
+			console.log(uri);
+			var train_info = {};
 			jsdom.env({
 				html : uri,
-				scripts : ['http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'],
+				scripts : ['https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'],
 				encoding : 'binary',
 				done : function(err, window){
-					var $ = window.jQuery;
+					var $ = window.$;
 					/***********차량 번호 따내기************/
-					train_info['id'] = parseInt(train_number);
+					train_info['id'] = train_number + count;
 					/***********************************/
 
 					/***********차종 따내기****************/
@@ -125,15 +130,21 @@ module.exports = {
 							self.write(train_info);
 						})
 					});
-					/****************************************************/				
-				}//end of function
+					/****************************************************/
+					if( (train_number + count) < 1000) {
+						evt.emit('get_train_info', evt, uri_form + "00" + (train_number+ (++count)), count);
+					}
+					else if ( train_number + count < 10000 ){
+						evt.emit('get_train_info', evt, uri_form + "0" + (train_number+ (++count)), count);
+					}
+					else {
+						res.json({result : true});
+					}				
+				}//end of done function
 			});//end of jsdon.env
-			train_number = parseInt('train_number') + 1;
-			train_number = "00" + train_number;
-			uri = uri_form + train_number;
+		});//end of evt.on
 
-		}//end of for
-		//res.json({result : true});
+		evt.emit('get_train_info', evt, (uri_form + "00" + train_number) ,i);			
 	}//end of get_html
 
 	,make_train_contents : function(target, $, callback) {
