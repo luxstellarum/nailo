@@ -6,8 +6,6 @@ $(document).ready(function(){
 
 		var nextPage = $(this).get(0).hash;
 		var area_name = $(this).attr("id");
-		alert(nextPage);
-		alert(area_name);
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
@@ -21,7 +19,7 @@ $(document).ready(function(){
 			setHead(area_head,area_name);
 		}
 		
-		if(nextPage=='	#plan_2')
+		if(nextPage=='#plan_2')
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
