@@ -9,25 +9,6 @@ $(document).ready(function() {
 		});
 	});*/
 
-	// plan2.jade: 도시를 클릭하면 날짜선택창이 나온다
-	$('.city2').bind('click', function(e) {
-		//var event = e.originalEvent;
-		//var a = '<div class="datepicker"></div>';
-		$(this).css('color', 'Red');
-		$(this).append('<div>');
-		$($(this).find('div')).addClass('datepicker');
-		$('.datepicker').css('position', 'absolute');
-		$('.datepicker').css('width', '100px');
-		$('.datepicker').css('height', '100px');
-		$('.datepicker').css('left', '-100px');
-		$('.datepicker').css('top', '-100px');
-		$('.datepicker').css('z-index', '100');
-		$('.datepicker').css('background-color', 'Red');
-
-		$('.datepicker').append('input');
-		//e.preventDefault();
-	});
-
 	// datepicker
 
 
