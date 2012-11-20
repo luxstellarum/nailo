@@ -51,7 +51,7 @@ module.exports = {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
-					callback(parseInt(result.index,10) + 1);
+					callback(result.index+ 1);
 				}
 				else {
 					callback(1); 
