@@ -8,6 +8,7 @@ html, body{
 	padding: 0;
 	border: 0;
 	outline: 0;
+	height: 100%;
 	font-size: 100%;
 	vertical-align: baseline;
 }
@@ -101,4 +102,38 @@ p > img{
 .popup_beongae > li {
 	font-size: 11pt;
 	margin: 3px 3px;
+}
+
+#plan_status{
+	height: 30px;
+}
+.plan_date {
+	height: 20px;
+}
+.time_indicator {
+	height: 10px;
+}
+.time_indicator {
+	font-size: 8px;
+}
+.time_indicator > span {
+	position: relative;
+}
+
+/* 개별 플랜을 드래그하면 크기를 조절하는 컨트롤영역 */
+.ui-resizable-e {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 8px;
+	height: 50px;
+	display: inline-block;
+}
+.ui-resizable-w {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 8px;
+	height: 50px;
+	display: inline-block;
 }

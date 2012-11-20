@@ -1,27 +1,33 @@
 !!! 5
 html
 	head
-		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+		meta(http-equiv="Content-Type", content="text/html; charset="UTF-8")
 		script(type="text/javascript", src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=d6ebc311beeac40f91914fb491c7cb95")
+		script(src="lib/jquery/jquery-1.8.3.js")
 	body
 		div#map(style="border:1px;")
 		script(type="text/javascript", src="/javascripts/map/map.js")	
 		
-		form(method="post", action="/map/map_result")
 		table
 			tr
 				td
-					| 출발지
+					| 위도
 				td 
-					input(type="text", name="start_dest", value="출발지를 입력하세요")
+					input(type="text", name="lat", id="lat", value="37.5675451")
 			tr
 				td
-					| 도착지
-				td
-					input(type="text", name="fini_dest", value="도착지를 입력하세요")
+					| 경도
+				td 
+					input(type="text", name="lon", id="lon", value="126.9773356")
 			tr
 				td
-					| 길찾기
+					| 검색
 				td
-					input(type='submit', value='Submit')
+					input(type='button', name='finish_btn', id='finish_btn', value='Finish')
+					
+			tr
+				td
+					| test
+				td
+					input(type='button', name='btn123', id='btn123', value='ad')
 		

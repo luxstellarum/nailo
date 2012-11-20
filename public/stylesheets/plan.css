@@ -43,6 +43,11 @@ p.city{
 	left:60%; 
 	z-index:2;
 }
+.city2{
+	position:absolute;
+	width:50px; height: 50px;
+	z-index:1000;
+}
 .map_province{
 	position:absolute; 
 	width:80%; 
@@ -52,17 +57,24 @@ p.city{
 	z-index:0;
 }
 
+#datepicker{
+	position: absolute;
+	z-index: 100;
+	display: none;
+}
+
 #plan_bar{
 	height:80px; 
 	background:gray; 
-	border:thin solid gray; 
-	margin-top:5px; 
+	border-top: thick black;
 	overflow:auto;
 }
 .plan_bar_wrapper{
-	height:60px;
+	height:57px;
 }
 div.plan_bar_wrapper span{
+	position: relative;
 	height:60px; float:left;
 	display: inline;
+	z-index: 20;
 }
