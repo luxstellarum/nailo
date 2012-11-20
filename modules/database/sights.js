@@ -41,7 +41,7 @@ module.exports = {
 	}//end of add_sights
 	
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-date').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
 					callback(result.index + 1);

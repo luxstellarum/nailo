@@ -63,9 +63,10 @@ module.exports = {
 		
 	}//end of add_board
 	
+
 	//새 글이 가질 index를 반환해준다.
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				console.log('result : ', result);
 				if(result != null) {
