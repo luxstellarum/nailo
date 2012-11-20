@@ -1,11 +1,48 @@
 include ../top.jade
 				include ../datepicker.html
+				div.city2(city_name="choongjoo", style='top:15%; left:60%; ') 충주
+				div.city2(city_name="choongjoo", style='top:13%; left:68%; ') 제천
+				div.city2(city_name="choongjoo", style='top:18%; left:75%; ') 단양
+				div.city2(city_name="choongjoo", style='top:33%; left:36%; ') 공주
+				div.city2(city_name="choongjoo", style='top:23%; left:20%; ') 태안
+				div.city2(city_name="choongjoo", style='top:27%; left:23%; ') 서산
+				div.city2(city_name="choongjoo", style='top:40%; left:25%; ') 부여
+				div(class="css3droppanel",align="center")
+					input(type="checkbox", id="paneltoggle")
+					label(for="paneltoggle",id="searchdrawer")
+					div(id="searchbrowser")
+							include ../search.jade
+
 				div.container
-					p.province_name(style="position:relative;") dkdkdk
+					p.province_name(style="position:relative;") 2
+					div(id="plan_2",class="slide")
+					div(class='header')
+						span(style='height:20px; padding-left:20px; font-size:45pt; z-index:4') 2
+						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
+					p
+					div.wrapper(id="kangwondo_map",style="position:relative; margin-top:-30px; left:30px; width:250px; height:0px; padding-bottom:100%; overflow:auto;display:none")
+						a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:75%; z-index:2;') 강릉
+						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						
+					div.wrapper(id="kyunggido_map",style="position:relative; margin-top:-30px; left:60px; width:200px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyunggido.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
+					
+					div.wrapper(id="chungcheongdo_map",style="position:relative; top:30px; left:20px; width:270px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_chungcheongdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
+					
+					div.wrapper(id="jeollado_map",style="position:relative; margin-top:-30px; left:60px; width:200px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_jeollado.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
+					
+					div.wrapper(id="kyungsangdo_map",style="position:relative; margin-top:-70px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyungsangdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
+					
 					div.wrapper(style='position:relative; top:0px; left:0px; width:100%; height:0px; padding-bottom:60%; overflow:hidden;')
-						img.map_province(src="/images/map_choongcheong.png", style='position:absolute; width:100%; height: 100%; top:0px; left:0px; z-index:0;')
-						div.city2(city_name="choongjoo", style='top:40%; left:60%; ') 충주
+						img.map_province(src="/images/map_choongcheong.png")
 						div.datepicker2(style='position:absolute; width:280px; height:400px; background-color:red; z-index:50; display:none;')
 							input.submit(type='button', value="create")
 							
-			include ../bottom.jade
+				include ../bottom.jade
