@@ -28,7 +28,7 @@ module.exports = {
 				doc.name = comment.name;
 				doc.content = comment.content;
 				doc.index_board = comment.index_board;
-				doc.date = comment.date;
+				doc.date = new Date();
 				doc.index = result;
 				
 				doc.save(function(err){
@@ -48,9 +48,10 @@ module.exports = {
 	
 	// 새로운 댓글이 가지 index를 부여한다.
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('index -1').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
+					console.log('!!');
 					callback(result.index + 1);
 				}
 				else {
