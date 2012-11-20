@@ -1,44 +1,38 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'nodejs', '/usr/bin/npm', 'link', 'iconv' ]
-2 info using npm@1.1.62
-3 info using node@v0.8.11
-4 info /home/blacky512/workspace/nailo/node_modules/iconv unbuild
-5 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
-6 info preuninstall iconv@1.2.4
-7 info uninstall iconv@1.2.4
-8 verbose true,/home/blacky512/workspace/nailo/node_modules,/home/blacky512/workspace/nailo/node_modules unbuild iconv@1.2.4
-9 info postuninstall iconv@1.2.4
-10 verbose link symlinking /usr/lib/node_modules/iconv to /home/blacky512/workspace/nailo/node_modules/iconv
-11 info build /home/blacky512/workspace/nailo/node_modules/iconv
-12 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
-13 info preinstall iconv@1.2.4
-14 verbose linkStuff [ false,
-14 verbose linkStuff   false,
-14 verbose linkStuff   false,
-14 verbose linkStuff   '/home/blacky512/workspace/nailo/node_modules' ]
-15 info linkStuff iconv@1.2.4
-16 verbose linkBins iconv@1.2.4
-17 verbose linkMans iconv@1.2.4
-18 verbose rebuildBundles iconv@1.2.4
-19 info install iconv@1.2.4
-20 verbose unsafe-perm in lifecycle true
-21 silly exec sh "-c" "node-gyp rebuild"
-22 silly sh,-c,node-gyp rebuild,/home/blacky512/workspace/nailo/node_modules/iconv spawning
-23 info iconv@1.2.4 Failed to exec install script
-24 error iconv@1.2.4 install: `node-gyp rebuild`
-24 error `sh "-c" "node-gyp rebuild"` failed with 1
-25 error Failed at the iconv@1.2.4 install script.
-25 error This is most likely a problem with the iconv package,
-25 error not with npm itself.
-25 error Tell the author that this fails on your system:
-25 error     node-gyp rebuild
-25 error You can get their info via:
-25 error     npm owner ls iconv
-25 error There is likely additional logging output above.
-26 error System Linux 3.2.0-31-generic
-27 error command "nodejs" "/usr/bin/npm" "link" "iconv"
-28 error cwd /home/blacky512/workspace/nailo
-29 error node -v v0.8.11
-30 error npm -v 1.1.62
-31 error code ELIFECYCLE
-32 verbose exit [ 1, true ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.61
+3 info using node@v0.8.9
+4 info /home/righ120/nailo/node_modules/iconv unbuild
+5 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
+6 verbose link symlinking /usr/local/lib/node_modules/iconv to /home/righ120/nailo/node_modules/iconv
+7 info build /home/righ120/nailo/node_modules/iconv
+8 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
+9 info preinstall iconv@1.2.4
+10 verbose linkStuff [ false, false, false, '/home/righ120/nailo/node_modules' ]
+11 info linkStuff iconv@1.2.4
+12 verbose linkBins iconv@1.2.4
+13 verbose linkMans iconv@1.2.4
+14 verbose rebuildBundles iconv@1.2.4
+15 info install iconv@1.2.4
+16 verbose unsafe-perm in lifecycle false
+17 verbose set uid from=0 to=1000
+18 silly exec sh "-c" "node-gyp rebuild"
+19 silly sh,-c,node-gyp rebuild,/home/righ120/nailo/node_modules/iconv spawning
+20 info iconv@1.2.4 Failed to exec install script
+21 error iconv@1.2.4 install: `node-gyp rebuild`
+21 error `sh "-c" "node-gyp rebuild"` failed with 1
+22 error Failed at the iconv@1.2.4 install script.
+22 error This is most likely a problem with the iconv package,
+22 error not with npm itself.
+22 error Tell the author that this fails on your system:
+22 error     node-gyp rebuild
+22 error You can get their info via:
+22 error     npm owner ls iconv
+22 error There is likely additional logging output above.
+23 error System Linux 3.0.0-26-generic
+24 error command "/usr/local/bin/node" "/usr/local/bin/npm" "link" "iconv"
+25 error cwd /home/righ120/nailo
+26 error node -v v0.8.9
+27 error npm -v 1.1.61
+28 error code ELIFECYCLE
+29 verbose exit [ 1, true ]

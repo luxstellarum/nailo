@@ -30,12 +30,13 @@ include ../top.jade
 				tr
 					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
 
-			div(id="",style="border-bottom:thin solid gray; margin:15px 20px")
-				span(style="padding:0 5px;") yong8
-				span >
-				span 전 남잔데 괜찮나요?
+			div(id="pre_set",style="display:none;")
+				span(id="id",style="padding:0 5px;") 
+				input(type="button",value="삭제",onclick="remove_item(this)",style="font-size:7pt; float:right; height:20px; margin-right:5px")
 			
-		span(id="",style="position:absolute; bottom:140px; width:100%;",align="center")
+			div(id="field")
+		
+		span(style="position:absolute; bottom:140px; width:100%;",align="center")
 			input(id="comment_text",type="text",style="padding:0px; width:60%")
 			input(id="comment_button",type="submit",value="댓글 작성",style="padding:5px; font-size:10pt")
 include ../bottom.jade
