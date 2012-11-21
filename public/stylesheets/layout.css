@@ -109,6 +109,10 @@ p > img{
 .plan_date {
 	height: 20px;
 }
+.plan_date div{	/* 날짜영역의 개별날짜영역 */
+	height: 20px;
+	display: inline-block;
+}
 .time_indicator {
 	height: 10px;
 }
