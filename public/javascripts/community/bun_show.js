@@ -97,6 +97,7 @@ $(document).unbind().bind('pagecreate',function(){
 					location.href="/community/community";
 				}	
 			});
+			
 		});
 				
 });//end of bind
@@ -115,7 +116,7 @@ function remove_item(obj){
 	var remove_comment={};
 	
 	remove_comment['index']=obj.parentNode.getAttribute('name');
-	console.log(remove_comment);
+
 	$.ajax({
 		type:'post',
 		dataType: 'json',

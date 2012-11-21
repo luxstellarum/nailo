@@ -47,6 +47,7 @@ p.city{
 	position:absolute;
 	width:50px; height: 50px;
 	z-index:50;
+	display: none;
 }
 .map_province{
 	position:absolute; 
@@ -56,6 +57,25 @@ p.city{
 	left:0px; 
 	margin-left: 10%;
 	z-index:0;
+}
+
+#periodpicker{
+	position: absolute;
+	background-color: #DAD0FF;
+	border-radius: 5px;
+	z-index: 100;
+	display: none;
+
+}
+#periodpicker ul{
+	width: 230px;
+	height: 150px;
+	list-style: none;
+	vertical-align: middle;
+}
+.period{
+	width: 40px;
+	height: 20px;
 }
 
 #datepicker{
@@ -76,6 +96,7 @@ p.city{
 div.plan_bar_wrapper ul{
 	position: relative;
 	height:60px;
+	background-color: red;
 	float: left;
 	z-index: 20;
 }

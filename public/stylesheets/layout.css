@@ -109,6 +109,10 @@ p > img{
 .plan_date {
 	height: 20px;
 }
+.plan_date div{	/* 날짜영역의 개별날짜영역 */
+	height: 20px;
+	display: inline-block;
+}
 .time_indicator {
 	height: 10px;
 }
@@ -117,6 +121,10 @@ p > img{
 }
 .time_indicator > span {
 	position: relative;
+}
+.plan_city{
+	list-style: none;
+	display: inline-block;
 }
 
 /* 개별 플랜을 드래그하면 크기를 조절하는 컨트롤영역 */
