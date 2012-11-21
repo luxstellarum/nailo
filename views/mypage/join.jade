@@ -8,34 +8,32 @@ include ../top.jade
 		div(class="header")
 			h2(align='right',style='padding-right:5px') MyPage
 			hr
-			br
-			
-		h5 If u want to join us.... :)
+			h5(align='center') If u want to join us.... :)
 	
 		div(class="section")
-			table(align='center',style='margin-left:8px')
+			table(style='margin-left:20px;')
 				tr		
-					td(valign='top',width='100px') 아이디
+					td(valign='top',width='120px') 아이디
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.input_form(type='text', name='id', style='width:100px;')
+							input.input_form(type='text', name='id', style='width:130px;')
 				tr		
-					td(valign='top',width='100px') 비밀번호
+					td(valign='top',width='120px') 비밀번호
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.input_form(type='password', name='pw', style='width:100px;')
+							input.input_form(type='password', name='pw', style='width:130px;')
 				tr		
-					td(valign='top',width='100px') 비밀번호 확인
+					td(valign='top',width='120px') 비밀번호 확인
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.input_form(type='password', name='pw2', style='width:100px;')
+							input.input_form(type='password', name='pw2', style='width:130px;')
 				tr		
-					td(valign='top',width='100px') 닉네임
+					td(valign='top',width='120px') 닉네임
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.input_form(type='text', name='nick_name', style='width:100px;')							
+							input.input_form(type='text', name='nick_name', style='width:130px;')							
 				tr		
-					td(valign='top',width='100px') 성별
+					td(valign='top',width='120px') 성별
 					td(width='200px')
 						span(style='margin-right:20px')
 							input.input_form(name='sex', type='radio', value='male', style='width:10px;')
@@ -44,7 +42,8 @@ include ../top.jade
 							| 여자						
 				tr
 					td
-						input#submit_btn.btn2(type='button', value='Submit')
+					td
+						input#submit_btn.btn2(type='button', value='Submit',style="width:80px; margin-left:50px")
 			
 				
 include ../bottom.jade
