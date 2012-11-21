@@ -11,7 +11,10 @@ html, body{
 	height: 100%;
 	font-size: 100%;
 	vertical-align: baseline;
+	font-family: 'HeummStyleWeb';
+	
 }
+
 .container {
 	top: 0px;
 	width:100%;
@@ -19,7 +22,8 @@ html, body{
 	bottom:100px;
 	overflow-y: auto;
 	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 1000px
+	-webkit-perspective: 1000px;
+	overflow: scroll;
 }
 .header {
 	padding: 5px;

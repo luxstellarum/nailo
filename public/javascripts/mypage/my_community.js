@@ -13,8 +13,16 @@ $(document).unbind().bind('pagecreate',function(){
 				$.ajax({
 					type: 'post',
 					dataType: 'json',
-					url:'/board/list',
-					data:output_data
+					url:'/board/list_specified',
+					data:output_data,
+					success:function(data){
+						if(data.result != false){
+								alert('success');
+							}
+							else{
+								alert('fail');
+							}
+					}
 				});				
 			}
 			else
