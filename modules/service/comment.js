@@ -4,7 +4,7 @@ module.exports = {
 	
 	// 댓글 등록
 	write: function(req, res){
-		comment_db.add(req.body, function(result){
+		comment_db.add(req.body, req.session, function(result){
 			if(result == true){
 				console.log('service/comment.js, write_success');
 				res.json({result:true});

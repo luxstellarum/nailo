@@ -18,14 +18,14 @@ module.exports = {
 
 	// comment 를 생성하여 DB 에 넣는다.
 	// 성공하면 true, 실패하면, false 반환
-	add: function(comment, callback){
+	add: function(comment, user, callback){
 		var self = this;
 		var doc = new documents();
 		
 		// 값 넣기
 		self.get_index(function(result){
 			if(result != false) {
-				doc.name = comment.name;
+				doc.name = comment.user.user_id || 'noname';
 				doc.content = comment.content;
 				doc.index_board = comment.index_board;
 				doc.date = new Date();
