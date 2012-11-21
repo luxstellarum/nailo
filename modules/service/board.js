@@ -20,7 +20,8 @@ module.exports = {
 	,list : function(req, res) {
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
-		board_db.get_list(current_page, paging_size, function(result){
+		var condition = {};
+		board_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');
 				res.json(result);
@@ -31,6 +32,23 @@ module.exports = {
 			}
 		});//end of get_list
 	}//end of list
+
+	,list_specified : function(req, res) {
+		var current_page = req.body.current_page || 1;
+		var paging_size = 10;
+		var condition = {};
+		condition['user_id'] = req.body.user_id;
+		board_db.get_list(condition, current_page, paging_size, function(result){
+			if(result != false) {
+				console.log('service/board.js, list success');
+				res.json(result);
+			}
+			else {
+				console.log('service/board.js, list fail');
+				res.json({result:false});
+			}
+		});//end of get_list
+	}
 	
 	//게시물 수정
 	,modify : function(req, res) {

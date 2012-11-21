@@ -35,6 +35,10 @@ module.exports = function(app){
 	app.post('/board/remove', function(req,res) {
 		board.remove(req,res);
 	});
+
+	app.post('/board/list_specified', function(req, res) {
+		board.list_specified(req, res);
+	});
 	
 	
 
