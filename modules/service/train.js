@@ -89,7 +89,7 @@ module.exports = {
 	,get_html : function(req, res) {
 		var self = this;
 		var uri_form = "http://www.korail.com/servlets/pr.pr11100.sw_pr11131_i1Svt?txtRunDt=20121107&txtTrnNo=";
-		var train_number = 3360; //1003번 다시 받기
+		var train_number = 3317;
 		var evt = new event_emitter();
 		var i = 0;
 		
@@ -131,10 +131,10 @@ module.exports = {
 						})
 					});
 					/****************************************************/
-					if( (train_number + count) < 1000) {
+					if( (train_number + count) < 999) {
 						evt.emit('get_train_info', evt, uri_form + "00" + (train_number+ (++count)), count);
 					}
-					else if ( train_number + count < 10000 ){
+					else if ( train_number + count < 9999 ){
 						evt.emit('get_train_info', evt, uri_form + "0" + (train_number+ (++count)), count);
 					}
 					else {
@@ -165,8 +165,8 @@ module.exports = {
 				buf = new Buffer(tmp.length);
 				buf.write(tmp, 0, tmp.length, 'binary');
 				result['arrv_station'] = iconv.convert(buf).toString();
-				result['arrv_time'] = strlib.trim($(target).find('td:first').next().next().text());
-				result['dept_time'] = strlib.trim($(target).find('td:first').parent().next().find('td:first').next().text());
+				result['dept_time'] = strlib.trim($(target).find('td:first').next().next().text());
+				result['arrv_time'] = strlib.trim($(target).find('td:first').parent().next().find('td:first').next().text());
 			}
 			else {
 				result['arrv_station'] = "";
@@ -180,5 +180,49 @@ module.exports = {
 
 		callback(result);
 	}
-	
+
+	,get_time_table : function(req, res) {
+		var dept_station = req.body.dept_station;
+		var arrv_station = req.body.arrv_station;
+		var require_dept_time = req.body.dept_time || 0; //원하는 출발 시각 선택, 그럼 그 이후로 나옴
+		var condition_1 = {};
+		var time_table = [];
+		var evt = new event_emitter();
+
+		condition_1['dept_station'] = dept_station;
+		console.log('get_time_table_ start', dept_station, arrv_station);
+
+		train_db.get(condition_1, function(result){
+			evt.on('get_time_table', function(evt, i, j){
+				if(i < result.length) {
+						//00시가 넘어가는건 다음날 검색으로 넘깁시다. 하
+						if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+						var condition = {};
+						condition['id'] = result[i].id;
+						condition['arrv_station'] = arrv_station;
+						train_db.get( condition, function(result2) {
+							//그 기차 번호의 노선을 다 따와서 비교
+							if( result2 != false) {
+								console.log('1. result[i] : ', i, result[i]);
+								console.log('2. result[0] : ', result2[0]);
+								time_table[j] = {};
+								time_table[j]['dept_time'] = result[i].dept_time;
+								time_table[j]['arrv_time'] = result2[0].arrv_time;
+								
+								evt.emit('get_time_table', evt, ++i, ++j);
+							}//end of if
+							else {
+								evt.emit('get_time_table', evt, ++i, j);
+							}
+						});//end of get
+					}//end of if
+				}//end of if
+				else {
+					console.log('table :', time_table);
+					res.json(time_table);
+				}
+			});//end of evt.on
+			evt.emit('get_time_table', evt, 0, 0);
+		});//end of get
+	}//end of get_time_table	
 }
