@@ -6,8 +6,8 @@ $(document).unbind().bind('pagecreate',function(){
 		var tmp = location.search.split("?")[1];
 		var index = tmp.split("val=")[1];
 	}
-	var output_data={};
-	output_data['index']=index;
+	var board_data={};
+	board_data['index']=index;
 	
 	var comment_data={};
 	comment_data['index_board']=index;
@@ -21,7 +21,7 @@ $(document).unbind().bind('pagecreate',function(){
 			//3. 요청할 url
 			url : '/board/view',
 			//4. 보낼 data를 위에 선언한 type에 맞춰서 넣어줌
-			data : output_data,
+			data : board_data,
 			//request
 			
 			//response
@@ -42,15 +42,14 @@ $(document).unbind().bind('pagecreate',function(){
 						data: comment_data,
 						
 						success:function(data){
-							console.log(data);
+
 							if(data.result != false){
 								$.each(data,function(i,item){
-									console.log(item);
 									var div = document.createElement('div');
 									div.innerHTML = document.getElementById('pre_set').innerHTML;
 									div.style.borderBottom = "thin solid gray";
 									div.style.margin = "15px 20px";
-									
+									div.setAttribute("name",item.index);
 									div.firstChild.appendChild(document.createTextNode(item.name+" > "+item.content));
 									
 									$('#field').append(div);
@@ -72,7 +71,7 @@ $(document).unbind().bind('pagecreate',function(){
 		});//end of ajax
 		
 		$('#comment_button').live('click',function(event){
-			console.log($('#comment_text').val());
+			
 			if($('#comment_text').val()){
 				comment_data['content']=$('#comment_text').val();
 				$.ajax({
@@ -81,13 +80,25 @@ $(document).unbind().bind('pagecreate',function(){
 					url:'/comment/write',
 					data: comment_data,
 					success:function(data){
-						console.log(data.content);
 						location.reload();
 					}	
 				});
 			}
 		});
 		
+		$('#remove_board').live('click',function(event){
+			
+			$.ajax({
+				type:'post',
+				dataType: 'json',
+				url:'/board/remove',
+				data: board_data,
+				success:function(data){
+					location.href="/community/community";
+				}	
+			});
+		});
+				
 });//end of bind
 
 function SetZeros(num, digits) {
@@ -101,6 +112,18 @@ function SetZeros(num, digits) {
 }
 
 function remove_item(obj){
-	// obj.parentNode 를 이용하여 삭제
-	document.getElementById('field').removeChild(obj.parentNode);
-}
+	var remove_comment={};
+	
+	remove_comment['index']=obj.parentNode.getAttribute('name');
+	console.log(remove_comment);
+	$.ajax({
+		type:'post',
+		dataType: 'json',
+		url:'/comment/remove',
+		data: remove_comment,
+		success:function(data){
+			console.log(data.content);
+			location.reload();
+		}	
+	});
+};
