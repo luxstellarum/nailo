@@ -5,11 +5,12 @@ $(document).unbind().bind('pagecreate',function(){
 		
 		var tmp = location.search.split("?")[1];
 		var index = tmp.split("val=")[1];
-		console.log(index);
 	}
+	var board_data={};
+	board_data['index']=index;
 	
-	var output_data={};
-	output_data['index'] = index;
+	var comment_data={};
+	comment_data['index_board']=index;
 	
 
 	$.ajax({ 
@@ -20,23 +21,45 @@ $(document).unbind().bind('pagecreate',function(){
 			//3. 요청할 url
 			url : '/board/view',
 			//4. 보낼 data를 위에 선언한 type에 맞춰서 넣어줌
-			data : output_data,
+			data : board_data,
 			//request
 			
 			//response
 			//5. 성공했을때 처리할 함수
 			success : function(data) {
-				console.log(data);
 				if(data.result != false ) {
-					alert('success');
 					$('.output_form').each(function(){
-						console.log($(this).attr('name'));
-						if($(this).attr('name')=='end_hour'||$(this).attr('name')=='end_minute'){
+							if($(this).attr('name')=='end_hour'||$(this).attr('name')=='end_minute'){
 							data[$(this).attr('name')]=SetZeros(data[$(this).attr('name')],2);
-							console.log(data[$(this).attr('name')]);
 						}
 						$(this).append(document.createTextNode(data[$(this).attr('name')]));
+
 					});//end of each
+					$.ajax({
+						type:'post',
+						dataType:'json',
+						url:'/comment/list',
+						data: comment_data,
+						
+						success:function(data){
+
+							if(data.result != false){
+								$.each(data,function(i,item){
+									var div = document.createElement('div');
+									div.innerHTML = document.getElementById('pre_set').innerHTML;
+									div.style.borderBottom = "thin solid gray";
+									div.style.margin = "15px 20px";
+									div.setAttribute("name",item.index);
+									div.firstChild.appendChild(document.createTextNode(item.name+" > "+item.content));
+									
+									$('#field').append(div);
+								});
+							}
+							else{
+								alert('fail');
+							}
+						}	
+					});
 				}
 				else {
 					alert('fail');
@@ -47,6 +70,35 @@ $(document).unbind().bind('pagecreate',function(){
 				}//end of error
 		});//end of ajax
 		
+		$('#comment_button').live('click',function(event){
+			
+			if($('#comment_text').val()){
+				comment_data['content']=$('#comment_text').val();
+				$.ajax({
+					type:'post',
+					dataType: 'json',
+					url:'/comment/write',
+					data: comment_data,
+					success:function(data){
+						location.reload();
+					}	
+				});
+			}
+		});
+		
+		$('#remove_board').live('click',function(event){
+			
+			$.ajax({
+				type:'post',
+				dataType: 'json',
+				url:'/board/remove',
+				data: board_data,
+				success:function(data){
+					location.href="/community/community";
+				}	
+			});
+		});
+				
 });//end of bind
 
 function SetZeros(num, digits) {
@@ -58,3 +110,20 @@ function SetZeros(num, digits) {
 	}
 	return Zeros + num;
 }
+
+function remove_item(obj){
+	var remove_comment={};
+	
+	remove_comment['index']=obj.parentNode.getAttribute('name');
+	console.log(remove_comment);
+	$.ajax({
+		type:'post',
+		dataType: 'json',
+		url:'/comment/remove',
+		data: remove_comment,
+		success:function(data){
+			console.log(data.content);
+			location.reload();
+		}	
+	});
+};

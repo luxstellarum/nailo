@@ -45,7 +45,7 @@ module.exports = {
 	}//end of add_station
 	
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
 					callback(result.index + 1);

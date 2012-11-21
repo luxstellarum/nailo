@@ -1,9 +1,10 @@
 var board_db = require('../database/board.js');
+var comment_service = require('./comment.js');
 
 module.exports = {
 	//게시물 작성
 	write : function (req, res) {
-		board_db.add(req.body, function(result){
+		board_db.add(req.body, req.session, function(result){
 			if(result != false) {
 				console.log('service/board.js, write success');
 				res.json({result:true, index:result.index});
@@ -79,8 +80,17 @@ module.exports = {
 	,remove : function(req, res) {
 		board_db.remove(req.body.index, function(result) {
 			if(result == true) {
-				console.log('service/board.js, remove success');
-				res.json({result:true});
+				comment_service.remove_all(req.body.index, function(comm_result){
+					if(comm_result == true){
+						console.log('service/board.js, remove success');
+						res.json({result:true});
+					}
+					else {
+						console.log('service/board.js, remove fail');
+						res.json({result:false});	
+					}
+				});
+				
 			}
 			else {
 				console.log('service/board.js, remove fail');

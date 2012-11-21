@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	displayRandom();
+
 	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
 		
@@ -35,6 +36,7 @@ $(document).ready(function(){
 			
 			setHead(area_head,area_name);
 		}
+		
 		
 		var effect = $(this).attr("data-effect");
 				
@@ -181,4 +183,7 @@ $(document).ready(function(){
 		});
 
 	});
+
 });
+
+
