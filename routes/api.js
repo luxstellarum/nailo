@@ -62,7 +62,10 @@ module.exports = function(app){
 	app.post('/member/logout', function(req, res) {
 		member.logout(req, res);
 	});
-	
+	// 로그인 정보 보기
+	app.post('/member/get_login_inform', function(req, res){
+		member.get_login_inform(req, res);
+	});
 
 
 	/*******************************
@@ -198,6 +201,10 @@ module.exports = function(app){
 
 	app.get('/train/get_html', function(req, res) {
 		train.get_html(req, res);
+	});
+
+	app.post('/train/get_time_table', function(req, res) {
+		train.get_time_table(req, res);
 	});
 		
 		
