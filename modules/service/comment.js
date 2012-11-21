@@ -32,8 +32,8 @@ module.exports = {
 		});		// end of remove
 	}	// end of remove
 
-	,remove_all : function(req, callback) {
-		var condition = { index_boad : req.body.index_board };
+	,remove_all : function(index_board, callback) {
+		var condition = { index_board : index_board };
 		comment_db.remove(condition, function(result){
 			if(result == true){
 				console.log('service/comment.js, remove_all success');
