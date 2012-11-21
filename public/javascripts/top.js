@@ -10,7 +10,8 @@ $(document).ready(function(){
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
-		
+		if(!nextPage)
+			return;
 		if(nextPage=='#community_2')
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
