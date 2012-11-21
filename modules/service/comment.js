@@ -19,7 +19,8 @@ module.exports = {
 	
 	// 댓글 삭제
 	,remove: function(req,res){
-		comment_db.remove(req.body.index, function(result){
+		var condition = { index : req.body.index };
+		comment_db.remove(condition, function(result){
 			if(result == true){
 				console.log('service/comment.js, remove)success');
 				res.json({result:true});
@@ -31,6 +32,20 @@ module.exports = {
 		});		// end of remove
 	}	// end of remove
 
+	,remove_all : function(req, callback) {
+		var condition = { index_boad : req.body.index_board };
+		comment_db.remove(condition, function(result){
+			if(result == true){
+				console.log('service/comment.js, remove_all success');
+				callback(true);
+			}
+			else {
+				console.log('service/comment.js, remove_all_fail');
+				callback(false);
+			}
+		});		// end of remove
+
+	}
 
 	// 댓글 수정
 	,modify: function(req, res){

@@ -1,4 +1,5 @@
 var board_db = require('../database/board.js');
+var comment_db = require("../database/comment.js");
 
 module.exports = {
 	//게시물 작성
@@ -79,8 +80,17 @@ module.exports = {
 	,remove : function(req, res) {
 		board_db.remove(req.body.index, function(result) {
 			if(result == true) {
-				console.log('service/board.js, remove success');
-				res.json({result:true});
+				comment_db.remove_all(req.body.index, function(comm_result){
+					if(comm_result == true){
+						console.log('service/board.js, remove success');
+						res.json({result:true});
+					}
+					else {
+						console.log('service/board.js, remove fail');
+						res.json({result:false});	
+					}
+				});
+				
 			}
 			else {
 				console.log('service/board.js, remove fail');

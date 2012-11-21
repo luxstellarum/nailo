@@ -83,8 +83,7 @@ module.exports = {
 	
 	// 댓글 삭제를 한다.
 	// 성공시, true 리턴, 실패시 false 리턴
-	,remove: function(index, callback){
-		var condition = { index: index};
+	,remove: function(condition, callback){
 		documents.remove(condition, function(err){
 			if(!err){
 				console.log('comment_remove_success');
