@@ -4,7 +4,7 @@ var comment_service = require('./comment.js');
 module.exports = {
 	//게시물 작성
 	write : function (req, res) {
-		board_db.add(req.body, function(result){
+		board_db.add(req.body, req.session, function(result){
 			if(result != false) {
 				console.log('service/board.js, write success');
 				res.json({result:true, index:result.index});

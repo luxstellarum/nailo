@@ -15,35 +15,35 @@ $(document).ready(function() {
 	var popupStatus = 0;
 
 
-	$.loadPopup = function(){
+	$.loadPopup = function(popup){
 		//팝업은 popupStatus 가 비활성화되어 있을때만 불러진다. / loads popup only if it is disabled
 		if(popupStatus===0){
 		$("#page").css({
 			"opacity": "0.7"
 		});
 		$("#plan2").fadeIn("slow");
-		$("#datepicker").fadeIn("slow");
+		popup.fadeIn("slow");
 			popupStatus = 1;
 		}
 	};
 
-	$.disablePopup = function(){
+	$.disablePopup = function(popup){
 	//popupStatus 가 활성화 되어 있다면 비활성화 시키기 / disables popup only if it is enabled
 		if(popupStatus==1){
 			//$("#plan2").fadeOut("slow");
-			$("#datepicker").fadeOut("slow");
+			popup.fadeOut("slow");
 			popupStatus = 0;
 		}
 	};
 
-	$.centerPopup = function(){
+	$.centerPopup = function(popup){
 		//화면 중앙에 자리잡게 하기 위한 요청 / request data for centering
 		var windowWidth = document.documentElement.clientWidth;
 		var windowHeight = document.documentElement.clientHeight;
-		var popupHeight = $("#datepicker").height();
-		var popupWidth = $("#datepicker").width();
+		var popupHeight = popup.height();
+		var popupWidth = popup.width();
 		//중앙에 위치시키기 / centering
-		$("#datepicker").css({
+		popup.css({
 			"position": "absolute",
 			"top": windowHeight/2-popupHeight/2,
 			"left": windowWidth/2-popupWidth/2
@@ -52,14 +52,22 @@ $(document).ready(function() {
 	};
 
 
-	// datepicker
+	// plan2.jade: datepicker
 	$(".city2").bind("click", function(){
-		$.loadPopup();
-		$.centerPopup();
+		var datepicker = $("#datepicker");
+		$.loadPopup(datepicker);
+		$.centerPopup(datepicker);
+	});
+
+	// plan2.jade: datepicker
+	$(".btn_set").click(function(){
+		var datepicker = $("#datepicker");
+		$.disablePopup(datepicker);
 	});
 
 	$(".btn_cancel").click(function(){
-		$.disablePopup();
+		var datepicker = $("#datepicker");
+		$.disablePopup(datepicker);
 	});
 
 	// plan.jade: 맵의 크기를 동적으로 지정한다
@@ -71,39 +79,41 @@ $(document).ready(function() {
 	
 
 	// datepicker
+	var day = 1;
+	var hour = 12;
 	var cd = new Date();
 	$('#dStr').html(dateFormat(cd, "fullDate"));
-	$('#mon').val(dateFormat(cd, "mmm"));
-	$('#day').val(dateFormat(cd, "dd"));
-	$('#year').val(dateFormat(cd, "yyyy"));
-	$('#pyear').click(function () {
+	$('#starthour').val(hour);
+	$('#endhour').val(hour);
+	$('#day').val(day + "일차");
+	$('#pday').click(function () {
 		cd.setYear(cd.getFullYear() + 1);
 		updateF();
 	});
-	$('#pmon').click(function () {
+	$('#pstarthour').click(function () {
 		cd.setMonth(cd.getMonth() + 1);
 		updateF();
 	});
-	$('#pday').click(function () {
+	$('#pendhour').click(function () {
 		cd.setDate(cd.getDate() + 1);
 		updateF();
 	});
-	$('#myear').click(function () {
+	$('#mday').click(function () {
 		cd.setYear(cd.getFullYear() - 1);
 		updateF();
 	});
-	$('#mmon').click(function () {
+	$('#mstarthour').click(function () {
 		cd.setMonth(cd.getMonth() - 1);
 		updateF();
 	});
-	$('#mday').click(function () {
+	$('#mendhour').click(function () {
 		cd.setDate(cd.getDate() - 1);
 		updateF();
 	});
 	function updateF() {
-		$('#year').val(dateFormat(cd, "yyyy"));
-		$('#mon').val(dateFormat(cd, "mmm"));
-		$('#day').val(dateFormat(cd, "dd"));
+		$('#day').val(dateFormat(cd, "yyyy"));
+		$('#starthour').val(dateFormat(cd, "mmm"));
+		$('#endhour').val(dateFormat(cd, "dd"));
 		$('#dStr').html(dateFormat(cd, "fullDate"));
 	}
 });

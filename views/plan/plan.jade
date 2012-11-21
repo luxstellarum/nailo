@@ -1,11 +1,17 @@
 include ../top.jade
+	body
+		div(data-role="page", id="page_plan1")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 						include ../search.jade
+			include ../city_name.jade
+			include ../datepicker.html
 			div.container
 				div(id="plan_1",class="slide current")
+					script(src="/javascripts/plan/plan1.js")
+					include ../periodpicker.jade
 					div.header
 						span(style='height:20px; padding-left:20px; font-size:45pt') 1
 						input.btn_save(type="button", value="SAVE", name="save")

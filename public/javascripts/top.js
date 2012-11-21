@@ -26,6 +26,15 @@ $(document).ready(function(){
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
+			var city_name = $(".city2");
+			
+			console.log($(".city2").attr("province_name"));
+			console.log(area_name);
+			if(city_name.attr("province_name")==area_name)
+				{
+					console.log(area_name);
+					city_name.css("display", "block"); }
+			
 			setHead(area_head,area_name);
 		}
 		
@@ -90,21 +99,31 @@ $(document).ready(function(){
 		revert: "invalid",
 		helper: "clone"
 	});
+	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 	$(".plan_bar_1st").droppable({
 		items: "div",
 		drop: function(event, ui){
-			$(this).append("ul").addClass(".plan_city");
-			dragcity(ui.draggable);
+			if( is($(this).children()) ){
+				 = $(this).last().attr("plan_city_cnt");
+			}
+			else{
+				plan_city_cnt = 0;
+			}
+			$(this).append("<li>");
+			$(this).children().addClass(".plan_city");
+			dragcity(ui.draggable, plan_city_cnt);
 		}
 	});
 
-	function dragcity( $item ) {
-		$item.fadeOut(function() {
+	function dragcity( item, plan_city_cnt ) {
+		item.fadeOut(function() {
 			var city_name = $(".city2").attr("city_name");
-			var plan_city_cnt = $(".plan_city").last().attr("plan_city_cnt");
+			var plan_city_cnt_new = $(".plan_city").last().attr("plan_city_cnt");
+			plan_city_cnt_new = plan_city_cnt + 1;
 
-			$item.appendTo( $list ).addClass(city_name).fadeIn(function() {
-				$item
+
+			item.addClass(city_name).fadeIn(function() {
+				item
 					.animate({ width: "48px" });
 			});
 		});

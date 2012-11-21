@@ -27,14 +27,14 @@ var documents = mongoose.model('board', board_schema);//DB 삽입위한 모델 �
 module.exports = {
 
 	//board를 생성하여 DB에 넣는다. 성공하면 true, 실패하면 false 반환
-	add : function(board, callback) {
+	add : function(board, user, callback) {
 		var self = this;
 		var doc = new documents();		
 		//값 넣기
 		self.get_index(function(result){
 			if(result != false) {
 				doc.index = result;
-				doc.id = board.id;
+				doc.id = board.user.user_id || 'noname';
 				doc.province = board.province;
 				doc.city = board.city;
 				doc.event_month = board.event_month;
