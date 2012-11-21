@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	displayRandom();
+	var window_width = $(window).width();
 
 	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
@@ -62,14 +63,6 @@ $(document).ready(function(){
 		}
 	});
 
-	var window_width = $(window).width();
-	var window_width_3 = window_width * 3;
-	$('#plan_bar').css('width', window_width);
-	$('.plan_bar_wrapper').css('width', window_width_3);
-	//$('.plan_bar_wrapper').children().css('height', '60px');
-	$('.plan_bar_1st').css('width', window_width*0.9);
-	$('.plan_bar_2nd').css('width', window_width*0.9);
-	$('.plan_bar_3rd').css('width', window_width*0.9);
 
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
@@ -99,31 +92,41 @@ $(document).ready(function(){
 		helper: "clone"
 	});
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
-	$(".plan_bar_1st").droppable({
-		items: "div",
+	$(".plan_bar_1th").droppable({
+		//cursor: pointer,
 		drop: function(event, ui){
-			if( is($(this).children()) ){
-				 = $(this).last().attr("plan_city_cnt");
+			//alert("in droppable");
+			if( $(this).is("div") ){
+				plan_city_cnt = $(this).children().last().attr("plan_city_cnt");
 			}
 			else{
 				plan_city_cnt = 0;
 			}
 			$(this).append("<li>");
 			$(this).children().addClass(".plan_city");
-			dragcity(ui.draggable, plan_city_cnt);
+			$(this).children().last().attr("plan_city_cnt", plan_city_cnt + 1);
+			var city_name = ui.draggable.attr("city_name");
+			console.log(city_name);
+
+			var new_plan_city = $($(this).find("li").last());
+
+			new_plan_city.addClass(city_name);
+			new_plan_city.css({
+				"background-color": "yellow",
+				"list-style":"none",
+				"display": "inline-block"
+			});
+			dragcity(ui.draggable);
 		}
 	});
 
-	function dragcity( item, plan_city_cnt ) {
+	function dragcity( item) {
 		item.fadeOut(function() {
-			var city_name = $(".city2").attr("city_name");
-			var plan_city_cnt_new = $(".plan_city").last().attr("plan_city_cnt");
-			plan_city_cnt_new = plan_city_cnt + 1;
-
-
-			item.addClass(city_name).fadeIn(function() {
+			item.fadeIn(function() {
 				item
-					.animate({ width: "48px" });
+					.animate({
+						width: "48px"
+					});
 			});
 		});
 	}

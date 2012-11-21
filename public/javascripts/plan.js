@@ -87,7 +87,6 @@ $(document).ready(function() {
 	$('#endhour').val(hour);
 	$('#day').val(day + "일차");
 	$('#pday').click(function () {
-		cd.setYear(cd.getFullYear() + 1);
 		updateF();
 	});
 	$('#pstarthour').click(function () {
@@ -111,9 +110,17 @@ $(document).ready(function() {
 		updateF();
 	});
 	function updateF() {
-		$('#day').val(dateFormat(cd, "yyyy"));
+		day += 1;
+		$('#day').val(day + "일차");
 		$('#starthour').val(dateFormat(cd, "mmm"));
 		$('#endhour').val(dateFormat(cd, "dd"));
 		$('#dStr').html(dateFormat(cd, "fullDate"));
+
+		create_plan_bar(day);
+	}
+
+	// 사용자가 
+	function create_plan_bar(period) {
+
 	}
 });

@@ -96,8 +96,7 @@ p.city{
 div.plan_bar_wrapper ul{
 	position: relative;
 	height:60px;
+	background-color: red;
 	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
 	z-index: 20;
 }
