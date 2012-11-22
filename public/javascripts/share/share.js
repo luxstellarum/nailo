@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	
 	// me2day
-	$('#btn_share').click(function(){
-		var text_share = $('#text_share').val();
+	$('#me2_btn_share').click(function(){
+		var me2_text_share = $('#me2_text_share').val();
 		$.ajax({
 			url: "/share/me2day_get_url"
 			, dataType :"json"
 			, type:'GET'
-			, data: { "text_share" : text_share}
+			, data: { "me2_text_share" : me2_text_share}
 			, success: function(url){
 				location.href=url.url;
 			}
@@ -28,6 +28,7 @@ $(document).ready(function(){
 		link.execute();
 	});		// end of click
 	
+
 	//twitter
 	$('#twitter_btn_share').click(function(){
 			var url="https%3A%2F%2Ftestlink.com";
@@ -36,6 +37,15 @@ $(document).ready(function(){
 			location.href="https://twitter.com/intent/tweet?original referer="+url+"&text="+text+"&url="+url+"&via="+appname;
 
     	});		// end of click
+	
+	// facebook
+	$('#fb_btn_share').click(function(){
+		var cite="http://blacky512.blog.me"
+		var fb_text_share = $('#fb_text_share').val();
+		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
+
+		location.href= new_cite;
+	});	// end of click
 	
 });		// end of ready
 	
