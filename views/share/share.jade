@@ -2,7 +2,8 @@
 html
 	head
 		script(src="lib/jquery/jquery-1.8.3.js")
-		meta(http-equiv="Content-Type", content="text/html; charset='UTF-8'")			
+		meta(http-equiv="Content-Type", content="text/html; charset='UTF-8'")
+		script(src='http://static.ak.fbcdn.net/connect.php/js/FB.Share', type="text/javascript")					
 		script(type="text/javascript", src="/javascripts/share/share.js")			
 	body		
 		table
@@ -37,4 +38,7 @@ html
 					| btn
 				td
 					input(type='button', name='kakao_btn_share', id='kakao_btn_share', value='Kakaotalk Share')
-					
+			tr
+				td				
+					a(name="fb_share", type="button_count", href="http://www.facebook.com/sharer.php")
+						| 공유하기
