@@ -118,9 +118,4 @@ $(document).ready(function() {
 
 		create_plan_bar(day);
 	}
-
-	// 사용자가 
-	function create_plan_bar(period) {
-
-	}
 });

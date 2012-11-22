@@ -1,0 +1,22 @@
+div#periodpicker
+		ul(style="padding-left:0px;")
+			li 날짜를 선택하세요!
+			li 출발날짜
+			li
+				input.period.start_year(type="text") 
+				label 년 
+				input.period.start_month(type="text") 
+				label 월 
+				input.period.start_day(type="text") 
+				label 일 
+			li 도착날짜
+			li
+				input.period.end_year(type="text") 
+				label 년 
+				input.period.end_month(type="text") 
+				label 월 
+				input.period.end_day(type="text") 
+				label 일 
+			li(style="text-align:center;")
+				input.btn_set_period(type="button", value="입력")
+				input.btn_cancel_period(type="button", value="취소")
