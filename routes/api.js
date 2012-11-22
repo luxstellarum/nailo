@@ -69,7 +69,7 @@ module.exports = function(app){
 	});
 	// 로그인 정보 보기
 	app.post('/member/get_login_inform', function(req, res){
-		member.get_login_inform(req, res);
+		member.get_login_information(req, res);
 	});
 
 
