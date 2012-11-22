@@ -89,7 +89,7 @@ module.exports = {
 	,get_html : function(req, res) {
 		var self = this;
 		var uri_form = "http://www.korail.com/servlets/pr.pr11100.sw_pr11131_i1Svt?txtRunDt=20121107&txtTrnNo=";
-		var train_number = 5354;
+		var train_number = 5687;
 		var evt = new event_emitter();
 		var i = 0;
 		

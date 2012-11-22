@@ -4,39 +4,34 @@
 3 info using node@v0.8.8
 4 info /Users/lux/workspace/nailo/node_modules/iconv unbuild
 5 verbose read json /Users/lux/workspace/nailo/node_modules/iconv/package.json
-6 info preuninstall iconv@1.2.4
-7 info uninstall iconv@1.2.4
-8 verbose true,/Users/lux/workspace/nailo/node_modules,/Users/lux/workspace/nailo/node_modules unbuild iconv@1.2.4
-9 info postuninstall iconv@1.2.4
-10 verbose link symlinking /usr/local/lib/node_modules/iconv to /Users/lux/workspace/nailo/node_modules/iconv
-11 info build /Users/lux/workspace/nailo/node_modules/iconv
-12 verbose read json /Users/lux/workspace/nailo/node_modules/iconv/package.json
-13 info preinstall iconv@1.2.4
-14 verbose linkStuff [ false, false, false, '/Users/lux/workspace/nailo/node_modules' ]
-15 info linkStuff iconv@1.2.4
-16 verbose linkBins iconv@1.2.4
-17 verbose linkMans iconv@1.2.4
-18 verbose rebuildBundles iconv@1.2.4
-19 info install iconv@1.2.4
-20 verbose unsafe-perm in lifecycle false
-21 verbose set uid from=0 to=501
-22 silly exec sh "-c" "node-gyp rebuild"
-23 silly sh,-c,node-gyp rebuild,/Users/lux/workspace/nailo/node_modules/iconv spawning
-24 info iconv@1.2.4 Failed to exec install script
-25 error iconv@1.2.4 install: `node-gyp rebuild`
-25 error `sh "-c" "node-gyp rebuild"` failed with 1
-26 error Failed at the iconv@1.2.4 install script.
-26 error This is most likely a problem with the iconv package,
-26 error not with npm itself.
-26 error Tell the author that this fails on your system:
-26 error     node-gyp rebuild
-26 error You can get their info via:
-26 error     npm owner ls iconv
-26 error There is likely additional logging output above.
-27 error System Darwin 12.1.0
-28 error command "node" "/usr/local/bin/npm" "link" "iconv"
-29 error cwd /Users/lux/workspace/nailo
-30 error node -v v0.8.8
-31 error npm -v 1.1.59
-32 error code ELIFECYCLE
-33 verbose exit [ 1, true ]
+6 verbose link symlinking /usr/local/lib/node_modules/iconv to /Users/lux/workspace/nailo/node_modules/iconv
+7 info build /Users/lux/workspace/nailo/node_modules/iconv
+8 verbose read json /Users/lux/workspace/nailo/node_modules/iconv/package.json
+9 info preinstall iconv@1.2.4
+10 verbose linkStuff [ false, false, false, '/Users/lux/workspace/nailo/node_modules' ]
+11 info linkStuff iconv@1.2.4
+12 verbose linkBins iconv@1.2.4
+13 verbose linkMans iconv@1.2.4
+14 verbose rebuildBundles iconv@1.2.4
+15 info install iconv@1.2.4
+16 verbose unsafe-perm in lifecycle true
+17 silly exec sh "-c" "node-gyp rebuild"
+18 silly sh,-c,node-gyp rebuild,/Users/lux/workspace/nailo/node_modules/iconv spawning
+19 info iconv@1.2.4 Failed to exec install script
+20 error iconv@1.2.4 install: `node-gyp rebuild`
+20 error `sh "-c" "node-gyp rebuild"` failed with 1
+21 error Failed at the iconv@1.2.4 install script.
+21 error This is most likely a problem with the iconv package,
+21 error not with npm itself.
+21 error Tell the author that this fails on your system:
+21 error     node-gyp rebuild
+21 error You can get their info via:
+21 error     npm owner ls iconv
+21 error There is likely additional logging output above.
+22 error System Darwin 12.1.0
+23 error command "node" "/usr/local/bin/npm" "link" "iconv"
+24 error cwd /Users/lux/workspace/nailo
+25 error node -v v0.8.8
+26 error npm -v 1.1.59
+27 error code ELIFECYCLE
+28 verbose exit [ 1, true ]
