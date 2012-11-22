@@ -144,3 +144,6 @@ p > img{
 	height: 50px;
 	display: inline-block;
 }
+.ui-resizable{
+	position: absolute;
+}
