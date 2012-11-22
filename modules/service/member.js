@@ -84,7 +84,7 @@ module.exports = {
 			res.json({user_id : req.session.userid, message : "로그인 정보를 반환합니다."});
 		}
 		else {
-			res.json({message : "로그인 정보가 없습니다."})
+			res.json({message : "로그인 정보가 없습니다."});
 		}
 	}
 

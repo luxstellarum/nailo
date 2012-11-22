@@ -100,7 +100,7 @@ $(document).ready(function(){
 		helper: "clone"
 	});
 
-	$(".plan_bar_wrapper").find(".plan_bar_1st").sortable({
+	$(".plan_bar_wrapper").find(".plan_bar_1st").droppable({
 		tolerance: "pointer",
 		dropOnEmpty: true,
 		drop: function(event, ui){
