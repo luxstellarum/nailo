@@ -1,7 +1,7 @@
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
-		res.render('map/map_test', {title:'index'});
+		res.render('share/share', {title:'index'});
 	});
 
 	// mypage 카테고리 라우팅
@@ -120,5 +120,11 @@ module.exports = function(app){
 	app.get('/etc/tip', function(req, res){
 		res.render('etc/tip', {title:'/etc/tip'});
 	});	
+
+	//train
+	app.get('/train/get_time_table', function(req, res){
+		res.render('train/get_time_table', {title:'tt'});
+	});	
+
 	
 }

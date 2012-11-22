@@ -25,7 +25,7 @@ module.exports = {
 		// 값 넣기
 		self.get_index(function(result){
 			if(result != false) {
-				doc.name = comment.user.user_id || 'noname';
+				doc.name = user.userid || 'noname';
 				doc.content = comment.content;
 				doc.index_board = comment.index_board;
 				doc.date = new Date();

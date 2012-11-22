@@ -41,8 +41,8 @@ module.exports = {
 	}//end of add_train
 	
 	,get : function(condition, callback) {
-		documents.find(condition, function(err, result) {
-			if(result) {
+		documents.find(condition).sort('dept_time').exec(function(err, result) {
+			if(result.length > 0) {
 				callback(result);
 			}//end of if
 			else {

@@ -79,6 +79,15 @@ module.exports = {
 		res.json({result:true, message: "정상적으로 로그아웃 되었습니다."});	
 	}
 
+	,get_login_information : function(req, res) {
+		if(req.session.userid != null ) {
+			res.json({user_id : req.session.userid, message : "로그인 정보를 반환합니다."});
+		}
+		else {
+			res.json({message : "로그인 정보가 없습니다."})
+		}
+	}
+
 
 }		// end of module exports
 

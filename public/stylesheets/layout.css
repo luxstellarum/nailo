@@ -11,7 +11,10 @@ html, body{
 	height: 100%;
 	font-size: 100%;
 	vertical-align: baseline;
+	font-family: 'HeummStyleWeb';
+	
 }
+
 .container {
 	top: 0px;
 	width:100%;
@@ -19,7 +22,8 @@ html, body{
 	bottom:100px;
 	overflow-y: auto;
 	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 1000px
+	-webkit-perspective: 1000px;
+	overflow: scroll;
 }
 .header {
 	padding: 5px;
@@ -57,10 +61,14 @@ html, body{
 .popup_othermenu{
 	position: absolute;
 	width: 240px;
-	height: 80px;
+	height: 70px;
 	left: 10%;
 	top: -100%;
-	background-color: yellow;
+	border:thin gray solid;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	background-color: #BCF1ED;
 	list-style: none;
 	margin: 0 auto;
 	padding-left: 1px;
@@ -91,7 +99,11 @@ p > img{
 	height: 80px;
 	left: 10%;
 	top: -100%;
-	background-color: yellow;
+	border:thin gray solid;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	background-color: #BCF1ED;
 	list-style: none;
 	margin: 0 auto;
 	padding-left: 1px;

@@ -1,18 +1,19 @@
 include ../top.jade
+		script(type="text/javascript", src="/javascripts/mypage/my_community.js")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
 				include ../search.jade	
-		div(class="header")
+		div(class="header",style="margin-top:-20px")
 			h3(align='right',style='padding-right:5px') My > 나의 커뮤니티 활동 내역
 			hr
 			br
 		div(class="section")
-			div(style='margin-top:20px')
-				span(style='margin-left:15px;')
-					span
-						font(size='3')내용ㅎ
-					hr(style='margin-left:8px; margin-right:8px')
+			div(id="pre_set",style='margin-top:0px')
+				span(style='margin-left:15px; font-size:3')
+					내용ㅎ
+				hr(style='margin-left:8px; margin-right:8px')
+			div(id="field")
 	
 include ../bottom.jade

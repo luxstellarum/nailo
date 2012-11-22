@@ -14,25 +14,24 @@
 13 verbose linkMans iconv@1.2.4
 14 verbose rebuildBundles iconv@1.2.4
 15 info install iconv@1.2.4
-16 verbose unsafe-perm in lifecycle false
-17 verbose set uid from=0 to=1000
-18 silly exec sh "-c" "node-gyp rebuild"
-19 silly sh,-c,node-gyp rebuild,/home/righ120/nailo/node_modules/iconv spawning
-20 info iconv@1.2.4 Failed to exec install script
-21 error iconv@1.2.4 install: `node-gyp rebuild`
-21 error `sh "-c" "node-gyp rebuild"` failed with 1
-22 error Failed at the iconv@1.2.4 install script.
-22 error This is most likely a problem with the iconv package,
-22 error not with npm itself.
-22 error Tell the author that this fails on your system:
-22 error     node-gyp rebuild
-22 error You can get their info via:
-22 error     npm owner ls iconv
-22 error There is likely additional logging output above.
-23 error System Linux 3.0.0-26-generic
-24 error command "/usr/local/bin/node" "/usr/local/bin/npm" "link" "iconv"
-25 error cwd /home/righ120/nailo
-26 error node -v v0.8.9
-27 error npm -v 1.1.61
-28 error code ELIFECYCLE
-29 verbose exit [ 1, true ]
+16 verbose unsafe-perm in lifecycle true
+17 silly exec sh "-c" "node-gyp rebuild"
+18 silly sh,-c,node-gyp rebuild,/home/righ120/nailo/node_modules/iconv spawning
+19 info iconv@1.2.4 Failed to exec install script
+20 error iconv@1.2.4 install: `node-gyp rebuild`
+20 error `sh "-c" "node-gyp rebuild"` failed with 1
+21 error Failed at the iconv@1.2.4 install script.
+21 error This is most likely a problem with the iconv package,
+21 error not with npm itself.
+21 error Tell the author that this fails on your system:
+21 error     node-gyp rebuild
+21 error You can get their info via:
+21 error     npm owner ls iconv
+21 error There is likely additional logging output above.
+22 error System Linux 3.0.0-26-generic
+23 error command "/usr/local/bin/node" "/usr/local/bin/npm" "link" "iconv"
+24 error cwd /home/righ120/nailo
+25 error node -v v0.8.9
+26 error npm -v 1.1.61
+27 error code ELIFECYCLE
+28 verbose exit [ 1, true ]

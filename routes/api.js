@@ -7,6 +7,7 @@ var station = require('../modules/service/station.js');
 var train = require('../modules/service/train.js');
 var plan = require('../modules/service/plan.js');
 var map = require('../modules/service/map.js');
+var share = require('../modules/service/share.js');
 
 module.exports = function(app){
 
@@ -35,6 +36,10 @@ module.exports = function(app){
 	app.post('/board/remove', function(req,res) {
 		board.remove(req,res);
 	});
+
+	app.post('/board/list_specified', function(req, res) {
+		board.list_specified(req, res);
+	});
 	
 	
 
@@ -62,7 +67,10 @@ module.exports = function(app){
 	app.post('/member/logout', function(req, res) {
 		member.logout(req, res);
 	});
-	
+	// 로그인 정보 보기
+	app.post('/member/get_login_inform', function(req, res){
+		member.get_login_information(req, res);
+	});
 
 
 	/*******************************
@@ -199,6 +207,10 @@ module.exports = function(app){
 	app.get('/train/get_html', function(req, res) {
 		train.get_html(req, res);
 	});
+
+	app.post('/train/get_time_table', function(req, res) {
+		train.get_time_table(req, res);
+	});
 		
 		
 	
@@ -233,4 +245,17 @@ module.exports = function(app){
 	app.post('/map/get_point', function(req, res) {
 		map.get_point(req, res);
 	});
+	
+	/*******************************
+		/service/share.js
+		******************************/			
+	app.get('/share/get_url', function(req, res) {
+		share.get_url(req, res);
+	});
+	app.get('/share/get_callback', function(req, res) {
+		console.log('get_callback');
+		share.get_callback(req, res);
+	});
+	
+	
 }
