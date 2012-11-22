@@ -28,11 +28,16 @@ $(document).ready(function(){
 		link.execute();
 	});		// end of click
 	
-});		// end of ready
-	
-	
 	// facebook
 	$('#fb_btn_share').click(function(){
-		var
+		var cite="http://blacky512.blog.me"
+		var fb_text_share = $('#fb_text_share').val();
+		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
+
+		location.href= new_cite;
 	});	// end of click
+	
+});		// end of ready
+	
+
 
