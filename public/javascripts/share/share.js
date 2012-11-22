@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	
 	// me2day
-	$('#btn_share').click(function(){
-		var text_share = $('#text_share').val();
+	$('#me2_btn_share').click(function(){
+		var me2_text_share = $('#me2_text_share').val();
 		$.ajax({
 			url: "/share/me2day_get_url"
 			, dataType :"json"
 			, type:'GET'
-			, data: { "text_share" : text_share}
+			, data: { "me2_text_share" : me2_text_share}
 			, success: function(url){
 				location.href=url.url;
 			}
