@@ -99,7 +99,11 @@ p > img{
 	height: 80px;
 	left: 10%;
 	top: -100%;
-	background-color: yellow;
+	border:thin gray solid;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	background-color: #BCF1ED;
 	list-style: none;
 	margin: 0 auto;
 	padding-left: 1px;
