@@ -34,7 +34,7 @@ module.exports = {
 		self.get_index(function(result){
 			if(result != false) {
 				doc.index = result;
-				doc.id = board.user.userid || 'noname';
+				doc.id = user.userid || 'noname';
 				doc.province = board.province;
 				doc.city = board.city;
 				doc.event_month = board.event_month;
