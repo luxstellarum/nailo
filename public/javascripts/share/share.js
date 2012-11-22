@@ -19,7 +19,7 @@ $(document).ready(function(){
 	
 	//kakao
 	$('#kakao_btn_share').click(function(){
-		var msg = text_share;
+		var msg = $('#kakao_text_share').val();
 		var url = "#";   
 		var appid = "Ilowa Nailo";  
 		var appver = "1.0";    
