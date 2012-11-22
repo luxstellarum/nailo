@@ -90,6 +90,11 @@ p.city{
 	border-top: thick black;
 	overflow:auto;
 }
+.droppable_hover{
+	background-color: yellow;
+	opacity: 0.7;
+	display: none;
+}
 .plan_bar_wrapper{
 	height:63px;
 }
@@ -97,6 +102,8 @@ div.plan_bar_wrapper ul{
 	position: relative;
 	height:60px;
 	background-color: red;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	float: left;
 	z-index: 20;
 }
