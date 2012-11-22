@@ -96,6 +96,7 @@ $(document).ready(function(){
 		helper: "clone"
 	});
 
+/*
 	$(".plan_bar_wrapper").find(".plan_bar_1st").droppable({
 		tolerance: "pointer",
 		dropOnEmpty: true,
@@ -135,7 +136,7 @@ $(document).ready(function(){
 			dragcity(ui.draggable);
 		}
 	});
-
+*/
 	function dragcity( item) {
 		item.fadeOut(function() {
 			item.fadeIn(function() {
