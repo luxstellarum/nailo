@@ -28,11 +28,14 @@ $(document).ready(function(){
 		link.execute();
 	});		// end of click
 	
+	//twitter
+	$('#twitter_btn_share').click(function(){
+			var url="https%3A%2F%2Ftestlink.com";
+			var appname="일로와 내일로";
+			var text = $('#twitter_text_share').val();
+			location.href="https://twitter.com/intent/tweet?original referer="+url+"&text="+text+"&url="+url+"&via="+appname;
+
+    	});		// end of click
+	
 });		// end of ready
 	
-	
-	// facebook
-	$('#fb_btn_share').click(function(){
-		var
-	});	// end of click
-
