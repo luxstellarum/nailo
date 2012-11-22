@@ -1,10 +1,18 @@
 !!! 5
 html
 	head
-		script(type="text/javascript", charset="UTF-8", src="http://static.plugin.me2day.com/js/plugins_v1.js")
 		script(src="lib/jquery/jquery-1.8.3.js")
-		meta(http-equiv="Content-Type", content="text/html; charset='UTF-8'")		
-
-	
+		meta(http-equiv="Content-Type", content="text/html; charset='UTF-8'")			
+		script(type="text/javascript", src="/javascripts/share/share.js")			
 	body		
-		me2:metoo(layout="standard", profile_images="off", color="dark", pingback="unchecked", href="http://localhost:3000", plugin_key="WLG2TWefSDeMJqUb3tAfjg")	
+		table
+			tr
+				td
+					| content
+				td
+					input(type='text', name='text_share', id='text_share', value='Hello world')
+			tr
+				td
+					| btn
+				td
+					input(type='button', name='btn_share', id='btn_share', value='Share')

@@ -7,6 +7,7 @@ var station = require('../modules/service/station.js');
 var train = require('../modules/service/train.js');
 var plan = require('../modules/service/plan.js');
 var map = require('../modules/service/map.js');
+var share = require('../modules/service/share.js');
 
 module.exports = function(app){
 
@@ -244,4 +245,17 @@ module.exports = function(app){
 	app.post('/map/get_point', function(req, res) {
 		map.get_point(req, res);
 	});
+	
+	/*******************************
+		/service/share.js
+		******************************/			
+	app.get('/share/get_url', function(req, res) {
+		share.get_url(req, res);
+	});
+	app.get('/share/get_callback', function(req, res) {
+		console.log('get_callback');
+		share.get_callback(req, res);
+	});
+	
+	
 }
