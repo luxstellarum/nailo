@@ -2,7 +2,11 @@ $(document).ready(function(){
 	displayRandom();
 	var window_width = $(window).width();
 	var window_height = $(window).height();
-	//var plan_bar_offset = $()
+	var plan_bar_offset_left = [];
+	var plan_bar_offset_right = [];
+
+
+	
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
 	$('.slide a').bind("touchstart mousedown",function(e){
@@ -188,7 +192,6 @@ $(document).ready(function(){
 		"display": "inline-block"
 	});
 
-	var plan_bar_hour_left = 0;
 		// plan이 짜여졌는지 아닌지...
 	$(".plan_bar_hour").droppable({
 		hoverClass: "droppable_hover",
@@ -202,6 +205,11 @@ $(document).ready(function(){
 		}
 	});
 
+	for(var r=1; r<=24; r++){
+		plan_bar_offset_left[r] = $(".plan_bar_hour:eq("+r+")").position().left;
+		plan_bar_offset_right[r] = $(".plan_bar_hour:eq("+r+")").position().left + $(".plan_bar_hour:eq("+r+")").width();
+	}
+
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 	$(".plan_bar_hour").resizable({
 		handles: 'e, w',
@@ -212,8 +220,34 @@ $(document).ready(function(){
 			var shrinken_width = ui.originalSize.width - ui.size.width;
 			var original_right = ui.originalSize.width + ui.originalPosition.left;
 			var right = ui.size.width + ui.position.left;
+			var original_right_offset = $(this).attr("hour");
+			/*
+			if( (right - original_right) > 0 ){
+				for(var m=$(this).attr("hour")+1; m<=24; m++){
+					if( $(".plan_bar_hour:eq("+m+")").attr("occupied") == 1 ){
 
+						maxwidth = ui.originalSize.width + right - original-right;
+						for(var n=m; n>$(this).attr("hour"); n--){
+							$(".plan_bar_hour:eq("+n+")").attr("occupied", 1);
+						}
+					}
+					else
+						maxwidth = ui.size.width;
+				}
+			}
+			else if( (right - original_right) < 0 ){
 
+				for(var p=1; p<=24; p++){
+					if(right == plan_bar_offset_right[p]){
+						var right_offset = p;
+					}
+				}
+				for(var q=original_right_offset; q>right; q--;){
+					$(".plan_bar_hour:eq("+q+")").attr("occupied", 1);
+				}
+
+			}
+			*/
 		}
 	});
 		//resize: function(event, ui){};
