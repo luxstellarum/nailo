@@ -3,6 +3,7 @@ html
 	head
 		script(src="lib/jquery/jquery-1.8.3.js")
 		meta(http-equiv="Content-Type", content="text/html; charset='UTF-8'")
+		script(src='http://static.ak.fbcdn.net/connect.php/js/FB.Share', type="text/javascript")					
 		script(type="text/javascript",src="/javascripts/share/kakaoLink.js")			
 		script(type="text/javascript", src="/javascripts/share/share.js")		
 	body		
@@ -17,6 +18,7 @@ html
 					| btn
 				td
 					input(type='button', name='btn_share', id='btn_share', value='Share')
+
 					
 			tr
 				td
@@ -28,6 +30,8 @@ html
 					| btn
 				td
 					input(type='button', name='fb_btn_share', id='fb_btn_share', value='Facebook Share')
+
+
 			tr
 				td
 					| kakaotalk share
@@ -38,4 +42,15 @@ html
 					| btn
 				td
 					input(type='button', name='kakao_btn_share', id='kakao_btn_share', value='Kakaotalk Share')
-					
+
+
+			tr
+				td
+					| twitter share
+				td
+					input(type='text', name='twitter_text_share', id='twitter_text_share', value='kakaotalk')
+			tr
+				td
+					| btn
+				td
+					input(type='button', name='twitter_btn_share', id='twitter_btn_share', value='Twitter Share')

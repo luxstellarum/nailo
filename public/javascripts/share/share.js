@@ -30,4 +30,9 @@ $(document).ready(function(){
 	
 });		// end of ready
 	
+	
+	// facebook
+	$('#fb_btn_share').click(function(){
+		var
+	});	// end of click
 
