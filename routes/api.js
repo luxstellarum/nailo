@@ -249,12 +249,11 @@ module.exports = function(app){
 	/*******************************
 		/service/share.js
 		******************************/			
-	app.get('/share/get_url', function(req, res) {
-		share.get_url(req, res);
+	app.get('/share/me2day_get_url', function(req, res) {
+		share.me2day_get_url(req, res);
 	});
-	app.get('/share/get_callback', function(req, res) {
-		console.log('get_callback');
-		share.get_callback(req, res);
+	app.get('/share/me2day_get_callback', function(req, res) {
+		share.me2day_get_callback(req, res);
 	});
 	
 	
