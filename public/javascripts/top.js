@@ -2,6 +2,7 @@ $(document).ready(function(){
 	displayRandom();
 	var window_width = $(window).width();
 	var window_height = $(window).height();
+	//var plan_bar_offset = $()
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
 	$('.slide a').bind("touchstart mousedown",function(e){
@@ -186,6 +187,7 @@ $(document).ready(function(){
 		"display": "inline-block"
 	});
 
+	var plan_bar_hour_left = 0;
 		// plan이 짜여졌는지 아닌지...
 	$(".plan_bar_hour").droppable({
 		hoverClass: "droppable_hover",
@@ -194,6 +196,8 @@ $(document).ready(function(){
 				"background-color": "yellow"
 			});
 			$(this).attr("occupied", 1);
+			$(this).attr("hour");
+			plan_bar_hour_left = $(this).position().left;
 		}
 	});
 
@@ -201,14 +205,16 @@ $(document).ready(function(){
 	$(".plan_bar_hour").resizable({
 		handles: 'e, w',
 		grid: [window_width/24, 20],
-		helper: "droppable_hover"
+		helper: "droppable_hover",
 		resize: function(event, ui){
 			var enlarged_width = ui.size.width - ui.originalSize.width;
 			var shrinken_width = ui.originalSize.width - ui.size.width;
 			var original_right = ui.originalSize.width + ui.originalPosition.left;
 			var right = ui.size.width + ui.position.left;
+
+
 		}
-		});
+	});
 		//resize: function(event, ui){};
 			/*
 			// 확장하는 칸 만큼 요소 삭제
