@@ -24,10 +24,12 @@ $(document).unbind().bind('pagecreate',function(){
 									div.setAttribute("name",item.index);
 									div.firstChild.style.overflow="hidden";
 									item.start_hour=SetZeros(item.start_hour,2);
-									item.start_minute=SetZeros(item.start_minute,2);									
+									item.start_minute=SetZeros(item.start_minute,2);
+									item.event_month=SetZeros(item.event_month,2);
+									item.event_day = SetZeros(item.event_day,2);									
 									div.firstChild.appendChild(
-										document.createTextNode(" ["+item.city+"/"+item.event_month+"."+item.event_date+"/"
-																+item.start_hour+":"+item.start_minute+"] "+item.content));
+										document.createTextNode(" ["+item.city+"/"+item.event_month+"."+item.event_day+"/"
+																+item.start_hour+":"+item.start_minute+"] "+item.subject));
 									
 									$('#field').append(div);
 								});
