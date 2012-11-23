@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	displayRandom();
-
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
 	$('.slide a').bind("touchstart mousedown",function(e){
@@ -32,11 +31,14 @@ $(document).ready(function(){
 			
 			console.log($(".city2").attr("province_name"));
 			console.log(area_name);
-			if(city_name.attr("province_name")==area_name)
-				{
-					console.log(area_name);
-					city_name.css("display", "block"); }
-			
+
+			for(var s=0; s<=100; s++){
+				console.log($(".city2:eq("+s+")").attr("province_name"));
+				if($(".city2:eq("+s+")").attr("province_name")==area_name)
+					{
+
+						$(".city2:eq("+s+")").css("display", "block"); }
+					}
 			setHead(area_head,area_name);
 		}
 		

@@ -6,9 +6,8 @@ var station_schema = new schema({
 	station_name : String,
 	city_name : String,
 	city_index : Number,
-	extra : String,
-	website : String,
-	telephone : String,
+	station_homepage : String,
+	station_phone : String,
 	train_type : String
 });//end of station_schema
 
@@ -26,9 +25,8 @@ module.exports = {
 				doc.station_name = station.station_name;
 				doc.city_name = station.city_name;
 				doc.city_index = station.city_index;
-				doc.extra = station.extra;
-				doc.website = station.website;
-				doc.telephone = station.telephone;
+				doc.station_homepage = station.station_homepage;
+				doc.station_phone = station.station_phone;
 				doc.train_type = station.train_type;
 								
 				doc.save(function(err){

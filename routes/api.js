@@ -255,6 +255,4 @@ module.exports = function(app){
 	app.get('/share/me2day_get_callback', function(req, res) {
 		share.me2day_get_callback(req, res);
 	});
-	
-	
 }

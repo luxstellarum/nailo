@@ -3,11 +3,10 @@ var schema = mongoose.Schema; // mongoose.schema 획득
 
 var sights_schema = new schema({
 	index : Number,
-	name : String,
+	sights_name : String,
 	city_name : String,
 	city_index : Number,
-	times : String,
-	extra : String
+	sights_extra : Array
 });//end of sights_schema
 
 var documents = mongoose.model('sights', sights_schema);//DB 삽입위한 모델 생성
@@ -21,11 +20,10 @@ module.exports = {
 		self.get_index(function(result){
 			if(result != false) {
 				doc.index = result;
-				doc.name = sights.name;
+				doc.sights_name = sights.sights_name;
 				doc.city_name = sights.city_name;
 				doc.city_index = sights.city_index;
-				doc.times = sights.times;
-				doc.extra = sights.extra;
+				doc.sights_extra = sights.sights_extra;
 
 				doc.save(function(err){
 					if(!err){

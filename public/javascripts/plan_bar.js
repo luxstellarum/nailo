@@ -14,21 +14,58 @@ function next_day_scroll(amount){
 	$('#plan_bar').scrollLeft($("#plan_bar").scrollLeft() + amount);
 }
 
+function set_hours(target, period, target_place) {
+	target = target.parent().find('[place='+target_place+']:first');
+	var remove_targets = $(target).parent().find('[place='+target_place+']').not('[occupied=1]');
+	remove_targets.each(function(){
+		$(this).attr("place", "");
+		$(this).text($(this).attr("hour"));
+		$(this).css({
+			"background-color" : "red"
+		});
+		$(this).attr("occupied", 0);
+		$(this).removeClass("filled");
+	});
+
+	for(var i=1; i<period; i++) {
+		target = target.next();
+
+		console.log('target :', target);
+		target.css({
+			"background-color" : "yellow"
+		});
+		target.attr("place", target_place);
+		target.text(target_place);
+		target.attr("occupied", 2);
+		target.addClass("filled"); 
+	}
+}
+
+function remove_place (target) {
+	target_place = target.attr("place");
+	var remove_targets = target.parent().find('[place='+target_place+']');
+
+	remove_targets.each(function(){
+		$(this).attr("place", "");
+		$(this).text($(this).attr("hour"));
+		$(this).css({
+			"background-color" : "red"
+		});
+		$(this).attr("occupied", 0);
+		$(this).removeClass("filled");
+	});
+}
+
 $(document).ready(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
-	var plan_bar_offset_left = [];
-	var plan_bar_offset_right = [];
 	var timeoutId = 0;
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
 	// 드래그 앤 드랍 기능
 	$(".city2").draggable({
 		revert: "invalid",
-		helper: "clone",
-		start : function(event, ui) {
-			console.log(ui.helper.context.innerText);
-		},
+		helper: "clone"
 	});
 
 	$(".next_day").mousedown(function() {
@@ -62,23 +99,54 @@ $(document).ready(function(){
 	$(".plan_bar_hour").droppable({
 		hoverClass: "droppable_hover",
 		drop: function(event, ui){
+			var target = $(this);
+			var target_place = ui.draggable.context.innerText;
 			$(this).css({
 				"background-color": "yellow"
 			});
-			$(this).attr("place", ui.draggable.context.innerText);
-			$(this).text(ui.draggable.context.innerText);
+			$(this).attr("place", target_place);
+			$(this).text(target_place);
 			$(this).attr("occupied", 1);
 			$(this).attr("hour");
-			$(this).css("margin-top", "10px");
-			plan_bar_hour_left = $(this).position().left;
+			$(this).addClass("filled");
+			//plan_bar_hour_left = $(this).position().left;
+			$.loadPopup($('#hourpicker'));
+
+			$(".set_hour_btn").unbind().bind('click', function(){
+				var period = $(this).parent().find('.hours').val();
+				set_hours(target, period, target_place);
+				$.disablePopup($('#hourpicker'));
+			});//end of bind
+
+			$(".hour_set_cancel_btn").unbind().bind('click', function(){
+				$.disablePopup($('#hourpicker'));
+			});//end of bind
+
+
 		}
 	});
 
-	for(var r=0; r<24; r++){
-		plan_bar_offset_left[r] = $(".plan_bar_hour:eq("+r+")").position().left;
-		plan_bar_offset_right[r] = $(".plan_bar_hour:eq("+r+")").position().left + $(".plan_bar_hour:eq("+r+")").width();
-	}
+	$(".filled").live('click', function(){
+		var target = $(this);
+		var target_place = target.attr("place");
+		$.loadPopup($('#hourpicker'));
 
+		$(".set_hour_btn").unbind().bind('click', function(){
+			var period = $(this).parent().find('.hours').val();
+			set_hours(target, period, target_place);
+			$.disablePopup($('#hourpicker'));
+		});//end of bind
+
+		$(".hour_set_cancel_btn").unbind().bind('click', function(){
+			$.disablePopup($('#hourpicker'));
+		});//end of bind
+
+	});
+
+	$(".filled").bind('taphold', function(){
+		alert(">_<");
+		remove_place($(this));
+	});
 
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
 	$('.btn_set').bind('click',function() {
@@ -96,159 +164,6 @@ $(document).ready(function(){
 		$(".plan_city").css("display", "inline-block");
 		$('.plan_city').css('left', plan_start);
 		$('.plan_city').css('background-color', 'Red');
-		$(".plan_city").draggable({
-			axis: "x",
-			containment: "parent",	// 움직이는 영역을 부모영역으로 한정시킨다
-			grid: [window_width/24, 20]	//x, y 축으로 지정된 길이만큼씩 움직인다
-		});
-		$(".plan_city").resizable({
-			handles: 'e, w',
-			grid: [window_width/24, 20]
-		});
-
 	});
 
 });//end of document ready
-
-/******************************
-//주석 존(zone)
-*******************************/
-	/*
-	$(".next_day").bind("click", function() {
-		$("#plan_bar").animate({
-			scrollLeft: window_width
-		}, 500);
-		$("#plan_bar").scrollLeft = 0;
-	});
-	*/
-
-	// //test code _ sortable
-	// $(".plan_bar_1st").sortable({
-	// 	axis : 'x',
-	// 	gird : [17, 0],
-	// 	helper : "clone",
-	// 	items : "li:not(.not_sort)"
-	// });
-	// $(".plan_bar_1st").disableSelection();
-
-
-
-
-		//resize: function(event, ui){};
-			/*
-			// 확장하는 칸 만큼 요소 삭제
-			// 현재 사이즈 - 원래 사이즈 가 한칸의 몇배냐에 따라 삭제할 요소 개수 결정
-			// 줄어드는만큼 요소 추가
-			
-			var enlarged_width = ui.size.width - ui.originalSize.width;
-			var shrinken_width = ui.originalSize.width - ui.size.width;
-			var original_right = ui.originalSize.width + ui.originalPosition.left;
-			var right = ui.size.width + ui.position.left;
-
-
-			var enlarged_li_cnt = enlarged_width / hour_width;	// 요소를 몇 개 삭제 또는 추가해야 하는가
-			var shrinken_li_cnt = shrinken_width / hour_width;
-			
-			if(ui.originalPosition.left-ui.position.left < 0)
-			for(var k= $(this).attr("hour"); k >=1; k--;){
-
-			}
-			*/
-
-		
-			/*
-			for(var k=0; k<=23; k++){
-				if($(".plan_bar_hour:eq("+k+")").attr("occupied")==1){
-					if($(".plan_bar_hour:eq("+k+")").offset().left + $(".plan_bar_hour:eq("+k+")").width() == ui.position.left){
-						maxwidth = ui.originalSize.width + (ui.originalPosition.left - ui.position.left);
-					}
-					else if($(".plan_bar_hour:eq("+k+")").offset().left == ui.position.left + ui.size.width){
-						maxwidth = ui.size.width;
-					}
-				}
-			}
-			*/
-		//maxWidth: maxwidth
-/*
-	$(".plan_bar_wrapper").find(".plan_bar_1st").droppable({
-		tolerance: "pointer",
-		dropOnEmpty: true,
-		drop: function(event, ui){
-			var x = event.clientX;
-			var y = event.clientY;
-			console.log(x);
-			console.log(y);
-			if( $(this).is("li") ){
-				plan_city_cnt = $(this).children().last().attr("plan_city_cnt");
-				alert("dd");
-			}
-			else{
-				plan_city_cnt = 0;
-				alert("ddd");
-			}
-			$(this).append("<li>");
-			$(this).children().addClass(".plan_city");
-			$(this).children().last().attr("plan_city_cnt", plan_city_cnt + 1);
-			var city_name = ui.draggable.attr("city_name");
-			console.log(city_name);
-
-			var new_plan_city = $($(this).find("li").last());
-
-			new_plan_city.addClass(city_name);
-			new_plan_city.css({
-				"position": "absolute",
-				"width": "80px",
-				"height": "40px",
-				"top": y - (window_height - 60),
-				"left": x,
-				"background-color": "yellow",
-				"list-style":"none",
-				"display": "inline-block",
-				"z-index": "200"
-			});
-			dragcity(ui.draggable);
-		}
-	});
-*/
-
-			/*	
-	$(".plan_bar_hour").resizable({
-		handles: 'e, w',
-		grid: [window_width/24, 20],
-		helper: "droppable_hover",
-		resize: function(event, ui){
-			var enlarged_width = ui.size.width - ui.originalSize.width;
-			var shrinken_width = ui.originalSize.width - ui.size.width;
-			var original_right = ui.originalSize.width + ui.originalPosition.left;
-			var right = ui.size.width + ui.position.left;
-			var original_right_offset = $(this).attr("hour");
-
-			if( (right - original_right) > 0 ){
-				for(var m=$(this).attr("hour")+1; m<=24; m++){
-					if( $(".plan_bar_hour:eq("+m+")").attr("occupied") == 1 ){
-
-						maxwidth = ui.originalSize.width + right - original-right;
-						for(var n=m; n>$(this).attr("hour"); n--){
-							$(".plan_bar_hour:eq("+n+")").attr("occupied", 1);
-						}
-					}
-					else
-						maxwidth = ui.size.width;
-				}
-			}
-			else if( (right - original_right) < 0 ){
-
-				for(var p=1; p<=24; p++){
-					if(right == plan_bar_offset_right[p]){
-						var right_offset = p;
-					}
-				}
-				for(var q=original_right_offset; q>right; q--;){
-					$(".plan_bar_hour:eq("+q+")").attr("occupied", 1);
-				}
-
-			}
-			
-		}
-	});
-*/
