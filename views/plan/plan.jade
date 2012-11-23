@@ -1,6 +1,4 @@
 include ../top.jade
-	body
-		div(data-role="page", id="page_plan1")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
@@ -11,13 +9,14 @@ include ../top.jade
 		div.container
 			div(id="plan_1",class="slide current")
 				script(src="/javascripts/plan/plan1.js")
-				include ../periodpicker.jade
+				
 				div.header
-					span(style='height:20px; padding-left:20px; font-size:45pt') 1
+					span.head_number 1
+					span.head_number(style="font-size:15pt") >도선택
 					input.btn_save(type="button", value="SAVE", name="save")
-				p
-				div.wrapper(id="plan_num",style="position:relative; margin-top:-70px; left:55px; width:200px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+				include ../periodpicker.jade
+				div.wrapper(id="plan_num")
+					img.map(src="/images/map.png")
 					a.province(id="kangwondo",href="/plan/plan#plan_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 강원도
 					a.province(id="kyunggido",href="/plan/plan#plan_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 경기도
 					a.province(id="chungcheongdo",href="/plan/plan#plan_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 충청도

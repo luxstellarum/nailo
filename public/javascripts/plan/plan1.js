@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var periodpicker = $("#periodpicker");
 	$.loadPopup(periodpicker);
-	$.centerPopup(periodpicker);
+	//$.centerPopup(periodpicker);
 
 	// plan2.jade: datepicker
 	$(".btn_set_period").click(function(){
