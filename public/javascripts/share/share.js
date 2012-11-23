@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 	// me2day
 	$('#me2_btn_share').click(function(){
-		var me2_text_share = $('#me2_text_share').val();
+		var me2_text_share = $('#share_plan').val();
 		$.ajax({
 			url: "/share/me2day_get_url"
 			, dataType :"json"
@@ -19,7 +19,7 @@ $(document).ready(function(){
 	
 	//kakao
 	$('#kakao_btn_share').click(function(){
-		var msg = $('#kakao_text_share').val();
+		var msg = $('#share_plan').val();
 		var url = "#";   
 		var appid = "Ilowa Nailo";  
 		var appver = "1.0";    
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	$('#twitter_btn_share').click(function(){
 			var url="https%3A%2F%2Ftestlink.com";
 			var appname="일로와 내일로";
-			var text = $('#twitter_text_share').val();
+			var text = $('#share_plan').val();
 			location.href="https://twitter.com/intent/tweet?original referer="+url+"&text="+text+"&url="+url+"&via="+appname;
 
     	});		// end of click
@@ -41,7 +41,7 @@ $(document).ready(function(){
 	// facebook
 	$('#fb_btn_share').click(function(){
 		var cite="http://blacky512.blog.me"
-		var fb_text_share = $('#fb_text_share').val();
+		var fb_text_share = $('#share_plan').val();
 		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
 
 		location.href= new_cite;

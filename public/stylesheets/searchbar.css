@@ -2,6 +2,7 @@ div.css3droppanel { /* Main wrapper for push down panel */
 		position: relative;
 		margin: 0;
 		margin-bottom: 1em; /* margin with rest of content on page */
+		text-decoration:none;
 		}
 
 
