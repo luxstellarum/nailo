@@ -4,8 +4,6 @@ $(document).ready(function(){
 	var window_height = $(window).height();
 	var plan_bar_offset_left = [];
 	var plan_bar_offset_right = [];
-
-
 	
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
@@ -38,11 +36,14 @@ $(document).ready(function(){
 			
 			console.log($(".city2").attr("province_name"));
 			console.log(area_name);
-			if(city_name.attr("province_name")==area_name)
-				{
-					console.log(area_name);
-					city_name.css("display", "block"); }
-			
+
+			for(var s=0; s<=100; s++){
+				console.log($(".city2:eq("+s+")").attr("province_name"));
+				if($(".city2:eq("+s+")").attr("province_name")==area_name)
+					{
+
+						$(".city2:eq("+s+")").css("display", "block"); }
+					}
 			setHead(area_head,area_name);
 		}
 		
@@ -204,10 +205,10 @@ $(document).ready(function(){
 		}
 	});
 
-	for(var r=1; r<=24; r++){
-		plan_bar_offset_left[r] = $(".plan_bar_hour:eq("+r+")").position().left;
-		plan_bar_offset_right[r] = $(".plan_bar_hour:eq("+r+")").position().left + $(".plan_bar_hour:eq("+r+")").width();
-	}
+	//for(var r=1; r<=24; r++){
+	//	plan_bar_offset_left[r] = $(".plan_bar_hour:eq("+r+")").position().left;
+	//	plan_bar_offset_right[r] = $(".plan_bar_hour:eq("+r+")").position().left + $(".plan_bar_hour:eq("+r+")").width();
+	//}
 
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 	$(".plan_bar_hour").resizable({
