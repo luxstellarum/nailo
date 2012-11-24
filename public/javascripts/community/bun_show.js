@@ -56,7 +56,7 @@ $(document).unbind().bind('pagecreate',function(){
 								});
 							}
 							else{
-								alert('fail');
+								console.log("no list");
 							}
 						}	
 					});
