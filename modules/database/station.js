@@ -43,9 +43,15 @@ module.exports = {
 							callback(false);
 						}//end of else
 					}); //end of save
+<<<<<<< HEAD
 				}
 		});
 		
+=======
+				}		
+			});		// end of get_city_index
+		});		// end of get_index
+>>>>>>> 848db53e309d6b5da0b7df096cdd373eeecbf8ca
 	}//end of add_station
 	
 	,get_index: function(callback) {
