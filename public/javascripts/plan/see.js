@@ -3,16 +3,17 @@
 $(document).unbind().bind('pagecreate',function(){
 	console.log("see.js");
 	$(".tour input").bind("click",function(event){
+		
 		var eventObj = checkDevice(event);
 		touchX=eventObj.pageX-160;
 		touchY=eventObj.pageY-60;
-		
+		$('#board').empty();
 		console.log($(this).is(':checked'));
 		if($(this).is(':checked')){
 			var name = $(this).attr('id');
 			var img = document.createElement('img'); // 이미지 객체 생성
 		
-			img.src = '/images/picture_' + name + '.png'; // 이미지 경로 설정
+			img.src = '/images/tour_image/' + name + '.jpg'; // 이미지 경로 설정
 			img.width = '50';
 			$('#board').append(img); // board DIV 에 이미지 동적 추가
 	

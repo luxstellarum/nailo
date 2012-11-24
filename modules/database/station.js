@@ -18,6 +18,7 @@ module.exports = {
 	add : function(station, callback) {
 		var self = this;
 		var doc = new documents();		
+
 		//값 넣기
 		self.get_index(function(result){
 			if(result != false) {
@@ -28,6 +29,7 @@ module.exports = {
 				doc.station_homepage = station.station_homepage;
 				doc.station_phone = station.station_phone;
 				doc.train_type = station.train_type;
+				
 								
 				doc.save(function(err){
 					if(!err){

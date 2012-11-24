@@ -8,6 +8,8 @@ var train = require('../modules/service/train.js');
 var plan = require('../modules/service/plan.js');
 var map = require('../modules/service/map.js');
 var share = require('../modules/service/share.js');
+var search = require('../modules/service/search.js');
+
 
 module.exports = function(app){
 
@@ -255,4 +257,23 @@ module.exports = function(app){
 	app.get('/share/me2day_get_callback', function(req, res) {
 		share.me2day_get_callback(req, res);
 	});
+
+
+	/*******************************
+		/service/search.js
+		******************************/
+		
+	// 검색을 위한 key:value 추가
+	app.post('/search/write', function(req, res) {
+		search.write(req, res);
+	});
+	// 검색을 위한 key:value 삭제
+	app.post('/search/remove', function(req, res) {
+		search.remove(req, res);
+	});
+	// 검색하기
+	app.post('/search/search', function(req, res) {
+		search.search(req, res);
+	});
+	
 }
