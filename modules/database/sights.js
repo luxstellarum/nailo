@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
-var event_emitter = require('events').EventEmitter;
 var city = require('./city.js');
+var event_emitter = require('events').EventEmitter;
 
 var sights_schema = new schema({
 	index : Number,

@@ -12,7 +12,9 @@ var city_schema = new schema({
 
 var documents = mongoose.model('city', city_schema);//DB 삽입위한 모델 생성
 
-module.exports = {
+
+
+module.exports ={
 
 	add : function(city, callback) {
 		var self = this;
@@ -46,32 +48,29 @@ module.exports = {
 					}
 					
 				}); 	// end of evt.on
-				evt.emit('set_search_db', evt, 0);
 				
+				evt.emit('set_search_db', evt, 0);
 			}
 		});	// end of get_index
-		
-		
 	}//end of add
 	
 
 	,get_index : function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
-				console.log('result : ', result);
 				if(result != null) {
 					callback(result.index + 1);
-				}
+				}//end of if
 				else {
 					callback(1); 
-				}
-			}
+				}//end of else
+			}//emd of if
 			else {
 				console.log('get_index : error(01)');
 				callback(false);
-			}
-		});
-	}
+			}//end of else
+		});//end of findOne
+	}//end of get_index
 	
 	,get : function(condition, callback) {
 		documents.findOne(condition, function(err, result) {
@@ -127,4 +126,5 @@ module.exports = {
 			}//end of else
 		});//end of find
 	}//end of get_city_list
+	
 }//end of module export
