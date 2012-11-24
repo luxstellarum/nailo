@@ -1,3 +1,49 @@
+/****************
+
+occupied
+0 : 아무것도 없음
+1 : 최초로 관광지가 들어간 자리
+2 : 관광지의 확장공간
+3 : 기차 시간 자
+
+*****************/
+
+var drop_option = {
+	hoverClass: "droppable_hover",
+	live : true,
+	drop: function(event, ui){
+		var target = $(this);
+		var target_place = ui.draggable.context.innerText;
+		$(this).css({
+			"background-color": "yellow"
+		});
+		$(this).attr("place", target_place);
+		$(this).text(target_place);
+		$(this).attr("occupied", 1);
+		$(this).attr("hour");
+		$(this).addClass("filled");
+		//plan_bar_hour_left = $(this).position().left;
+		$.loadPopup($('#hourpicker'));
+
+		$(".set_hour_btn").unbind().bind('click', function(){
+			var period = $(this).parent().find('.hours').val();
+			set_hours(target, period, target_place);
+			$.disablePopup($('#hourpicker'));
+		});//end of bind
+
+		$(".hour_set_cancel_btn").unbind().bind('click', function(){
+			$.disablePopup($('#hourpicker'));
+		});//end of bind
+
+		$(".hour_delete").hide();
+	}//end of drop
+}//end of drop_option
+
+var drag_option = {
+	revert: "invalid",
+	helper: "clone"
+}
+
 function dragcity( item) {
 	item.fadeOut(function() {
 		item.fadeIn(function() {
@@ -15,8 +61,8 @@ function next_day_scroll(amount){
 }
 
 function set_hours(target, period, target_place) {
-	target = target.parent().find('[place='+target_place+']:first');
-	var remove_targets = $(target).parent().find('[place='+target_place+']').not('[occupied=1]');
+	target = target.parent().find('[place="'+target_place+'"]:first');
+	var remove_targets = $(target).parent().find('[place="'+target_place+'"]').not('[occupied=1]');
 	remove_targets.each(function(){
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
@@ -35,15 +81,16 @@ function set_hours(target, period, target_place) {
 			"background-color" : "yellow"
 		});
 		target.attr("place", target_place);
-		target.text(target_place);
+		//target.text(target_place);
 		target.attr("occupied", 2);
 		target.addClass("filled"); 
 	}
+
 }
 
 function remove_place (target) {
 	target_place = target.attr("place");
-	var remove_targets = target.parent().find('[place='+target_place+']');
+	var remove_targets = target.parent().find('[place="'+target_place+'"]');
 
 	remove_targets.each(function(){
 		$(this).attr("place", "");
@@ -63,10 +110,9 @@ $(document).ready(function(){
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
 	// 드래그 앤 드랍 기능
-	$(".city2").draggable({
-		revert: "invalid",
-		helper: "clone"
-	});
+	$(".city2").draggable( drag_option );
+
+	$(".province").draggable( drag_option );
 
 	$(".next_day").mousedown(function() {
 		timeoutId = setTimeout(next_day_scroll(window_width), 100);
@@ -80,7 +126,7 @@ $(document).ready(function(){
 	$(".24").css("left", window_width - span_width*3);
 
 	// test!!! 플랜바 안에 시간구분을 위한 영역
-	var hour_width = $(".plan_bar_1st").width()/24;
+	var hour_width = $(".plan_bar").width()/24;
 
 	$(".droppable_hover").css({
 		"position":"relative",
@@ -90,41 +136,13 @@ $(document).ready(function(){
 	});
 
 	$(".plan_bar_hour").css({
-		"width": $(".plan_bar_1st").width()/24,
+		"width": $(".plan_bar").width()/24,
 		"height": "50px",
 		"display": "inline-block"
 	});
 
 		// plan이 짜여졌는지 아닌지...
-	$(".plan_bar_hour").droppable({
-		hoverClass: "droppable_hover",
-		drop: function(event, ui){
-			var target = $(this);
-			var target_place = ui.draggable.context.innerText;
-			$(this).css({
-				"background-color": "yellow"
-			});
-			$(this).attr("place", target_place);
-			$(this).text(target_place);
-			$(this).attr("occupied", 1);
-			$(this).attr("hour");
-			$(this).addClass("filled");
-			//plan_bar_hour_left = $(this).position().left;
-			$.loadPopup($('#hourpicker'));
-
-			$(".set_hour_btn").unbind().bind('click', function(){
-				var period = $(this).parent().find('.hours').val();
-				set_hours(target, period, target_place);
-				$.disablePopup($('#hourpicker'));
-			});//end of bind
-
-			$(".hour_set_cancel_btn").unbind().bind('click', function(){
-				$.disablePopup($('#hourpicker'));
-			});//end of bind
-
-
-		}
-	});
+	$(".plan_bar_hour").droppable( drop_option );//end of droppbable
 
 	$(".filled").live('click', function(){
 		var target = $(this);
@@ -140,6 +158,13 @@ $(document).ready(function(){
 		$(".hour_set_cancel_btn").unbind().bind('click', function(){
 			$.disablePopup($('#hourpicker'));
 		});//end of bind
+		
+		$(".hour_delete").show();
+		$(".hour_delete").unbind().bind('click', function(){
+			remove_place(target);
+			$.disablePopup($('#hourpicker'));
+		});//end of bind
+
 
 	});
 
@@ -150,8 +175,8 @@ $(document).ready(function(){
 
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
 	$('.btn_set').bind('click',function() {
-		$('.plan_bar_1st').append('<li>');
-		$($('.plan_bar_1st').find('li')).addClass('plan_city');
+		$('.plan_bar').append('<li>');
+		$($('.plan_bar').find('li')).addClass('plan_city');
 
 		var window_width = $(window).width();	//창의 너비를 구한다
 		var plan_start = window_width/12*3;

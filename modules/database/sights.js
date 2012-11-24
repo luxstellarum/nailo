@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
+
 var event_emitter = require('events').EventEmitter;
 
 var sights_schema = new schema({
@@ -22,36 +23,52 @@ module.exports = {
 		
 		//값 넣기
 		self.get_index(function(result){
-			if(result != false) {
-				doc.index = result;
-				doc.sights_name = sights.sights_name;
-				doc.city_name = sights.city_name;
-				doc.city_index = sights.city_index;
-				doc.sights_extra = sights.sights_extra;
-				doc.station_name = sights.station_name;
+					
+			self.get_city_index({city_name : sights.city_name}, function(result2){
 
-				evt.on('set_search_db', function(evt, i){
-					if(i<sights_extra.length){
-						search_db.add(sights_extra[i], city_name);
-						evt.emit('set_search_db', evt, ++i);
-					}
-					else{
-						doc.save(function(err){
-							if(!err){
-								callback(true);
-							}//end of if
-							else {
-								callback(false);
-							}//end of else
-						}); //end of save						
-					}
-				}); 		// end of evt.on
-				evt.emit('set_search_db',evt, 0);
-			}
-		});
-		
-	}//end of add_sights
+				if(result != false) {
+					doc.index = result;
+					doc.sights_name = sights.sights_name;
+					doc.city_name = sights.city_name;
+					doc.city_index = result2;
+					doc.sights_extra = sights.sights_extra;
+					doc.station_name = sights.station_name;
 	
+					evt.on('set_search_db', function(evt, i){
+						if(i<sights_extra.length){
+							search_db.add(sights_extra[i], city_name);
+							evt.emit('set_search_db', evt, ++i);
+						}
+						else{
+							doc.save(function(err){
+								if(!err){
+									callback(true);
+								}//end of if
+								else {
+									callback(false);
+								}//end of else
+							}); //end of save						
+						}
+					}); 		// end of evt.on
+					evt.emit('set_search_db',evt, 0);
+				} 		// end of if
+			});		// end of get_city_index
+		}); 	// end of get_index	
+	}//end of add_sights
+
+
+	,get_city_index : function(condition, callback){
+		var city = require('./city.js');
+		city.get(condition, function(result){
+			if(result){
+				callback(result.index);
+			}
+			else{
+				callback(false);
+			}		
+		}); 		// end of city.get
+	}	
+		
 	,get_index : function(callback) {
 		documents.findOne({}).sort('-date').exec(function(err, result){
 			if(!err) {

@@ -14,37 +14,37 @@ var station_schema = new schema({
 var documents = mongoose.model('station', station_schema);//DB 삽입위한 모델 생성
 
 module.exports = {
-
 	add : function(station, callback) {
 		var self = this;
 		var doc = new documents();		
-
 		//값 넣기
 		self.get_index(function(result){
-			if(result != false) {
-				doc.index = result;
-				doc.station_name = station.station_name;
-				doc.city_name = station.city_name;
-				doc.city_index = station.city_index;
-				doc.station_homepage = station.station_homepage;
-				doc.station_phone = station.station_phone;
-				doc.train_type = station.train_type;
-				
-								
-				doc.save(function(err){
-					if(!err){
-						callback(true);
-					}//end of if
-					else {
-						callback(false);
-					}//end of else
-				}); //end of save
-			}
-		});
-		
+			self.get_city_index({city_name : station.city_name}, function(result2){
+				console.log(result, result2);
+				if(result != false) {
+					doc.index = result;
+					doc.station_name = station.station_name;
+					doc.city_name = station.city_name;
+					doc.city_index = result2;
+					doc.station_homepage = station.station_homepage;
+					doc.station_phone = station.station_phone;
+					doc.train_type = station.train_type;
+					
+									
+					doc.save(function(err){
+						if(!err){
+							callback(true);
+						}//end of if
+						else {
+							callback(false);
+						}//end of else
+					}); //end of save
+				}		
+			});		// end of get_city_index
+		});		// end of get_index
 	}//end of add_station
 	
-	,get_index : function(callback) {
+	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
@@ -60,6 +60,20 @@ module.exports = {
 			}
 		});
 	}
+	
+	
+	,get_city_index : function(condition, callback){
+		var city_db = require('./city.js');
+		console.log('city_db : ', city_db);
+		city_db.get(condition, function(result){
+			if(result){
+				callback(result.index);
+			}
+			else{
+				callback(false);
+			}		
+		}); 		// end of city.get
+	}	
 	
 	,get : function(condition, callback) {
 		documents.findOne(condition, function(err, result) {
@@ -117,4 +131,5 @@ module.exports = {
 			}//end of else
 		});//end of find
 	}//end of get_station_list
+	
 }//end of module export

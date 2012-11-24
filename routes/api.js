@@ -104,7 +104,7 @@ module.exports = function(app){
 
 	// 도시 등록
 	app.post('/city/write', function(req, res) {
-		city.write(req, res기);
+		city.write(req, res);
 	});
 	// 도시 삭제
 	app.post('/city/remove', function(req, res) {
@@ -131,7 +131,7 @@ module.exports = function(app){
 		******************************/
 	// 관광지 등록
 	app.post('/sights/write', function(req, res) {
-		sights.write(req, res기);
+		sights.write(req, res);
 	});
 	// 관광지 삭제
 	app.post('/sights/remove', function(req, res) {
@@ -159,7 +159,7 @@ module.exports = function(app){
 		******************************/
 	// 역 등록
 	app.post('/station/write', function(req, res) {
-		station.write(req, res기);
+		station.write(req, res);
 	});
 	// 역 삭제
 	app.post('/station/remove', function(req, res) {
@@ -187,7 +187,7 @@ module.exports = function(app){
 		
 	// 기차 등록
 	app.post('/train/write', function(req, res) {
-		train.write(req, res기);
+		train.write(req, res);
 	});
 	// 기차 삭제
 	app.post('/train/remove', function(req, res) {
