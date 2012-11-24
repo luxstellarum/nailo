@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
-var search_db = require('./search.js');
+
 var event_emitter = require('events').EventEmitter;
 
 var city_schema = new schema({
@@ -18,6 +18,7 @@ module.exports ={
 
 	add : function(city, callback) {
 		var self = this;
+		var search_db = require('./search.js');
 		var doc = new documents();		
 		var evt = new event_emitter();
 		
