@@ -7,7 +7,8 @@ var sights_schema = new schema({
 	sights_name : String,
 	city_name : String,
 	city_index : Number,
-	sights_extra : Array
+	sights_extra : Array,
+	station_name : String
 });//end of sights_schema
 
 var documents = mongoose.model('sights', sights_schema);//DB 삽입위한 모델 생성
@@ -27,6 +28,7 @@ module.exports = {
 				doc.city_name = sights.city_name;
 				doc.city_index = sights.city_index;
 				doc.sights_extra = sights.sights_extra;
+				doc.station_name = sights.station_name;
 
 				evt.on('set_search_db', function(evt, i){
 					if(i<sights_extra.length){

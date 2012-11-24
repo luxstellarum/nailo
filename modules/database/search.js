@@ -43,30 +43,62 @@ module.exports = {
 	
 	
 	, seek : function(key, callback){
+
 		var final_result={ };
+		
 			// city_name 를 검색하는 경우
-				city_call({city_name : key}, function(tmp){
-					final_result[city_extra] = tmp.city_extra;
-					
-					station_call({city_aname : key}, function(tmp){
-						final_result[station_name] = tmp.station_name;
+			city_call({city_name : key}, function(tmp){
+				
+				final_result[city_extra] = tmp.city_extra;	
+							
+				station_call({city_name : key}, function(tmp){
+					final_result[station_name] = tmp.station_name;
 						
-						sights_call({city_name: key}, function(tmp){
+					sights_call({city_name: key}, function(tmp){
+						final_result[sights_name] = tmp.sights_name;
+						
+						callback(final_result);
+					}); 		// end of sights_call
+				}); 	// end of station_call
+			}); 	// end of city_call				
+					
+					
+			// station_name 를 검색하는 경우
+				station_call( {station_name : key}, function(tmp){
+					final_result[city_name] = tmp.city_name;
+					
+					city_call( {station_name : key}, function(tmp){
+						final_result[city_extra] = tmp.city_extra;
+						
+						sights_call( {station_name : key}, function(tmp){
 							final_result[sights_name] = tmp.sights_name;
 							
 							callback(final_result);
-						}); 		// end of sights_call
-					}); 	// end of station_call
-				}); 	// end of city_call				
+						});		// end of sights_call
+					}); 	// end of city_call
+				}); 	// end of station_call			
 			
-			// sights_name를 검색한 경우
-			sight_call( {sights_})
-			
-			// station_name 를 검색하는 경우
-			
-			
-			// city_extra 를 검색하는 경우
 
+			// sights_name를 검색한 경우
+				sights_call( {sights_name: key}, function(tmp){
+					final_result[city_name] = tmp.city_name;
+					final_result[station_name] = tmp.station_name;
+					final_result[sights_extra] = tmp.sights_extra;
+					
+					callback(final_result);
+				}); 	// end of sights_call
+
+
+			// extra 를 검색한경우
+				documents.find({sights_extra: key}, function(err, final_result){
+					if(result) {
+						callback(final_result);
+					}
+					else{
+						callback(false);
+					}
+				}); 	// end of fiind
+				
 	}	// end of seek
 	
 	, city_call : function(key, callback){
@@ -76,10 +108,10 @@ module.exports = {
 			evt.on('city_db_get_list', function(evt, i){
 				if(i< result.length){
 					if(i== 0){
-						tmp = result[i].city_extra;
+						tmp[city_extra] = result[i].city_extra;
 					}
 					else {
-						tmp += result[i].city_extra;
+						tmp[city_extra] += result[i].city_extra;
 					}
 					evt.emit('city_db_get_list', evt, ++i);
 				}
@@ -99,10 +131,12 @@ module.exports = {
 			evt.on('station_db_get_list', function(evt, i){
 				if(i< result.length){
 					if(i =0){
-						tmp = result[i].station_name;
+						tmp[station_name] = result[i].station_name;
+						tmp[city_name]= result[i].city_name;
 					}
 					else {
-						tmp += result[i].station_name;
+						tmp[station_name] += result[i].station_name;
+						tmp[city_name] += result[i].city_name;
 					}
 					evt.emit('station_db_get_list', evt, ++i);
 				}
