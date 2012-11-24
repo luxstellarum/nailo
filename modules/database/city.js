@@ -27,6 +27,8 @@ module.exports = {
 				doc.do_name = city.do_name;
 				doc.city_extra = city.city_extra;
 				
+				console.log('haha',city);
+				
 				evt.on('set_search_db', function(evt, i){	
 					if(i<city_extra.length){
 						search_db.add(city_extra[i], city_name);

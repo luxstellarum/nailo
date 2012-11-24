@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
+var city = require('./city.js');
 
 var station_schema = new schema({
 	index : Number, 
@@ -21,24 +22,30 @@ module.exports = {
 
 		//값 넣기
 		self.get_index(function(result){
-			if(result != false) {
-				doc.index = result;
-				doc.station_name = station.station_name;
-				doc.city_name = station.city_name;
-				doc.city_index = station.city_index;
-				doc.station_homepage = station.station_homepage;
-				doc.station_phone = station.station_phone;
-				doc.train_type = station.train_type;
-				
-								
-				doc.save(function(err){
-					if(!err){
-						callback(true);
-					}//end of if
-					else {
-						callback(false);
-					}//end of else
-				}); //end of save
+			
+			self.get_city_index({city_name : station.city_name}, function(result2){
+
+				if(result != false) {
+					doc.index = result;
+					doc.station_name = station.station_name;
+					doc.city_name = station.city_name;
+					doc.city_index = result2;
+					doc.station_homepage = station.station_homepage;
+					doc.station_phone = station.station_phone;
+					doc.train_type = station.train_type;
+					
+									
+					doc.save(function(err){
+						if(!err){
+							callback(true);
+						}//end of if
+						else {
+							callback(false);
+						}//end of else
+					}); //end of save
+				}
+	
+					
 			}
 		});
 		
@@ -60,6 +67,18 @@ module.exports = {
 			}
 		});
 	}
+	
+	
+	,get_city_index : function(condition, callback){
+		city.get(condition, function(result){
+			if(result){
+				callback(result.index);
+			}
+			else{
+				callback(false);
+			}		
+		}); 		// end of city.get
+	}	
 	
 	,get : function(condition, callback) {
 		documents.findOne(condition, function(err, result) {
