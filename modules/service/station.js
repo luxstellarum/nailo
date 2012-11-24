@@ -2,7 +2,7 @@ var station_db = require('../database/station.js');
 
 module.exports = {
 
-	add : function (req, res) {
+	write : function (req, res) {
 		station_db.add(req.body, function(result){
 			if(result == true) {
 				console.log('service/board.js, write success');

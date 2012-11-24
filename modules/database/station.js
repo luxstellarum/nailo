@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'); //mongoose module 사용
+var city_db = require('./city.js');
+var search_db = require('./search.js');
 var schema = mongoose.Schema; // mongoose.schema 획득
-var city = require('./city.js');
 
 var station_schema = new schema({
 	index : Number, 
@@ -67,7 +68,7 @@ module.exports = {
 	
 	
 	,get_city_index : function(condition, callback){
-		city.get(condition, function(result){
+		city_db.get(condition, function(result){
 			if(result){
 				callback(result.index);
 			}
@@ -133,4 +134,5 @@ module.exports = {
 			}//end of else
 		});//end of find
 	}//end of get_station_list
+	
 }//end of module export

@@ -1,10 +1,12 @@
 var sights_db = require('../database/sights.js');
 
+console.log(sights_db);
+
 module.exports = {
 	
 	//관광지 작성
 	write : function (req, res) {
-		sigths_db.add(req.body, function(result){
+		sights_db.add(req.body, function(result){
 			if(result == true) {
 				console.log('service/sights.js, write success');
 				res.json({result:true});
