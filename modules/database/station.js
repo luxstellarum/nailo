@@ -43,15 +43,12 @@ module.exports = {
 							callback(false);
 						}//end of else
 					}); //end of save
-				}
-	
-					
-			}
-		});
-		
+				}		
+			});		// end of get_city_index
+		});		// end of get_index
 	}//end of add_station
 	
-	,get_index : function(callback) {
+	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {

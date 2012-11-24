@@ -51,9 +51,9 @@ module.exports = {
 						}
 					}); 		// end of evt.on
 					evt.emit('set_search_db',evt, 0);
-				}
-		});
-		
+				} 		// end of if
+			});		// end of get_city_index
+		}); 	// end of get_index	
 	}//end of add_sights
 
 
