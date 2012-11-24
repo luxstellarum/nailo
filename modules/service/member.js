@@ -61,6 +61,8 @@ module.exports = {
 			if(member){
 				if(req.body.pw == member.pw){
 					req.session.userid = req.body.id;
+					req.session.name = req.body.name;
+					req.session.sex = req.body.sex;
 					res.json({result: true, user: member});					
 				}
 				else {
@@ -81,7 +83,10 @@ module.exports = {
 
 	,get_login_information : function(req, res) {
 		if(req.session.userid != null ) {
-			res.json({user_id : req.session.userid, message : "로그인 정보를 반환합니다."});
+			res.json({ user_id : req.session.userid,
+						nickname : req.session.name,
+						sex: req.session.sex,
+						message : "로그인 정보를 반환합니다."});
 		}
 		else {
 			res.json({message : "로그인 정보가 없습니다."});

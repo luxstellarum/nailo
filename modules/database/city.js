@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
+var search_db = require('./search.js');
+var event_emitter = require('events').EventEmitter;
 
 var city_schema = new schema({
 	index : Number,
@@ -15,6 +17,8 @@ module.exports = {
 	add : function(city, callback) {
 		var self = this;
 		var doc = new documents();		
+		var evt = new event_emitter();
+		
 		//값 넣기
 		self.get_index(function(result){
 			if(result != false) {
@@ -23,16 +27,28 @@ module.exports = {
 				doc.do_name = city.do_name;
 				doc.city_extra = city.city_extra;
 				
-				doc.save(function(err){
-					if(!err){
-						callback(true);
-					}//end of if
-					else {
-						callback(false);
-					}//end of else
-				}); //end of save
+				evt.on('set_search_db', function(evt, i){	
+					if(i<city_extra.length){
+						search_db.add(city_extra[i], city_name);
+						evt.emit('set_search_db', evt, ++i);
+					}
+					else{
+						doc.save(function(err){
+							if(!err){
+								callback(true);
+							}//end of if
+							else {
+								callback(false);
+							}//end of else
+						}); //end of save
+					}
+					
+				}); 	// end of evt.on
+				evt.emit('set_search_db', evt, 0);
+				
 			}
-		});
+		});	// end of get_index
+		
 		
 	}//end of add
 	
