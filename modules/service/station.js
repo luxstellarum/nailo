@@ -17,7 +17,7 @@ module.exports = {
 
 	,list : function(req, res) {
 		var condition = {};
-		condition[city_index] = req.city_index;
+		condition[city_index] = req.body.city_index;
 		station_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');

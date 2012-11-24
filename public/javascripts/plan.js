@@ -53,17 +53,26 @@ $(document).ready(function() {
 
 
 	// plan2.jade: datepicker
+	/*
+		무조건 sequential하게 열차 시간이 들어온다고 가정. 
+		train_plan[0] = { day : 1, city_name : ABC };
+		train_plan[1] = { day : 1, city_name : BCD };
+		....
+		
+	*/
 	$(".city2").bind("click", function(){
 		var daypicker = $("#daypicker");
 		train_plan[train_plan_flag] = {};
-		train_plan[train_plan_flag][city_name] = $(this).text();
+		train_plan[train_plan_flag]['city_name'] = $(this).text();
 		$.loadPopup(daypicker);
 		$.centerPopup(daypicker);
 
 		$(".set_days_btn").click(function(){
 			var daypicker = $("#daypicker");
-			train_plan[train_plan_flag][day] = daypicker.find('.days').val();
+			train_plan[train_plan_flag]['day'] = daypicker.find('.days').val();
 			daypicker.find('.days').val("");
+			console.log(train_plan[train_plan_flag]['day'], train_plan[train_plan_flag]['city_name']);
+			console.log(train_plan);
 			train_plan_flag++;
 			$.disablePopup(daypicker);
 		});

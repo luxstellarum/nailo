@@ -3,6 +3,8 @@ var schema = mongoose.Schema; // mongoose.schema 획득
 var city = require('./city.js');
 var event_emitter = require('events').EventEmitter;
 
+console.log(city);
+
 var sights_schema = new schema({
 	index : Number,
 	sights_name : String,

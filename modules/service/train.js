@@ -7,6 +7,8 @@ var train_db = require('../database/train.js');
 var strlib = require('../lib/string.js');
 var event_emitter = require('events').EventEmitter;
 
+var station_db = require('../database/station.js');
+
 module.exports = {
 	write : function(data) {
 		train_db.add(data, function(result){
@@ -225,4 +227,124 @@ module.exports = {
 			evt.emit('get_time_table', evt, 0, 0);
 		});//end of get
 	}//end of get_time_table	
+
+	,get_specific_time : function(dept_station, arrv_station, require_dept_time, callback) {
+		var condition_1 = {};
+		var time_table = {};
+		var evt = new event_emitter();
+
+		condition_1['dept_station'] = dept_station;
+
+		train_db.get(condition_1, function(result){
+			if( parseInt( result[0].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+				var condition = {};
+				condition['id'] = result[i].id;
+				condition['arrv_station'] = arrv_station;
+				
+				train_db.get( condition, function(result2) {
+				//그 기차 번호의 노선을 다 따와서 비교
+					if( result2 != false) {
+						time_table['dept_station'] = dept_station;
+						time_table['arrv_station'] = arrv_station;
+						time_table['dept_time'] = result[0].dept_time;
+						time_table['arrv_time'] = result2[0].arrv_time;
+						time_table['time_required'] = parseInt(time_tlabe.arrv_time.split(':')[0], 10 ) - parseInt(time_tlabe.dept_time.split(':')[0], 10 );
+
+						callback(time_table);
+					}//end of if
+					else {
+						callback(false);
+					}
+				});//end of get
+			}//end of if
+		});//end of get
+	}//end of get_time_table	
+
+	//기차 시간 자동 추천
+	/*
+		무조건 sequential하게 열차 시간이 들어온다고 가정. 
+		train_plan[0] = { day : 1, city_name : ABC };
+		train_plan[1] = { day : 1, city_name : BCD };
+		....
+
+		반환은
+		[ {day : 1, valid:true, dept_station : ABC, dept_time : 00:00, arrv_station : BCD, arrv_time : 11:11, time_required : 00}, 
+		   ... ]
+		여기서 time_required는 '시간'단위로 보여준다. 분단위는 무조건 올림.
+		
+	*/
+	,suggest_time : function (req, res) {
+		var self = this;
+		var evt = new event_emitter();
+		//string으로 넘어온 train_plan을 JSON형식으로 파싱해줌
+		var train_plan = JSON.parse(req.body.train_plan);
+		var suggestion = [];
+		//기차시간 추천 이벤트 바인딩
+		evt.on('make_suggestion', function(evt, i) {
+			self.compare_station(train_plan[i].city_name, train_plan[i+1].city_name, function(result){
+				if(result != false ) {
+					self.get_specific_time(result.dept_station, result.arrv_station, 9, function(result2) {
+						if(result2 != false) {
+							suggestion[i] = {};
+							suggestion[i]['day'] = train_plan[i+1].day;
+							suggestion[i]['dept_station'] = result.dept_station;
+							suggestion[i]['arrv_station'] = result.arrv_station;
+							suggestion[i]['dept_time'] = result2.dept_time;
+							suggestion[i]['arrv_time'] = result2.arrv_time;
+							suggestion[i]['time_required'] = result2.time_required;
+							suggestion[i]['valid'] = true;
+
+							if( ++i < train_plan.length ) {
+								evt.emit('make_suggestion', evt, i);
+							}//end of if
+							else {
+								res.json(suggestion);
+							}
+						}//end of if
+					})//end of get_specific_time
+				}//end of if
+			});//end of compare_station
+		});//end of evt on
+
+		evt.emit('make_suggestion', evt, 0);
+	}//end of suggest_time
+
+	//각 도시 별로 존재하는 모든 역에 대해 두 도시간을 이동할 수 있는 역이 있는가 조회
+	,compare_station : function(city1, city2, callback) {
+		//ToDo
+		var self = this;
+		evt.on('compare_station', function(evt, ret1, ret2, i, j) {
+			self.get_valid_route(ret1[i].station_name, ret2[j].station_name, function(result) {
+				if(result.result == true) {
+					callback(result);
+				}//end of if
+				else if(j < ret2.length){
+					evt.emit('compare_station', evt, ret1, ret2, i, ++j);
+				}//end of else
+				else if(i < ret1.length){
+					evt.emit('compare_station', evt, ret1, ret2, ++i, 0);
+				}
+				else {
+					callback(false);
+				}
+			});//end of get_valid_route 
+		});//end of evt on
+
+		station_db.get_list({city_name : city1}, function(result1){
+			if(result1 != false) {
+				station_db.get_list({city_name : city2}, function(result2) {
+					if(result2 != false) {
+						evt.emit('compare_station', evt, result1, result2, 0, 0);
+					}//end of if
+				});//end of inner get_list
+			}//end of if
+		});//end of outer get_list
+	}//end of compare_station
+
+	//두 역간에 유효한 루트가 존재하는가 체크. 추후 구현
+	,get_valid_route : function(station1, station2, callback) {
+		//ToDo
+	}
+
+
 }

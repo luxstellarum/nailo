@@ -1,7 +1,9 @@
 var mongoose = require('mongoose'); //mongoose module 사용
-var city_db = require('./city.js');
+var city_db = require('./city');
 var search_db = require('./search.js');
 var schema = mongoose.Schema; // mongoose.schema 획득
+
+console.log(city_db);
 
 var station_schema = new schema({
 	index : Number, 
