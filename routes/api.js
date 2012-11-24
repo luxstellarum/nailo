@@ -104,7 +104,7 @@ module.exports = function(app){
 
 	// 도시 등록
 	app.post('/city/write', function(req, res) {
-		city.write(req, res기);
+		city.write(req, res);
 	});
 	// 도시 삭제
 	app.post('/city/remove', function(req, res) {

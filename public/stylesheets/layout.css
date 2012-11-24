@@ -169,6 +169,11 @@ p > img{
 	display: inline-block;
 }
 
+.city2{
+	font-weight: bold;
+	color: #3A3C3C;
+}
+
 /* 개별 플랜을 드래그하면 크기를 조절하는 컨트롤영역 */
 .ui-resizable-e {
 	position: absolute;
