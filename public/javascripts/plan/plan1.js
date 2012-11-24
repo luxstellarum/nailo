@@ -21,14 +21,16 @@ $(document).ready(function() {
 		var input2 = end_year + '/' + end_month + '/' + end_day;
 		var date1 = new Date(input1);
 		var date2 = new Date(input2);
-
+		
 		var minutes = 1000*60;
 		var hours = minutes*60;
 		var days = hours*24;
 
-		var diff = Math.abs(date1.getTime() - date2.getTime());
+		var period = ( (date2-date1)/days ) + 1;
+		console.log(period);
+		// var diff = Math.abs(date1.getTime() - date2.getTime());
 
-		var period = Math.round(diff / days);
+		// var period = Math.round(diff / days);
 		
 		/**** 여행기간을 입력받으면 다음 3가지 업무를 수행한다 ****/
 
@@ -39,11 +41,21 @@ $(document).ready(function() {
 		$('.plan_bar_wrapper').css('width', window_width_wrapper);
 
 		// (2) 플랜바 전체영역 내에 날짜별 영역을 생성한다
-		for(var j = 1; j<=period; j++){
+		for(var j = 1; j<period; j++){
+			var prev_day = parseInt($(".plan_bar:last").attr('day'),10)+1;
+			var append_li = $(".plan_bar:last").html();
+			$(".plan_bar:last").after('<ul class=plan_bar day='+prev_day+'>');
+			$(".plan_bar:last").append(append_li);
+			$(".plan_bar:last").css("width", window_width);
+
+			/*
 			$(".plan_bar_wrapper").append("<ul>");
 			$($(".plan_bar_wrapper").find("ul")).last().addClass("plan_bar_" + j);
 			$($(".plan_bar_wrapper").find("ul")).last().css("width", window_width);
+			*/
 		}
+
+		$(".plan_bar_hour").droppable( drop_option );
 
 		// (3) 날짜정보를 띄워주는 영역을 생성한다
 		var day_width = window_width / period;

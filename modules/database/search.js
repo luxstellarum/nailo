@@ -2,7 +2,7 @@ var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema;	// mongoose.schema 획득
 var event_emitter = require('events').EventEmitter;
 var station_db = require('./station.js');
-var sights_db = require('./sight.js');
+var sights_db = require('./sights.js');
 var city_db = require('./city.js');
 
 
