@@ -5,8 +5,7 @@ var city_schema = new schema({
 	index : Number,
 	city_name : String,
 	do_name : String,
-	station_names : String,
-	extra : String
+	city_extra : Array
 });//end of city_schema
 
 var documents = mongoose.model('city', city_schema);//DB 삽입위한 모델 생성
@@ -22,8 +21,7 @@ module.exports = {
 				doc.index = result;
 				doc.city_name = city.city_name;
 				doc.do_name = city.do_name;
-				doc.station_names = city.station_names;
-				doc.extra = city.extra;
+				doc.city_extra = city.city_extra;
 				
 				doc.save(function(err){
 					if(!err){
