@@ -5,7 +5,7 @@ include ../top.jade
 			div(id="searchbrowser")
 					include ../search.jade
 		include ../city_name.jade
-		include ../datepicker.html
+		include ../widget/daypicker.jade
 		div.container
 			div(id="plan_1",class="slide current")
 				script(src="/javascripts/plan/plan1.js")
@@ -15,7 +15,6 @@ include ../top.jade
 					span.head_number(style="font-size:15pt") >도선택
 					input.btn_save(type="button", value="SAVE", name="save")
 				include ../periodpicker.jade
-				include ../widget/daypicker.jade
 				div.wrapper(id="plan_num")
 					img.map(src="/images/map.png")
 					a.province(id="kangwondo",href="/plan/plan#plan_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 강원도
