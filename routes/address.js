@@ -117,6 +117,9 @@ module.exports = function(app){
 		res.render('plan/jeongup_see', {title:'/plan/see'});
 	});	
 	
+	app.get('/plan/boseong_see', function(req, res){
+		res.render('plan/boseong_see', {title:'/plan/see'});
+	});
 	
 	// etc 카테고리 라우팅
 	app.get('/etc/notice', function(req, res){
