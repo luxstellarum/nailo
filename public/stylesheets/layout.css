@@ -1,36 +1,36 @@
-A:link {text-decoration:none; color:#000080}
-A:visited {text-decoration:none; color:#000080}
-A:active {text-decoration:none; color:#000080}
-A:hover {text-decoration:none; color:#529CFF}
+A:link {text-decoration:none; font-weight: bold; color: #3A3C3C}
+A:visited {text-decoration:none; font-weight: bold; color:#3A3C3C}
+A:active {text-decoration:none; font-weight: bold; color:#3A3C3C}
+A:hover {text-decoration:none; font-weight: bold; color:#3A3C3C}
 
-html, body{
+body{
 	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	height: 100%;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: 'HeummStyleWeb';
-	
 }
 
-.container {
-	top: 0px;
-	width:100%;
-	left: 0px;
-	bottom:100px;
-	overflow-y: auto;
-	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 1000px;
-	overflow: scroll;
+#container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
-.header {
-	padding: 5px;
-	position: relative;
-	margin-top: 0px;
+
+#header {
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
 	top: 0px;
 	left: 0px;
+<<<<<<< HEAD
+	border-bottom: 1px solid black;
+	overflow: hidden;
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(140,140,140,1) 4%, rgba(114,114,114,1) 17%, rgba(114,114,114,1) 30%, rgba(84,84,84,1) 55%, rgba(58,58,58,1) 89%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(4%,rgba(140,140,140,1)), color-stop(17%,rgba(114,114,114,1)), color-stop(30%,rgba(114,114,114,1)), color-stop(55%,rgba(84,84,84,1)), color-stop(89%,rgba(58,58,58,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* W3C */
+=======
 	width: 100%;
 /*	border-bottom: 1px solid black;
 /*	background: rgb(255,255,255); /* Old browsers */
@@ -40,26 +40,28 @@ html, body{
 /*	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* Opera 11.10+ */
 /*	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* IE10+ */
 /*	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* W3C */
+>>>>>>> b806b4275a8318fa568d0dc7c85e05409c7a6555
 }
 
-.section {
-	position: relative;
-	width: 100%;
-	height: auto;
-	top: 0px;
-	left: 0px;
-	bottom: 100px;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-.footer{
+.wrapper{
 	position: absolute;
-	left: 0;
-	top: 77%;
+	top: 60px;
+	max-height: 500px;
+	overflow: hidden;
+	overflow-y: auto;
+	display: table;
+}
+
+
+#footer{
+	position: absolute;
+	line-height: 100px;
+	height: 100px;
+	bottom: 0px;
 	width: 100%;
 	z-index: 2;
 	bottom: 0px;
+	overflow: hidden;
 	-moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
     -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
     -webkit-transition: all 0.2s ease-in-out 0.1s;
@@ -72,6 +74,18 @@ html, body{
 	font-size:30pt;
 	color: #BCF1ED;
 	text-shadow: -2px -2px -2px -2px #222;
+}
+
+
+.section {
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 0px;
+	left: 0px;
+	bottom: 100px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 /* + 버튼을 누르면 나오는 추가메뉴 팝업창 */

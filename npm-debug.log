@@ -1,0 +1,53 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'link', 'sight.js' ]
+2 info using npm@1.1.48
+3 info using node@v0.8.6
+4 verbose config file /Users/yong8/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 verbose install where,what [ '/usr/local/lib', [ 'sight.js' ] ]
+8 verbose read json /usr/local/lib/package.json
+9 verbose read json /usr/local/lib/node_modules/express/package.json
+10 verbose read json /usr/local/lib/node_modules/iconv/package.json
+11 verbose read json /usr/local/lib/node_modules/jsdom/package.json
+12 verbose read json /usr/local/lib/node_modules/mongoose/package.json
+13 verbose read json /usr/local/lib/node_modules/npm/package.json
+14 verbose read json /usr/local/lib/package.json
+15 verbose cache add [ 'sight.js', null ]
+16 silly cache add name=undefined spec="sight.js" args=["sight.js",null]
+17 verbose parsed url { pathname: 'sight.js', path: 'sight.js', href: 'sight.js' }
+18 silly lockFile bf08fe33-sight-js sight.js
+19 verbose lock sight.js /Users/yong8/.npm/bf08fe33-sight-js.lock
+20 silly lockFile bf08fe33-sight-js sight.js
+21 verbose addNamed [ 'sight.js', '' ]
+22 verbose addNamed [ null, '' ]
+23 silly lockFile 5b25a467-sight-js sight.js@
+24 verbose lock sight.js@ /Users/yong8/.npm/5b25a467-sight-js.lock
+25 silly addNameRange { name: 'sight.js', range: '', hasData: false }
+26 verbose url raw sight.js
+27 verbose url resolving [ 'https://registry.npmjs.org/', './sight.js' ]
+28 verbose url resolved https://registry.npmjs.org/sight.js
+29 info retry registry request attempt 1 at 15:18:12
+30 http GET https://registry.npmjs.org/sight.js
+31 http 404 https://registry.npmjs.org/sight.js
+32 silly registry.get cb [ 404,
+32 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+32 silly registry.get     date: 'Sat, 24 Nov 2012 06:17:42 GMT',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'content-length': '52',
+32 silly registry.get     'cache-control': 'must-revalidate' } ]
+33 silly lockFile 5b25a467-sight-js sight.js@
+34 error 404 'sight.js' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404
+34 error 404 Maybe try 'npm search sight'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Darwin 12.2.0
+36 error command "node" "/usr/local/bin/npm" "link" "sight.js"
+37 error cwd /Users/yong8/Workspace/nailo
+38 error node -v v0.8.6
+39 error npm -v 1.1.48
+40 error code E404
+41 verbose exit [ 1, true ]
