@@ -267,5 +267,13 @@ module.exports = function(app){
 	app.post('/search/write', function(req, res) {
 		search.write(req, res);
 	});
+	// 검색을 위한 key:value 삭제
+	app.post('/search/remove', function(req, res) {
+		search.remove(req, res);
+	});
+	// 검색하기
+	app.post('/search/search', function(req, res) {
+		search.search(req, res);
+	});
 	
 }

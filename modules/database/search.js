@@ -42,28 +42,58 @@ module.exports = {
 	}		// end of add
 	
 	
+	
+	, seek_keyword_type : function(key, callback){
+		city.get({city_name : key}, function(err, result){
+			if(result){
+				callback('f_city');
+			}
+			else{
+				station.get( {station_name: key}, function(err, result){
+					if(result){
+						callback('f_station');
+					}
+					else{
+						sights.get( {sights_name: key}, function(err, result){
+							if(result){
+								callback('f_sights');
+							}
+							else{
+								callback('f_extra');
+							}
+						}); 	// end of sights_get
+					}
+				}); 	// end of station_get
+			}
+		}); 	// end of city_get
+	}		// end of seek_keyword_type
+	
+	
 	, seek : function(key, callback){
-
 		var final_result={ };
-		
-			// city_name 를 검색하는 경우
-			city_call({city_name : key}, function(tmp){
-				
-				final_result[city_extra] = tmp.city_extra;	
+		var self = this;
+		self.seek_keyword_type(key, function(flag){
+			if(flag == 'f_city'){
+				// city_name 를 검색하는 경우 flag='f_city'
+				city_call({city_name : key}, function(tmp){
+					
+					final_result[city_extra] = tmp.city_extra;	
+								
+					station_call({city_name : key}, function(tmp){
+						final_result[station_name] = tmp.station_name;
 							
-				station_call({city_name : key}, function(tmp){
-					final_result[station_name] = tmp.station_name;
-						
-					sights_call({city_name: key}, function(tmp){
-						final_result[sights_name] = tmp.sights_name;
-						
-						callback(final_result);
-					}); 		// end of sights_call
-				}); 	// end of station_call
-			}); 	// end of city_call				
-					
-					
-			// station_name 를 검색하는 경우
+						sights_call({city_name: key}, function(tmp){
+							final_result[sights_name] = tmp.sights_name;
+							
+							callback(final_result);
+						}); 		// end of sights_call
+					}); 	// end of station_call
+				}); 	// end of city_call				
+			}		// end of flag f_city
+			
+			else if (flag == 'f_station'){
+	
+				// station_name 를 검색하는 경우 flag = 'station'
 				station_call( {station_name : key}, function(tmp){
 					final_result[city_name] = tmp.city_name;
 					
@@ -76,10 +106,11 @@ module.exports = {
 							callback(final_result);
 						});		// end of sights_call
 					}); 	// end of city_call
-				}); 	// end of station_call			
+				}); 	// end of station_call					
+			}	// end of flag f_station
 			
-
-			// sights_name를 검색한 경우
+			else if (flag == 'f_sights'){
+				// sights_name를 검색한 경우
 				sights_call( {sights_name: key}, function(tmp){
 					final_result[city_name] = tmp.city_name;
 					final_result[station_name] = tmp.station_name;
@@ -88,8 +119,10 @@ module.exports = {
 					callback(final_result);
 				}); 	// end of sights_call
 
-
-			// extra 를 검색한경우
+			}		// end of flag f_sights
+			
+			else if(flag == 'f_extra'){
+				// extra 를 검색한경우
 				documents.find({sights_extra: key}, function(err, final_result){
 					if(result) {
 						callback(final_result);
@@ -97,10 +130,20 @@ module.exports = {
 					else{
 						callback(false);
 					}
-				}); 	// end of fiind
+				}); 	// end of find
+			}	// end of flag f_extra
+			
+			else {
+				callback(false);
+			}		// 검색결과 없음.
 				
+		});		// end of seek_keyword_type
+		
 	}	// end of seek
 	
+	
+	
+	// city database 에서의 검색
 	, city_call : function(key, callback){
 		city_db.get_list(condition, function(result){
 			var tmp = {};
@@ -124,6 +167,7 @@ module.exports = {
 	} 		// end of city_call
 	
 	
+	// station database 에서의 검색
 	, station_call : function(key, callback){
 		station_db.get_list( condition, function(result){
 			var tmp = {};
@@ -147,7 +191,9 @@ module.exports = {
 			evit.emit('station_db_get_list', evt, 0);
 		}); 		// end of get_list
 	}		// end of station_call
-	
+
+
+	// sights database 에서의 검색
 	, sights_call : function(key, callback){
 		sights_db.get_list( condition, function(result){
 			var tmp = {};

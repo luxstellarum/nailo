@@ -70,7 +70,7 @@ module.exports = {
 	}
 	
 	,get : function(condition, callback) {
-		documents.find(condition, function(err, result) {
+		documents.findOne(condition, function(err, result) {
 			if(result) {
 				callback(result);
 			}//end of if

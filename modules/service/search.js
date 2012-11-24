@@ -30,9 +30,9 @@ module.exports = {
 	
 	,search : function(req, res){
 		search_db.seek(req.body.key, function(result){
-			if(result == true) {
+			if(result != false) {
 				console.log('service/search.js, search success');
-				res.json({result: true});
+				res.json(result);
 			}
 			else {
 				console.log('service/search.js, search fail');
