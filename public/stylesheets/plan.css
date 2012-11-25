@@ -1,60 +1,32 @@
 
 .btn_save{
 	width: 50px;
-	height: 20px;
-	border-radius: 5px;
-	font: 10px bold #3A3C3C;
+	height: 30px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #BCF1ED;
 	background-color: #BCF1ED;
-	font-size: 13px;
-	border: 1px solid #3A3C3C;
+	font-size: 11px;
+	border: 1px solid black;
 	float: right;
 	margin-right: 15px;
 	margin-top: 15px;
-	background: rgb(252,255,254); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(252,255,254,1) 0%, rgba(153,239,232,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,254,1)), color-stop(100%,rgba(153,239,232,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* W3C */
-	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
-    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
-    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .4), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
+	background-color: #3A3C3C;
 }
 
-.content{
-	position:relative; 
-	top:0px; left:0px; 
-	width:80%; height:0px; 
-	padding-bottom:80%; 
-	margin: 0 auto;
-	overflow:auto;
-	z-index: 0;
-}
 
 .map_wrapper{
-	max-height: 500px;
+	width: 100%;
+	max-height: 700px;
 	overflow-y: auto;
-}
-
-.wrapper{
-	position: relative;
-	margin: 5%;
-	height: 70%;
-	overflow: auto;
 	display: table;
 }
 
 .map{
-	position:relative; 
-	margin: 0 auto;
-	width:60%; 
-	top:0px; 
-	left:0px; 
-	z-index:1;
+	width: 70%;
+	text-align:center; 
+	vertical-align:middle;
 	display: table-cell; 
-	text-align: center; 
-	vertical-align: middle;
 }
 #province_name{
 	position:absolute; 
@@ -113,11 +85,12 @@ p.city{
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-#peroidpicker li{
-	line-height: 2;
+#periodpicker li{
+	line-height: 2.5;
 }
 #periodpicker input, label{
 	vertical-align: middle;
+	font-size: 11pt;
 }
 #periodpicker .period{
 	width: 40px;
@@ -136,13 +109,7 @@ p.city{
 	font-size: 10pt;
 	color: #BCF1ED;
 	font-weight: bold;
-	background: rgb(76,76,76); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(12%,rgba(89,89,89,1)), color-stop(25%,rgba(102,102,102,1)), color-stop(39%,rgba(71,71,71,1)), color-stop(50%,rgba(44,44,44,1)), color-stop(51%,rgba(0,0,0,1)), color-stop(60%,rgba(17,17,17,1)), color-stop(76%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(19,19,19,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* W3C */	border-radius: 5px;
+	background-color: #3A3C3C;
 	border-color: black;
 	border-width: 1px;
 	box-shadow: inset 1px 1px 10px #818;
@@ -156,12 +123,6 @@ p.city{
 	display: none;
 }
 
-#plan_bar{
-	height:80px; 
-	background:gray; 
-	border-top: thick black;
-	overflow:auto;
-}
 .droppable_hover{
 	background-color: yellow;
 	opacity: 0.7;

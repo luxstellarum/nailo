@@ -1,5 +1,6 @@
 div#plan_2(class="slide")
 	div#header
+		span.head_number 1
 		span.head_number(style="font-size:15pt") >도시선택
 		span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
 	div.wrapper(id="kangwondo_map",style="display:none")
@@ -9,11 +10,10 @@ div#plan_2(class="slide")
 		img.map(src="/images/map_kyunggido.png")
 		a.province(href="/plan/plan3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 	
-	div.wrapper(id="chungcheongdo_map",style="display:none")
-		img.map(src="/images/map_chungcheongdo.png", style="width: 80%; margin-top: 15%;")
+	div.wrapper(id="chungcheongdo_map",style="display:none;")
+		img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
 		a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 		a.province(href="/plan/plan3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
-	
 	div.wrapper(id="jeollado_map",style="display:none")
 		img.map(src="/images/map_jeollado.png")
 		a.province(href="/plan/plan3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
@@ -21,5 +21,4 @@ div#plan_2(class="slide")
 		img.map(src="/images/map_kyungsangdo.png")
 		a.province(href="/plan/plan#plan_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 		a.province(href="/plan/plan3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
-
 
