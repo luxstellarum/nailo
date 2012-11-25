@@ -39,6 +39,10 @@ var drop_option = {
 	}//end of drop
 }//end of drop_option
 
+var drag_option = {
+	revert: "invalid",
+	helper: "clone"
+}
 
 function dragcity( item) {
 	item.fadeOut(function() {
@@ -57,8 +61,8 @@ function next_day_scroll(amount){
 }
 
 function set_hours(target, period, target_place) {
-	target = target.parent().find('[place='+target_place+']:first');
-	var remove_targets = $(target).parent().find('[place='+target_place+']').not('[occupied=1]');
+	target = target.parent().find('[place="'+target_place+'"]:first');
+	var remove_targets = $(target).parent().find('[place="'+target_place+'"]').not('[occupied=1]');
 	remove_targets.each(function(){
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
@@ -77,15 +81,16 @@ function set_hours(target, period, target_place) {
 			"background-color" : "yellow"
 		});
 		target.attr("place", target_place);
-		target.text(target_place);
+		//target.text(target_place);
 		target.attr("occupied", 2);
 		target.addClass("filled"); 
 	}
+
 }
 
 function remove_place (target) {
 	target_place = target.attr("place");
-	var remove_targets = target.parent().find('[place='+target_place+']');
+	var remove_targets = target.parent().find('[place="'+target_place+'"]');
 
 	remove_targets.each(function(){
 		$(this).attr("place", "");
@@ -105,10 +110,9 @@ $(document).ready(function(){
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
 	// 드래그 앤 드랍 기능
-	$(".city2").draggable({
-		revert: "invalid",
-		helper: "clone"
-	});
+	$(".city2").draggable( drag_option );
+
+	$(".province").draggable( drag_option );
 
 	$(".next_day").mousedown(function() {
 		timeoutId = setTimeout(next_day_scroll(window_width), 100);

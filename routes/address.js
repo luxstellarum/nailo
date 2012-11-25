@@ -105,10 +105,21 @@ module.exports = function(app){
 		res.render('plan/plan3', {title:'/plan/plan3'});
 	});	
 
-	app.get('/plan/see', function(req, res){
-		res.render('plan/see', {title:'/plan/see'});
+	app.get('/plan/pyungchang_see', function(req, res){
+		res.render('plan/pyungchang_see', {title:'/plan/see'});
 	});	
 	
+	app.get('/plan/kangneung_see', function(req, res){
+		res.render('plan/kangneung_see', {title:'/plan/see'});
+	});	
+	
+	app.get('/plan/jeongup_see', function(req, res){
+		res.render('plan/jeongup_see', {title:'/plan/see'});
+	});	
+	
+	app.get('/plan/boseong_see', function(req, res){
+		res.render('plan/boseong_see', {title:'/plan/see'});
+	});
 	
 	// etc 카테고리 라우팅
 	app.get('/etc/notice', function(req, res){

@@ -1,5 +1,5 @@
 var city_db = require('../database/city.js');
-
+console.log(city_db);
 module.exports = {
 	
 	// 도시 추가

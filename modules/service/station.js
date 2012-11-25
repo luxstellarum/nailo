@@ -2,7 +2,7 @@ var station_db = require('../database/station.js');
 
 module.exports = {
 
-	add : function (req, res) {
+	write : function (req, res) {
 		station_db.add(req.body, function(result){
 			if(result == true) {
 				console.log('service/board.js, write success');
@@ -17,7 +17,7 @@ module.exports = {
 
 	,list : function(req, res) {
 		var condition = {};
-		condition[city_index] = req.city_index;
+		condition[city_index] = req.body.city_index;
 		station_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');

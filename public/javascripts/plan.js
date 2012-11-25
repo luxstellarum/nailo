@@ -8,12 +8,10 @@ $(document).ready(function() {
 			$('.province_name').text(province);
 		});
 	});*/
-
+	var train_plan = [];
+	var train_plan_flag = 0;
 	// datepicker
-
-
 	var popupStatus = 0;
-
 
 	$.loadPopup = function(popup){
 		//팝업은 popupStatus 가 비활성화되어 있을때만 불러진다. / loads popup only if it is disabled
@@ -43,32 +41,52 @@ $(document).ready(function() {
 		var popupHeight = popup.height();
 		var popupWidth = popup.width();
 		//중앙에 위치시키기 / centering
+		console.log(popupWidth, windowWidth);
 		popup.css({
 			"position": "absolute",
 			"top": windowHeight/2-popupHeight/2,
-			"left": windowWidth/2-popupWidth/2
+			"left": windowWidth/2-popupWidth/2,
+			"z-index" : 1000
 		});
 		//IE6 을 위한 핵 / only need force for IE6
 	};
 
 
 	// plan2.jade: datepicker
+	/*
+		무조건 sequential하게 열차 시간이 들어온다고 가정. 
+		train_plan[0] = { day : 1, city_name : ABC };
+		train_plan[1] = { day : 1, city_name : BCD };
+		....
+		
+	*/
 	$(".city2").bind("click", function(){
 		var daypicker = $("#daypicker");
+		train_plan[train_plan_flag] = {};
+		train_plan[train_plan_flag]['city_name'] = $(this).text();
 		$.loadPopup(daypicker);
 		$.centerPopup(daypicker);
+
+		$(".set_days_btn").click(function(){
+			var daypicker = $("#daypicker");
+			train_plan[train_plan_flag]['day'] = daypicker.find('.days').val();
+			daypicker.find('.days').val("");
+			console.log(train_plan[train_plan_flag]['day'], train_plan[train_plan_flag]['city_name']);
+			console.log(train_plan);
+			train_plan_flag++;
+			$.disablePopup(daypicker);
+		});
+
+		$(".days_set_cancel_button").click(function(){
+			var daypicker = $("#daypicker");
+			daypicker.find('.days').val("");
+			train_plan[train_plan_flag] = {};
+			$.disablePopup(daypicker);
+		});
+
 	});
 
 	// plan2.jade: datepicker
-	$(".btn_set").click(function(){
-		var daypicker = $("#daypicker");
-		$.disablePopup(daypicker);
-	});
-
-	$(".btn_cancel").click(function(){
-		var daypicker = $("#daypicker");
-		$.disablePopup(daypicker);
-	});
 
 	// plan.jade: 맵의 크기를 동적으로 지정한다
 	var window_width = $(window).width();

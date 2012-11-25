@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
-var city = require('./city.js');
 
 var station_schema = new schema({
 	index : Number, 
@@ -15,17 +14,19 @@ var station_schema = new schema({
 var documents = mongoose.model('station', station_schema);//DB 삽입위한 모델 생성
 
 module.exports = {
-
 	add : function(station, callback) {
 		var self = this;
 		var doc = new documents();		
-
 		//값 넣기
 		self.get_index(function(result){
-			
 			self.get_city_index({city_name : station.city_name}, function(result2){
+<<<<<<< HEAD
 
 				if(result !== false) {
+=======
+				console.log(result, result2);
+				if(result != false) {
+>>>>>>> 4b9097b521c81450aded5b7fc7a5cca3f418656c
 					doc.index = result;
 					doc.station_name = station.station_name;
 					doc.city_name = station.city_name;
@@ -71,7 +72,9 @@ module.exports = {
 	
 	
 	,get_city_index : function(condition, callback){
-		city.get(condition, function(result){
+		var city_db = require('./city.js');
+		console.log('city_db : ', city_db);
+		city_db.get(condition, function(result){
 			if(result){
 				callback(result.index);
 			}
@@ -137,4 +140,5 @@ module.exports = {
 			}//end of else
 		});//end of find
 	}//end of get_station_list
+	
 }//end of module export
