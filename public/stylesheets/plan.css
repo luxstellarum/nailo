@@ -1,51 +1,32 @@
 
 .btn_save{
-	width: 80px;
+	width: 50px;
 	height: 30px;
-	font: 10px bold #3A3C3C;
+	font-size: 10px;
+	font-weight: bold;
+	color: #BCF1ED;
 	background-color: #BCF1ED;
-	font-size: 13px;
-	box-shadow: 1px 1px 1px 1px #B5BDBC;
-	border: 1px solid #3A3C3C;
+	font-size: 11px;
+	border: 1px solid black;
 	float: right;
 	margin-right: 15px;
 	margin-top: 15px;
-	background: rgb(252,255,254); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(252,255,254,1) 0%, rgba(153,239,232,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,254,1)), color-stop(100%,rgba(153,239,232,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(252,255,254,1) 0%,rgba(153,239,232,1) 100%); /* W3C */
-
+	background-color: #3A3C3C;
 }
 
-.content{
-	position:relative; 
-	top:0px; left:0px; 
-	width:80%; height:0px; 
-	padding-bottom:80%; 
-	margin: 0 auto;
-	overflow:auto;
-	z-index: 0;
-}
-.wrapper{
-	position: relative;
-	margin: 5%;
-	height: 70%;
-	overflow: auto;
+
+.map_wrapper{
+	width: 100%;
+	max-height: 700px;
+	overflow-y: auto;
 	display: table;
 }
+
 .map{
-	position:relative; 
-	margin: 0 auto;
-	width:80%; 
-	top:0px; 
-	left:0px; 
-	z-index:1;
+	width: 70%;
+	text-align:center; 
+	vertical-align:middle;
 	display: table-cell; 
-	text-align: center; 
-	vertical-align: middle;
 }
 #province_name{
 	position:absolute; 
@@ -79,9 +60,11 @@ p.city{
 }
 
 #periodpicker{
+	position: absolute;
 	width: 100%;
 	height: 100px;
-	position: absolute;
+	top: 60px;
+	font-size: 9pt;
 	border-top: 1px solid white;
 	background: rgb(252,255,254); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(252,255,254,1) 0%, rgba(153,239,232,1) 100%); /* FF3.6+ */
@@ -96,28 +79,43 @@ p.city{
 }
 #periodpicker ul{
 	color: #404240;
-	font-size: 12px;
+	font-size: 13px;
 	list-style: none;
 	vertical-align: middle;
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
+#periodpicker li{
+	line-height: 2.5;
+}
+#periodpicker input, label{
+	vertical-align: middle;
+	font-size: 11pt;
+}
+#periodpicker .period{
+	width: 40px;
+	height: 13px;
+	-webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .9), 0 -1px 0 rgba(0, 0, 0, .6);
+}
+#periodpicker.period_label{
+	line-height: 1;
+}
 .btn_set_period, .btn_cancel_period{
-	font-size: 12px;
-	background-color: #676767;
-	border-radius: 5px;
+	font-size: 10pt;
+	color: #BCF1ED;
+	font-weight: bold;
+	background-color: #3A3C3C;
 	border-color: black;
 	border-width: 1px;
 	box-shadow: inset 1px 1px 10px #818;
 }
 
-.period{
-	width: 40px;
-	height: 13px;
-}
-.period_label{
-	line-height: 1;
-}
+
 
 #datepicker{
 	position: absolute;
@@ -125,12 +123,6 @@ p.city{
 	display: none;
 }
 
-#plan_bar{
-	height:80px; 
-	background:gray; 
-	border-top: thick black;
-	overflow:auto;
-}
 .droppable_hover{
 	background-color: yellow;
 	opacity: 0.7;
