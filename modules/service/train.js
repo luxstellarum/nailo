@@ -196,8 +196,8 @@ module.exports = {
 		train_db.get(condition_1, function(result){
 			evt.on('get_time_table', function(evt, i, j){
 				if(i < result.length) {
-						//00시가 넘어가는건 다음날 검색으로 넘깁시다. 하
-						if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+					//00시가 넘어가는건 다음날 검색으로 넘깁시다. 하
+					if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
 						var condition = {};
 						condition['id'] = result[i].id;
 						condition['arrv_station'] = arrv_station;
