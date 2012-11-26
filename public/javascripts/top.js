@@ -1,3 +1,8 @@
+/**********************************************
+	global variables
+**********************************************/
+var selected_cities = []; //선택한 도시 정보 저장
+
 $(document).ready(function(){
 	displayRandom();
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
@@ -17,7 +22,6 @@ $(document).ready(function(){
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
-			
 			
 			setHead(area_head,area_name);
 		}
