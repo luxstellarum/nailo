@@ -97,12 +97,13 @@ module.exports = function(app){
 		res.render('plan/plan#plan_2', {title:'/plan/plan#plan_2'});
 	});	
 	
+	app.get('/plan/plan#plan_3', function(req, res){
+		res.render('plan/plan#plan_3', {title:'/plan/plan#plan_3'});
+	});	
+	
 	// 이후 plan 1~3 합체
 	app.get('/plan/plan2', function(req, res){
 		res.render('plan/plan2', {title:'/plan/plan2'});
-	});	
-	app.get('/plan/plan3', function(req, res){
-		res.render('plan/plan3', {title:'/plan/plan3'});
 	});	
 
 	app.get('/plan/pyungchang_see', function(req, res){

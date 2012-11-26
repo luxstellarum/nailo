@@ -21,9 +21,7 @@ module.exports = {
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
 
-
-
-				if(result !== false) {
+			if(result !== false) {
 
 				console.log(result, result2);
 				if(result !== false) {

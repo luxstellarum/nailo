@@ -16,6 +16,7 @@ $(document).ready(function(){
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
+		
 		if(!nextPage)
 			return;
 		if(nextPage=='#community_2')
@@ -45,8 +46,7 @@ $(document).ready(function(){
 					}
 			setHead(area_head,area_name);
 		}
-		
-		
+
 		var effect = $(this).attr("data-effect");
 				
 		changePage($(nextPage),effect);
