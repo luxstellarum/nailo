@@ -61,6 +61,7 @@ $(document).ready(function() {
 		
 	*/
 	$(".city2").bind("click", function(){
+		var target = $(this);
 		var daypicker = $("#daypicker");
 		train_plan[train_plan_flag] = {};
 		train_plan[train_plan_flag]['city_name'] = $(this).text();
@@ -75,6 +76,10 @@ $(document).ready(function() {
 			console.log(train_plan);
 			train_plan_flag++;
 			$.disablePopup(daypicker);
+			
+			selected_cities[selected_cities.length] = target.text();
+			
+			location.href="/plan/plan3";
 		});
 
 		$(".days_set_cancel_button").click(function(){

@@ -6,9 +6,11 @@ include ../top.jade
 						include ../search.jade
 			div(id="plan_3", class="slide current")
 				div#header(style="margin-top:-10px")
-					span.head_number 1
-					span.head_number(style="font-size:15pt") >도선택
+
+					span.head_number 3
+					span.head_number(style="font-size:15pt") 
 					input.btn_save(type="button", value="SAVE", name="save")
+
 			img.map(src="/images/map.png", style='position:absolute; height:300px; top:10%; left:10%; z-index:1;')
 			script(src="http://code.jquery.com/jquery-1.4.2.min.js", type="text/javascript")
 			script(src="/javascripts/plan/jquery.subwayMap-0.5.0.js", type="text/javascript")
@@ -21,8 +23,7 @@ include ../top.jade
 						a(href="#",style="font-size:7pt") 태백
 			script(type="text/javascript")
 				$(".subway-map").subwayMap({ debug: true });
-			div(style="margin-top:-30px; padding-right:10px; position:absolute; bottom:105px; right:5px")	
-				span
-					input(type="button",value="담기", name="insert",style="width:50px; height:20px; margin-right:5px; font-size:7pt")
-					input(type="button",value="확정",name="confirm",style="width:50px; height:20px;font-size:7pt")
+			div.plan3_btn_area
+				input.btn1(type="button",value="담기", name="insert",style="font-size: 11pt")
+				input.btn1(type="button",value="확정",name="confirm",style="font-size: 11pt")
 		include ../bottom.jade

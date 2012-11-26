@@ -5,24 +5,18 @@ include ../top.jade
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
 					include ../search.jade	
-		div(class="header",style="margin-top:-40px")
-			h2(align='right',style='padding-right:5px') MyPage
+		div#header
+			p.menu_name MyPage
 			hr
 			br
-		div(class="section")
-			div(style='margin-top:20px')
-				p(align="center",style="margin-bottom:0px; padding-left:50px")
-					label(style='float:left; margin-left:-30px') 아이디 &nbsp;&nbsp;
-					input.input_form(type='text', value='', id='id', name='id', style='width:150px;text-align:right; padding:5px;')
-
-				p(align="center",style="margin-bottom:0px; padding-left:50px")
-					label(style='float:left; margin-left:-30px') 비밀번호
-					input.input_form(type='password', value='', id='pw', name='pw', style='width:150px;text-align:right; padding:5px;')
-
-				p(align="center",style="margin-top:0px; padding-right:20px")
-					label(style='float:right; margin-right:-5px') 
-						a#login_btn(href="#",style="text-decoration:none; color:gray")로그인
-						font(color="gray") /
-						a#join.btn(href='#',style="text-decoration:none; color:gray")회원가입
+		div.section
+			div.login_box
+				p.login
+					input.text_login(type='text', value='아이디', id='id', name='id')
+					input#login_btn(type="button", value="로그인")
+				p
+					input.text_login(type='password', value='패스워드', id='pw', name='pw')
+			input.btn_signup(type="button", value="회원가입")
+					
 
 include ../bottom.jade

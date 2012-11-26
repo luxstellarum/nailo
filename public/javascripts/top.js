@@ -1,3 +1,8 @@
+/**********************************************
+	global variables
+**********************************************/
+var selected_cities = []; //선택한 도시 정보 저장
+
 $(document).ready(function(){
 	displayRandom();
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
@@ -17,7 +22,6 @@ $(document).ready(function(){
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
-			
 			
 			setHead(area_head,area_name);
 		}
@@ -67,6 +71,10 @@ $(document).ready(function(){
 		}
 	});
 
+	// plan_bar day="1" div 너비를 윈도우 너비만큼 준다
+	var window_width = $(window).width();
+	$(".plan_bar").css("width", window_width);
+	//$(".plan_bar").css("height", "80px");
 
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
