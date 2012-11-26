@@ -77,7 +77,7 @@ $(document).ready(function() {
 			train_plan_flag++;
 			$.disablePopup(daypicker);
 			
-			selected_city[selected_cities.length] = target.text();
+			selected_cities[selected_cities.length] = target.text();
 		});
 
 		$(".days_set_cancel_button").click(function(){
