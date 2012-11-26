@@ -140,6 +140,9 @@ module.exports = function(app){
 	app.get('/train/get_time_table', function(req, res){
 		res.render('train/get_time_table', {title:'tt'});
 	});	
+	app.get('/train/set_route', function(req, res) {
+		res.render('train/set_stations', {title : 'tt'});
+	});
 
 	// share
 	app.get('/share/share', function(req, res){

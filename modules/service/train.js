@@ -6,7 +6,6 @@ var iconv = new Iconv('EUC-KR', 'UTF-8//TRANSLIT//IGNORE');
 var train_db = require('../database/train.js');
 var strlib = require('../lib/string.js');
 var event_emitter = require('events').EventEmitter;
-
 var station_db = require('../database/station.js');
 
 module.exports = {
@@ -91,7 +90,7 @@ module.exports = {
 	,get_html : function(req, res) {
 		var self = this;
 		var uri_form = "http://www.korail.com/servlets/pr.pr11100.sw_pr11131_i1Svt?txtRunDt=20121107&txtTrnNo=";
-		var train_number = 6063;
+		var train_number = 265;
 		var evt = new event_emitter();
 		var i = 0;
 		
@@ -136,7 +135,7 @@ module.exports = {
 					if( (train_number + count) < 999) {
 						evt.emit('get_train_info', evt, uri_form + "00" + (train_number+ (++count)), count);
 					}
-					else if ( train_number + count < 9999 ){
+					else if ( train_number + count < 2000 ){
 						evt.emit('get_train_info', evt, uri_form + "0" + (train_number+ (++count)), count);
 					}
 					else {
@@ -197,8 +196,8 @@ module.exports = {
 		train_db.get(condition_1, function(result){
 			evt.on('get_time_table', function(evt, i, j){
 				if(i < result.length) {
-						//00시가 넘어가는건 다음날 검색으로 넘깁시다. 하
-						if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+					//00시가 넘어가는건 다음날 검색으로 넘깁시다. 하
+					if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
 						var condition = {};
 						condition['id'] = result[i].id;
 						condition['arrv_station'] = arrv_station;
@@ -273,32 +272,32 @@ module.exports = {
 		여기서 time_required는 '시간'단위로 보여준다. 분단위는 무조건 올림.
 		
 	*/
-	,suggest_time : function (req, res) {
+	,recommend_time : function (req, res) {
 		var self = this;
 		var evt = new event_emitter();
 		//string으로 넘어온 train_plan을 JSON형식으로 파싱해줌
 		var train_plan = JSON.parse(req.body.train_plan);
-		var suggestion = [];
+		var recommendation = [];
 		//기차시간 추천 이벤트 바인딩
-		evt.on('make_suggestion', function(evt, i) {
+		evt.on('make_recommendation', function(evt, i) {
 			self.compare_station(train_plan[i].city_name, train_plan[i+1].city_name, function(result){
 				if(result != false ) {
 					self.get_specific_time(result.dept_station, result.arrv_station, 9, function(result2) {
 						if(result2 != false) {
-							suggestion[i] = {};
-							suggestion[i]['day'] = train_plan[i+1].day;
-							suggestion[i]['dept_station'] = result.dept_station;
-							suggestion[i]['arrv_station'] = result.arrv_station;
-							suggestion[i]['dept_time'] = result2.dept_time;
-							suggestion[i]['arrv_time'] = result2.arrv_time;
-							suggestion[i]['time_required'] = result2.time_required;
-							suggestion[i]['valid'] = true;
+							recommendation[i] = {};
+							recommendation[i]['day'] = train_plan[i+1].day;
+							recommendation[i]['dept_station'] = result.dept_station;
+							recommendation[i]['arrv_station'] = result.arrv_station;
+							recommendation[i]['dept_time'] = result2.dept_time;
+							recommendation[i]['arrv_time'] = result2.arrv_time;
+							recommendation[i]['time_required'] = result2.time_required;
+							recommendation[i]['valid'] = true;
 
 							if( ++i < train_plan.length ) {
-								evt.emit('make_suggestion', evt, i);
+								evt.emit('make_recommendation', evt, i);
 							}//end of if
 							else {
-								res.json(suggestion);
+								res.json(recommendation);
 							}
 						}//end of if
 					})//end of get_specific_time
@@ -306,8 +305,8 @@ module.exports = {
 			});//end of compare_station
 		});//end of evt on
 
-		evt.emit('make_suggestion', evt, 0);
-	}//end of suggest_time
+		evt.emit('make_recommendation', evt, 0);
+	}//end of recommend_time
 
 	//각 도시 별로 존재하는 모든 역에 대해 두 도시간을 이동할 수 있는 역이 있는가 조회
 	,compare_station : function(city1, city2, callback) {
@@ -341,9 +340,13 @@ module.exports = {
 		});//end of outer get_list
 	}//end of compare_station
 
-	//두 역간에 유효한 루트가 존재하는가 체크. 추후 구현
+	//두 역간에 유효한 루트가 존재하는가 체크. train_graph.js에 구현되어있음.
 	,get_valid_route : function(station1, station2, callback) {
 		//ToDo
+		var graph = require('./train_graph.js');
+		graph.find_path(station1, station2, function(result){
+			callback(result);
+		});
 	}
 
 

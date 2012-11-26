@@ -1,0 +1,32 @@
+html
+	head
+		title hi
+		script(src='/lib/jquery/jquery-1.8.3.min.js');
+		script
+			$(document).ready(function(){
+				$('.insert').click(function(){
+					var data = {};
+					data['station_1'] = $('.station_1').val();
+					data['station_2'] = $('.station_2').val();
+					$.ajax({
+						data : data,
+						dataType : 'json',
+						type : 'POST',
+						url : '/train_graph/write',
+						success : function(data) {
+							console.log('data : ', data);
+							$('.station_1').val($('.station_2').val());
+							$('.station_2').val('');
+							$('.station_2').focus();
+						},
+						error : function() {
+
+						}
+					});
+				})
+			});
+	body
+		div
+			input.station.station_1(type='text',style='width:40px;', name='station_1')
+			input.station.station_2(type='text',style='width:40px;', name='station_2')
+			input.insert(type="button", value="삽입")
