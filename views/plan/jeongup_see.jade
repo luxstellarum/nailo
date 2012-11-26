@@ -1,0 +1,41 @@
+include ../top.jade
+			script(src="/javascripts/plan/see.js", type="text/javascript")
+			div(class="css3droppanel",align="center")
+				input(type="checkbox", id="paneltoggle")
+				label(for="paneltoggle",id="searchdrawer")
+				div(id="searchbrowser")
+						include ../search.jade
+			div.container
+				div.header
+					img(id="city_mark",src="/images/mark_jeongup.png",align="center",width="70px") 
+					span(id="city_name",style="magin-left:5px:")
+						font(size="4pt",style="font-weight:bold")&nbsp; 정읍
+				p
+				div.wrapper(class="tour",id="jeongup_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+					img(src="/images/map_jeongup.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+					span.province(style='position:absolute; top:60%; left:23%; z-index:2;')						
+						label(for="naejang",style="font-size:8pt;z-index:4;") 내장산
+						br
+						input(id="naejang",type="checkbox",style="z-index:3; opacity:0;")
+					span.province(style='position:absolute; top:13%; left:5%; z-index:2;')						
+						label(for="naesosa",style="font-size:8pt;z-index:4;") 내소사
+						br
+						input(id="naesosa",type="checkbox",style="z-index:3; opacity:0;")
+					span.province(style='position:absolute; top:70%; left:0%; z-index:2;')						
+						label(for="seonunsa",style="font-size:8pt;z-index:4;") 선운사
+						br
+						input(id="seonunsa",type="checkbox",style="z-index:3; opacity:0;")
+					span.province(style='position:absolute; top:40%; left:55%; z-index:2;')						
+						label(for="mooseong",style="font-size:8pt;z-index:4;") 무성 서원
+						br
+						input(id="mooseong",type="checkbox",style="z-index:3; opacity:0;")
+					span.province(style='position:absolute; top:36%; left:60%; z-index:2;')						
+						label(for="kimdongsu",style="font-size:8pt;z-index:4;") 김동수 가옥
+						br
+						input(id="kimdongsu",type="checkbox",style="z-index:3; opacity:0;")
+					span.province(style='position:absolute; top:45%; left:43%; z-index:2;')						
+						label(for="jeongupsa",style="font-size:8pt;z-index:4;") 정읍사
+						br
+						input(id="jeongupsa",type="checkbox",style="z-index:3; opacity:0;")
+div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; overflow:auto")
+include ../bottom.jade

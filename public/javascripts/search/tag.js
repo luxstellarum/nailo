@@ -18,7 +18,7 @@ $(document).ready(function(){
 				console.log(data);
 				if(data.result == true){
 					alert('success');
-					$(location).attr('href', '/search/tag')
+					$(location).attr('href', '/')
 				}
 				else{
 					alert('fail');

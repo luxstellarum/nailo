@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'); //mongoose module 사용
 var schema = mongoose.Schema; // mongoose.schema 획득
+var search_db = require('./search.js');
 
 var event_emitter = require('events').EventEmitter;
 
@@ -35,9 +36,13 @@ module.exports = {
 					doc.station_name = sights.station_name;
 	
 					evt.on('set_search_db', function(evt, i){
-						if(i<sights_extra.length){
-							search_db.add(sights_extra[i], city_name);
-							evt.emit('set_search_db', evt, ++i);
+						if(i<sights.sights_extra.length){
+							search_db.add(sights.sights_extra[i], sights.city_name, function(result){
+								if(result == true) {
+									evt.emit('set_search_db', evt, ++i);		
+								}	
+							});
+							
 						}
 						else{
 							doc.save(function(err){
@@ -70,7 +75,7 @@ module.exports = {
 	}	
 		
 	,get_index : function(callback) {
-		documents.findOne({}).sort('-date').exec(function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
 					callback(result.index + 1);
