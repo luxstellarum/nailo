@@ -1,21 +1,33 @@
 var city_db = require('../database/city.js');
-console.log(city_db);
-module.exports = {
+
+var self = module.exports = {
 	
+
 	// 도시 추가
 	write : function(req, res) {
-		city_db.add(req.body, function(result){
-			if(result == true) {
-				console.log('service/city.js, write success');				
-				res.json({result:true});
-			}
-			else {
-				console.log('service/city.js, write fail');				
-				res.json({result:false});
-			}
-		});		// end of add
+		self.get_extra_to_array(req, function(req){
+			city_db.add(req.body, function(result){
+				if(result == true) {
+					console.log('service/city.js, write success');				
+					res.json({result:true});
+				}
+				else {
+					console.log('service/city.js, write fail');				
+					res.json({result:false});
+				}
+			});		// end of add
+		});		// end of get_extra_to_array
 	} // end of wirte
 	
+
+	// city_extra -> array
+	,get_extra_to_array :function(req, callback) {
+		var arr = [];
+		arr = req.body.city_extra.split(',');
+		req.body.city_extra = [];
+		req.body.city_extra = arr;
+		callback(req);
+	}
 	
 	// 도시 삭제	
 	,remove : function(req, res) {

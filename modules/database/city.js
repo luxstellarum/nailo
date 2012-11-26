@@ -33,9 +33,15 @@ module.exports ={
 				console.log('haha',city);
 				
 				evt.on('set_search_db', function(evt, i){	
-					if(i<city_extra.length){
-						search_db.add(city_extra[i], city_name);
-						evt.emit('set_search_db', evt, ++i);
+					if(i<city.city_extra.length){
+						search_db.add(city.city_extra[i], city.city_name, function(result){
+							if(result == true){
+								evt.emit('set_search_db', evt, ++i);
+							}
+							else{
+								callback(false);
+							}
+						});
 					}
 					else{
 						doc.save(function(err){
