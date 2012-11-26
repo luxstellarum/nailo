@@ -78,6 +78,8 @@ $(document).ready(function() {
 			$.disablePopup(daypicker);
 			
 			selected_cities[selected_cities.length] = target.text();
+			
+			location.href="/plan/plan3";
 		});
 
 		$(".days_set_cancel_button").click(function(){
