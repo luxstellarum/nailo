@@ -7,14 +7,31 @@ var graph_schema = new schema({
 	station_2 : String
 });//end of train_schema
 
-var documents = mongoose.model('train_graph', train_schema);//DB 삽입위한 모델 생성
+var documents = mongoose.model('train_graph', graph_schema);//DB 삽입위한 모델 생성
 
 module.exports = {
 	add : function (node, callback) {
+		var self = this;
 		var doc = new documents();
 
 		doc.station_1 = node.station_1;
 		doc.station_2 = node.station_2;
+
+		doc.save(function(err){
+			if(!err) {
+				self.add_reverse(node, callback);
+			}
+			else {
+				callback(false);
+			}
+		});
+	}//end of add
+
+	,add_reverse : function (node, callback) {
+		var doc = new documents();
+
+		doc.station_1 = node.station_2;
+		doc.station_2 = node.station_1;
 
 		doc.save(function(err){
 			if(!err) {
@@ -23,11 +40,11 @@ module.exports = {
 			else {
 				callback(false);
 			}
-		})
+		});
 	}//end of add
 
-	,get : function (condition, callback ) {
-		documents.find(condition,function(result) {
+	,get : function (condition, prev_station, callback ) {
+		documents.find(condition).nor([{station_2 : prev_station}]).exec(function(result) {
 			if(result) {
 				callback(result);
 			}

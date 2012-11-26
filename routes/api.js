@@ -9,7 +9,7 @@ var plan = require('../modules/service/plan.js');
 var map = require('../modules/service/map.js');
 var share = require('../modules/service/share.js');
 var search = require('../modules/service/search.js');
-
+var train_graph = require('../modules/service/train_graph.js');
 
 module.exports = function(app){
 
@@ -214,7 +214,9 @@ module.exports = function(app){
 		train.get_time_table(req, res);
 	});
 		
-		
+	app.post('/train/recommend', function(req, res) {
+		train.recommend_time(req, res);
+	});
 	
 	/*******************************
 		/service/plan.js
@@ -274,6 +276,15 @@ module.exports = function(app){
 	// 검색하기
 	app.post('/search/search', function(req, res) {
 		search.search(req, res);
+	});
+	
+	/*******************************
+		/service/train_graph.js
+		******************************/
+		
+	// 검색을 위한 key:value 추가
+	app.post('/train_graph/write', function(req, res) {
+		train_graph.write(req, res);
 	});
 	
 }
