@@ -20,9 +20,19 @@ module.exports = {
 		//값 넣기
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
+<<<<<<< HEAD
+
+
+				if(result !== false) {
+
+				console.log(result, result2);
+				if(result !== false) {
+
+=======
 
 				console.log(result, result2);
 				if(result != false) {
+>>>>>>> f7fb3ddc2ac56579af3db973d9744b6ee2034a5a
 					doc.index = result;
 					doc.station_name = station.station_name;
 					doc.city_name = station.city_name;
@@ -42,10 +52,10 @@ module.exports = {
 					}); //end of save
 
 				}
-			});
+			}
 			
 			});		// end of get_city_index
-	// end of get_index
+		});// end of get_index
 
 	}//end of add_station
 	
@@ -76,9 +86,9 @@ module.exports = {
 			}
 			else{
 				callback(false);
-			}		
-		}); 		// end of city.get
-	}	
+			}
+		});// end of city.get
+	}
 	
 	,get : function(condition, callback) {
 		documents.findOne(condition, function(err, result) {
