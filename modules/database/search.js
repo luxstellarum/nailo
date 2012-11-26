@@ -18,9 +18,9 @@ module.exports = {
 	
 	
 	// 데이터베이스의 key: value를 추가해주는 함수
-	add : function(key, value){
+	add : function(key, value, callback){
 		documents.find({key: key, value: value}, function(err, result){
-			if(!result){
+			if(result.length == 0){
 				var doc = new documents();
 				
 				doc.key = key;
@@ -36,6 +36,7 @@ module.exports = {
 				}); 	// end of save	
 			}
 			else{
+				console.log(result);
 				callback(false);
 			}
 		}); 		// end of find
