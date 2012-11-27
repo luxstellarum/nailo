@@ -110,8 +110,6 @@ $(document).ready(function(){
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
 	// 드래그 앤 드랍 기능
-	$(".city2").draggable( drag_option );
-
 	$(".province").draggable( drag_option );
 
 	$(".next_day").mousedown(function() {

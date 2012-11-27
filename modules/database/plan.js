@@ -2,6 +2,20 @@
 var mongoose = require('mongoose');	// mongoose module 사용
 var Schema = mongoose.Schema;			// mongoose.Schema 객체 선언
 
+
+/*
+	[ { type : train / sights,
+		name : train name / sights name,
+		period : NUMBER,
+		start_time : NUMBER },
+	
+		{ type : train / sights,
+		name : train name / sights name,
+		period : NUMBER,
+		start_time : NUMBER },
+		...
+	 ]
+*/
 // plan Schema 정의
 var plan_schema = new Schema({
 	id : String,		// 사용자  id
@@ -9,6 +23,7 @@ var plan_schema = new Schema({
 	subject: String, // plan이름
 	date : Array,		// 이차원 배열로 데이터는 JSON으로 담긴다, 나의 여행 정보
 						// type 으로 기차/도시/관광지/메모 구분
+
 });		// end of plan_schema
 
 

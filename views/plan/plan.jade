@@ -6,8 +6,7 @@ include ../top.jade
 			div(id="searchbrowser")
 					include ../search.jade
 		include ../city_name.jade
-<<<<<<< HEAD
-		include ../datepicker.html
+		include ../widget/daypicker.jade
 		div#plan_1(class="slide current")
 			div#header
 				span.head_number 1
@@ -17,19 +16,6 @@ include ../top.jade
 			div.wrapper(id="plan_num")
 				div.map_wrapper
 					img.map(src="/images/map_brush.png")
-=======
-		include ../widget/daypicker.jade
-		div.container
-			div(id="plan_1",class="slide current")
-				script(src="/javascripts/plan/plan1.js")
-				div.header
-					span.head_number 1
-					span.head_number(style="font-size:15pt") >도선택
-					input.btn_save(type="button", value="SAVE", name="save")
-				include ../periodpicker.jade
-				div.wrapper(id="plan_num")
-					img.map(src="/images/map.png")
->>>>>>> f7fb3ddc2ac56579af3db973d9744b6ee2034a5a
 				a.province(id="kangwondo",href="/plan/plan#plan_2", rel='external',data-effect='slide',data-role="none", style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 강원도
 				a.province(id="kyunggido",href="/plan/plan#plan_2", rel='external',data-effect='slide', data-role="none",  style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 경기도
 				a.province(id="chungcheongdo",href="/plan/plan#plan_2", rel='external',data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 충청도

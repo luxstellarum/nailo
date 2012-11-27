@@ -29,6 +29,13 @@ $(document).unbind().bind('pagecreate',function(){
 		
 		
 	});
+
+	$(".finish").live("click",function(){
+		//ToDo
+		$.ajax({
+			//ToDo
+		});
+	}); //end of live
 });//end of bind
 
 function checkDevice(event){

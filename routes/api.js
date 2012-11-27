@@ -287,4 +287,9 @@ module.exports = function(app){
 		train_graph.write(req, res);
 	});
 	
+	app.post('/train_graph/find_path', function(req, res){
+		train_graph.find_path(req.body.station_1, req.body.staiton_2, function(result) {
+			res.json(result);
+		});//end of find_path
+	});
 }
