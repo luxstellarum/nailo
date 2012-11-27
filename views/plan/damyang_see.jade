@@ -1,29 +1,20 @@
-include ../top.jade
-			script(src="/javascripts/plan/see.js", type="text/javascript")
-			div(class="css3droppanel",align="center")
-				input(type="checkbox", id="paneltoggle")
-				label(for="paneltoggle",id="searchdrawer")
-				div(id="searchbrowser")
-						include ../search.jade
-			div#container
-				div#header
-					img(id="city_mark",src="/images/mark_damyang.png",align="center",width="70px") 
-					span(id="city_name",style="magin-left:5px:")
-						font(size="4pt",style="font-weight:bold")&nbsp; 담양
-				p
-				div.wrapper(class="tour",id="damyang_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map_damyang.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
-					span.province(style='position:absolute; top:25%; left:33%; z-index:2;')						
-						label(for="juknokwon",style="font-size:8pt;z-index:4;") 죽녹원
-						br
-						input(id="juknokwon",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:30%; left:53%; z-index:2;')						
-						label(for="meta",style="font-size:8pt;z-index:4;") 메타세쿼이아 가로수길
-						br
-						input(id="meta",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:23%; left:45%; z-index:2;')						
-						label(for="songhak",style="font-size:8pt;z-index:4;") 송학 민속체험 박물관
-						br
-						input(id="songhak",type="checkbox",style="z-index:3; opacity:0;")
-div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; overflow:auto")
-include ../bottom.jade
+div#plan_damyang(class="slide")
+	div#header
+		img(id="city_mark",src="/images/mark_damyang.png",align="center",width="70px") 
+		span(id="city_name",style="magin-left:5px:")
+			font(size="4pt",style="font-weight:bold")&nbsp; 담양
+	p
+	div.wrapper(class="tour",id="damyang_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+		img(src="/images/map_damyang.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+		span.province(style='position:absolute; top:25%; left:33%; z-index:2;')						
+			label(for="juknokwon",style="font-size:8pt;z-index:4;") 죽녹원
+			br
+			input(id="juknokwon",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:30%; left:53%; z-index:2;')						
+			label(for="meta",style="font-size:8pt;z-index:4;") 메타세쿼이아 가로수길
+			br
+			input(id="meta",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:23%; left:45%; z-index:2;')						
+			label(for="songhak",style="font-size:8pt;z-index:4;") 송학 민속체험 박물관
+			br
+			input(id="songhak",type="checkbox",style="z-index:3; opacity:0;")

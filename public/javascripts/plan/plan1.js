@@ -82,4 +82,12 @@ $(document).ready(function() {
 				
 			changePage($(nextPage),effect);
 	});
+	
+	$('.btn2').click(function(){
+			var nextPage = "#plan_kangneung";
+			
+			var effect = "slide";
+				
+			changePage($(nextPage),effect);
+	});
 });
