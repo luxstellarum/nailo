@@ -74,4 +74,8 @@ $(document).ready(function() {
 		var periodpicker = $("#periodpicker");
 		$.disablePopup(periodpicker);
 	});
+	
+	$('.btn1').click(function(){
+		location.href="/plan/plan#plan_1";
+	});
 });
