@@ -76,6 +76,10 @@ $(document).ready(function() {
 	});
 	
 	$('.btn1').click(function(){
-		location.href="/plan/plan#plan_1";
+			var nextPage = "#plan_1";
+			
+			var effect = "slide";
+				
+			changePage($(nextPage),effect);
 	});
 });
