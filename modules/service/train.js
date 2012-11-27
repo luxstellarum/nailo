@@ -272,6 +272,47 @@ module.exports = {
 		여기서 time_required는 '시간'단위로 보여준다. 분단위는 무조건 올림.
 		
 	*/
+	,recommend_time : function(req, res) {
+		var self = this;
+		console.log('in train.js / recommned_time');
+		console.log('in train.js, req.body.train_plan : ', req.body.train_plan);
+		//string으로 넘어온 train_plan을 JSON형식으로 파싱해줌
+		var train_plan = [];
+		train_plan = req.body.train_plan;
+		console.log(train_plan);
+		var length = train_plan.length -1 ;
+		var recommendation = [];
+		//기차시간 추천 이벤트 바인딩
+		self.compare_station(train_plan[length].city_name, train_plan[length-1].city_name, function(result){
+			console.log('train.js result : ', result);
+			if(result != false ) {
+				self.get_specific_time(result.dept_station, result.arrv_station, 9, function(result2) {
+					console.log('train.js result2 : ', result2);
+					if(result2 != false) {
+						recommendation[i] = {};
+						recommendation[i]['day'] = train_plan[length].day;
+						recommendation[i]['dept_station'] = result.dept_station;
+						recommendation[i]['arrv_station'] = result.arrv_station;
+						recommendation[i]['dept_time'] = result2.dept_time;
+						recommendation[i]['arrv_time'] = result2.arrv_time;
+						recommendation[i]['time_required'] = result2.time_required;
+						recommendation[i]['valid'] = true;
+					}//end of if
+					else{
+						res.json({result:false});
+					}
+					
+					res.json(recommendation);
+
+				})//end of get_specific_time
+			}//end of if
+			else {
+				res.json({result : false});
+			}
+		});//end of compare_station
+	}//end of recommend_time
+	/*** old code
+
 	,recommend_time : function (req, res) {
 		var self = this;
 		var evt = new event_emitter();
@@ -307,11 +348,13 @@ module.exports = {
 
 		evt.emit('make_recommendation', evt, 0);
 	}//end of recommend_time
+	***/
 
 	//각 도시 별로 존재하는 모든 역에 대해 두 도시간을 이동할 수 있는 역이 있는가 조회
 	,compare_station : function(city1, city2, callback) {
 		//ToDo
 		var self = this;
+		var evt = new event_emitter();
 		evt.on('compare_station', function(evt, ret1, ret2, i, j) {
 			self.get_valid_route(ret1[i].station_name, ret2[j].station_name, function(result) {
 				if(result.result == true) {
@@ -335,8 +378,14 @@ module.exports = {
 					if(result2 != false) {
 						evt.emit('compare_station', evt, result1, result2, 0, 0);
 					}//end of if
+					else {
+						callback(false);
+					}
 				});//end of inner get_list
 			}//end of if
+			else {
+				callback(false);
+			}
 		});//end of outer get_list
 	}//end of compare_station
 

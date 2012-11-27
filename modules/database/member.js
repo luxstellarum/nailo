@@ -43,6 +43,7 @@ module.exports = {
 	// 회원의 id 를 받아와서 데이터베이스에서 해당 id와 일치하는 멤버의 정보를 획득.
 	// 성공시, 결과값(JSON) 반환, 실패하면 null 반환
 	,get: function(condition, callback) {		
+		console.log('member.js get : ', condition);
 		documents.findOne(condition, function(err, result){
 			if(result) {
 				console.log('member_get_success');

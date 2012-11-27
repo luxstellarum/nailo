@@ -8,8 +8,6 @@ $(document).ready(function() {
 			$('.province_name').text(province);
 		});
 	});*/
-	var train_plan = [];
-	var train_plan_flag = 0;
 	// datepicker
 	var popupStatus = 0;
 
@@ -78,11 +76,19 @@ $(document).ready(function() {
 			$.disablePopup(daypicker);
 			
 			selected_cities[selected_cities.length] = target.text();
-
+			
+			for(var i=0; i<selected_cities.length; i++) {
+				console.log('selected_cities.length : ', selected_cities.length);
+				$('.3rd_city[city_name="' + selected_cities[i] + '"]').show();
+			}
 			$('.city2').each(function(){
 				$(this).css("display","none");
 			});
-			
+			if(selected_cities.length > 1) {
+				console.log('plan.js, call get_train_time');
+				get_train_time(train_plan);	
+			}		
+
 			var nextPage = "#plan_3";
 			
 			var effect = "slide";

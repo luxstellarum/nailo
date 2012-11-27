@@ -215,6 +215,7 @@ module.exports = function(app){
 	});
 		
 	app.post('/train/recommend', function(req, res) {
+		console.log('api.js call recommend_time');
 		train.recommend_time(req, res);
 	});
 	
@@ -288,7 +289,7 @@ module.exports = function(app){
 	});
 	
 	app.post('/train_graph/find_path', function(req, res){
-		train_graph.find_path(req.body.station_1, req.body.staiton_2, function(result) {
+		train_graph.find_path(req.body.station_1, req.body.station_2, function(result) {
 			res.json(result);
 		});//end of find_path
 	});

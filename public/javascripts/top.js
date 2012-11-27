@@ -2,6 +2,8 @@
 	global variables
 **********************************************/
 var selected_cities = []; //선택한 도시 정보 저장
+var train_plan = [];
+var train_plan_flag = 0;
 
 $(document).ready(function(){
 	displayRandom();

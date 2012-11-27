@@ -68,6 +68,8 @@ function set_hours(target, period, target_place) {
 		$(this).removeClass("filled");
 	});
 
+	target.attr('period') = period;
+	
 	for(var i=1; i<period; i++) {
 		target = target.next();
 
@@ -160,9 +162,21 @@ $(document).ready(function(){
 
 	});
 
+	$(".plan_bar_hour").droppable( drop_option );
+
 	$(".filled").bind('taphold', function(){
 		alert(">_<");
 		remove_place($(this));
+	});
+
+	//관광지로 넘어가는 파~트
+	$(".train_set").live('click', function(){
+		var city = $(this).attr('city_name');
+		var nextPage = "#plan_" + city;
+			
+		var effect = "slide";
+				
+		changePage($(nextPage),effect);
 	});
 
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
