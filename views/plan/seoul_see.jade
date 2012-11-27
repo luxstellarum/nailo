@@ -1,37 +1,28 @@
-include ../top.jade
-			script(src="/javascripts/plan/see.js", type="text/javascript")
-			div(class="css3droppanel",align="center")
-				input(type="checkbox", id="paneltoggle")
-				label(for="paneltoggle",id="searchdrawer")
-				div(id="searchbrowser")
-						include ../search.jade
-			div#container
-				div#header
-					img(id="city_mark",src="/images/mark_seoul.png",align="center",width="70px") 
-					span(id="city_name",style="magin-left:5px:")
-						font(size="4pt",style="font-weight:bold") 서울
-				p
-				div.wrapper(class="tour",id="seoul_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map_seoul.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
-					span.province(style='position:absolute; top:54%; left:40%; z-index:2;')						
-						label(for="seouluniversity",style="font-size:8pt;z-index:4;") 서울대
-						br
-						input(id="seouluniversity",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:32%; left:33%; z-index:2;')						
-						label(for="sinchon",style="font-size:8pt;z-index:4;") 신촌
-						br
-						input(id="sinchon",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:28%; left:45%; z-index:2;')						
-						label(for="royalpalace",style="font-size:8pt;z-index:4;") 경복궁
-						br
-						input(id="royalpalace",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:35%; left:52%; z-index:2;')						
-						label(for="nammountain",style="font-size:8pt;z-index:4;") 남산
-						br
-						input(id="nammountain",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:40%; left:38%; z-index:2;')						
-						label(for="hanriver",style="font-size:8pt;z-index:4;") 여의도
-						br
-						input(id="hanriver",type="checkbox",style="z-index:3; opacity:0;")
-div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
-include ../bottom.jade
+div#plan_seoul(class="slide")
+	div#header
+		img(id="city_mark",src="/images/mark_seoul.png",align="center",width="70px") 
+		span(id="city_name",style="magin-left:5px:")
+			font(size="4pt",style="font-weight:bold") 서울
+	p
+	div.wrapper(class="tour",id="seoul_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+		img(src="/images/map_seoul.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+		span.province(style='position:absolute; top:54%; left:40%; z-index:2;')						
+			label(for="seouluniversity",style="font-size:8pt;z-index:4;") 서울대
+			br
+			input(id="seouluniversity",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:32%; left:33%; z-index:2;')						
+			label(for="sinchon",style="font-size:8pt;z-index:4;") 신촌
+			br
+			input(id="sinchon",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:28%; left:45%; z-index:2;')						
+			label(for="royalpalace",style="font-size:8pt;z-index:4;") 경복궁
+			br
+			input(id="royalpalace",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:35%; left:52%; z-index:2;')						
+			label(for="nammountain",style="font-size:8pt;z-index:4;") 남산
+			br
+			input(id="nammountain",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:40%; left:38%; z-index:2;')						
+			label(for="hanriver",style="font-size:8pt;z-index:4;") 여의도
+			br
+			input(id="hanriver",type="checkbox",style="z-index:3; opacity:0;")

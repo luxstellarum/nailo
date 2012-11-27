@@ -1,29 +1,20 @@
-include ../top.jade
-			script(src="/javascripts/plan/see.js", type="text/javascript")
-			div(class="css3droppanel",align="center")
-				input(type="checkbox", id="paneltoggle")
-				label(for="paneltoggle",id="searchdrawer")
-				div(id="searchbrowser")
-						include ../search.jade
-			div#container
-				div#header
-					img(id="city_mark",src="/images/mark_jecheon.png",align="center",width="70px") 
-					span(id="city_name",style="magin-left:5px:")
-						font(size="4pt",style="font-weight:bold") &nbsp; 제천
-				p
-				div.wrapper(class="tour",id="jecheon_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map_jecheon.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
-					span.province(style='position:absolute; top:20%; left:25%; z-index:2;')						
-						label(for="bakdaljae",style="font-size:8pt;z-index:4;") 박달재
-						br
-						input(id="bakdaljae",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:17%; left:33%; z-index:2;')						
-						label(for="beron",style="font-size:8pt;z-index:4;") 베론성지
-						br
-						input(id="beron",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:16%; left:55%; z-index:2;')						
-						label(for="imji",style="font-size:8pt;z-index:4;") 의림지
-						br
-						input(id="imji",type="checkbox",style="z-index:3; opacity:0;")
-div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
-include ../bottom.jade
+div#plan_jecheon(class="slide")
+	div#header
+		img(id="city_mark",src="/images/mark_jecheon.png",align="center",width="70px") 
+		span(id="city_name",style="magin-left:5px:")
+			font(size="4pt",style="font-weight:bold") &nbsp; 제천
+	p
+	div.wrapper(class="tour",id="jecheon_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+		img(src="/images/map_jecheon.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+		span.province(style='position:absolute; top:20%; left:25%; z-index:2;')						
+			label(for="bakdaljae",style="font-size:8pt;z-index:4;") 박달재
+			br
+			input(id="bakdaljae",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:17%; left:33%; z-index:2;')						
+			label(for="beron",style="font-size:8pt;z-index:4;") 베론성지
+			br
+			input(id="beron",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:16%; left:55%; z-index:2;')						
+			label(for="imji",style="font-size:8pt;z-index:4;") 의림지
+			br
+			input(id="imji",type="checkbox",style="z-index:3; opacity:0;")

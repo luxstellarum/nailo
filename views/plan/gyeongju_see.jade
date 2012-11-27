@@ -1,33 +1,24 @@
-include ../top.jade
-			script(src="/javascripts/plan/see.js", type="text/javascript")
-			div(class="css3droppanel",align="center")
-				input(type="checkbox", id="paneltoggle")
-				label(for="paneltoggle",id="searchdrawer")
-				div(id="searchbrowser")
-						include ../search.jade
-			div#container
-				div#header
-					img(id="city_mark",src="/images/mark_gyeongju.png",align="center",width="70px") 
-					span(id="city_name",style="magin-left:5px:")
-						font(size="4pt",style="font-weight:bold") &nbsp; 경주
-				p
-				div.wrapper(class="tour",id="gyeongju_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
-					img(src="/images/map_gyeongju.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
-					span.province(style='position:absolute; top:41%; left:45%; z-index:2;')						
-						label(for="cheomseongdae",style="font-size:8pt;z-index:4;") 첨성대
-						br
-						input(id="cheomseongdae",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:37%; left:36%; z-index:2;')						
-						label(for="cheonmachong",style="font-size:8pt;z-index:4;") 천마총
-						br
-						input(id="cheonmachong",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:32%; left:45%; z-index:2;')						
-						label(for="seongdongmarket",style="font-size:8pt;z-index:4;") 성동 시장
-						br
-						input(id="seongdongmarket",type="checkbox",style="z-index:3; opacity:0;")
-					span.province(style='position:absolute; top:45%; left:60%; z-index:2;')						
-						label(for="bulguksa",style="font-size:8pt;z-index:4;") 불국사
-						br
-						input(id="bulguksa",type="checkbox",style="z-index:3; opacity:0;")
-div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
-include ../bottom.jade
+div#plan_gyeongju(class="slide")
+	div#header
+		img(id="city_mark",src="/images/mark_gyeongju.png",align="center",width="70px") 
+		span(id="city_name",style="magin-left:5px:")
+			font(size="4pt",style="font-weight:bold") &nbsp; 경주
+	p
+	div.wrapper(class="tour",id="gyeongju_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+		img(src="/images/map_gyeongju.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+		span.province(style='position:absolute; top:41%; left:45%; z-index:2;')						
+			label(for="cheomseongdae",style="font-size:8pt;z-index:4;") 첨성대
+			br
+			input(id="cheomseongdae",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:37%; left:36%; z-index:2;')						
+			label(for="cheonmachong",style="font-size:8pt;z-index:4;") 천마총
+			br
+			input(id="cheonmachong",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:32%; left:45%; z-index:2;')						
+			label(for="seongdongmarket",style="font-size:8pt;z-index:4;") 성동 시장
+			br
+			input(id="seongdongmarket",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:45%; left:60%; z-index:2;')						
+			label(for="bulguksa",style="font-size:8pt;z-index:4;") 불국사
+			br
+			input(id="bulguksa",type="checkbox",style="z-index:3; opacity:0;")
