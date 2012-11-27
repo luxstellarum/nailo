@@ -1,11 +1,17 @@
 
+var drag_option = {
+	revert: "invalid",
+	helper: "clone"
+}
+
+
 //page 로딩이 끝난 후에 각종 이벤트 및 함수를 로딩 
 $(document).unbind().bind('pagecreate',function(){
 	console.log("see.js");
 	$(".tour input").bind("click",function(event){
 		
 		var eventObj = checkDevice(event);
-		touchX=eventObj.pageX-160;
+		touchX=eventObj.pageX-150;
 		touchY=eventObj.pageY-60;
 		$('#board').empty();
 		console.log($(this).is(':checked'));
@@ -15,6 +21,7 @@ $(document).unbind().bind('pagecreate',function(){
 		
 			img.src = '/images/tour_image/' + name + '.jpg'; // 이미지 경로 설정
 			img.width = '50';
+			img.height = '50';
 			$('#board').append(img); // board DIV 에 이미지 동적 추가
 	
 	        $('#board').css("position","absolute");
@@ -30,6 +37,8 @@ $(document).unbind().bind('pagecreate',function(){
 		
 	});
 
+	$(".province").draggable( drag_option );
+	
 	$(".finish").live("click",function(){
 		//ToDo
 		$.ajax({

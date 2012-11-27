@@ -39,11 +39,6 @@ var drop_option = {
 	}//end of drop
 }//end of drop_option
 
-var drag_option = {
-	revert: "invalid",
-	helper: "clone"
-}
-
 function dragcity( item) {
 	item.fadeOut(function() {
 		item.fadeIn(function() {
@@ -109,9 +104,8 @@ $(document).ready(function(){
 	var timeoutId = 0;
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
-	// 드래그 앤 드랍 기능
-	$(".province").draggable( drag_option );
-
+	
+	
 	$(".next_day").mousedown(function() {
 		timeoutId = setTimeout(next_day_scroll(window_width), 100);
 			}).bind('mouseleave', function() {
