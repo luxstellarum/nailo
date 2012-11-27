@@ -47,7 +47,7 @@ $(document).unbind().bind('pagecreate',function(){
 		var i=0, j=0;
 		$('.plan_bar').each(function(){
 			var parent = this;
-			var data[i] = [];
+			data[i] = []
 			parent.find('.plan_bar_hour').not('[occupied=2]').each(function(){
 				data[i][j] = {};
 				data[i][j]['occupied'] = $(this).attr('occupied');
@@ -70,7 +70,7 @@ $(document).unbind().bind('pagecreate',function(){
 
 		});
 		var final_data = {};
-		final_data['subject'] = ; //ToDo
+		final_data['subject']; //ToDo
 		final_data['data'] = [];
 		final_data.data = data;
 		//ToDo
