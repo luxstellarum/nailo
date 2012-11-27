@@ -7,15 +7,13 @@ include ../top.jade
 					include ../search.jade	
 		div#header
 			p.menu_name MyPage
-			hr
-			br
 		div.section
-			div.login_box
+			div.login_box.box1
 				p.login
-					input.text_login(type='text', value='아이디', id='id', name='id')
+					input.text_login.text1(type='text', value='아이디', id='id', name='id')
 					input#login_btn(type="button", value="로그인")
 				p
-					input.text_login(type='password', value='패스워드', id='pw', name='pw')
+					input.text_login.text1(type='password', value='패스워드', id='pw', name='pw')
 			input.btn_signup(type="button", value="회원가입")
 					
 
