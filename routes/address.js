@@ -126,6 +126,30 @@ module.exports = function(app){
 		res.render('plan/damyang_see', {title:'/plan/see'});
 	});
 	
+	app.get('/plan/seoul_see', function(req, res){
+		res.render('plan/seoul_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/boryeong_see', function(req, res){
+		res.render('plan/boryeong_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/jecheon_see', function(req, res){
+		res.render('plan/jecheon_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/jinju_see', function(req, res){
+		res.render('plan/jinju_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/gyeongju_see', function(req, res){
+		res.render('plan/gyeongju_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/busan_see', function(req, res){
+		res.render('plan/busan_see', {title:'/plan/see'});
+	});
+	
 	// etc 카테고리 라우팅
 	app.get('/etc/notice', function(req, res){
 		res.render('etc/notice', {title:'/etc/notice'});
