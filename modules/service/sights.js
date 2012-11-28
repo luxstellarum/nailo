@@ -45,27 +45,6 @@ var self = module.exports = {
 		});//end of get_list
 	}//end of list
 	
-	//sights 수정
-	,modify : function(req, res) {
-		var tmp = req.body;
-		var update = {};
-		
-		update[name] = tmp.name;
-		update[city_name] = tmp.city_name;
-		update[times] = tmp.times;
-		update[extra] = tmp.extra;
-
-		sights_db.update(tmp.index, update, function(result){
-			if(result == true) {
-				console.log('service/sights.js, modify success');
-				res.json({result:true});
-			}
-			else {
-				console.log('service/sights.js, modify fail');
-				res.json({result:false});
-			}
-		}); //end of update
-	}//end of modify
 	
 	//sights의 내용을 database에서 받아와서 결과에 따라 JSON형식으로 return
 	,view : function(req, res) {

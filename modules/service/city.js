@@ -58,28 +58,6 @@ var self = module.exports = {
 			}
 		});
 	}//end of list
-	
-	//도시 수정
-	,modify : function(req, res) {
-		var tmp = req.body;
-		var update = {};
-		update[city_name] = tmp.city_name;
-		update[do_name] = tmp.do_name;
-		update[station_names] = tmp.station_names;
-		update[extra] = tmp.extra;
-
-		city_db.update(tmp.index, update, function(result){
-			if(result == true) {
-				console.log('service/city.js, modify success');
-				res.json({result:true});
-			}
-			else {
-				console.log('service/city.js, modify fail');
-				res.json({result:false});
-			}
-		}); //end of update
-	}//end of modify
-
 
 	
 	//도시를 database에서 받아와서 결과에 따라 JSON형식으로 return
