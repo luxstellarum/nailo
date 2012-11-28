@@ -20,8 +20,49 @@ module.exports = {
 		//값 넣기
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
+<<<<<<< HEAD
+
 				if(result !== false) {
 
+				console.log(result, result2);
+=======
+>>>>>>> bfad7d2e4c60d8146ece717cfd5a1df23a840fa6
+				if(result !== false) {
+				console.log(result, result2);
+				if(result != false) {
+
+<<<<<<< HEAD
+
+			if(result !== false) {
+
+				console.log(result, result2);
+				if(result !== false) {
+					doc.index = result;
+					doc.station_name = station.station_name;
+					doc.city_name = station.city_name;
+					doc.city_index = result2;
+					doc.station_homepage = station.station_homepage;
+					doc.station_phone = station.station_phone;
+					doc.train_type = station.train_type;
+					
+									
+					doc.save(function(err){
+						if(!err){
+							callback(true);
+						}//end of if
+						else {
+							callback(false);
+						}//end of else
+					}); //end of save
+
+				}
+			}
+			}
+			});		// end of get_city_index
+		});// end of get_index
+
+	}//end of add_station
+=======
 					console.log(result, result2);
 					if(result !== false) {
 						doc.index = result;
@@ -47,6 +88,7 @@ module.exports = {
 		});//end of get_index
 	}//end of add
 	
+>>>>>>> bfad7d2e4c60d8146ece717cfd5a1df23a840fa6
 	
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){

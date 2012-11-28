@@ -5,36 +5,33 @@ include ../top.jade
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
 					include ../search.jade	
-		div(class="header",style="margin-top:-40px")
-			h2(align='right',style='padding-right:5px') MyPage
-			hr
-			h5(align='center') If u want to join us.... :)
-	
-		div(class="section")
-			table(style='margin-left:20px;')
+		div#header
+			p.menu_name MyPage
+		div.section.box1
+			table.tbl_join.box1
 				tr		
-					td(valign='top',width='120px') 아이디
+					td 아이디
+					td
+						span(style='margin-right:20px')
+							input.text_join.text1(type='text', name='id')
+				tr		
+					td 비밀번호
+					td
+						span(style='margin-right:20px')
+							input.text_join.text1(type='password', name='pw')
+				tr		
+					td 비밀번호 확인
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.input_form(type='text', name='id', style='width:130px;')
+							input.text_join.text1(type='password', name='pw2')
 				tr		
-					td(valign='top',width='120px') 비밀번호
-					td(width='200px')
+					td 닉네임
+					td
 						span(style='margin-right:20px')
-							input.input_form(type='password', name='pw', style='width:130px;')
+							input.text_join.text1(type='text', name='name')							
 				tr		
-					td(valign='top',width='120px') 비밀번호 확인
-					td(width='200px')
-						span(style='margin-right:20px')
-							input.input_form(type='password', name='pw2', style='width:130px;')
-				tr		
-					td(valign='top',width='120px') 닉네임
-					td(width='200px')
-						span(style='margin-right:20px')
-							input.input_form(type='text', name='name', style='width:130px;')							
-				tr		
-					td(valign='top',width='120px') 성별
-					td(width='200px')
+					td 성별
+					td
 						span(style='margin-right:20px')
 							input.input_form(name='sex', type='radio', value='male', style='width:10px;')
 							| 남자							
@@ -43,7 +40,7 @@ include ../top.jade
 				tr
 					td
 					td
-						input#submit_btn.btn2(type='button', value='Submit',style="width:80px; margin-left:50px")
+						input#submit_btn.btn2(type='button', value='Submit')
 			
 				
 include ../bottom.jade

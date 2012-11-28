@@ -31,16 +31,14 @@ $(document).ready(function(){
 		
 		if(nextPage=='#plan_2')
 		{
-			console.log(nextPage+' > #'+area_name+'_map');
+			$('#selected_area').empty();
+			$("[id$='_map']").css("display","none");		//id가 '_map'으로 끝나는 모든 엘리먼트
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");
 			
-			console.log($(".city2").attr("province_name"));
-			console.log(area_name);
 
 			for(var s=0; s<=100; s++){
-				console.log($(".city2:eq("+s+")").attr("province_name"));
 				if($(".city2:eq("+s+")").attr("province_name")==area_name)
 					{
 
@@ -78,6 +76,11 @@ $(document).ready(function(){
 	$(".plan_bar").css("width", window_width);
 	//$(".plan_bar").css("height", "80px");
 
+	// plan.jade가 시작되면 날짜선택창이 슬라이드다운된다
+	$("#periodpicker").slideDown();
+
+	
+
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
 		var submenu = $(".popup_othermenu");
@@ -88,6 +91,9 @@ $(document).ready(function(){
 		}else{
 			submenu.slideDown();
 		}
+		if( $(".popup_beongae").is(":visible")){
+			$(".popup_beongae").css("display", "none");
+		}
 	});
 	$("input.btn_beongae").click(function(){
 		var submenu = $(".popup_beongae");
@@ -97,6 +103,9 @@ $(document).ready(function(){
 			submenu.slideUp();
 		}else{
 			submenu.slideDown();
+		}
+		if( $(".popup_othermenu").is(":visible")){
+			$(".popup_othermenu").css("display", "none");
 		}
 	});
 });
