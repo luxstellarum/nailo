@@ -77,7 +77,18 @@ $(document).ready(function() {
 			train_plan_flag++;
 			$.disablePopup(daypicker);
 			
-			selected_city[selected_cities.length] = target.text();
+			selected_cities[selected_cities.length] = target.text();
+			
+			$('.city2').each(function(){
+				$(this).css("display","none");
+			});
+			
+			var nextPage = "#plan_3";
+			
+			var effect = "slide";
+				
+			changePage($(nextPage),effect);
+
 		});
 
 		$(".days_set_cancel_button").click(function(){

@@ -20,12 +20,19 @@ module.exports = {
 		//값 넣기
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
+
 				if(result !== false) {
 
 				console.log(result, result2);
 				if(result !== false) {
 				console.log(result, result2);
 				if(result != false) {
+
+
+			if(result !== false) {
+
+				console.log(result, result2);
+				if(result !== false) {
 					doc.index = result;
 					doc.station_name = station.station_name;
 					doc.city_name = station.city_name;

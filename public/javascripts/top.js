@@ -16,6 +16,7 @@ $(document).ready(function(){
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
+		
 		if(!nextPage)
 			return;
 		if(nextPage=='#community_2')
@@ -45,8 +46,7 @@ $(document).ready(function(){
 					}
 			setHead(area_head,area_name);
 		}
-		
-		
+
 		var effect = $(this).attr("data-effect");
 				
 		changePage($(nextPage),effect);
@@ -76,6 +76,11 @@ $(document).ready(function(){
 	$(".plan_bar").css("width", window_width);
 	//$(".plan_bar").css("height", "80px");
 
+	// plan.jade가 시작되면 날짜선택창이 슬라이드다운된다
+	$("#periodpicker").slideDown();
+
+	
+
 	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
 	$("input.btn_more").click(function(){
 		var submenu = $(".popup_othermenu");
@@ -86,6 +91,9 @@ $(document).ready(function(){
 		}else{
 			submenu.slideDown();
 		}
+		if( $(".popup_beongae").is(":visible")){
+			$(".popup_beongae").css("display", "none");
+		}
 	});
 	$("input.btn_beongae").click(function(){
 		var submenu = $(".popup_beongae");
@@ -95,6 +103,9 @@ $(document).ready(function(){
 			submenu.slideUp();
 		}else{
 			submenu.slideDown();
+		}
+		if( $(".popup_othermenu").is(":visible")){
+			$(".popup_othermenu").css("display", "none");
 		}
 	});
 });

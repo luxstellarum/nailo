@@ -1,0 +1,16 @@
+div#plan_boryeong(class="slide")
+	div#header
+		img(id="city_mark",src="/images/mark_boryeong.png",align="center",width="70px") 
+		span(id="city_name",style="magin-left:5px:")
+			font(size="4pt",style="font-weight:bold") 보령
+	p
+	div.wrapper(class="tour",id="boryeong_map",style="position:relative; margin-top:-30px; left:30px; width:270px; height:0px; padding-bottom:100%; overflow:auto;")
+		img(src="/images/map_boryeong.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0')
+		span.province(style='position:absolute; top:38%; left:30%; z-index:2;')						
+			label(for="mud_festival",style="font-size:8pt;z-index:4;") 대천해수욕장
+			br
+			input(id="mud_festival",type="checkbox",style="z-index:3; opacity:0;")
+		span.province(style='position:absolute; top:32%; left:53%; z-index:2;')						
+			label(for="seongjusan",style="font-size:8pt;z-index:4;") 성주산 자연휴양림
+			br
+			input(id="seongjusan",type="checkbox",style="z-index:3; opacity:0;")

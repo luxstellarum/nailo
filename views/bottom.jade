@@ -9,38 +9,13 @@ style
 	}
 div#footer
 	include ./widget/hourpicker.jade
-	ul.popup_othermenu
-		li 
-			p
-				img(src="/images/icon_folder.png")
-			p 불러오기
-		li 
-			p
-				img(src="/images/icon_notice.png")
-			p 공지사항
-		li 
-			p 
-				img(src="/images/btn_plan.png")
-			p Tip
-		li 
-			p
-				img(src="/images/icon_question.png")
-			p 도움말
-		li 
-			p 
-				img(src="/images/icon_setting.png")
-			p 설정
-	ul.popup_beongae
-		li 번개방 생성하기
-		li 나의 번개 활동내역
-		li 다른 번개 검색하기
 	div(class='ui-grid-c')
 		div(class='ui-block-a',align='center')
 			input#mypage(type='image',src="/images/btn_my.png",width="30px")
 		div(class='ui-block-b',align='center')
 			input#plan(type='image',src="/images/btn_plan.png",width="30px")
 		div(class='ui-block-c',align='center')
-			input#community(type='image',src="/images/btn_community.png",width="30px")
+			input.btn_beongae(type='image',src="/images/btn_community.png",width="30px")
 		div(class='ui-block-d',align='center', style='position:relative;')
 			input.btn_more(type='image',src="/images/btn_more.png",width="30px")
 	div#plan_status(style="background-color;blue")
@@ -53,50 +28,26 @@ div#footer
 			li.droppable_hover
 			ul.plan_bar(day=1, style="width:400px;")
 				li.plan_bar_hour(hour=1, occupied=0)
-					| 1
 				li.plan_bar_hour(hour=2, occupied=0)
-					| 2
 				li.plan_bar_hour(hour=3, occupied=0)
-					| 3
 				li.plan_bar_hour(hour=4, occupied=0)
-					| 4
 				li.plan_bar_hour(hour=5, occupied=0)
-					| 5
 				li.plan_bar_hour(hour=6, occupied=0)
-					| 6
 				li.plan_bar_hour(hour=7, occupied=0)
-					| 7
 				li.plan_bar_hour(hour=8, occupied=0)
-					| 8
 				li.plan_bar_hour(hour=9, occupied=0)
-					| 9
 				li.plan_bar_hour(hour=10, occupied=0)
-					| 10
 				li.plan_bar_hour(hour=11, occupied=0)
-					| 11
 				li.plan_bar_hour(hour=12, occupied=0)
-					| 12
 				li.plan_bar_hour(hour=13, occupied=0)
-					| 13
 				li.plan_bar_hour(hour=14, occupied=0)
-					| 14
 				li.plan_bar_hour(hour=15, occupied=0)
-					| 15
 				li.plan_bar_hour(hour=16, occupied=0)
-					| 16
 				li.plan_bar_hour(hour=17, occupied=0)
-					| 17
 				li.plan_bar_hour(hour=17, occupied=0)	
-					| 18
 				li.plan_bar_hour(hour=19, occupied=0)
-					| 19
 				li.plan_bar_hour(hour=20, occupied=0)
-					| 20
 				li.plan_bar_hour(hour=21, occupied=0)
-					| 21
 				li.plan_bar_hour(hour=22, occupied=0)
-					| 22
 				li.plan_bar_hour(hour=23, occupied=0)
-					| 23
 				li.plan_bar_hour(hour=24, occupied=0)
-					| 24

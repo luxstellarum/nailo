@@ -97,12 +97,13 @@ module.exports = function(app){
 		res.render('plan/plan#plan_2', {title:'/plan/plan#plan_2'});
 	});	
 	
+	app.get('/plan/plan#plan_3', function(req, res){
+		res.render('plan/plan#plan_3', {title:'/plan/plan#plan_3'});
+	});	
+	
 	// 이후 plan 1~3 합체
 	app.get('/plan/plan2', function(req, res){
 		res.render('plan/plan2', {title:'/plan/plan2'});
-	});	
-	app.get('/plan/plan3', function(req, res){
-		res.render('plan/plan3', {title:'/plan/plan3'});
 	});	
 
 	app.get('/plan/pyungchang_see', function(req, res){
@@ -123,6 +124,30 @@ module.exports = function(app){
 	
 	app.get('/plan/damyang_see', function(req, res){
 		res.render('plan/damyang_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/seoul_see', function(req, res){
+		res.render('plan/seoul_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/boryeong_see', function(req, res){
+		res.render('plan/boryeong_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/jecheon_see', function(req, res){
+		res.render('plan/jecheon_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/jinju_see', function(req, res){
+		res.render('plan/jinju_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/gyeongju_see', function(req, res){
+		res.render('plan/gyeongju_see', {title:'/plan/see'});
+	});
+	
+	app.get('/plan/busan_see', function(req, res){
+		res.render('plan/busan_see', {title:'/plan/see'});
 	});
 	
 	// etc 카테고리 라우팅
