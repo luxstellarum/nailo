@@ -31,16 +31,14 @@ $(document).ready(function(){
 		
 		if(nextPage=='#plan_2')
 		{
-			console.log(nextPage+' > #'+area_name+'_map');
+			$('#selected_area').empty();
+			$("[id$='_map']").css("display","none");		//id가 '_map'으로 끝나는 모든 엘리먼트
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");
 			
-			console.log($(".city2").attr("province_name"));
-			console.log(area_name);
 
 			for(var s=0; s<=100; s++){
-				console.log($(".city2:eq("+s+")").attr("province_name"));
 				if($(".city2:eq("+s+")").attr("province_name")==area_name)
 					{
 
