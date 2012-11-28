@@ -21,32 +21,32 @@ module.exports = {
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
 				if(result !== false) {
-
 					console.log(result, result2);
-					if(result !== false) {
-						doc.index = result;
-						doc.station_name = station.station_name;
-						doc.city_name = station.city_name;
-						doc.city_index = result2;
-						doc.station_homepage = station.station_homepage;
-						doc.station_phone = station.station_phone;
-						doc.train_type = station.train_type;
-						
-										
-						doc.save(function(err){
-							if(!err){
-								callback(true);
-							}//end of if
-							else {
-								callback(false);
-							}//end of else
-						}); //end of save
+					if(result != false) {
+						console.log(result, result2);
+						if(result !== false) {
+							doc.index = result;
+							doc.station_name = station.station_name;
+							doc.city_name = station.city_name;
+							doc.city_index = result2;
+							doc.station_homepage = station.station_homepage;
+							doc.station_phone = station.station_phone;
+							doc.train_type = station.train_type;
+												
+							doc.save(function(err){
+								if(!err){
+									callback(true);
+								}//end of if
+								else {
+									callback(false);
+								}//end of else
+							}); //end of save
+						}//end of if
 					}//end of if
-				}//end of if
+				} 		// end of if
 			});//end of get_city_index
 		});//end of get_index
 	}//end of add
-	
 	
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){

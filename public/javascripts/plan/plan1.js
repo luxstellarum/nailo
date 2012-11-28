@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 		// (1) 플랜바의 전체영역을 생성한다. (창의너비) x (여행기간)
 		var window_width = $(window).width();
-		var window_width_wrapper = window_width * period;	// 여행기간만큼 plan bar를 늘린다
+		var window_width_wrapper = window_width * period * 2;	// 여행기간만큼 plan bar를 늘린다
 		$('#plan_bar').css('width', window_width);
 		$('.plan_bar_wrapper').css('width', window_width_wrapper);
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 			var append_li = $(".plan_bar:last").html();
 			$(".plan_bar:last").after('<ul class=plan_bar day='+prev_day+'>');
 			$(".plan_bar:last").append(append_li);
-			$(".plan_bar:last").css("width", window_width);
+			$(".plan_bar:last").css("width", window_width*2);
 
 			/*
 			$(".plan_bar_wrapper").append("<ul>");
