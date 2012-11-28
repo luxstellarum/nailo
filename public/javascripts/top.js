@@ -21,7 +21,17 @@ $(document).ready(function(){
 		
 		if(!nextPage)
 			return;
+		if(nextPage==undefined)
+			return;
 		if(nextPage=='#community_2')
+		{
+			console.log(nextPage+' > #'+area_name+'_map');
+			$(nextPage+' > #'+area_name+'_map').css("display","block");
+			
+			setHead(area_head,area_name);
+		}
+		
+		if(nextPage==undefined)
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
