@@ -4,14 +4,47 @@ $(document).unbind().bind('pagecreate',function(){
 	setCity(city)
 	
 	var community_board = {};
+	//community_board['city']="test2";	//테스트용 실제는 아래 코드 ㅎ
 	community_board['city']=city;
 	
 	$.ajax({
 		type: 'post',
-		url: '/board/list',
+		url: '/board/get_cityboard',
 		data: community_board,
 		success:function(data){
-			
+			if(data.result != false)
+			{
+				$.each(data,function(i,item){
+					var tr = document.createElement('tr');
+					var td1 = document.createElement('td');
+					var td2 = document.createElement('td');
+					var td3 = document.createElement('td');
+					var td4 = document.createElement('td');
+					
+					item.event_month=SetZeros(item.event_month,2);
+					item.event_day=SetZeros(item.event_day,2);
+					item.start_hour=SetZeros(item.start_hour,2);
+					item.start_minute=SetZeros(item.start_minute,2);
+					
+					td1.appendChild(document.createTextNode(item.event_month+"."+item.event_day+"\n"+item.start_hour+":"+item.start_minute));
+					td2.appendChild(document.createTextNode(item.location));
+					td3.appendChild(document.createTextNode(item.subject));
+					td4.appendChild(document.createTextNode(item.population+"명"));
+					
+					td1.style.fontSize="7pt";
+					
+					tr.appendChild(td1);
+					tr.appendChild(td2);
+					tr.appendChild(td3);
+					tr.appendChild(td4);
+					
+					$('#board_field').append(tr);
+				});	
+			}
+			else
+			{
+				alert('fail');
+			}
 		}
 	});
 
@@ -37,3 +70,14 @@ function setCity(city_name){
 	$('#selected_city').append(document.createTextNode(name));
 	
 };
+
+
+function SetZeros(num, digits) {
+	var Zeros = '';
+	num = num.toString();
+	if (num.length < digits) {
+		for (i = 0; i < digits - num.length; i++)
+		Zeros += '0';
+	}
+	return Zeros + num;
+}
