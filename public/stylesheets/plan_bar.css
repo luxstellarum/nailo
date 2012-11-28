@@ -1,0 +1,33 @@
+.plan_bar_hour{
+	margin-top: 5px;
+}
+.plan_bar_hour[hour='1']{
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.plan_bar_hour[hour='24']{
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+ul[day='1'] > li{
+	background-color: #A1E8C4;
+}
+ul[day='2'] > li{
+	background-color: #FEEB84;
+}
+ul[day='3'] > li{
+	background-color: #FCA2A7;
+}
+ul[day='4'] > li{
+	background-color: #A1E8C4;
+}
+ul[day='5'] > li{
+	background-color: #FEEB84;
+}
+ul[day='6'] > li{
+	background-color: #FCA2A7;
+}
+ul[day='1'] > li{
+	background-color: #A1E8C4;
+}
