@@ -49,12 +49,8 @@ module.exports = {
 			});//end of get_city_index
 		});//end of get_index
 	}//end of add
-	
-<<<<<<< HEAD
 
 	
-=======
->>>>>>> f012a127450c9f317af4629c8d8c47e2f4287b56
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
