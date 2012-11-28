@@ -55,8 +55,6 @@ $(document).ready(function() {
 			*/
 		}
 
-		$(".plan_bar_hour").droppable( drop_option );
-
 		// (3) 날짜정보를 띄워주는 영역을 생성한다
 		var day_width = window_width / period;
 		for(var i = 1; i<=period; i++){
@@ -74,20 +72,6 @@ $(document).ready(function() {
 		var periodpicker = $("#periodpicker");
 		$.disablePopup(periodpicker);
 	});
+
 	
-	$('.btn1').click(function(){
-			var nextPage = "#plan_1";
-			
-			var effect = "slide";
-				
-			changePage($(nextPage),effect);
-	});
-	
-	$('.btn2').click(function(){
-			var nextPage = "#plan_kangneung";
-			
-			var effect = "slide";
-				
-			changePage($(nextPage),effect);
-	});
 });

@@ -39,11 +39,6 @@ var drop_option = {
 	}//end of drop
 }//end of drop_option
 
-var drag_option = {
-	revert: "invalid",
-	helper: "clone"
-}
-
 function dragcity( item) {
 	item.fadeOut(function() {
 		item.fadeIn(function() {
@@ -73,6 +68,8 @@ function set_hours(target, period, target_place) {
 		$(this).removeClass("filled");
 	});
 
+	target.attr('period') = period;
+	
 	for(var i=1; i<period; i++) {
 		target = target.next();
 
@@ -109,11 +106,8 @@ $(document).ready(function(){
 	var timeoutId = 0;
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
-	// 드래그 앤 드랍 기능
-	$(".city2").draggable( drag_option );
-
-	$(".province").draggable( drag_option );
-
+	
+	
 	$(".next_day").mousedown(function() {
 		timeoutId = setTimeout(next_day_scroll(window_width), 100);
 			}).bind('mouseleave', function() {
@@ -168,9 +162,21 @@ $(document).ready(function(){
 
 	});
 
+	$(".plan_bar_hour").droppable( drop_option );
+
 	$(".filled").bind('taphold', function(){
 		alert(">_<");
 		remove_place($(this));
+	});
+
+	//관광지로 넘어가는 파~트
+	$(".train_set").live('click', function(){
+		var city = $(this).attr('city_name');
+		var nextPage = "#plan_" + city;
+			
+		var effect = "slide";
+				
+		changePage($(nextPage),effect);
 	});
 
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다

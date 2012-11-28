@@ -1,10 +1,11 @@
+script(src="/javascripts/plan/plan3.js")
 div#plan_3(class="slide")
 	div#header(style="margin-top:-10px")
 		span.head_number 3
 		span.head_number(style="font-size:15pt") > 선택한 도시 보기
 	img.map(src="/images/map.png", style='position:absolute; height:300px; top:10%; left:10%; z-index:1;')
 	script(src="/javascripts/plan/jquery.subwayMap-0.5.0.js", type="text/javascript")
-	div(class="subway-map",data-columns="40", data-rows="30", data-cellSize="10",
+	div(class="subway-map",data-columns="40", data-rows="50", data-cellSize="10",
 		data-gridNumbers="false", data-grid="false", data-lineWidth="2")
 		ul(data-color="#ff4db2")
 			li(data-coords="12,16")
@@ -31,6 +32,7 @@ div#plan_3(class="slide")
 				span(style="font-size:7pt") 부산
 	script(type="text/javascript")
 		$(".subway-map").subwayMap({ debug: true });
-	div.plan3_btn_area
+	div.plan3_btn_area(style="z-index:3000;")
 		input.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
 		input.btn2(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")
+

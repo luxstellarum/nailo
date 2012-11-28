@@ -2,13 +2,28 @@
 var mongoose = require('mongoose');	// mongoose module 사용
 var Schema = mongoose.Schema;			// mongoose.Schema 객체 선언
 
+
+/*
+	[ { type : train / sights,
+		name : train name / sights name,
+		period : NUMBER,
+		start_time : NUMBER },
+	
+		{ type : train / sights,
+		name : train name / sights name,
+		period : NUMBER,
+		start_time : NUMBER },
+		...
+	 ]
+*/
 // plan Schema 정의
 var plan_schema = new Schema({
 	id : String,		// 사용자  id
 	index : Number,
 	subject: String, // plan이름
-	date : Array,		// 이차원 배열로 데이터는 JSON으로 담긴다, 나의 여행 정보
+	data : Array,		// 이차원 배열로 데이터는 JSON으로 담긴다, 나의 여행 정보
 						// type 으로 기차/도시/관광지/메모 구분
+
 });		// end of plan_schema
 
 
@@ -28,7 +43,7 @@ module.exports = {
 				doc.id = plan.id;
 				doc.index = result;
 				doc.subject = plan.subject;
-				doc.date = plan.date;
+				doc.data = plan.data;
 				
 				doc.save(function(err){
 					if(!err){
@@ -115,7 +130,7 @@ module.exports = {
 	,get_list: function(current_page, paging_size, callback){
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({}).sort('-date').skip(skip_size).limit(paging_size).exec(function(err, docs){
+		documents.find({}).sort('-index').skip(skip_size).limit(paging_size).exec(function(err, docs){
 			if(!err){
 				callback(docs);
 			}
