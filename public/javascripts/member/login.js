@@ -1,6 +1,10 @@
 
 
 $(document).unbind().bind('pagecreate',function(){
+	$('#btn_signup').live('click',function(){
+		location.href='/mypage/join';
+	});
+	
 	$('#login_btn').live('click', function(){
 		var input_data = {};
 			
@@ -33,5 +37,7 @@ $(document).unbind().bind('pagecreate',function(){
 		}); 	// end of ajax
 		
 	}); 	// end of live
+
+
 	
 }); 	// end of bind
