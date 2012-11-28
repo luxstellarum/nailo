@@ -15,7 +15,7 @@ var adr = require('./routes/address.js');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/nailo');
+mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/nailo');
 
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
