@@ -72,6 +72,9 @@ function get_train_time (train_plan) {
 
 $(document).unbind().bind('pagecreate',function() {
 	var train_time_table = [];
+	
+	$('#connect_field').append("<ul data-color='#ff4db2'><li data-coords='12,16'><span>서울</span></li></ul>");
+	
 
 	$('.btn1').live('click', function() {
 		//ToDo
