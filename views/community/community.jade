@@ -4,14 +4,13 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 						include ../search.jade
-			div(class='container')
-				
-				div(id="community_1",class="slide current")
-					div(class='header')
-						span(style='height:20px; padding-left:20px; font-size:45pt') 1
-					p
-					div.wrapper(id="community_num",style="position:relative; margin-top:-70px; left:55px; width:200px; height:0px; padding-bottom:100%; overflow:auto;")
-						img(src="/images/map.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+			div#container.background_theme
+				div#community_1.slide.current.background_theme_gray
+					div#header
+						p.menu_name(style="color:#fca2a7;") 커뮤니티
+					div.wrapper(id="plan_num")
+						div.map_wrapper
+							img.map(src="/images/map_brush.png")
 						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 70
 						a.province(id="kyunggido",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 100
 						a.province(id="chungcheongdo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 30

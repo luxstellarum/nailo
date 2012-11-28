@@ -1,28 +1,39 @@
-.login_box {
+.box1{
 	border: 1px solid black;
+	background: rgb(252,250,242); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(252,250,242,1) 0%, rgba(249,237,177,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,250,242,1)), color-stop(100%,rgba(249,237,177,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfaf2', endColorstr='#f9edb1',GradientType=0 ); /* IE6-9 */
+}
+
+.login_box {
 	border-radius: 5px;
 	margin-top:20px;
 	margin-left: 5%;
 	margin-right: 5%;
-	background: rgb(254,235,132); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(254,235,132,1) 0%, rgba(252,248,227,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,235,132,1)), color-stop(100%,rgba(252,248,227,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(254,235,132,1) 0%,rgba(252,248,227,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(254,235,132,1) 0%,rgba(252,248,227,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(254,235,132,1) 0%,rgba(252,248,227,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(254,235,132,1) 0%,rgba(252,248,227,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feeb84', endColorstr='#fcf8e3',GradientType=0 ); /* IE6-9 */
+}
+
+.text1{
+	color: #DFDCDC;
+	font-size: 11pt;
+	border: 1px solid black;
+	border-radius: 3px;
+	background-color: #F8F8F8;
 }
 
 .text_login{
 	width: 160px;
 	height: 30px;
 	margin-left: 10%;
-	color: #DFDCDC;
-	font-size: 11pt;
-	border: 1px solid black;
-	border-radius: 3px;
-	background-color: #F8F8F8;
+}
+
+.text_join{
+	width: 120px;
+	height: 25px;
 }
 
 #login_btn{
@@ -39,8 +50,31 @@
 
 .btn_signup{
 	margin-right: 5%;
-	font-size: 11pt; 
+	font-size: 10pt; 
 	font-weight: bold;
 	border: 1px solid black;
-	background-color: #FEEB84;입
+	border-radius: 3px;
+	background-color: #FEEB84;
+	float: right;
+}
+
+/**** join.jade ****/
+
+.tbl_join{
+	margin: 0 auto;
+	padding: 2% 2%;
+	font-size: 10pt;
+	border-radius: 5px;
+	box-shadow: in
+}
+.tbl_join td{
+	width: 150px;
+	line-height: 2.5;
+}
+
+#submit_btn{
+	width: 70px;
+	height: 30px;
+	float: right;
+	margin-right: 15%;
 }
