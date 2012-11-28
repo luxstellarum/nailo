@@ -72,6 +72,7 @@ function get_train_time (train_plan) {
 
 $(document).unbind().bind('pagecreate',function() {
 	var train_time_table = [];
+	
 
 	$('.btn1').live('click', function() {
 		//ToDo

@@ -153,6 +153,9 @@ THE SOFTWARE.
 
                 var nodes = [];
                 $(ul).children("li").each(function () {
+                	
+                	var display = $(this).attr("display");
+                	if(display=="none") return;
 
                     var coords = $(this).attr("data-coords");
                     if (coords === undefined) coords = "";

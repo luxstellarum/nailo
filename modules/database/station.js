@@ -43,7 +43,9 @@ module.exports = {
 		});//end of get_index
 	}//end of add
 
+
 	
+
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
