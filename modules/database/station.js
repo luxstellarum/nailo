@@ -20,7 +20,9 @@ module.exports = {
 		//값 넣기
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
-				if(result !== false) {
+
+			if(result !== false) {
+
 					console.log(result, result2);
 					if(result != false) {
 						console.log(result, result2);
@@ -48,6 +50,7 @@ module.exports = {
 		});//end of get_index
 	}//end of add
 	
+
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
