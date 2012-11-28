@@ -76,11 +76,13 @@ body{
 }
 
 .head_number{
+	position: relative;
 	height:20px; 
 	padding-left:10px; 
 	font-size:30pt;
 	color: white;
 	text-shadow: -2px -2px -2px -2px #222;
+	z-index: 20;
 }
 
 
@@ -90,17 +92,26 @@ body{
 	height: auto;
 	top: 60px;
 	left: 0px;
-	bottom: 100px;
-	padding-top: 100px;
+	padding-top: 50px;
 	overflow-x: hidden;
 	overflow-y: auto;
+}
+.section_bungae{
+	background: rgb(245,246,246); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(245,246,246,1) 0%, rgba(219,220,226,1) 21%, rgba(184,186,198,1) 49%, rgba(221,223,227,1) 80%, rgba(245,246,246,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,246,246,1)), color-stop(21%,rgba(219,220,226,1)), color-stop(49%,rgba(184,186,198,1)), color-stop(80%,rgba(221,223,227,1)), color-stop(100%,rgba(245,246,246,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
 }
 
 .menu_name{
 	font-size: 20pt;
 	text-align: right;
 	padding-right: 10px;
-	color: #a1e8c4;
+	color: white;
 }
 
 /* + 버튼을 누르면 나오는 추가메뉴 팝업창 */

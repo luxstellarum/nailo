@@ -21,12 +21,6 @@ module.exports = {
 		self.get_index(function(result){
 			self.get_city_index({city_name : station.city_name}, function(result2){
 				if(result !== false) {
-<<<<<<< HEAD
-					console.log(result, result2);
-					if(result != false) {
-=======
-					if(result !== false) {
->>>>>>> bd65342d7d46cecdb4a537f497aedf6098643887
 						console.log(result, result2);
 						if(result != false) {
 							console.log(result, result2);
@@ -50,15 +44,14 @@ module.exports = {
 							}//end of if
 						}//end of if
 					}		// end of if
-				} 		// end of if
 			});//end of get_city_index
 		});//end of get_index
 	}//end of add
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> bd65342d7d46cecdb4a537f497aedf6098643887
+
+
+
+
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {

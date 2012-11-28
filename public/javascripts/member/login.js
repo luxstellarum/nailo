@@ -34,4 +34,11 @@ $(document).unbind().bind('pagecreate',function(){
 		
 	}); 	// end of live
 	
+	// 아이디, 패스워드 텍스트창을 터치하면 원래 있던 텍스트가 사라진다
+	$(".text_login:eq(0)").bind('click', function() {
+		$(".text_login:eq(0)").val("");
+	});
+	$(".text_login:eq(1)").bind('click', function() {
+		$(".text_login:eq(1)").val("");
+	});
 }); 	// end of bind
