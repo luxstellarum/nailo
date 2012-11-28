@@ -1,4 +1,4 @@
-function set_train_time (dept, arrv, period, day, dept_time) {	
+ function set_train_time (dept, arrv, period, day, dept_time) {	
 	console.log('set_train_time');
 	var ori_target = $('.plan_bar[day=' + day + ']').find('[hour=' + dept_time + ']');
 	var target = ori_target;
