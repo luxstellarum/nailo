@@ -1,7 +1,7 @@
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
-		res.render('search/tag', {title:'index'});
+		res.render('mypage/mypage', {title:'index'});
 	});
 
 	// mypage 카테고리 라우팅

@@ -32,7 +32,7 @@ module.exports = {
 		search_db.seek(req.body.key, function(result){
 			if(result != false) {
 				console.log('service/search.js, search success');
-				res.json(result);
+				res.json({result : arr});
 			}
 			else {
 				console.log('service/search.js, search fail');
