@@ -26,10 +26,17 @@ $(document).ready(function(){
 			return;
 		if(nextPage=='#community_2')
 		{
-			
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
+
+			var city_name = $(".city2");
 			
+			for(var s=0; s<=100; s++){
+				if($(".city2:eq("+s+")").attr("province_name")==area_name)
+					{
+
+						$(".city2:eq("+s+")").css("display", "block"); }
+					}
 			setHead(area_head,area_name);
 		}
 		
@@ -48,7 +55,6 @@ $(document).ready(function(){
 			
 			var city_name = $(".city2");
 			
-
 			for(var s=0; s<=100; s++){
 				if($(".city2:eq("+s+")").attr("province_name")==area_name)
 					{

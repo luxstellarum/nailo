@@ -5,33 +5,39 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 					include ../search.jade
-		div(class="header")
-			span(class="output_form",name="province",style='padding-left:10px; font-size:35pt') 
-			span(style='position:absolute; top:0px; right:10px')
-				input(id="remove_board",type="button",value="글 삭제",style="width:60px; height:20px; font-size:10pt; margin-right:5px")
+		include ../widget/popup_menu.jade
+		div.header_bunshow
+			span.city_bunshow(class="output_form",name="province") 부산
+			div(style="width:75px; display:inline-block; float:right; margin-right: 5px;")
+				input.btn_remove.btn3(id="remove_board",type="button",value="글 삭제",style="width:60px; height:20px; font-size:10pt; margin-right:5px")
+				span.no_bunshow NO.1423
 			span(style='position:absolute; bottom:5px; right:10px;margin-right:5px')
-				font(style="margin-bottom:0px") No. &nbsp
+				font(style="margin-bottom:0px")
 				font.output_form(name="index",style='margin-bottom:0px')
-		div(class="section")
-			table(cellspacing='0',align='center'
-				,style='background-color:yellow; color:black;border-top:thick solid gray; width:100%;')
+		div.section_bunshow
+			table.tbl_bunshow(cellspacing='0',align='center')
 				tr
 					td(style='padding-left:10px; width:100px')
 						font.output_form(name="event_month")
 						font /
 						font.output_form(name="event_day")
-					td(rowspan="2",style='padding-left:10px; font-size:20pt; border-bottom:thin solid gray;')
+					td(rowspan="2",style='padding-left:10px; font-size:20pt;')
 						font.output_form(name="population")
 						font 명
 				tr
-					td(style='padding-left:10px; font-size:15pt; border-bottom:thin solid gray;')
+					td(style='padding-left:10px; font-size:15pt;')
 						font.output_form(name="end_hour")
 						font :
 						font.output_form(name="end_minute")
 						font 까지		
 				tr
 					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
-
+			ul.ul_comment
+				li.li_comment
+				li.li_comment
+				li.li_comment
+				li.li_comment
+				li.li_comment	
 			div(id="pre_set",style="display:none;")
 				span(id="id",style="padding:0 5px;") 
 				input(id="remove_comment",type="button",value="삭제",onclick="remove_item(this)",style="font-size:7pt; float:right; height:20px; margin-right:5px")
@@ -39,6 +45,6 @@ include ../top.jade
 			div(id="field")
 		
 		span(style="position:absolute; bottom:160px; width:100%;",align="center")
-			input(id="comment_text",type="text",style="padding:0px; width:60%")
-			input(id="comment_button",type="submit",value="댓글 작성",style="padding:5px; font-size:10pt")
+			input.text1(id="comment_text",type="text")
+			input.btn3(id="comment_button",type="submit",value="댓글 작성")
 include ../bottom.jade
