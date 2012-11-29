@@ -29,10 +29,10 @@ div#plan_3(class="slide")
 			li(data-coords="27,26",display="none", city_name="경주")
 				span(style="font-size:7pt") 경주
 			li(data-coords="27,30",display="none", city_name="부산")
-				span(style="font-size:7pt") 부산
+				span(style="font-size:7pt") 부산	
 	script(type="text/javascript")
+		$("li[city_name='강릉']").attr("display","block");
 		$(".subway-map").subwayMap({ debug: true });
-	
 	div.plan3_btn_area(style="z-index:3000;")
 		input.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
 		input.btn2(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")
