@@ -70,6 +70,17 @@ function get_train_time (train_plan) {
 	});
 }
 
+//선택된 도ㅅ ㅣ출력
+function show_cities() {
+	var length = selected_cities.length;
+	alert("!!");
+	$('li').hide();
+	
+	for( var i = 0; i<length; i++ ) {
+		$( 'li[city_name='+selected_cities[i]+']').show();
+	}//end of for
+}//end of show_cities
+
 $(document).unbind().bind('pagecreate',function() {
 	var train_time_table = [];
 	

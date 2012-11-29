@@ -10,27 +10,27 @@ div#plan_3(class="slide")
 	div(id="connect_field",class="subway-map",data-columns="40", data-rows="50", data-cellSize="10",
 		data-gridNumbers="false", data-grid="false", data-lineWidth="2")
 		ul(data-color="#ff4db2")
-			li(data-coords="12,16",display="block")
+			li(data-coords="12,16",display="none", city_name="서울")
 				span(style="font-size:7pt") 서울
-			li(data-coords="25,15",display="block")
+			li(data-coords="25,15",display="none", city_name="강릉")
 				span(style="font-size:7pt") 강릉
-			li(data-coords="23,16",display="none")
+			li(data-coords="23,16",display="none", city_name="평창")
 				span(style="font-size:7pt") 평창
-			li(data-coords="19,19",display="none")
+			li(data-coords="19,19",display="block", city_name="제천")
 				span(style="font-size:7pt") 제천
-			li(data-coords="11,23",display="none")
+			li(data-coords="11,23",display="none", city_name="보령")
 				span(style="font-size:7pt") 보령
-			li(data-coords="11,23",display="none")
+			li(data-coords="11,23",display="none", city_name="정읍")
 				span(style="font-size:7pt") 정읍
-			li(data-coords="11,28",display="none")
+			li(data-coords="11,28",display="none", city_name="담양")
 				span(style="font-size:7pt") 담양
-			li(data-coords="10,29",display="none")
+			li(data-coords="10,29",display="none", city_name="보성")
 				span(style="font-size:7pt") 보성
-			li(data-coords="18,30",display="none")
+			li(data-coords="18,30",display="none", city_name="진주")
 				span(style="font-size:7pt") 진주
-			li(data-coords="27,26",display="none")
+			li(data-coords="27,26",display="none", city_name="경주")
 				span(style="font-size:7pt") 경주
-			li(data-coords="27,30",display="none")
+			li(data-coords="27,30",display="none", city_name="부산")
 				span(style="font-size:7pt") 부산
 	script(type="text/javascript")
 		$(".subway-map").subwayMap({ debug: true });

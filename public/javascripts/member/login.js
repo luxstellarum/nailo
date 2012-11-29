@@ -1,6 +1,10 @@
 
 
 $(document).unbind().bind('pagecreate',function(){
+	$('#btn_signup').live('click',function(){
+		location.href='/mypage/join';
+	});
+	
 	$('#login_btn').live('click', function(){
 		var input_data = {};
 			
@@ -33,6 +37,8 @@ $(document).unbind().bind('pagecreate',function(){
 		}); 	// end of ajax
 		
 	}); 	// end of live
+
+
 	
 	// 아이디, 패스워드 텍스트창을 터치하면 원래 있던 텍스트가 사라진다
 	$(".text_login:eq(0)").bind('click', function() {

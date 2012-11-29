@@ -19,9 +19,21 @@ $(document).ready(function(){
 		console.log(nextPage);
 		var area_head = $("#selected_area");
 		
+		
 		if(!nextPage)
 			return;
+		if(nextPage==undefined)
+			return;
 		if(nextPage=='#community_2')
+		{
+			
+			console.log(nextPage+' > #'+area_name+'_map');
+			$(nextPage+' > #'+area_name+'_map').css("display","block");
+			
+			setHead(area_head,area_name);
+		}
+		
+		if(nextPage==undefined)
 		{
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
@@ -32,7 +44,6 @@ $(document).ready(function(){
 		if(nextPage=='#plan_2')
 		{
 			$('#selected_area').empty();
-			$("[id$='_map']").css("display","none");		//id가 '_map'으로 끝나는 모든 엘리먼트
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");

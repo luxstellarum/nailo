@@ -88,7 +88,7 @@ $(document).ready(function() {
 				console.log('plan.js, call get_train_time');
 				get_train_time(train_plan);	
 			}		
-
+			show_cities();
 			var nextPage = "#plan_3";
 			
 			var effect = "slide";

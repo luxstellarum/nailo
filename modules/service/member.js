@@ -5,6 +5,10 @@ module.exports = {
 	// 회원 등록
 	join : function(req, res){
 		member_db.add(req.body, function(result){
+			req.session.userid = req.body.id;
+			req.session.name = req.body.name;
+			req.session.sex = req.body.sex;
+
 			if(result == true){
 				console.log('service/member.js, join_success');
 				res.json({result:true});
@@ -60,9 +64,9 @@ module.exports = {
 		member_db.get({id: req.body.id}, function(member){
 			if(member){
 				if(req.body.pw == member.pw){
-					req.session.userid = req.body.id;
-					req.session.name = req.body.name;
-					req.session.sex = req.body.sex;
+					req.session.userid = member.id;
+					req.session.name = member.name;
+					req.session.sex = member.sex;
 					res.json({result: true, user: member});					
 				}
 				else {

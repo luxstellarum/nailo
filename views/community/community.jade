@@ -1,4 +1,5 @@
 include ../top.jade
+			script(src="/javascripts/community/community.js",type="text/javascript")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
@@ -27,6 +28,7 @@ include ../top.jade
 						span(style='height:20px; padding-left:20px; font-size:45pt; z-index:4') 2
 						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
 					p
+<<<<<<< HEAD
 					div.wrapper(id="kangwondo_map")
 						img.map(src="/images/map_kangwondo.png")
 						
@@ -57,4 +59,31 @@ include ../top.jade
 									td(style='padding-left:10px; border-bottom:thick solid gray;',width='60px') 장소 
 									td(style='padding-left:10px; border-bottom:thick solid gray;') 무엇을
 									td(style='padding-left:10px; border-bottom:thick solid gray;') 인원
+=======
+					div.wrapper(id="kangwondo_map",style="position:relative; margin-top:-30px; left:30px; width:250px; height:0px; padding-bottom:100%; overflow:auto;display:none")
+						a.province(href="/community/community/kangneung", rel='external', style='position:absolute; width:50px; height: 50px; top:45%; left:75%; z-index:2;') 강릉 65
+						a.province(href="/community/community/pyungchang", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 평창 20
+						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						
+					div.wrapper(id="kyunggido_map",style="position:relative; margin-top:-30px; left:60px; width:200px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyunggido.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community/seoul",style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 서울
+					
+					div.wrapper(id="chungcheongdo_map",style="position:relative; top:30px; left:20px; width:270px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_chungcheongdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community/jechoen", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 제천
+						a.province(href="/community/community/boryeng", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 보령
+					
+					div.wrapper(id="jeollado_map",style="position:relative; margin-top:-30px; left:60px; width:200px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_jeollado.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community/damyang", rel='external',style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 담양
+						a.province(href="/community/community/jeongup", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 정읍
+						a.province(href="/community/community/boseong", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 보성
+					
+					div.wrapper(id="kyungsangdo_map",style="position:relative; margin-top:-70px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyungsangdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community/jinju", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 진주
+						a.province(href="/community/community/gyeongju", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 경주
+						a.province(href="/community/community/busan", rel='external', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;') 부산
+>>>>>>> 7c880862c2da49a17e781bba26069e08c6a26e34
 include ../bottom.jade
