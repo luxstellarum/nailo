@@ -11,12 +11,11 @@ $(document).ready(function(){
 				console.log(data);
 				if(data.result != false){
 					var search_div;
-					$("#searchbrowser #wrapper").append(search_div);
 
 					for(i=0; i<data.length; i++){
 						search_div = "<div class=''>"+data[i]+"</div>";
-						$('#wrapper').append(search_div);
-					}
+						$("#searchbrowser #wrapper").append(search_div);
+					}					}
 
 					alert('success');
 				}
