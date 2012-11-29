@@ -44,7 +44,7 @@ module.exports = {
 	}//end of add
 
 
-	
+
 
 	,get_index: function(callback) {
 		documents.findOne({}).sort('-index').exec(function(err, result){
