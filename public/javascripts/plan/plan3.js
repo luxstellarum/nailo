@@ -74,23 +74,24 @@ function get_train_time (train_plan) {
 function show_cities() {
 	var length = selected_cities.length;
 	alert("!!");
-	$('li').hide();
+	$('li').attr("display","none");
 	
 	for( var i = 0; i<length; i++ ) {
-		$( 'li[city_name='+selected_cities[i]+']').show();
+		$( 'li[city_name='+selected_cities[i]+']').attr("display","block");
 	}//end of for
 }//end of show_cities
 
 $(document).unbind().bind('pagecreate',function() {
 	var train_time_table = [];
 	
+	$(".subway-map").subwayMap({ debug: false });
 
 	$('.btn1').live('click', function() {
 		//ToDo
 		var nextPage = "#plan_1";
 			
 		var effect = "slide";
-			
+
 		changePage($(nextPage),effect);
 		$("#periodpicker").css("display", "none"); //plan1로 돌아가면 기간선택창은 나올 필요 없다.
 	});

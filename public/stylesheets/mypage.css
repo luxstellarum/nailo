@@ -72,3 +72,59 @@
 	float: right;
 	margin-right: 15%;
 }
+
+/**** mypage.jade ****/
+.ul_mypage{
+	width: 300px;
+	height: 80%;
+	margin-top:20px; 
+	margin-bottom:40px;
+	list-style: none;
+}
+.ul_mypage li{
+	height: 15%;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid white;
+	padding-top: 5%;
+}
+#nickname{
+	border:thin gray solid; 
+	background-color:white; 
+	display:inline-block; 
+	width:180px; 
+	padding: 5px; 
+	text-align: right;
+}
+/**** my_nailo.jage ****/
+#nailo_record div{
+	width: 80%;
+	height: 4%;
+	margin: 5px;
+	padding:10px 10px;
+	text-shadow: 0 0 6px gray;
+	color: white;
+}
+
+div .color1 {
+	background-color: #FB7B82;
+}
+div .color2 {
+	background-color: #FA9095;
+}
+div .color3 {
+	background-color: #FAA7AB;
+}
+div .color4 {
+	background-color: #F8A9AD;
+}
+div .color5 {
+	background-color: #F7C9CC;
+}
+div .color6 {
+	background-color: #F7CDCF;
+}
+/**** share.jade ****/
+#share_plan{
+	width: 150px;
+	font-size: 30pt;
+}

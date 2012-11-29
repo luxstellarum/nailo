@@ -9,46 +9,77 @@ $(document).ready(function(){
 	displayRandom();
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
-	$('.slide a').bind("touchstart mousedown",function(e){
+	$('.slide a,#back').bind("touchstart mousedown",function(e){
 		e.preventDefault();
 		
 
-		var nextPage = $(this).get(0).hash;
+		var nextPage = $(this).attr("name");
 		var area_name = $(this).attr("id");
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
 		
-		
-		if(!nextPage)
-			return;
 		if(nextPage==undefined)
 			return;
 		if(nextPage=='#community_2')
 		{
-			
 			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
+
+			var city_name = $(".city2");
 			
+			for(var s=0; s<=100; s++){
+				if($(".city2:eq("+s+")").attr("province_name")==area_name)
+					{
+
+						$(".city2:eq("+s+")").css("display", "block"); }
+					}
 			setHead(area_head,area_name);
 		}
-		
-		if(nextPage==undefined)
+		if(area_name=='back')
 		{
-			console.log(nextPage+' > #'+area_name+'_map');
-			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
-			setHead(area_head,area_name);
+			if(nextPage=='#plan_1'){
+				$('.city2').each(function(){
+					$(this).css("display","none");
+				});
+			}
+			if(nextPage=='#plan_2')
+			{			
+				console.log(area_head.text());
+				if(area_head.text()=='강원도')
+					area_name='kangwondo';
+				else if(area_head.text()=='경기도')
+					area_name='kyunggido';
+				else if(area_head.text()=='충청도')
+					area_name='chungcheongdo';
+				else if(area_head.text()=='전라도')
+					area_name='jeollado';
+				else if(area_head.text()=='경상도')
+					area_name='kyungsangdo';
+					
+				var city_name = $(".city2");
+
+				for(var s=0; s<=100; s++){
+					if($(".city2:eq("+s+")").attr("province_name")==area_name)
+						{
+	
+							$(".city2:eq("+s+")").css("display", "block"); }
+						}
+			}
+			
+			var effect ="slide";
+			changePage($(nextPage),effect);
+			return;		
 		}
-		
 		if(nextPage=='#plan_2')
 		{
 			$('#selected_area').empty();
+			$(nextPage+' > '+'[id$=_map]').css("display","none");
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");
 			
-
 			for(var s=0; s<=100; s++){
 				if($(".city2:eq("+s+")").attr("province_name")==area_name)
 					{

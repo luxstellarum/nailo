@@ -3,6 +3,7 @@ div#plan_3(class="slide")
 	div#header(style="margin-top:-10px")
 		span.head_number 3
 		span.head_number(style="font-size:15pt") > 선택한 도시 보기
+	input#back(type="button",name="#plan_2", value="back", style="position:absolute; top:70px;z-index:2002")
 	div.wrapper(id="plan_num")
 				div.map_wrapper
 					img.map(src="/images/map.png")
@@ -31,10 +32,10 @@ div#plan_3(class="slide")
 			li(data-coords="27,26",display="none", city_name="경주")
 				span(style="font-size:7pt") 경주
 			li(data-coords="27,30",display="none", city_name="부산")
-				span(style="font-size:7pt") 부산
+				span(style="font-size:7pt") 부산	
 	script(type="text/javascript")
+		$("li[city_name='강릉']").attr("display","block");
 		$(".subway-map").subwayMap({ debug: true });
-	
 	div.plan3_btn_area(style="z-index:3000;")
 		input.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
 		input.btn2(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")

@@ -80,23 +80,13 @@ body{
 	z-index: 20;
 }
 
-
-.section {
-	position: absolute;
-	width: 100%;
-	height: auto;
-	top: 60px;
-	left: 0px;
-	padding-top: 30px;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
 .menu_name{
 	font-size: 20pt;
 	text-align: right;
 	padding-right: 10px;
+	margin-bottom: 2px;
 	color: white;
+	float:right;
 }
 
 /* + 버튼을 누르면 나오는 추가메뉴 팝업창 */
