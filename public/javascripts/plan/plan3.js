@@ -93,6 +93,7 @@ $(document).unbind().bind('pagecreate',function() {
 		var effect = "slide";
 			
 		changePage($(nextPage),effect);
+		$("#periodpicker").css("display", "none"); //plan1로 돌아가면 기간선택창은 나올 필요 없다.
 	});
 
 	$('.btn2').live('click', function() {
