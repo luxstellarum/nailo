@@ -13,15 +13,12 @@ $(document).ready(function(){
 		e.preventDefault();
 		
 
-		var nextPage = $(this).get(0).hash;
+		var nextPage = $(this).attr("name");
 		var area_name = $(this).attr("id");
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
 		
-		
-		if(!nextPage)
-			return;
 		if(nextPage==undefined)
 			return;
 		if(nextPage=='#community_2')
@@ -32,18 +29,10 @@ $(document).ready(function(){
 			
 			setHead(area_head,area_name);
 		}
-		
-		if(nextPage==undefined)
-		{
-			console.log(nextPage+' > #'+area_name+'_map');
-			$(nextPage+' > #'+area_name+'_map').css("display","block");
-			
-			setHead(area_head,area_name);
-		}
-		
 		if(nextPage=='#plan_2')
 		{
 			$('#selected_area').empty();
+			$(nextPage+' > '+'[id$=_map]').css("display","none");
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");
