@@ -32,7 +32,7 @@ THE SOFTWARE.
         },
 
         options: {
-    },
+	    },
 
     identity: function (type) {
         if (type === undefined) type = "name";
@@ -475,8 +475,9 @@ var methods = {
     },
 };
 
-$.fn.subwayMap = function (method) {
-
+$.fn.subwayMap=function (method) {
+	
+	console.log('subway');
     // Method calling logic
     if (methods[method]) {
         return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
