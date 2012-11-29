@@ -7,6 +7,16 @@ $(document).unbind().bind('pagecreate',function(){
 	
 	$('#login_btn').live('click', function(){
 		var input_data = {};
+		
+		if($("input[name='id']").val()==""){
+			alert('아이디를 입력하세요.');
+			return;
+		}
+		// check pw
+		else if($("input[name='pw']").val()=="" || $("input[name='pw']").val()=="패스워드"){
+			alert('비밀번호를 입력하세요.');
+			return;
+		}
 			
 		$('.input_form').each(function(){
 			if($(this).val() != "") {
@@ -23,11 +33,11 @@ $(document).unbind().bind('pagecreate',function(){
 			success: function(data){
 				console.log(data);				
 				if(data.result == true){
-					alert('success');
+
 					$(location).attr('href', '/mypage/mypage');
 				}
 				else{
-					alert('fail');
+					alert(data.message);
 				}
 			},		// end of success
 			
