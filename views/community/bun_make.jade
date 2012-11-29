@@ -7,68 +7,68 @@ include ../top.jade
 					include ../search.jade
 		div#header
 			p.menu_name 번개생성
-		div.section.section_bungae
-			table(align='center',style='margin-left:8px')	
-				td(valign='top',width='100px') 제목
+		div.section.section_bunmake
+			table	
+				td.label_bunmake(valign='top',width='100px') 제목
 				td(width='200px')
 					span(style='margin-right:20px')
-						input.input_form(type='text',style='width:180px;', name='subject')
-			table(align='center',style='margin-left:8px')
+						input.input_form.text1(type='text',style='width:180px;', name='subject')
+			table
 				input.input_form(type='hidden', value='test1', name='province')
 				input.input_form(type='hidden', value='test2', name='city')
 				td(valign='top',width='100px') 시간
 				td(width='200px')
 					span(style='margin-right:20px')
-						input.input_form(type='number',style='width:40px;', name='event_month')
+						input.input_form.text1(type='number',style='width:40px;', name='event_month')
 						&nbsp;월 
 					span
-						input.input_form(type='number',style='width:40px', name='event_day')
+						input.input_form.text1(type='number',style='width:40px', name='event_day')
 						&nbsp;일
 					br
 					span(style='margin-right:20px; top:0px')
-						input.input_form(type='number',style='width:40px;', name='start_hour')
+						input.input_form.text1(type='number',style='width:40px;', name='start_hour')
 						&nbsp;시 
 					span
-						input.input_form(type='number',style='width:40px;', name='start_minute')
+						input.input_form.text1(type='number',style='width:40px;', name='start_minute')
 						&nbsp;분 부터
 					br
 					span(style='margin-right:20px')
-						input.input_form(type='number',style='width:40px;', name='end_hour')
+						input.input_form.text1(type='number',style='width:40px;', name='end_hour')
 						&nbsp;시
 					span
 						&nbsp;
-						input.input_form(type='number',style='width:40px;', name='end_minute')
+						input.input_form.text1(type='number',style='width:40px;', name='end_minute')
 						&nbsp;분 까지						
-			table(align='center',style='margin-left:8px;')
-				td(valign='top',width='100px') 장소
+			table
+				td.label_bunmake(valign='top',width='100px') 장소
 				td(width='200px')
 					span(style='margin-right:20px')
-						input.input_form(type='text',style='width:180px;', name='location')
+						input.input_form.text1(type='text',style='width:180px;', name='location')
 						br
 						span(style='float:right; margin-right:20px;')
 							네이버 지도에 표시
 							input(type='checkbox', style='margin-bottom:0;width:15px; height:15px')
-			table(align='center',style='margin-left:8px;margin-top:-10px')
+			table
 				td(width='100px') 무엇을
 				td(valign='top',width='200px')
 					span(style='margin-right:20px')
-						table(cellpadding='5px',border='1',style='border-collapse:collapse',width="180px")
+						table.tbl_what(cellpadding='5px',border='1',style='border-collapse:collapse',width="180px")
 							tr
-								td(width="40px",align='center') 밥
+								td.td_rice(width="40px",align='center') 밥
 								td(width="40px",align='center') 술
 								td(width="40px",align='center') 놀이
-								td(width="40px",align='center') 기타
-			table(align='center',style='margin-left:8px;margin-top:-10px')
+								td.td_etc(width="40px",align='center') 기타
+			table
 				td(width='100px') 인원
 				td(width='200px')
 					span(style='margin-right:20px')
-						input.input_form(type='number',style='width:80px;', name='population')
+						input.input_form.text1(type='number',style='width:80px;', name='population')
 						명
-			table(align='center',style='margin-left:8px')	
-				td(valign='top',width='100px') 내용
+			table
+				td.label_bunmake(valign='top',width='100px') 내용
 				td(width='200px')
 					span(style='margin-right:20px')
-						textarea.input_form(style='width:180px;', name='subject')
+						textarea.input_form.text1(style='width:180px;', name='subject')
 			form(id="submit",align='right',action="/community/bun_show",rel="export")
-				input.write_button(type='button',value='작성',style='margin:0 20px; width:50px; height:30px; position:relative; z-index:100;font-family:HeummStyleWeb;')
+				input.write_button.btn3(type='button',value='작성')
 include ../bottom.jade
