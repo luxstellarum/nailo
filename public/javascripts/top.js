@@ -21,21 +21,6 @@ $(document).ready(function(){
 		
 		if(nextPage==undefined)
 			return;
-		if(nextPage=='#community_2')
-		{
-			console.log(nextPage+' > #'+area_name+'_map');
-			$(nextPage+' > #'+area_name+'_map').css("display","block");
-
-			var city_name = $(".city2");
-			
-			for(var s=0; s<=100; s++){
-				if($(".city2:eq("+s+")").attr("province_name")==area_name)
-					{
-
-						$(".city2:eq("+s+")").css("display", "block"); }
-					}
-			setHead(area_head,area_name);
-		}
 		if(area_name=='back')
 		{
 			
@@ -72,6 +57,23 @@ $(document).ready(function(){
 			changePage($(nextPage),effect);
 			return;		
 		}
+		if(nextPage=='#community_2')
+		{
+			$('#selected_area').empty();
+			$(nextPage+' > '+'[id$=_map]').css("display","none");
+			$(nextPage+' > #'+area_name+'_map').css("display","block");
+
+			var city_name = $(".city2");
+			
+			for(var s=0; s<=100; s++){
+				if($(".city2:eq("+s+")").attr("province_name")==area_name)
+					{
+
+						$(".city2:eq("+s+")").css("display", "block"); }
+					}
+			setHead(area_head,area_name);
+		}
+		
 		if(nextPage=='#plan_2')
 		{
 			$('#selected_area').empty();
