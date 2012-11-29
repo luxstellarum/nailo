@@ -25,7 +25,7 @@ $(document).unbind().bind('pagecreate',function(){
 					console.log(data);
 					if(data.result == true){
 						alert('success');
-						$(location).attr('href', '/mypage/mypage')
+						location.href='/mypage/mypage';
 					}
 					else{
 						alert('fail');

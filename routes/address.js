@@ -71,12 +71,52 @@ module.exports = function(app){
 		res.render('community/community', {title:'/community/community'});
 	});	
 	
-		app.get('/community/community#community_2', function(req, res){
+	app.get('/community/community#community_2', function(req, res){
 		res.render('community/community#community_2',{title:'/community/community'});
 	});
 	
-	app.get('/community/community#community_3', function(req, res){
-		res.render('community/community#community_3',{title:'/community/community'});
+	app.get('/community/community/busan', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/seoul', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/jecheon', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/boryeong', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/pyungchang', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/kangneung', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/jinju', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/boseong', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/gyeongju', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/damyang', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
+	});
+	
+	app.get('/community/community/jeongup', function(req, res){
+		res.render('community/community_board',{title:'/community/community'});
 	});
 
 	app.get('/community/bun_make', function(req, res){
@@ -86,6 +126,8 @@ module.exports = function(app){
 	app.get('/community/bun_show', function(req, res){
 		res.render('community/bun_show', {title:'/community/bun_show'});
 	});	
+	
+	
 	
 	
 	// plan 카테고리 라우팅
