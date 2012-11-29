@@ -74,10 +74,11 @@ function get_train_time (train_plan) {
 function show_cities() {
 	var length = selected_cities.length;
 	alert("!!");
-	$('li').hide();
+	console.log(selected_cities[selected_cities.length-1]);
+	$('.subway-map li').attr('hide');
 	
 	for( var i = 0; i<length; i++ ) {
-		$( 'li[city_name='+selected_cities[i]+']').show();
+		$( 'li[city_name='+selected_cities[i]+']').attr('block');
 	}//end of for
 }//end of show_cities
 
