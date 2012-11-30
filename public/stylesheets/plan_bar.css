@@ -11,7 +11,7 @@
 }
 
 ul[day='1'] > li{
-	background-color: #A1E8C4;
+	background-color: #ACACAC;
 }
 ul[day='2'] > li{
 	background-color: #FEEB84;
@@ -28,6 +28,6 @@ ul[day='5'] > li{
 ul[day='6'] > li{
 	background-color: #FCA2A7;
 }
-ul[day='1'] > li{
+ul[day='7'] > li{
 	background-color: #A1E8C4;
 }

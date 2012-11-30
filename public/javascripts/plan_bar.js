@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 	$(".plan_bar_hour").css({
 		"width": $(".plan_bar").width()/24,
-		"height": "50px",
+		"height": "80px",
 		"display": "inline-block"
 	});
 
