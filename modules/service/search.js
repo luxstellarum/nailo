@@ -59,6 +59,7 @@ var self = module.exports = {
 				keyword_arr = keyword_arr.concat(final_result['city_name'],final_result['station_name'],final_result['sights_extra']);
 			} else if(flag == 'f_extra'){
 				keyword_arr = final_result;
+				console.log(final_result);	
 			} else {
 
 			}	// end of if _all

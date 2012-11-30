@@ -11,10 +11,11 @@
 	margin-left: 10%;
 	font-size: 11pt;
 	color: #ACACAC;
+	border: 1px solid #ACACAC;
 }
 
 .btn_logout{
-	font-size: 10pt;
+	font-size: 9pt;
 }
 
 .text_join{
@@ -67,7 +68,7 @@
 
 /**** mypage.jade ****/
 .ul_mypage{
-	width: 300px;
+	width: 80%;
 	height: 80%;
 	margin-top:20px; 
 	margin-bottom:40px;

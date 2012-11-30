@@ -9,10 +9,11 @@ $(document).ready(function(){
 				if(data.result != false){
 				console.log('data:', data);
 					var search_div;
-
+					$("#searchbrowser #wrapper").html(" ");
 					for(i=0; i<data.length; i++){
-						search_div = "<div class=''>"+data[i]+"</div>";
+						search_div = "<div>"+data[i]+"</div>";
 						$("#searchbrowser #wrapper").append(search_div);
+						displayRandom();
 					}
 
 					alert('success');

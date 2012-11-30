@@ -90,6 +90,9 @@ $(document).ready(function() {
 			}			
 			show_cities();
 
+			$('#sortable').sortable( );
+			//$("#sortable").disableSelection();
+
 			var nextPage = "#plan_3";
 			
 			var effect = "slide";

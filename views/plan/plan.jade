@@ -11,19 +11,18 @@ include ../top.jade
 		include ../widget/popup_menu.jade
 		div#plan_1(class="slide current")
 			div#header
-				img(src="/images/brush2.png", style="position:absolute; top:10px;")
 				span.head_number 1
-				span.head_number(style="font-size:15pt") >도선택
+				span.head_number(style="font-size:12pt") >도선택
 			include ../periodpicker.jade
+			include ../widget/trainpicker.jade
 			div.wrapper(id="plan_num")
 				div.map_wrapper
-					img.map(src="/images/map_brush4.png")
+					img.map(src="/images/map.png")
 					a.province(id="kangwondo",name="#plan_2",data-effect='slide',data-role="none", style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 강원도
 					a.province(id="kyunggido",name="#plan_2",data-effect='slide', data-role="none",  style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 경기도
 					a.province(id="chungcheongdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 충청도
 					a.province(id="kyungsangdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 경상도
 					a.province(id="jeollado",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 전라도
-
 		include ./plan2.jade
 		include ./plan3.jade
 		include ./boryeong_see.jade
