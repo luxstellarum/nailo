@@ -206,12 +206,9 @@ $(document).ready(function(){
 });//end of document ready
 
 function set_sortable(){
-	alert('hi');
-	$("#sortable").unbind('sortable');
-	$("#sortable").unbind();
 	$("#sortable").sortable({
 		update : function() {
-			this.set_sortable();
+			set_sortable();
 		}
 	});	
 }

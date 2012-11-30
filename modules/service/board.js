@@ -38,7 +38,6 @@ module.exports = {
 		var paging_size = 10;
 		var condition = {};
 		condition['user_id'] = req.body.user_id;
-		console.log(req.body.user_id);
 		board_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');

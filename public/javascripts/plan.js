@@ -58,56 +58,49 @@ $(document).ready(function() {
 		....
 		
 	*/
-	$(".city2").bind("click", function(){
+	$(".city2").unbind('click').bind("click", function(){
 		var target = $(this);
-		var daypicker = $("#daypicker");
+		console.log(target);
 		train_plan[train_plan_flag] = {};
 		train_plan[train_plan_flag]['city_name'] = $(this).text();
-		$.loadPopup(daypicker);
-		$.centerPopup(daypicker);
 
-		$(".set_days_btn").click(function(){
-			var daypicker = $("#daypicker");
-			train_plan[train_plan_flag]['day'] = daypicker.find('.days').val();
-			daypicker.find('.days').val("");
-			console.log(train_plan[train_plan_flag]['day'], train_plan[train_plan_flag]['city_name']);
-			console.log(train_plan);
-			train_plan_flag++;
-			$.disablePopup(daypicker);
+		selected_cities[selected_cities.length] = target.text();
 			
-			selected_cities[selected_cities.length] = target.text();
-			
-			for(var i=0; i<selected_cities.length; i++) {
-				console.log('selected_cities.length : ', selected_cities.length);
-				$('.3rd_city[city_name="' + selected_cities[i] + '"]').show();
-			}
-			$('.city2').each(function(){
-				$(this).css("display","none");
-			});
-			if(selected_cities.length > 1) {
-				console.log('plan.js, call get_train_time');
-			}
-
-			var li = "<li class='city' city_name='"+target.text()+"'>" + target.text() + "</li>";
-
-			$("#sortable").append(li);
-			$("#sortable").sortable();
-
-			var nextPage = "#plan_3";
-			
-			var effect = "slide";
-				
-			changePage($(nextPage),effect);
-
+		$('.city2').each(function(){
+			$(this).hide();
+		});
+		
+		var li = "<li class='city' city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"'>" + target.text() + "</li>";
+		$("#sortable").append(li);
+		$('li').removeClass('ui-corner-bottom');
+			$('ul')
+				.addClass('ui-corner-top')
+				.removeClass('ui-corner-all')
+				.sortable({
+				'containment': 'parent',
+				'opacity': 0.6,
+				update: function(event, ui) {
+				alert("dropped");
+				}
 		});
 
-		$(".days_set_cancel_button").click(function(){
-			var daypicker = $("#daypicker");
-			daypicker.find('.days').val("");
-			train_plan[train_plan_flag] = {};
-			$.disablePopup(daypicker);
-		});
+		var nextPage = "#plan_3";
+		
+		var effect = "slide";
+			
+		changePage($(nextPage),effect);
+		// $(".set_days_btn").unbind('click').bind('click', function(){
+		// 	var daypicker = $("#daypicker");
+		// 	train_plan[train_plan_flag]['day'] = daypicker.find('.days').val();
+		// 	daypicker.find('.days').val("");
+		// 	console.log(train_plan[train_plan_flag]['day'], train_plan[train_plan_flag]['city_name']);
+		// 	console.log(train_plan);
+		// 	train_plan_flag++;
+		// 	$.disablePopup(daypicker);
+			
+			
 
+		// });
 	});
 
 	// plan2.jade: datepicker
@@ -118,47 +111,4 @@ $(document).ready(function() {
 	var map_width = $('.wrapper_map').width();
 	var map_height = map_width * 1.5;
 	$('.wrapper_map').css('padding-bottom', map_height);
-	
-/*
-	// datepicker
-	var day = 1;
-	var hour = 12;
-	var cd = new Date();
-	$('#dStr').html(dateFormat(cd, "fullDate"));
-	$('#starthour').val(hour);
-	$('#endhour').val(hour);
-	$('#day').val(day + "일차");
-	$('#pday').click(function () {
-		updateF();
-	});
-	$('#pstarthour').click(function () {
-		cd.setMonth(cd.getMonth() + 1);
-		updateF();
-	});
-	$('#pendhour').click(function () {
-		cd.setDate(cd.getDate() + 1);
-		updateF();
-	});
-	$('#mday').click(function () {
-		cd.setYear(cd.getFullYear() - 1);
-		updateF();
-	});
-	$('#mstarthour').click(function () {
-		cd.setMonth(cd.getMonth() - 1);
-		updateF();
-	});
-	$('#mendhour').click(function () {
-		cd.setDate(cd.getDate() - 1);
-		updateF();
-	});
-	function updateF() {
-		day += 1;
-		$('#day').val(day + "일차");
-		$('#starthour').val(dateFormat(cd, "mmm"));
-		$('#endhour').val(dateFormat(cd, "dd"));
-		$('#dStr').html(dateFormat(cd, "fullDate"));
-
-		create_plan_bar(day);
-	}
-	*/
 });
