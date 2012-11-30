@@ -87,6 +87,7 @@ module.exports = {
 	//성공하면 결과값(JSON) 반환, 실패하면 null 반환
 	,get : function(condition, callback) {
 		documents.findOne(condition, function(err, result) {
+			console.log(result);
 			if(result) {
 				callback(result);
 			}//end of if

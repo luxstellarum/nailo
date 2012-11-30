@@ -38,12 +38,8 @@ module.exports = {
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
 		var condition = {};
-<<<<<<< HEAD
 		condition['id'] = req.body.user_id;
 		console.log(req.body.user_id);
-=======
-		condition['user_id'] = req.body.user_id;
->>>>>>> ce82cf2ee865ab39555c4bf223d75ac3e7cf47e9
 		board_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');
@@ -89,6 +85,8 @@ module.exports = {
 		var condition = {};
 		condition['index'] = req.body.index;
 		
+
+		console.log(condition['index']);
 		board_db.get(condition, function(result){
 			if(result != false) {
 				console.log('service/board.js, view success');
