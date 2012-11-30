@@ -1,3 +1,14 @@
+.background1{
+	background: rgb(255,252,252); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(255,252,252,1) 0%, rgba(231,234,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,252,252,1)), color-stop(100%,rgba(231,234,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,252,252,1) 0%,rgba(231,234,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,252,252,1) 0%,rgba(231,234,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,252,252,1) 0%,rgba(231,234,227,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(255,252,252,1) 0%,rgba(231,234,227,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffcfc', endColorstr='#e7eae3',GradientType=0 ); /* IE6-9 */
+}
+
 .background_theme_pink{
 	background: rgb(252,250,242); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(252,250,242,1) 0%, rgba(252,162,167,1) 100%); /* FF3.6+ */
@@ -41,18 +52,22 @@
 }
 
 .btn1,.btn2{
-	width: 50px;
-	height: 30px;
-	font-size: 10px;
-	font-weight: bold;
-	color: #BCF1ED;
-	background-color: #a1e8c4;
-	font-size: 11px;
-	border: 1px solid black;
 	float: right;
-	margin-right: 15px;
+	margin-right: 1%;
 	margin-bottom: 15px;
-	background-color: #3A3C3C;
+	font-size: 9pt;
+	color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	box-shadow: inset 1px 1px 1px #3A3C3C;
+	background: rgb(240,0,0); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(240,0,0,1) 0%, rgba(188,0,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,0,0,1)), color-stop(100%,rgba(188,0,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(240,0,0,1) 0%,rgba(188,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(240,0,0,1) 0%,rgba(188,0,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(240,0,0,1) 0%,rgba(188,0,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(240,0,0,1) 0%,rgba(188,0,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f00000', endColorstr='#bc0000',GradientType=0 ); /* IE6-9 */
 }
 
 .btn2{
