@@ -1,36 +1,36 @@
 div .s1{
 	position: absolute;
-	right: 50px;
-	top: 100px;
-	font-size: 40px;
-	color: red;
+	right: 30px;
+	top: 80px;
+	font-size: 35px;
+	color: #EFD351;
 }
 div .s2{
 	position: absolute;
-	right: 100px;
+	right: 80px;
 	top: 200px;
-	font-size: 35px;
-	color: blue;
+	font-size: 20px;
+	color: #D8F5CF;
 }
 div .s3{
 	position: absolute;
-	right: 200px;
+	right: 80px;
 	top: 150px;
 	font-size: 30px;
-	color: green;
+	color: #EDBFC0;
 }
 div .s4{
 	position: absolute;
-	right: 150px;
+	right: 250px;
 	top: 50px;
-	font-size: 25px;
+	font-size: 20px;
 	color: yellow;
 }
 div .s5{
 	position: absolute;
-	right: 45px;
-	top: 230px;
-	font-size: 20px;
+	right: 260px;
+	top: 130px;
+	font-size: 17px;
 	color: #A78132;
 }
 div .s6{
@@ -38,5 +38,103 @@ div .s6{
 	right: 250px;
 	top: 250px;
 	font-size: 15px;
+	color: #2ECCFF;
+}
+div .s7{
+	position: absolute;
+	right: 200px;
+	top: 300px;
+	font-size: 13px;
+	color: #DB2ED4;
+}
+div .s8{
+	position: absolute;
+	right: 20px;
+	top: 160px;
+	font-size: 15px;
+	color: #DB2ED4;
+}
+div .s9{
+	position: absolute;
+	right: 50px;
+	top: 300px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s10{
+	position: absolute;
+	right: 80px;
+	top: 230px;
+	font-size: 25px;
+	color: #DB2ED4;
+}
+div .s11{
+	position: absolute;
+	right: 100px;
+	top: 120px;
+	font-size: 15px;
+	color: #DB2ED4;
+}
+div .s12{
+	position: absolute;
+	right: 290px;
+	top: 210px;
+	font-size: 15px;
+	color: #DB2ED4;
+}
+div .s13{
+	position: absolute;
+	right: 50px;
+	top: 260px;
+	font-size: 35px;
+	color: #DB2ED4;
+}
+div .s14{
+	position: absolute;
+	right: 230px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s15{
+	position: absolute;
+	right: 130px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s16{
+	position: absolute;
+	right: 330px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s17{
+	position: absolute;
+	right: 330px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s18{
+	position: absolute;
+	right: 330px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s19{
+	position: absolute;
+	right: 330px;
+	top: 190px;
+	font-size: 20px;
+	color: #DB2ED4;
+}
+div .s20{
+	position: absolute;
+	right: 330px;
+	top: 190px;
+	font-size: 20px;
 	color: #DB2ED4;
 }
