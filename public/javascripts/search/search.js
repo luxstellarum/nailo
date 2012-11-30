@@ -10,16 +10,16 @@ $(document).ready(function(){
 				console.log('data:', data);
 					var search_div;
 					$("#searchbrowser #wrapper").html(" ");
+					if(data.length >= 10)
+						data.length = 10;
 					for(i=0; i<data.length; i++){
 						search_div = "<div>"+data[i]+"</div>";
 						$("#searchbrowser #wrapper").append(search_div);
 						displayRandom();
 					}
 
-					alert('success');
 				}
 				else{
-					alert('fail');
 				}
 			} 	// end of success
 			
