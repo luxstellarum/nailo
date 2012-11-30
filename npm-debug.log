@@ -1,14 +1,17 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link', 'iconv' ]
-2 info using npm@1.1.61
-3 info using node@v0.8.9
-4 info /home/righ120/nailo/node_modules/iconv unbuild
-5 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
-6 verbose link symlinking /usr/local/lib/node_modules/iconv to /home/righ120/nailo/node_modules/iconv
-7 info build /home/righ120/nailo/node_modules/iconv
-8 verbose read json /home/righ120/nailo/node_modules/iconv/package.json
+1 verbose cli [ 'nodejs', '/usr/bin/npm', 'link', 'iconv' ]
+2 info using npm@1.1.62
+3 info using node@v0.8.11
+4 info /home/blacky512/workspace/nailo/node_modules/iconv unbuild
+5 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
+6 verbose link symlinking /usr/lib/node_modules/iconv to /home/blacky512/workspace/nailo/node_modules/iconv
+7 info build /home/blacky512/workspace/nailo/node_modules/iconv
+8 verbose read json /home/blacky512/workspace/nailo/node_modules/iconv/package.json
 9 info preinstall iconv@1.2.4
-10 verbose linkStuff [ false, false, false, '/home/righ120/nailo/node_modules' ]
+10 verbose linkStuff [ false,
+10 verbose linkStuff   false,
+10 verbose linkStuff   false,
+10 verbose linkStuff   '/home/blacky512/workspace/nailo/node_modules' ]
 11 info linkStuff iconv@1.2.4
 12 verbose linkBins iconv@1.2.4
 13 verbose linkMans iconv@1.2.4
@@ -16,7 +19,7 @@
 15 info install iconv@1.2.4
 16 verbose unsafe-perm in lifecycle true
 17 silly exec sh "-c" "node-gyp rebuild"
-18 silly sh,-c,node-gyp rebuild,/home/righ120/nailo/node_modules/iconv spawning
+18 silly sh,-c,node-gyp rebuild,/home/blacky512/workspace/nailo/node_modules/iconv spawning
 19 info iconv@1.2.4 Failed to exec install script
 20 error iconv@1.2.4 install: `node-gyp rebuild`
 20 error `sh "-c" "node-gyp rebuild"` failed with 1
@@ -28,10 +31,10 @@
 21 error You can get their info via:
 21 error     npm owner ls iconv
 21 error There is likely additional logging output above.
-22 error System Linux 3.0.0-26-generic
-23 error command "/usr/local/bin/node" "/usr/local/bin/npm" "link" "iconv"
-24 error cwd /home/righ120/nailo
-25 error node -v v0.8.9
-26 error npm -v 1.1.61
+22 error System Linux 3.2.0-31-generic
+23 error command "nodejs" "/usr/bin/npm" "link" "iconv"
+24 error cwd /home/blacky512/workspace/nailo
+25 error node -v v0.8.11
+26 error npm -v 1.1.62
 27 error code ELIFECYCLE
 28 verbose exit [ 1, true ]
