@@ -92,6 +92,4 @@ $(document).ready(function() {
 		changePage($(nextPage),effect);
 
 	});
-
-	
 });
