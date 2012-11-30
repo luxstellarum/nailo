@@ -132,8 +132,15 @@ module.exports = {
 	
 	,get_list : function(condition, current_page, paging_size, callback) {
 		var skip_size = (current_page * paging_size) - paging_size;
+
+		console.log('codition :',condition);
+		console.log('current_page :',current_page);
+		console.log('paging_size :',paging_size);
+
 		
-		documents.find(condition).sort('date -1').skip(skip_size).limit(paging_size).exec(function(err, docs){
+		documents.find(condition).sort('-date').skip(skip_size).limit(paging_size).exec(function(err, docs){
+
+			console.log(docs);
 			if(!err) {
 				callback(docs);
 			}//end of if

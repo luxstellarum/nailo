@@ -21,7 +21,8 @@ module.exports = {
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
 		var condition = {};
-		board_db.get_list(condition, current_page, paging_size, function(result){
+		board_db.get_list(condition, current_page, paging_size, function(result){			
+			console.log(result);
 			if(result != false) {
 				console.log('service/board.js, list success');
 				res.json(result);
@@ -37,7 +38,7 @@ module.exports = {
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
 		var condition = {};
-		condition['user_id'] = req.body.user_id;
+		condition['id'] = req.body.user_id;
 		console.log(req.body.user_id);
 		board_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false) {
