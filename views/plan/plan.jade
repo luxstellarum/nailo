@@ -11,8 +11,9 @@ include ../top.jade
 		include ../widget/popup_menu.jade
 		div#plan_1(class="slide current")
 			div#header
-				span.head_number 1
-				span.head_number(style="font-size:12pt") >도선택
+				div.head_number1 1
+				div.head_number2(style="font-size:12pt") 도선택
+				img(src="/images/mark_plan.png", style="float:right;")
 			include ../periodpicker.jade
 			div.wrapper(id="plan_num")
 				div.map_wrapper

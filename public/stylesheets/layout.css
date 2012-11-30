@@ -1,7 +1,9 @@
+
 body{
 	margin: 0;
-	font-family:NanumGothic,"나눔고딕",ngttf,ngeot,dotum,"돋음",sans-serif;
+	font-family:'NanumGothicWeb';
 	font-size: 9pt;
+	background-color: #E4C8C8;
 }
 
 #container{
@@ -71,13 +73,34 @@ body{
 	overflow:auto;
 }
 
-.head_number{
+.head_number1{
 	position: relative;
-	height:20px; 
-	padding-left:10px; 
+	height: 100%; 
+	padding-left: 1%; 
+	padding-right: 6%;
 	font-size:30pt;
 	color: white;
 	text-shadow: 0 0 0;
+	background: -moz-linear-gradient(left,  rgba(0,0,0,1) 0%, rgba(192,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(192,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(192,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(192,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(192,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(192,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00c00000',GradientType=1 ); /* IE6-9 */
+	display: inline-block;
+	z-index: 20;
+}
+.head_number2{
+	position: relative;
+	height:20px; 
+	padding-left: 1%; 
+	padding-right: 1%;
+	font-size:30pt;
+	color: white;
+	text-shadow: 0 0 0;
+	border-left: 3px solid white;
+	display: inline-block;
 	z-index: 20;
 }
 

@@ -9,13 +9,13 @@ include ../top.jade
 		div#header
 			p.menu_name MyPage
 		div.section(style="margin-top:10%;")
-			div.login_box.box1
+			div.login_box.box1.background1
 				p.login
 					input#submit_btn.text_login.input_form(type='text', value='아이디', id='id', name='id')
-					input#login_btn(type="button", value="로그인")
+					input#login_btn.btn1(type="button", value="로그인")
 				p
 					input.text_login.input_form(type='password', value='패스워드', id='pw', name='pw')
-			input#btn_signup.btn_signup(type="button", value="회원가입")
+			input#btn_signup.btn_signup.btn1(type="button", value="회원가입")
 					
 
 include ../bottom.jade

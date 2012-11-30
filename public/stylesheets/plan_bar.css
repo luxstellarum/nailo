@@ -12,22 +12,29 @@
 
 ul[day='1'] > li{
 	background-color: #ACACAC;
+	opacity: 0.1;
 }
 ul[day='2'] > li{
 	background-color: #FEEB84;
+	opacity: 0.1;
 }
 ul[day='3'] > li{
 	background-color: #FCA2A7;
+	opacity: 0.1;
 }
 ul[day='4'] > li{
 	background-color: #A1E8C4;
+	opacity: 0.1;
 }
 ul[day='5'] > li{
 	background-color: #FEEB84;
+	opacity: 0.1;
 }
 ul[day='6'] > li{
 	background-color: #FCA2A7;
+	opacity: 0.1;
 }
 ul[day='7'] > li{
 	background-color: #A1E8C4;
+	opacity: 0.1;
 }

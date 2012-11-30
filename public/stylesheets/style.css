@@ -33,14 +33,7 @@
 
 .box1{
 	border: 1px solid black;
-	background: rgb(252,250,242); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(252,250,242,1) 0%, rgba(249,237,177,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,250,242,1)), color-stop(100%,rgba(249,237,177,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(252,250,242,1) 0%,rgba(249,237,177,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfaf2', endColorstr='#f9edb1',GradientType=0 ); /* IE6-9 */
+	box-shadow: inset 1px 1px 3px #ACACAC;
 }
 
 .text1{
@@ -51,7 +44,7 @@
 	background-color: #F8F8F8;
 }
 
-.btn1,.btn2{
+.btn1{
 	float: right;
 	margin-right: 1%;
 	margin-bottom: 15px;
@@ -60,6 +53,7 @@
 	border: 1px solid black;
 	border-radius: 4px;
 	box-shadow: inset 1px 1px 1px #3A3C3C;
+	text-shadow: 0 0 0;
 	background: rgb(240,0,0); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(240,0,0,1) 0%, rgba(188,0,0,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,0,0,1)), color-stop(100%,rgba(188,0,0,1))); /* Chrome,Safari4+ */
