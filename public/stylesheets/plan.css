@@ -60,7 +60,7 @@ p.city{
 	z-index:0;
 }
 
-#periodpicker{
+#periodpicker, #trainpicker{
 	position: absolute;
 	width: 90%;
 	height: 100px;
@@ -72,7 +72,7 @@ p.city{
 	z-index: 100;
 	display: none;
 }
-#periodpicker ul, #daypicker ul{
+#periodpicker ul, #daypicker ul, #trainpicker ul{
 	color: #404240;
 	font-size: 13px;
 	list-style: none;
@@ -80,7 +80,7 @@ p.city{
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-#periodpicker li{
+#periodpicker li, #trainpicker li{
 	line-height: 2.5;
 	text-shadow: 0 0 0;
 }
@@ -143,7 +143,7 @@ p.city{
 #hourpicker li{
 	line-height: 2.5;
 }
-.daypicker_comment, .hourpicker_comment{
+.daypicker_comment, .hourpicker_comment, .trainpicker_comment{
 	height: 30px;
 	line-height: 2;
 	margin-left: -12%;
@@ -167,7 +167,7 @@ p.city{
 .period_label{
 	margin-top: 8px;
 }
-.set_days_btn, .days_set_cancel_button, .set_hour_btn, .hour_set_cancel_btn{
+.set_days_btn, .days_set_cancel_button, .set_hour_btn, .hour_set_cancel_btn, .confirm_city, .dept_city{
 	width: 45px;
 	height: 30px;
 	vertical-align: middle;
