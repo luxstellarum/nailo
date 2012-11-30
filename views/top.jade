@@ -17,7 +17,7 @@ html
 		script(src="/lib/jquery.ui.touch/jquery.ui.touch.js")
 
 		//css files
-		link(href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb',rel='stylesheet', type='text/css')
+		//link(href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb',rel='stylesheet', type='text/css')
 		link(rel='stylesheet', href='/stylesheets/nailo_record.css')
 		link(rel="stylesheet", href="/lib/jquery.mobile-1.0a2/default.css")
 		link(rel="stylesheet", href="/lib/jquery.mobile-1.0a2/docs.css")
@@ -46,11 +46,17 @@ html
 
 		script
 
-		style(type="text/css", media="screen, print")
-			@font-face{  
-				font-family:ngeot;  
-				src:url(stylesheets/NanumGothic.ttf);  
-			}
+		style
+
+			.test{
+				font-size: 30px;margin: 10px;
+					background-color:#000;
+					color:#fff;
+				}
+			input{
+					font-size:20px;
+					text-align:center;
+				}
 
 
 	body(width="100%")

@@ -69,6 +69,7 @@ $(document).ready(function() {
 
 		var trainpicker = $("#trainpicker");
 		$.loadPopup(trainpicker);
+		$.centerPopup(trainpicker);
 
 		$(".confirm_city").click(function (){
 			selected_cities[0] = $('.dept_city').val();

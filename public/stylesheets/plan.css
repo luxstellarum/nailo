@@ -60,7 +60,7 @@ p.city{
 	z-index:0;
 }
 
-#periodpicker, #trainpicker{
+#periodpicker{
 	position: absolute;
 	width: 90%;
 	height: 100px;
@@ -81,6 +81,7 @@ p.city{
 	padding-bottom: 0px;
 }
 #periodpicker li, #trainpicker li{
+	list-style: none;
 	line-height: 2.5;
 	text-shadow: 0 0 0;
 }
@@ -128,7 +129,7 @@ p.city{
 }
 
 /**** hourpicker ****/
-#hourpicker, #daypicker{
+#hourpicker, #daypicker, #trainpicker{
 	width: 85%;
 	height: 80px;
 	margin: 0 auto;
@@ -146,8 +147,8 @@ p.city{
 .daypicker_comment, .hourpicker_comment, .trainpicker_comment{
 	height: 30px;
 	line-height: 2;
-	margin-left: -12%;
 	padding-left: 10%;	
+	margin-left: -11.5%;
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(140,140,140,1) 4%, rgba(114,114,114,1) 17%, rgba(114,114,114,1) 30%, rgba(84,84,84,1) 55%, rgba(58,58,58,1) 89%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(4%,rgba(140,140,140,1)), color-stop(17%,rgba(114,114,114,1)), color-stop(30%,rgba(114,114,114,1)), color-stop(55%,rgba(84,84,84,1)), color-stop(89%,rgba(58,58,58,1))); /* Chrome,Safari4+ */
@@ -167,7 +168,7 @@ p.city{
 .period_label{
 	margin-top: 8px;
 }
-.set_days_btn, .days_set_cancel_button, .set_hour_btn, .hour_set_cancel_btn, .confirm_city, .dept_city{
+.set_days_btn, .days_set_cancel_button, .set_hour_btn, .hour_set_cancel_btn, .confirm_city{
 	width: 45px;
 	height: 30px;
 	vertical-align: middle;
