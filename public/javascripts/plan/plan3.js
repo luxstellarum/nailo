@@ -85,13 +85,26 @@ $(document).ready(function() {
 
 	$('.btn_confirm').live('click', function() {
 		//ToDo
-		var nextPage = "#plan_kangneung";
+		$("#sortable").sortable({
+			disabled : true
+		});
+
+		$("#sortable li").each(function (){
+			$(this).unbind('click').bind('click', function() {
+				var nextPage = "#plan_" + $(this).attr('city_name');
+				changePage($(nextPage),'slide');
+			});
+		})		
+			
+
+		/*
+		var first_place = $('#sortable li:first').attr('city_name');
+		var nextPage = "#plan_" + first_place;
 			
 		var effect = "slide";
 			
 		changePage($(nextPage),effect);
+		*/
 
 	});
-
-	
 });
