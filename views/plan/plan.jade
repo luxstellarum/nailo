@@ -15,6 +15,7 @@ include ../top.jade
 				div.head_number2(style="font-size:12pt") 도선택
 				img(src="/images/mark_plan.png", style="float:right;")
 			include ../periodpicker.jade
+			include ../widget/trainpicker.jade
 			div.wrapper(id="plan_num")
 				div.map_wrapper
 					img.map(src="/images/map.png")
@@ -23,7 +24,6 @@ include ../top.jade
 					a.province(id="chungcheongdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 충청도
 					a.province(id="kyungsangdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 경상도
 					a.province(id="jeollado",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 전라도
-
 		include ./plan2.jade
 		include ./plan3.jade
 		include ./boryeong_see.jade

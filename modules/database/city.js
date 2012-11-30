@@ -80,7 +80,9 @@ module.exports ={
 	}//end of get_index
 	
 	,get : function(condition, callback) {
+		console.log('database city.js, condition : ', condition);
 		documents.findOne(condition, function(err, result) {
+			console.log('database city.js, result : ', result);
 			if(result) {
 				callback(result);
 			}//end of if
