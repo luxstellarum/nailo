@@ -5,9 +5,10 @@ include ../top.jade
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
 					include ../search.jade
+		include ../widget/popup_menu.jade
 		div#header
 			p.menu_name 번개생성
-		div.section.section_bunmake
+		div.section.section_bunmake(style="padding-top:30px;")
 			table	
 				td.label_bunmake(valign='top',width='100px') 제목
 				td(width='200px')

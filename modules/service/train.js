@@ -242,6 +242,8 @@ module.exports = {
 						condition['id'] = result[i].id;
 						condition['arrv_station'] = arrv_station;
 						
+
+						console.log('service train.js condition ', condition);
 						train_db.get( condition, function(result2) {
 							console.log('get_specific_time', result2);
 						//그 기차 번호의 노선을 다 따와서 비교

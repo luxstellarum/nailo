@@ -8,6 +8,8 @@ include ../top.jade
 			div#container.background_theme
 				div#community_1.slide.current.background_theme_gray
 					div#header
+						span.head_number 1
+						span.head_number(style="font-size:15pt") >도선택
 						p.menu_name 커뮤니티
 					div.wrapper(id="plan_num")
 						div.map_wrapper
@@ -23,13 +25,21 @@ include ../top.jade
 						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
 					p
 					div.wrapper(id="kangwondo_map")
-						img.map(src="/images/map_kangwondo.png")
+						div.map_wrapper
+							img.map(src="/images/map_kangwondo.png")
+							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:67%; left:55%;') 평창
+							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:47%; left:60%; ') 강릉
 						
 					div.wrapper(id="kyunggido_map")
-						img.map(src="/images/map_kyunggido.png")
+						div.map_wrapper
+							img.map(src="/images/map_kyunggido.png")
+							a.province(href="/community/community/seoul",rel='external', style='position:absolute; top:40%; left:40%;') 서울
 					
 					div.wrapper(id="chungcheongdo_map")
-						img.map(src="/images/map_chungcheongdo.png")
+						div.map_wrapper
+							img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
+							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:59%; left:22%;') 제천
+							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:60%;') 보령
 					
 					div.wrapper(id="jeollado_map")
 						img.map(src="/images/map_jeollado.png")

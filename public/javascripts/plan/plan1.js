@@ -66,6 +66,13 @@ $(document).ready(function() {
 			});
 			$(".plan_date" + i).text(i + "일차");
 		}
+
+		var trainpicker = $("#trainpicker");
+		$.loadPopup(trainpicker);
+
+		$(".confirm_city").click(function (){
+			selected_cities[0] = $('.dept_city').val();
+		});
 	});
 
 	$(".btn_cancel_period").click(function(){

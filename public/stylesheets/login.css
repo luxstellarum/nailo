@@ -12,13 +12,13 @@
 
 .login_box {
 	border-radius: 5px;
-	margin-top:20px;
+	margin-top: 20px;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
 .text_login{
-	width: 160px;
+	width: 50%;
 	height: 30px;
 	margin-left: 10%;
 	font-size: 11pt;
@@ -31,7 +31,7 @@
 }
 
 #login_btn{
-	width: 80px;
+	width: 25%;
 	height: 80px;
 	margin-right: 5%;
 	color: #3A3C3C;

@@ -80,10 +80,10 @@ function show_cities() {
 	}//end of for
 }//end of show_cities
 
-$(document).unbind().bind('pagecreate',function() {
+$(document).ready(function() {
 	var train_time_table = [];
 	
-	$(".subway-map").subwayMap({ debug: false });
+//	$(".subway-map").subwayMap({ debug: false });
 
 	$('.btn1').live('click', function() {
 		//ToDo
