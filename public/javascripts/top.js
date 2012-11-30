@@ -100,16 +100,17 @@ $(document).ready(function(){
 		var check = $(this).is(":checked");
 		if(check)
 		{
-			$('.header').css("display","none");
-			$('.section').css("display","none");
+			$('#header').css("display","none");
+			$('#container').css("display","none");
 			$('#searchbrowser').css("height","350px");
 			$('#searchbrowser').css("overflow","auto");
 			$('#searchbrowser').focus().select();
 		}
 		else
 		{
-			$('.header').css("display","block");
-			$('.section').css("display","block");
+
+			$('#header').css("display","block");
+			$('#container').css("display","block");
 			$('#searchbrowser').css("height","10px");
 			$('#searchbrowser').css("overflow","hidden");
 		}
