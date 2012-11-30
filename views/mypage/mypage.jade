@@ -4,23 +4,22 @@ include ../top.jade
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-					include ../search.jade		
-		div#header(style="margin-top:-40px")
-			h2(align='right',style='padding-right:10px') MyPage
-			hr
-			br
-		div(class="section")
-			div(align="center",style='margin-top:10px')
+					include ../search.jade	
+		include ../widget/popup_menu.jade	
+		div#header
+			p.menu_name MyPage
+		div.section
+			div.mypage_header(align="center")
 				label(style='margin-right:8px') 닉네임
-				div(id='nickname',style='border:thin gray solid; background-color:white; display:inline-block; width:180px; padding: 5px; text-align: right;')
-			div(width='300px', height='300px',align='center',style='margin-top:20px; margin-bottom:40px')
-				div(align='left', style='display:inline-block;')
-					a(href='/mypage/bookmark',style='color:gray; text-decoration:none; margin-left:8px',rel='external')나의 즐겨찾기
-					hr
-					a(href='/mypage/my_nailo',style='color:gray; text-decoration:none; margin-left:8px',rel='external')나의 내일로
-					hr				
-					a(href='/mypage/my_community',style='color:gray; text-decoration:none; margin-left:8px',rel='external')나의 커뮤니티 활동 내역
-					hr
-					a(href='/mypage/share',style='color:gray; text-decoration:none; margin-left:8px',rel='external')공유하기
-					hr
+				div#nickname.text1
+				input.btn_logout.btn1(value="로그아웃")
+			ul.ul_mypage
+				li
+					a(href='/mypage/bookmark', rel='external')나의 즐겨찾기
+				li
+					a(href='/mypage/my_nailo',rel='external')나의 내일로		
+				li		
+					a(href='/mypage/my_community',rel='external')나의 커뮤니티 활동 내역
+				li
+					a(href='/mypage/share',rel='external')공유하기
 include ../bottom.jade

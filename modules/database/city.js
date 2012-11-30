@@ -80,7 +80,9 @@ module.exports ={
 	}//end of get_index
 	
 	,get : function(condition, callback) {
+		console.log('database city.js, condition : ', condition);
 		documents.findOne(condition, function(err, result) {
+			console.log('database city.js, result : ', result);
 			if(result) {
 				callback(result);
 			}//end of if
@@ -106,21 +108,7 @@ module.exports ={
 		});//end of update
 	}//end of del_city
 	
-	
-	,update : function(index, update, callback) {
-		var condition = { index : index };
 
-		documents.update(condition, update, null, function(err) {
-			if(!err){
-				console.log('database/city.js : update_city success', condition, update);
-				callback(true);
-			}//end of if
-			else{
-				console.log('database/city.js : update_city fail', condition, update, err);
-				callback(false);
-			}//end of else
-		});//end of update
-	}//end of update_city
 	
 	,get_list : function(condition, callback) {
 		documents.find(condition, function(err, docs){

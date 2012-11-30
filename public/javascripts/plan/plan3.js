@@ -70,25 +70,27 @@ function get_train_time (train_plan) {
 	});
 }
 
-$(document).unbind().bind('pagecreate',function() {
+$(document).ready(function() {
 	var train_time_table = [];
 
-	$('.btn1').live('click', function() {
+	$('.btn_continue').live('click', function() {
 		//ToDo
 		var nextPage = "#plan_1";
 			
 		var effect = "slide";
-			
+
 		changePage($(nextPage),effect);
+		$("#periodpicker").css("display", "none"); //plan1로 돌아가면 기간선택창은 나올 필요 없다.
 	});
 
-	$('.btn2').live('click', function() {
+	$('.btn_confirm').live('click', function() {
 		//ToDo
 		var nextPage = "#plan_kangneung";
 			
 		var effect = "slide";
 			
 		changePage($(nextPage),effect);
+
 	});
 
 	

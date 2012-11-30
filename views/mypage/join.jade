@@ -5,30 +5,31 @@ include ../top.jade
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
 					include ../search.jade	
+		include ../widget/popup_menu.jade
 		div#header
 			p.menu_name MyPage
 		div.section.box1
-			table.tbl_join.box1
+			table.tbl_join.box1(style="margin-top:10%;")
 				tr		
 					td 아이디
 					td
 						span(style='margin-right:20px')
-							input.text_join.text1(type='text', name='id')
+							input.text_join.input_form.text1(type='text', name='id')
 				tr		
 					td 비밀번호
 					td
 						span(style='margin-right:20px')
-							input.text_join.text1(type='password', name='pw')
+							input.text_join.input_form.text1(type='password', name='pw')
 				tr		
 					td 비밀번호 확인
 					td(width='200px')
 						span(style='margin-right:20px')
-							input.text_join.text1(type='password', name='pw2')
+							input.text_join.input_form.text1(type='password', name='pw2')
 				tr		
 					td 닉네임
 					td
 						span(style='margin-right:20px')
-							input.text_join.text1(type='text', name='name')							
+							input.text_join.input_form.text1(type='text', name='name')							
 				tr		
 					td 성별
 					td

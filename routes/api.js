@@ -43,6 +43,10 @@ module.exports = function(app){
 		board.list_specified(req, res);
 	});
 	
+	app.post('/board/get_cityboard', function(req, res) {
+		board.get_cityboard(req, res);
+	});
+	
 	
 
 	/*******************************

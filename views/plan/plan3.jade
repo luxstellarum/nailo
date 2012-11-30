@@ -1,38 +1,14 @@
 script(src="/javascripts/plan/plan3.js")
+style
+	#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+	#sortable li span { position: absolute; margin-left: -1.3em; }
 div#plan_3(class="slide")
 	div#header(style="margin-top:-10px")
-		span.head_number 3
-		span.head_number(style="font-size:15pt") > 선택한 도시 보기
-	img.map(src="/images/map.png", style='position:absolute; height:300px; top:10%; left:10%; z-index:1;')
-	script(src="/javascripts/plan/jquery.subwayMap-0.5.0.js", type="text/javascript")
-	div(class="subway-map",data-columns="40", data-rows="50", data-cellSize="10",
-		data-gridNumbers="false", data-grid="false", data-lineWidth="2")
-		ul(data-color="#ff4db2")
-			li(data-coords="12,16")
-				span(style="font-size:7pt") 서울
-			li(data-coords="25,15")
-				span(style="font-size:7pt") 강릉
-			li(data-coords="23,16")
-				span(style="font-size:7pt") 평창
-			li(data-coords="19,19")
-				span(style="font-size:7pt") 제천
-			li(data-coords="11,23")
-				span(style="font-size:7pt") 보령
-			li(data-coords="11,23")
-				span(style="font-size:7pt") 정읍
-			li(data-coords="11,28")
-				span(style="font-size:7pt") 담양
-			li(data-coords="10,29")
-				span(style="font-size:7pt") 보성
-			li(data-coords="18,30")
-				span(style="font-size:7pt") 진주
-			li(data-coords="27,26")
-				span(style="font-size:7pt") 경주
-			li(data-coords="27,30")
-				span(style="font-size:7pt") 부산
-	script(type="text/javascript")
-		$(".subway-map").subwayMap({ debug: true });
+		span.head_number1 3
+		span.head_number2(style="font-size:15pt") > 선택한 도시 보기
+	input#back(type="button",name="#plan_2", value="back", style="position:absolute; top:70px;z-index:2002")
+	ul#sortable(style="position:absolute; z-index:9999")
 	div.plan3_btn_area(style="z-index:3000;")
-		input.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
-		input.btn2(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")
-
+		input.btn_continue(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
+		input.btn_confirm(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")

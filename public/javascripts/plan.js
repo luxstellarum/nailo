@@ -86,8 +86,12 @@ $(document).ready(function() {
 			});
 			if(selected_cities.length > 1) {
 				console.log('plan.js, call get_train_time');
-				get_train_time(train_plan);	
-			}		
+			}
+
+			var li = "<li class='city' city_name='"+target.text()+"'>" + target.text() + "</li>";
+
+			$("#sortable").append(li);
+			$("#sortable").sortable();
 
 			var nextPage = "#plan_3";
 			
