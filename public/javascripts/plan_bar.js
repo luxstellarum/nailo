@@ -207,6 +207,8 @@ $(document).ready(function(){
 
 function set_sortable(){
 	alert('hi');
+	$("#sortable").unbind('sortable');
+	$("#sortable").unbind();
 	$("#sortable").sortable({
 		update : function() {
 			this.set_sortable();
