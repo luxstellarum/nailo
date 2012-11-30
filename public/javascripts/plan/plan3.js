@@ -70,22 +70,10 @@ function get_train_time (train_plan) {
 	});
 }
 
-//선택된 도ㅅ ㅣ출력
-function show_cities() {
-	var length = selected_cities.length;
-	$('.subway-map li').attr("display","none");
-	
-	for( var i = 0; i<length; i++ ) {
-		$( 'li[city_name='+selected_cities[i]+']').attr("display","block");
-	}//end of for
-}//end of show_cities
-
 $(document).ready(function() {
 	var train_time_table = [];
-	
-//	$(".subway-map").subwayMap({ debug: false });
 
-	$('.btn1').live('click', function() {
+	$('.btn_continue').live('click', function() {
 		//ToDo
 		var nextPage = "#plan_1";
 			
@@ -95,14 +83,28 @@ $(document).ready(function() {
 		$("#periodpicker").css("display", "none"); //plan1로 돌아가면 기간선택창은 나올 필요 없다.
 	});
 
-	$('.btn2').live('click', function() {
+	$('.btn_confirm').live('click', function() {
 		//ToDo
-		var nextPage = "#plan_kangneung";
+		$("#sortable").sortable({
+			disabled : true
+		});
+
+		$("#sortable li").each(function (){
+			$(this).unbind('click').bind('click', function() {
+				var nextPage = "#plan_" + $(this).attr('city_name');
+				changePage($(nextPage),'slide');
+			});
+		})		
+			
+
+		/*
+		var first_place = $('#sortable li:first').attr('city_name');
+		var nextPage = "#plan_" + first_place;
 			
 		var effect = "slide";
 			
 		changePage($(nextPage),effect);
-	});
+		*/
 
-	
+	});
 });

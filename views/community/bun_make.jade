@@ -15,8 +15,8 @@ include ../top.jade
 					span(style='margin-right:20px')
 						input.input_form.text1(type='text',style='width:180px;', name='subject')
 			table
-				input.input_form(type='hidden', value='test1', name='province')
-				input.input_form(type='hidden', value='test2', name='city')
+				input.input_form(type='hidden', name='province')
+				input.input_form(type='hidden', name='city')
 				td(valign='top',width='100px') 시간
 				td(width='200px')
 					span(style='margin-right:20px')
@@ -49,16 +49,6 @@ include ../top.jade
 						span(style='float:right; margin-right:20px;')
 							네이버 지도에 표시
 							input(type='checkbox', style='margin-bottom:0;width:15px; height:15px')
-			table
-				td(width='100px') 무엇을
-				td(valign='top',width='200px')
-					span(style='margin-right:20px')
-						table.tbl_what(cellpadding='5px',border='1',style='border-collapse:collapse',width="180px")
-							tr
-								td.td_rice(width="40px",align='center') 밥
-								td(width="40px",align='center') 술
-								td(width="40px",align='center') 놀이
-								td.td_etc(width="40px",align='center') 기타
 			table
 				td(width='100px') 인원
 				td(width='200px')

@@ -9,7 +9,10 @@ $(document).bind('pagecreate',function(){
 		data: nickname,
 		success:function(data){
 			console.log(data);
-			$('#nickname').append(document.createTextNode(data.nickname));
+			if(data.nickname!=undefined)
+				$('#nickname').append(document.createTextNode(data.nickname));
+			else
+				$('#nickname').append(document.createTextNode("로그인이 필요합니다."));
 		}
 	});
 });
