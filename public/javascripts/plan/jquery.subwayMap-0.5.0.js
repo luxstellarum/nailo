@@ -32,7 +32,7 @@ THE SOFTWARE.
         },
 
         options: {
-	    },
+    },
 
     identity: function (type) {
         if (type === undefined) type = "name";
@@ -153,9 +153,6 @@ THE SOFTWARE.
 
                 var nodes = [];
                 $(ul).children("li").each(function () {
-                	
-                	var display = $(this).attr("display");
-                	if(display=="none") return;
 
                     var coords = $(this).attr("data-coords");
                     if (coords === undefined) coords = "";
@@ -475,9 +472,8 @@ var methods = {
     },
 };
 
-$.fn.subwayMap=function (method) {
-	
-	console.log('subway');
+$.fn.subwayMap = function (method) {
+
     // Method calling logic
     if (methods[method]) {
         return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));

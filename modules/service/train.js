@@ -233,40 +233,29 @@ module.exports = {
 		var evt = new event_emitter();
 
 		condition_1['dept_station'] = dept_station;
-		console.log('in get_specific time, condition_1', condition_1);
-		train_db.get(condition_1, function(result){
-			evt.on('get_specific_time_table', function(evt, i, j){
-				if(i < result.length) {
-					if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
-						var condition = {};
-						condition['id'] = result[i].id;
-						condition['arrv_station'] = arrv_station;
-						
 
-						console.log('service train.js condition ', condition);
-						train_db.get( condition, function(result2) {
-							console.log('get_specific_time', result2);
-						//그 기차 번호의 노선을 다 따와서 비교
-							if( result2.length > 0) {
-								time_table['dept_station'] = dept_station;
-								time_table['arrv_station'] = arrv_station;
-								time_table['dept_time'] = result[i].dept_time;
-								time_table['arrv_time'] = result2[0].arrv_time;
-								time_table['time_required'] = parseInt(time_tlabe.arrv_time.split(':')[0], 10 ) - parseInt(time_tlabe.dept_time.split(':')[0], 10 );
-								evt.emit('get_specific_time_table', evt, ++i, ++j);
-								callback(time_table);
-							}//end of if
-							else {
-								evt.emit('get_specific_time_table', evt, ++i, j);
-							}
-						});//end of get
+		train_db.get(condition_1, function(result){
+			if( parseInt( result[0].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+				var condition = {};
+				condition['id'] = result[i].id;
+				condition['arrv_station'] = arrv_station;
+				
+				train_db.get( condition, function(result2) {
+				//그 기차 번호의 노선을 다 따와서 비교
+					if( result2 != false) {
+						time_table['dept_station'] = dept_station;
+						time_table['arrv_station'] = arrv_station;
+						time_table['dept_time'] = result[0].dept_time;
+						time_table['arrv_time'] = result2[0].arrv_time;
+						time_table['time_required'] = parseInt(time_tlabe.arrv_time.split(':')[0], 10 ) - parseInt(time_tlabe.dept_time.split(':')[0], 10 );
+
+						callback(time_table);
 					}//end of if
-				}
-				else {
-					callback(false);
-				}
-			});//end of evt.on
-			evt.emit('get_specific_time_table', evt, 0, 0);
+					else {
+						callback(false);
+					}
+				});//end of get
+			}//end of if
 		});//end of get
 	}//end of get_time_table	
 
@@ -293,9 +282,8 @@ module.exports = {
 		console.log(train_plan);
 		var length = train_plan.length -1 ;
 		var recommendation = [];
-		console.log('recommend_time ....!');
 		//기차시간 추천 이벤트 바인딩
-		self.compare_station(train_plan[length-1].city_name, train_plan[length].city_name, function(result){
+		self.compare_station(train_plan[length].city_name, train_plan[length-1].city_name, function(result){
 			console.log('train.js result : ', result);
 			if(result != false ) {
 				self.get_specific_time(result.dept_station, result.arrv_station, 9, function(result2) {
@@ -323,67 +311,6 @@ module.exports = {
 			}
 		});//end of compare_station
 	}//end of recommend_time
-
-	//각 도시 별로 존재하는 모든 역에 대해 두 도시간을 이동할 수 있는 역이 있는가 조회
-	,compare_station : function(city1, city2, callback) {
-		//ToDo
-		var self = this;
-		var evt = new event_emitter();
-		var ret = {};
-
-		evt.on('compare_station', function(evt, ret1, ret2, i, j) {
-			self.get_valid_route(ret1[i].station_name, ret2[j].station_name, function(result) {
-				console.log('compare station, result : ', result);
-				if(result) {
-					ret['dept_station'] = ret1[i].station_name;
-					ret['arrv_station'] = ret2[j].station_name;
-					ret['result'] = true;
-					callback(result);
-				}//end of if
-				else if(j < ret2.length){
-					evt.emit('compare_station', evt, ret1, ret2, i, ++j);
-				}//end of else
-				else if(i < ret1.length){
-					evt.emit('compare_station', evt, ret1, ret2, ++i, 0);
-				}
-				else {
-					callback(false);
-				}
-			});//end of get_valid_route 
-		});//end of evt on
-
-		station_db.get_list({city_name : city1}, function(result1){
-			if(result1 != false) {
-				station_db.get_list({city_name : city2}, function(result2) {
-					if(result2 != false) {
-						evt.emit('compare_station', evt, result1, result2, 0, 0);
-						console.log('compare_station, get_list', result1, result2);
-					}//end of if
-					else {
-						callback(false);
-					}
-				});//end of inner get_list
-			}//end of if
-			else {
-				callback(false);
-			}
-		});//end of outer get_list
-	}//end of compare_station
-
-	//두 역간에 유효한 루트가 존재하는가 체크. train_graph.js에 구현되어있음.
-	,get_valid_route : function(station1, station2, callback) {
-		console.log('get_valid_route , station1, station2', station1, station2);
-		//ToDo
-		var graph = require('./train_graph.js');
-		graph.find_path(station1, station2, function(result){
-			console.log('find_path result : ', result);
-			callback(result);
-		});
-	}
-
-
-}
-
 	/*** old code
 
 	,recommend_time : function (req, res) {
@@ -422,3 +349,54 @@ module.exports = {
 		evt.emit('make_recommendation', evt, 0);
 	}//end of recommend_time
 	***/
+
+	//각 도시 별로 존재하는 모든 역에 대해 두 도시간을 이동할 수 있는 역이 있는가 조회
+	,compare_station : function(city1, city2, callback) {
+		//ToDo
+		var self = this;
+		var evt = new event_emitter();
+		evt.on('compare_station', function(evt, ret1, ret2, i, j) {
+			self.get_valid_route(ret1[i].station_name, ret2[j].station_name, function(result) {
+				if(result.result == true) {
+					callback(result);
+				}//end of if
+				else if(j < ret2.length){
+					evt.emit('compare_station', evt, ret1, ret2, i, ++j);
+				}//end of else
+				else if(i < ret1.length){
+					evt.emit('compare_station', evt, ret1, ret2, ++i, 0);
+				}
+				else {
+					callback(false);
+				}
+			});//end of get_valid_route 
+		});//end of evt on
+
+		station_db.get_list({city_name : city1}, function(result1){
+			if(result1 != false) {
+				station_db.get_list({city_name : city2}, function(result2) {
+					if(result2 != false) {
+						evt.emit('compare_station', evt, result1, result2, 0, 0);
+					}//end of if
+					else {
+						callback(false);
+					}
+				});//end of inner get_list
+			}//end of if
+			else {
+				callback(false);
+			}
+		});//end of outer get_list
+	}//end of compare_station
+
+	//두 역간에 유효한 루트가 존재하는가 체크. train_graph.js에 구현되어있음.
+	,get_valid_route : function(station1, station2, callback) {
+		//ToDo
+		var graph = require('./train_graph.js');
+		graph.find_path(station1, station2, function(result){
+			callback(result);
+		});
+	}
+
+
+}

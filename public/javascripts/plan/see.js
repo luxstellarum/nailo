@@ -2,15 +2,14 @@
 var drag_option = {
 	revert: "invalid",
 	helper: "clone"
-};
+}
 
 
 //page 로딩이 끝난 후에 각종 이벤트 및 함수를 로딩 
-$(document).ready(function(){
+$(document).unbind().bind('pagecreate',function(){
 	console.log("see.js");
 	$(".tour input").bind("click",function(event){
 		
-		console.log("og");
 		var eventObj = checkDevice(event);
 		touchX=eventObj.pageX-150;
 		touchY=eventObj.pageY-60;

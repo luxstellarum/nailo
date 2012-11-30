@@ -8,8 +8,8 @@ $(document).bind('pagecreate',function(){
 		url: '/member/get_login_inform',
 		data: nickname,
 		success:function(data){
-			console.log(data);
-			$('#nickname').append(document.createTextNode(data.nickname));
+			console.log
+			$('#nickname').append(document.createTextNode(data.name));
 		}
 	});
 });

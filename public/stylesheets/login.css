@@ -12,17 +12,23 @@
 
 .login_box {
 	border-radius: 5px;
-	margin-top: 20px;
+	margin-top:20px;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
+.text1{
+	color: #DFDCDC;
+	font-size: 11pt;
+	border: 1px solid black;
+	border-radius: 3px;
+	background-color: #F8F8F8;
+}
+
 .text_login{
-	width: 50%;
+	width: 160px;
 	height: 30px;
 	margin-left: 10%;
-	font-size: 11pt;
-	color: #ACACAC;
 }
 
 .text_join{
@@ -31,7 +37,7 @@
 }
 
 #login_btn{
-	width: 25%;
+	width: 80px;
 	height: 80px;
 	margin-right: 5%;
 	color: #3A3C3C;

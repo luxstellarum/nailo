@@ -8,13 +8,12 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 					include ../search.jade	
-			include ../widget/popup_menu.jade
 			div(class="header",style="margin-top:-40px")
 				h2(align='right',style='padding-right:5px') My > 공유하기
 				hr
 				br
 			div(class="section",align='center')
-				select#share_plan(width='300px',style='text-align:center; padding:3px;')
+				select(id="share_plan",width='300px',style='text-align:center; padding:3px;')
 					option 2011년 9월의 늦여름
 				table(width='200px',cellpadding="0",cellspacing="0", height='200px',align='center',style='margin-top:10px; margin-bottom:40px')
 					tr

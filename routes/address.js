@@ -1,7 +1,7 @@
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
-		res.render('mypage/mypage', {title:'index'});
+		res.render('search/tag', {title:'index'});
 	});
 
 	// mypage 카테고리 라우팅
@@ -71,52 +71,12 @@ module.exports = function(app){
 		res.render('community/community', {title:'/community/community'});
 	});	
 	
-	app.get('/community/community#community_2', function(req, res){
+		app.get('/community/community#community_2', function(req, res){
 		res.render('community/community#community_2',{title:'/community/community'});
 	});
 	
-	app.get('/community/community/busan', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/seoul', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/jecheon', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/boryeong', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/pyungchang', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/kangneung', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/jinju', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/boseong', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/gyeongju', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/damyang', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
-	});
-	
-	app.get('/community/community/jeongup', function(req, res){
-		res.render('community/community_board',{title:'/community/community'});
+	app.get('/community/community#community_3', function(req, res){
+		res.render('community/community#community_3',{title:'/community/community'});
 	});
 
 	app.get('/community/bun_make', function(req, res){
@@ -128,13 +88,18 @@ module.exports = function(app){
 	});	
 	
 	
-	
-	
 	// plan 카테고리 라우팅
 	app.get('/plan/plan', function(req, res){
 		res.render('plan/plan', {title:'/plan/plan'});
 	});
 	
+	app.get('/plan/plan#plan_2', function(req, res){
+		res.render('plan/plan#plan_2', {title:'/plan/plan#plan_2'});
+	});	
+	
+	app.get('/plan/plan#plan_3', function(req, res){
+		res.render('plan/plan#plan_3', {title:'/plan/plan#plan_3'});
+	});	
 	
 	// 이후 plan 1~3 합체
 	app.get('/plan/plan2', function(req, res){

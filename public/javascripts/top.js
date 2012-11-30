@@ -9,79 +9,35 @@ $(document).ready(function(){
 	displayRandom();
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
-	$('.slide a,#back').bind("touchstart mousedown",function(e){
+	$('.slide a').bind("touchstart mousedown",function(e){
 		e.preventDefault();
 		
 
-		var nextPage = $(this).attr("name");
+		var nextPage = $(this).get(0).hash;
 		var area_name = $(this).attr("id");
 		
 		console.log(nextPage);
 		var area_head = $("#selected_area");
 		
-		if(nextPage==undefined)
+		if(!nextPage)
 			return;
-		if(area_name=='back')
-		{
-			
-			if(nextPage=='#plan_1'){
-				$('.city2').each(function(){
-					$(this).css("display","none");
-				});
-			}
-			if(nextPage=='#plan_2')
-			{			
-				console.log(area_head.text());
-				if(area_head.text()=='강원도')
-					area_name='kangwondo';
-				else if(area_head.text()=='경기도')
-					area_name='kyunggido';
-				else if(area_head.text()=='충청도')
-					area_name='chungcheongdo';
-				else if(area_head.text()=='전라도')
-					area_name='jeollado';
-				else if(area_head.text()=='경상도')
-					area_name='kyungsangdo';
-					
-				var city_name = $(".city2");
-
-				for(var s=0; s<=100; s++){
-					if($(".city2:eq("+s+")").attr("province_name")==area_name)
-						{
-	
-							$(".city2:eq("+s+")").css("display", "block"); }
-						}
-			}
-			
-			var effect ="slide";
-			changePage($(nextPage),effect);
-			return;		
-		}
 		if(nextPage=='#community_2')
 		{
-			$('#selected_area').empty();
-			$(nextPage+' > '+'[id$=_map]').css("display","none");
+			console.log(nextPage+' > #'+area_name+'_map');
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
-
-			var city_name = $(".city2");
 			
-			for(var s=0; s<=100; s++){
-				if($(".city2:eq("+s+")").attr("province_name")==area_name)
-					{
-
-						$(".city2:eq("+s+")").css("display", "block"); }
-					}
 			setHead(area_head,area_name);
 		}
 		
 		if(nextPage=='#plan_2')
 		{
 			$('#selected_area').empty();
-			$(nextPage+' > '+'[id$=_map]').css("display","none");
+			$("[id$='_map']").css("display","none");		//id가 '_map'으로 끝나는 모든 엘리먼트
 			$(nextPage+' > #'+area_name+'_map').css("display","block");
 			
 			var city_name = $(".city2");
 			
+
 			for(var s=0; s<=100; s++){
 				if($(".city2:eq("+s+")").attr("province_name")==area_name)
 					{
@@ -100,17 +56,16 @@ $(document).ready(function(){
 		var check = $(this).is(":checked");
 		if(check)
 		{
-			$('#header').css("display","none");
-			$('#container').css("display","none");
+			$('.header').css("display","none");
+			$('.section').css("display","none");
 			$('#searchbrowser').css("height","350px");
 			$('#searchbrowser').css("overflow","auto");
 			$('#searchbrowser').focus().select();
 		}
 		else
 		{
-
-			$('#header').css("display","block");
-			$('#container').css("display","block");
+			$('.header').css("display","block");
+			$('.section').css("display","block");
 			$('#searchbrowser').css("height","10px");
 			$('#searchbrowser').css("overflow","hidden");
 		}

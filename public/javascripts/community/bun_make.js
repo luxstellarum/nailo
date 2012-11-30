@@ -7,35 +7,7 @@ $(document).ready(function(){
 	$('.write_button').live('click', function(){
 		console.log('click');
 		var input_data = {}; //json object로 선언
-		//예외 처리
-		if($("input[name='subject']").val()==""){
-			alert("제목을 입력하세요.");
-			return;
-		}
-		else if($("input[name='event_month']").val()=="" || $("input[name='event_day']").val()==""  ){
-			alert("해당 날짜를 입력하세요.");
-			return;
-		}
-		else if($("input[name='start_hour']").val()=="" || $("input[name='start_minte']").val()==""){
-			alert("시작 시간을 입력하세요.");
-			return;
-		}
-		else if($("input[name='end_hour']").val()=="" || $("input[name='end_minte']").val()==""){
-			alert("끝나는 시간을 입력하세요");
-			return;
-		}
-		else if($("input[name='location']").val()==""){
-			alert("장소를 입력하세요.");
-			return;
-		}
-		else if($("input[name='population']").val()==""){
-			alert("원하는 인원을 입력하세요.");
-			return;
-		}
-		else if($("textarea[name='content']").val()==""){
-			alert("내용을 입력하세요.");
-			return;
-		}
+
 		//페이지에 존재하는 모든 input_form class 들을 찾아서
 		//차례대로 하나씩 아래 함수를 수행
 		$('.input_form').each(function(){

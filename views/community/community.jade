@@ -1,5 +1,4 @@
 include ../top.jade
-			script(src="/javascripts/community/community.js",type="text/javascript")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
@@ -8,46 +7,40 @@ include ../top.jade
 			div#container.background_theme
 				div#community_1.slide.current.background_theme_gray
 					div#header
-						span.head_number 1
-						span.head_number(style="font-size:15pt") >도선택
-						p.menu_name 커뮤니티
+						p.menu_name(style="color:#fca2a7;") 커뮤니티
 					div.wrapper(id="plan_num")
 						div.map_wrapper
 							img.map(src="/images/map_brush.png")
-						a.province(id="kangwondo",name="#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 70
-						a.province(id="kyunggido",name="#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 100
-						a.province(id="chungcheongdo",name="#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 30
-						a.province(id="kyungsangdo",name="#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 52
-						a.province(id="jeollado",name="#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 65
+						a.province(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 70
+						a.province(id="kyunggido",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 100
+						a.province(id="chungcheongdo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 30
+						a.province(id="kyungsangdo",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 52
+						a.province(id="jeollado",href="/community/community#community_2", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 65
+						
 				div(id="community_2",class="slide")
 					div(class='header')
 						span(style='height:20px; padding-left:20px; font-size:45pt; z-index:4') 2
 						span(id='selected_area',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right')
 					p
-					div.wrapper(id="kangwondo_map")
-						div.map_wrapper
-							img.map(src="/images/map_kangwondo.png")
-							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:67%; left:55%;') 평창
-							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:47%; left:60%; ') 강릉
+					div.wrapper(id="kangwondo_map",style="position:relative; margin-top:-30px; left:30px; width:250px; height:0px; padding-bottom:100%; overflow:auto;display:none")
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:50%; left:75%; z-index:2;') 강릉 65
+						img(src="/images/map_kangwondo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
 						
-					div.wrapper(id="kyunggido_map")
-						div.map_wrapper
-							img.map(src="/images/map_kyunggido.png")
-							a.province(href="/community/community/seoul",rel='external', style='position:absolute; top:40%; left:40%;') 서울
+					div.wrapper(id="kyunggido_map",style="position:relative; margin-top:-30px; left:60px; width:200px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyunggido.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 					
-					div.wrapper(id="chungcheongdo_map")
-						div.map_wrapper
-							img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
-							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:59%; left:22%;') 제천
-							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:60%;') 보령
+					div.wrapper(id="chungcheongdo_map",style="position:relative; top:30px; left:20px; width:270px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_chungcheongdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 					
-					div.wrapper(id="jeollado_map")
-						img.map(src="/images/map_jeollado.png")
-						a.province(href="/community/community#community_3", rel='external',data-effect='slide')
+					div.wrapper(id="jeollado_map",style="position:relative; margin-top:-30px; left:60px; width:200px; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_jeollado.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 					
-					div.wrapper(id="kyungsangdo_map")
-						img.map(src="/images/map_kyungsangdo.png")
-						a.province(href="/community/community#community_3", rel='external',data-effect='slide')
+					div.wrapper(id="kyungsangdo_map",style="position:relative; margin-top:-70px; left:0px; width:100%; height:0px; padding-bottom:100%; overflow:auto; display:none")
+						img(src="/images/map_kyungsangdo.png", style='position:absolute; width:100%; top:0px; left:0px; z-index:0;')
+						a.province(href="/community/community#community_3", rel='external',data-effect='slide', style='position:absolute; width:50px; height: 50px; top:60%; left:65%; z-index:2;')
 						
 				div(id="community_3",class="slide",style="height:100%")
 					div(class='header')

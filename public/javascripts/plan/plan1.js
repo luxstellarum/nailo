@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var periodpicker = $("#periodpicker");
 	$.loadPopup(periodpicker);
-	$.centerPopup(periodpicker);
+	//$.centerPopup(periodpicker);
 
 	// plan2.jade: datepicker
 	$(".btn_set_period").click(function(){
@@ -37,7 +37,7 @@ $(document).ready(function() {
 		// (1) 플랜바의 전체영역을 생성한다. (창의너비) x (여행기간)
 		var window_width = $(window).width();
 		var window_width_wrapper = window_width * period * 2;	// 여행기간만큼 plan bar를 늘린다
-		$('#plan_bar').css('width', window_width*2);
+		$('#plan_bar').css('width', window_width);
 		$('.plan_bar_wrapper').css('width', window_width_wrapper);
 
 		// (2) 플랜바 전체영역 내에 날짜별 영역을 생성한다
@@ -66,13 +66,6 @@ $(document).ready(function() {
 			});
 			$(".plan_date" + i).text(i + "일차");
 		}
-
-		var trainpicker = $("#trainpicker");
-		$.loadPopup(trainpicker);
-
-		$(".confirm_city").click(function (){
-			selected_cities[0] = $('.dept_city').val();
-		});
 	});
 
 	$(".btn_cancel_period").click(function(){

@@ -1,7 +1,10 @@
+A:link {text-decoration:none; font-weight: bold; color: #3A3C3C}
+A:visited {text-decoration:none; font-weight: bold; color:#3A3C3C}
+A:active {text-decoration:none; font-weight: bold; color:#3A3C3C}
+A:hover {text-decoration:none; font-weight: bold; color:#3A3C3C}
+
 body{
 	margin: 0;
-	font-family:NanumGothic,"나눔고딕",ngttf,ngeot,dotum,"돋음",sans-serif;
-	font-size: 9pt;
 }
 
 #container{
@@ -16,6 +19,9 @@ body{
 	line-height: 60px;
 	top: 0px;
 	left: 0px;
+
+	border-bottom: 1px solid black;
+	overflow: hidden;
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(140,140,140,1) 4%, rgba(114,114,114,1) 17%, rgba(114,114,114,1) 30%, rgba(84,84,84,1) 55%, rgba(58,58,58,1) 89%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(4%,rgba(140,140,140,1)), color-stop(17%,rgba(114,114,114,1)), color-stop(30%,rgba(114,114,114,1)), color-stop(55%,rgba(84,84,84,1)), color-stop(89%,rgba(58,58,58,1))); /* Chrome,Safari4+ */
@@ -23,8 +29,7 @@ body{
 	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* IE10+ */
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(140,140,140,1) 4%,rgba(114,114,114,1) 17%,rgba(114,114,114,1) 30%,rgba(84,84,84,1) 55%,rgba(58,58,58,1) 89%); /* W3C */
-	border-bottom: 1px solid black;
-	overflow: hidden;
+
 	width: 100%;
 /*	border-bottom: 1px solid black;
 /*	background: rgb(255,255,255); /* Old browsers */
@@ -72,79 +77,31 @@ body{
 }
 
 .head_number{
-	position: relative;
 	height:20px; 
 	padding-left:10px; 
 	font-size:30pt;
-	color: white;
-	text-shadow: 0 0 0;
-	z-index: 20;
+	color: #A1E8C4;
+	text-shadow: -2px -2px -2px -2px #222;
+}
+
+
+.section {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 60px;
+	left: 0px;
+	bottom: 100px;
+	padding-top: 100px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .menu_name{
 	font-size: 20pt;
 	text-align: right;
 	padding-right: 10px;
-	margin-top: 3%;
-	color: white;
-	text-shadow: 0 0 0;
-	float:right;
-}
-
-#back {
-	display: block;
-	top: 4px;
-	left: -12px;
-    height: 22px;
-    width: 25px;
-   background-image: -webkit-gradient(linear, left top, right bottom,
-          from(#7d828c),
-          color-stop(0.5, #303749),
-          color-stop(0.5, #121a2e),
-          to(#121a2e));
-   border-left: solid 1px rgba(79, 79, 79, 0.75);
-   border-bottom: solid 1px rgba(79, 79, 79, 0.75);
-  -webkit-transform: rotate(45deg);
-  -webkit-mask-image: -webkit-gradient(linear, left bottom, right top,
-          from(#000000),
-          color-stop(0.5,#000000),
-          color-stop(0.5, transparent),
-          to(transparent));
-   position: absolute;
-}
-.back{
-	width: 40px;
-	height: 25px;
-	text-align: center;
-	padding-top: 5px;
-	top: 70px;
-	left: 5%;
-	color: white;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7D828C),color-stop(0.5, #303749), color-stop(0.5, #121A2E), to(#121A2E));
-	border: solid 1px rgba(79, 79, 79, 0.75);
-	z-index: 40;
-}
-
- .back2{
-	position: absolute;
-	top: 9.9%;
-	left: -5px;
-	-webkit-background-size: 22px;
-	background-position: -2px -1.5px;
-	background-color: #4A6C9B;
-	background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, from(transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.0980392)), to(rgba(255, 255, 255, 0.298039)));
-	height: 25px;
-	width: 25px;
-	-webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
-	border-top-right-radius: 100px 40px;
-	border-top-left-radius: 30px 2px;
-	border-bottom-right-radius: 2px 30px;
-	border-bottom-left-radius: 40px 100px;
-	z-index: 1;
-	content: ' ';
-	border-left: 1.5px solid rgba(255, 255, 255, 0.298039);
-	box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0px inset, rgba(0, 0, 0, 0.498039) -1px 1px 1px inset;
-	-webkit-mask-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(rgb(0, 0, 0)), color-stop(0.33, rgb(0, 0, 0)), color-stop(0.5, transparent), to(transparent)); 
+	color: #a1e8c4;
 }
 
 /* + 버튼을 누르면 나오는 추가메뉴 팝업창 */
@@ -154,15 +111,11 @@ body{
 	height: 80px;
 	bottom: 140px;
 	right: 7%;
-	background-color: #DCC5C5;
-	box-shadow: inset 2px 2px 2px #B0A1A1;
-	border-bottom: 1px solid black;
-	border-right: 1px solid black;
+	border:thin gray solid;
 	-moz-border-radius: 10px;
 	-o-border-radius: 10px;
     -webkit-border-radius: 10px;
-    color: white;
-    text-shadow: 0 0 0;
+	background-color: #BCF1ED;
 	list-style: none;
 	margin: 0 auto;
 	padding-left: 1px;
@@ -262,8 +215,3 @@ p > img{
 .ui-resizable{
 	position: absolute !important;
 }
-
-A:link {text-decoration:none; font-weight: bold; color: #3A3C3C}
-A:visited {text-decoration:none; font-weight: bold; color:#3A3C3C}
-A:active {text-decoration:none; font-weight: bold; color:#3A3C3C}
-A:hover {text-decoration:none; font-weight: bold; color:#3A3C3C}

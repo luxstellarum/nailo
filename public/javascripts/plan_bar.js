@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 	$(".plan_bar_hour").css({
 		"width": $(".plan_bar").width()/24,
-		"height": "80px",
+		"height": "50px",
 		"display": "inline-block"
 	});
 
@@ -197,21 +197,4 @@ $(document).ready(function(){
 		$('.plan_city').css('background-color', 'Red');
 	});
 
-	$("#sortable").sortable({
-		update : function() {
-			set_sortable();
-		}
-	});
-
 });//end of document ready
-
-function set_sortable(){
-	alert('hi');
-	$("#sortable").unbind('sortable');
-	$("#sortable").unbind();
-	$("#sortable").sortable({
-		update : function() {
-			this.set_sortable();
-		}
-	});	
-}

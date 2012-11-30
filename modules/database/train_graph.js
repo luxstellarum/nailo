@@ -44,11 +44,8 @@ module.exports = {
 	}//end of add
 
 	,get : function (condition, prev_station, callback ) {
-		console.log('train_graph.js, get called', condition, prev_station);
-		documents.find(condition).nor([{station_2 : prev_station}]).exec(function(err, result) {
-			console.log('in train_graph.js result : ', result);
+		documents.find(condition).nor([{station_2 : prev_station}]).exec(function(result) {
 			if(result) {
-				
 				callback(result);
 			}
 			else {

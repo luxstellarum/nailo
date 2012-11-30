@@ -10,8 +10,7 @@ var sights_schema = new schema({
 	city_name : String,
 	city_index : Number,
 	sights_extra : Array,
-	station_name : String,
-	sights_memo : String
+	station_name : String
 });//end of sights_schema
 
 var documents = mongoose.model('sights', sights_schema);//DB 삽입위한 모델 생성
@@ -35,13 +34,15 @@ module.exports = {
 					doc.city_index = result2;
 					doc.sights_extra = sights.sights_extra;
 					doc.station_name = sights.station_name;
-					doc.sights_memo = sights.sights_memo;
 	
 					evt.on('set_search_db', function(evt, i){
 						if(i<sights.sights_extra.length){
 							search_db.add(sights.sights_extra[i], sights.city_name, function(result){
-									evt.emit('set_search_db', evt, ++i);			
+								if(result == true) {
+									evt.emit('set_search_db', evt, ++i);		
+								}	
 							});
+							
 						}
 						else{
 							doc.save(function(err){
@@ -68,7 +69,6 @@ module.exports = {
 				callback(result.index);
 			}
 			else{
-				console.log("get_city_index_fail");
 				callback(false);
 			}		
 		}); 		// end of city.get

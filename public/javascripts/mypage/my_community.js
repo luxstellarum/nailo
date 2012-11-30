@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).unbind().bind('pagecreate',function(){
 	
 	var output_data={};
 	
@@ -9,8 +9,7 @@ $(document).ready(function(){
 		data: output_data,
 		success:function(data){
 			if(data.user_id){
-				console.log(data.user_id);
-				output_data['user_id']=data.user_id;
+				console.log(output_data['usr_id']);
 				$.ajax({
 					type: 'post',
 					dataType: 'json',

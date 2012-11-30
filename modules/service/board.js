@@ -38,7 +38,6 @@ module.exports = {
 		var paging_size = 10;
 		var condition = {};
 		condition['user_id'] = req.body.user_id;
-		console.log(req.body.user_id);
 		board_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false) {
 				console.log('service/board.js, list success');
@@ -117,22 +116,5 @@ module.exports = {
 			}
 
 		});
-	}	// end of remove
-
-
-	, get_cityboard : function(req, res){
-		var current_page = req.body.current_page || 1;
-		var paging_size = 10;
-		var condition = {city : req.body.city};
-		board_db.get_list(condition, current_page, paging_size, function(result){
-			if(result != false) {
-				console.log('service/board.js, get_cityboard success');
-				res.json(result);
-			}
-			else {
-				console.log('service/board.js, get_cityboard fail');
-				res.json({result:false});
-			}
-		});//end of get_list
 	}
 }
