@@ -19,6 +19,13 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b8bc', endColorstr='#fff7f7',GradientType=0 ); /* IE6-9 */
 }
 
+.btn_bunmake{
+	position: absolute;
+	width: 8%;
+	top: 1%;
+	right: 5%;
+}
+
 .label_bunmake{
 	vertical-align: middle;
 }

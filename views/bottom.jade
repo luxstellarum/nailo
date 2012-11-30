@@ -7,9 +7,9 @@ style
 	.plan_bar {
 		padding-left : 5px;
 	}
-div#footer
+div#footer(data-position="fixed")
 	include ./widget/hourpicker.jade
-	div(class='ui-grid-c')
+	div(class='ui-grid-c', data-position="fixed")
 		div(class='ui-block-a',align='center')
 			input#mypage(type='image',src="/images/btn_my.png",width="30px")
 		div(class='ui-block-b',align='center')

@@ -13,17 +13,18 @@ include ../top.jade
 			div#header
 				div.head_number1 1
 				div.head_number2(style="font-size:12pt") 도선택
-				img(src="/images/mark_plan.png", style="float:right;")
+				p.menu_name 플랜
+				input.btn_save.btn1(type="button", value="SAVE")
 			include ../periodpicker.jade
 			include ../widget/trainpicker.jade
 			div.wrapper(id="plan_num")
 				div.map_wrapper
 					img.map(src="/images/map.png")
-					a.province(id="kangwondo",name="#plan_2",data-effect='slide',data-role="none", style='position:absolute; width:50px; height: 50px; top:20%; left:55%; z-index:2;') 강원도
-					a.province(id="kyunggido",name="#plan_2",data-effect='slide', data-role="none",  style='position:absolute; width:50px; height: 50px; top:30%; left:27%; z-index:2;') 경기도
-					a.province(id="chungcheongdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:50%; left:35%; z-index:2;') 충청도
-					a.province(id="kyungsangdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:60%; left:64%; z-index:2;') 경상도
-					a.province(id="jeollado",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:50px; height: 50px; top:70%; left:25%; z-index:2;') 전라도
+					a.province(id="kangwondo",name="#plan_2",data-effect='slide',data-role="none", style='position:absolute; width:75px; height: 50px; top:20%; left:55%; z-index:2; font: 14pt bold black') 강원도
+					a.province(id="kyunggido",name="#plan_2",data-effect='slide', data-role="none",  style='position:absolute; width:75px; height: 50px; top:30%; left:27%; z-index:2; font: 14pt bold black') 경기도
+					a.province(id="chungcheongdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:50%; left:35%; z-index:2; font: 14pt bold black') 충청도
+					a.province(id="kyungsangdo",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:60%; left:64%; z-index:2; font: 14pt bold black') 경상도
+					a.province(id="jeollado",name="#plan_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:70%; left:25%; z-index:2; font: 14pt bold black') 전라도
 		include ./plan2.jade
 		include ./plan3.jade
 		include ./boryeong_see.jade
