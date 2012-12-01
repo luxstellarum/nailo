@@ -7,16 +7,16 @@ style
 	.plan_bar {
 		padding-left : 5px;
 	}
-div#footer(data-position="fixed")
+div#footer(data-position="fixed", data-role="footer")
 	include ./widget/hourpicker.jade
-	div(class='ui-grid-c', data-position="fixed")
-		div(class='ui-block-a',align='center')
+	div(class='menubar', data-position="fixed", style="width: 100%; height: 90px;")
+		div(class='btn_menu',align='center')
 			input#mypage(type='image',src="/images/btn_my.png",width="30px")
-		div(class='ui-block-b',align='center')
+		div(class='btn_menu',align='center')
 			input#plan(type='image',src="/images/btn_plan.png",width="30px")
-		div(class='ui-block-c',align='center')
+		div(class='btn_menu',align='center')
 			input.btn_beongae(type='image',src="/images/btn_community.png",width="30px")
-		div(class='ui-block-d',align='center', style='position:relative;')
+		div(class='btn_menu',align='center')
 			input.btn_more(type='image',src="/images/btn_more.png",width="30px")
 	div#plan_status(style="background-color;blue")
 		div.time_indicator

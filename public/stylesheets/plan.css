@@ -2,7 +2,6 @@
 .map_wrapper{
 	width: 100%;
 	max-height: 700px;
-	background-color: #F2ECEC;
 	overflow-y: auto;
 	display: table;
 }

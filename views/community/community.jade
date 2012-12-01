@@ -5,7 +5,6 @@ include ../top.jade
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 						include ../search.jade
-			include ../city_name.jade
 			div#container.background_theme
 				div#community_1.slide.current.background_theme_gray
 					div#header
@@ -21,38 +20,48 @@ include ../top.jade
 						span.bungae_cnt(id="chungcheongdo", style='top:47%; left:35%;') 82
 						span.bungae_cnt(id="kyungsangdo", style='top:57%; left:64%;') 23
 						span.bungae_cnt(id="jeollado", style='top:67%; left:25%;') 56
-						a.province_name(id="kangwondo",href="/community/community#community_2", rel='external',data-effect='slide', style='top:27%; left:55%; color:white;') 강원도
-						a.province_name(id="kyunggido",href="/community/community#community_2", rel='external',data-effect='slide', style='top:37%; left:27%; color:white;') 경기도
-						a.province_name(id="chungcheongdo",href="/community/community#community_2", rel='external',data-effect='slide', style='top:57%; left:35%; color:white;') 충청도
-						a.province_name(id="kyungsangdo",href="/community/community#community_2", rel='external',data-effect='slide', style='top:67%; left:64%; color:white;') 경상도
-						a.province_name(id="jeollado",href="/community/community#community_2", rel='external',data-effect='slide', style='top:77%; left:25%; color:white;') 전라도
+						a.province(id="kangwondo",name="#community_2",data-effect='slide',data-role="none", style='position:absolute; width:75px; height: 50px; top:27%; left:55%; z-index:2; font: 14pt bold black') 강원도
+						a.province(id="kyunggido",name="#community_2",data-effect='slide', data-role="none",  style='position:absolute; width:75px; height: 50px; top:37%; left:27%; z-index:2; font: 14pt bold black') 경기도
+						a.province(id="chungcheongdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:57%; left:35%; z-index:2; font: 14pt bold black') 충청도
+						a.province(id="kyungsangdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:67%; left:64%; z-index:2; font: 14pt bold black') 경상도
+						a.province(id="jeollado",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:77%; left:25%; z-index:2; font: 14pt bold black') 전라도
 				div#community_2.slide
 					div#header
-						span.head_number 1
-						span.head_number(style="font-size:15pt") >도선택
+						span.head_number1 2
+						span.head_number2(style="font-size:15pt") 도시선택
 						p.menu_name 커뮤니티
 						input.btn_save.btn1(type="button", value="SAVE")
-					span#selected_area
-					div.wrapper(id="kangwondo_map", style="display:none;")
-						img.map(src="/images/map_kangwondo.png")
-						
-					div.wrapper(id="kyunggido_map", style="display:none;")
-						img.map(src="/images/map_kyunggido.png")
-					
-					div.wrapper(id="chungcheongdo_map", style="display:none;")
-						img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
-					
-					div.wrapper(id="jeollado_map", style="display:none;")
-						img.map(src="/images/map_jeollado.png")
-						a.province(href="/community/community#community_3", rel='external',data-effect='slide')
-					
-					div.wrapper(id="kyungsangdo_map", style="display:none;")
-						img.map(src="/images/map_kyungsangdo.png")
-						a.province(href="/community/community#community_3", rel='external',data-effect='slide')
+					div.wrapper(id="kyunggido_map",style="display:none")
+						div.map_wrapper
+							img.map(src="/images/map_kyunggido.png")
+							a.province(href="/community/community/seoul",rel='external', style='position:absolute; top:40%; left:40%;') 서울	
+					div.wrapper(id="chungcheongdo_map",style="display:none;")
+						div.map_wrapper
+							img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
+							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:59%; left:22%; font-size: 13pt') 제천
+							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 보령
+					div.wrapper(id="jeollado_map",style="display:none")
+						div.map_wrapper
+							img.map(src="/images/map_jeollado.png")
+							a.province(href="/community/community/damyang",rel='external', style='position:absolute; top:48%; left:53%; font-size: 13pt') 담양
+							a.province(href="/community/community/boseong",rel='external', style='position:absolute; top:56%; left:53%; font-size: 13pt') 보성
+							a.province(href="/community/community/jeongup",rel='external', style='position:absolute; top:53%; left:58%; font-size: 13pt') 정읍
+					div.wrapper(id="kyungsangdo_map",style="display:none")
+						div.map_wrapper
+							img.map(src="/images/map_kyungsangdo.png")
+							a.province(href="/community/community/jinju",rel='external', style='position:absolute; top:67%; left:38%; font-size: 13pt') 진주
+							a.province(href="/community/community/busan",rel='external', style='position:absolute; top:65%; left:57%; font-size: 13pt') 부산
+							a.province(href="/community/community/gyeongju",rel='external', style='position:absolute; top:74%; left:63%; font-size: 13pt') 경주	
+					div.wrapper(id="kangwondo_map",style="display:none")
+						div.map_wrapper
+							img.map(src="/images/map_kangwondo.png")
+							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:67%; left:55%; font-size: 13pt') 평창
+							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 강릉
 						
 				div(id="community_3",class="slide",style="height:100%")
 					div#header
-						span(style='height:20px; padding-left:20px; font-size:45pt') 3
+						span.head_number1 3
+						input.btn_save.btn1(type="button", value="SAVE")
 						span(id='selected_city',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right') 강릉
 					
 					div.section
