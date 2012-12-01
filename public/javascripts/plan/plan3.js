@@ -95,16 +95,10 @@ $(document).ready(function() {
 				changePage($(nextPage),'slide');
 			});
 		})		
-			
-
-		/*
-		var first_place = $('#sortable li:first').attr('city_name');
-		var nextPage = "#plan_" + first_place;
-			
-		var effect = "slide";
-			
-		changePage($(nextPage),effect);
-		*/
+		
+		$(".btn_confirm").hide();
+		$(".btn_continue").hide();
+		$(".btn_modify").show();			
 
 	});
 

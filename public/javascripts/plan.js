@@ -1,13 +1,5 @@
 $(document).ready(function() {
 
-	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
-	/*a.province').click(function() {
-		$.get('plan.js', function(data) {
-			var province = $(data).find('a.province').text();
-			alert(province);
-			$('.province_name').text(province);
-		});
-	});*/
 	// datepicker
 	var popupStatus = 0;
 
@@ -49,8 +41,6 @@ $(document).ready(function() {
 		//IE6 을 위한 핵 / only need force for IE6
 	};
 
-
-	// plan2.jade: datepicker
 	/*
 		무조건 sequential하게 열차 시간이 들어온다고 가정. 
 		train_plan[0] = { day : 1, city_name : ABC };
@@ -70,7 +60,9 @@ $(document).ready(function() {
 			$(this).hide();
 		});
 		
-		var li = "<li class='city' city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"'>" + target.text() + "</li>";
+		var cnt = $("#sortable .city_name").length+1;
+		console.log('cnt', cnt);
+		var li = "<li class='city_name' cnt="+cnt+" city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"'>" + target.text() + "</li>";
 		$("#sortable").append(li);
 		$("#sortable").sortable();
 
@@ -79,18 +71,6 @@ $(document).ready(function() {
 		var effect = "slide";
 			
 		changePage($(nextPage),effect);
-		// $(".set_days_btn").unbind('click').bind('click', function(){
-		// 	var daypicker = $("#daypicker");
-		// 	train_plan[train_plan_flag]['day'] = daypicker.find('.days').val();
-		// 	daypicker.find('.days').val("");
-		// 	console.log(train_plan[train_plan_flag]['day'], train_plan[train_plan_flag]['city_name']);
-		// 	console.log(train_plan);
-		// 	train_plan_flag++;
-		// 	$.disablePopup(daypicker);
-			
-			
-
-		// });
 	});
 
 	// plan2.jade: datepicker

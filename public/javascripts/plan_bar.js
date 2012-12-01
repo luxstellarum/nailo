@@ -15,7 +15,8 @@ var drop_option = {
 		var target = $(this);
 		var target_place = ui.draggable.context.innerText;
 		$(this).css({
-			"background-color": "yellow"
+			"background-color" : "black",
+			"opacity" : 0.5
 		});
 		$(this).attr("place", target_place);
 		$(this).text(target_place);
@@ -25,13 +26,13 @@ var drop_option = {
 		//plan_bar_hour_left = $(this).position().left;
 		$.loadPopup($('#hourpicker'));
 
-		$(".set_hour_btn").unbind().bind('click', function(){
+		$(".set_hour_btn").unbind('click').bind('click', function(){
 			var period = $(this).parent().find('.hours').val();
 			set_hours(target, period, target_place);
 			$.disablePopup($('#hourpicker'));
 		});//end of bind
 
-		$(".hour_set_cancel_btn").unbind().bind('click', function(){
+		$(".hour_set_cancel_btn").unbind('click').bind('click', function(){
 			$.disablePopup($('#hourpicker'));
 		});//end of bind
 
@@ -56,26 +57,29 @@ function next_day_scroll(amount){
 }
 
 function set_hours(target, period, target_place) {
+	console.log('set_hours', target, period, target_place);
 	target = target.parent().find('[place="'+target_place+'"]:first');
 	var remove_targets = $(target).parent().find('[place="'+target_place+'"]').not('[occupied=1]');
 	remove_targets.each(function(){
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
 		$(this).css({
-			"background-color" : "red"
+			"background-color" : "white",
+			"opacity" : 0.1
 		});
 		$(this).attr("occupied", 0);
 		$(this).removeClass("filled");
 	});
 
-	target.attr('period') = period;
+	target.attr('period', period);
 	
 	for(var i=1; i<period; i++) {
 		target = target.next();
 
 		console.log('target :', target);
 		target.css({
-			"background-color" : "yellow"
+			"background-color" : "black",
+			"opacity" : 0.5
 		});
 		target.attr("place", target_place);
 		//target.text(target_place);
@@ -93,7 +97,8 @@ function remove_place (target) {
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
 		$(this).css({
-			"background-color" : "red"
+			"background-color" : "white",
+			"opacity" : 0.5
 		});
 		$(this).attr("occupied", 0);
 		$(this).removeClass("filled");
