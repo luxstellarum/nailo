@@ -1,23 +1,10 @@
 $(document).ready(function() {
-
-<<<<<<< HEAD
-	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
-	/*a.province').click(function() {
-		$.get('plan.js', function(data) {
-			var province = $(data).find('a.province').text();
-			alert(province);
-			$('.province_name').text(province);
-		});
-	});*/
-
 	// wrapper 높이를 구한다
 	var window_height = $(window).height();
 	var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
 	alert(wrapper_height);
 	$(".wrapper").css("height", wrapper_height);
 
-=======
->>>>>>> 6dbec2af6f64df9e7b3a6c6bdd8e01c49bfd811d
 	// datepicker
 	var popupStatus = 0;
 
