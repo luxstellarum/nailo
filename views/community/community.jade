@@ -12,19 +12,20 @@ include ../top.jade
 						span.head_number1 1
 						span.head_number2(style="font-size:15pt") 도선택
 						p.menu_name 커뮤니티
+						
 					div.wrapper(id="plan_num")					
 						div.map_wrapper
 							img.map(src="/images/map.png")
-						span.bungae_cnt(id="kangwondo", style='top:17%; left:55%;') 70
-						span.bungae_cnt(id="kyunggido", style='top:27%; left:27%;') 35
-						span.bungae_cnt(id="chungcheongdo", style='top:47%; left:35%;') 82
-						span.bungae_cnt(id="kyungsangdo", style='top:57%; left:64%;') 23
-						span.bungae_cnt(id="jeollado", style='top:67%; left:25%;') 56
-						a.province(id="kangwondo",name="#community_2",data-effect='slide',data-role="none", style='position:absolute; width:75px; height: 50px; top:27%; left:55%; z-index:2; font: 14pt bold black') 강원도
-						a.province(id="kyunggido",name="#community_2",data-effect='slide', data-role="none",  style='position:absolute; width:75px; height: 50px; top:37%; left:27%; z-index:2; font: 14pt bold black') 경기도
-						a.province(id="chungcheongdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:57%; left:35%; z-index:2; font: 14pt bold black') 충청도
-						a.province(id="kyungsangdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:67%; left:64%; z-index:2; font: 14pt bold black') 경상도
-						a.province(id="jeollado",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:77%; left:25%; z-index:2; font: 14pt bold black') 전라도
+						span.bungae_cnt(id="kangwondo", style='top:12%; left:55%;') 70
+						span.bungae_cnt(id="kyunggido", style='top:22%; left:27%;') 35
+						span.bungae_cnt(id="chungcheongdo", style='top:38%; left:35%;') 82
+						span.bungae_cnt(id="kyungsangdo", style='top:45%; left:60%;') 23
+						span.bungae_cnt(id="jeollado", style='top:56%; left:25%;') 56
+						a.province(id="kangwondo",name="#community_2",data-effect='slide',data-role="none", style='position:absolute; width:75px; height: 50px; top:22%; left:55%; z-index:2; font: 14pt bold black') 강원도
+						a.province(id="kyunggido",name="#community_2",data-effect='slide', data-role="none",  style='position:absolute; width:75px; height: 50px; top:32%; left:27%; z-index:2; font: 14pt bold black') 경기도
+						a.province(id="chungcheongdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:50%; left:35%; z-index:2; font: 14pt bold black') 충청도
+						a.province(id="kyungsangdo",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:55%; left:64%; z-index:2; font: 14pt bold black') 경상도
+						a.province(id="jeollado",name="#community_2",data-effect='slide', data-role="none", style='position:absolute; width:75px; height: 50px; top:65%; left:25%; z-index:2; font: 14pt bold black') 전라도
 				div#community_2.slide
 					div#header
 						span.head_number1 2
@@ -43,32 +44,32 @@ include ../top.jade
 							a#back(style="font-size:8pt", name="#community_1") BACK
 						div.map_wrapper
 							img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
-							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:59%; left:22%; font-size: 13pt') 제천
-							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 보령
+							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:22%; left:58%; font-size: 13pt') 제천
+							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:22%; font-size: 13pt') 보령
 					div.wrapper(id="jeollado_map",style="display:none")
 						div.btn_area
 							span.back(type="button",name="#community_1", value="back")
 							a#back(style="font-size:8pt", name="#community_1") BACK
 						div.map_wrapper
 							img.map(src="/images/map_jeollado.png")
-							a.province(href="/community/community/damyang",rel='external', style='position:absolute; top:48%; left:53%; font-size: 13pt') 담양
-							a.province(href="/community/community/boseong",rel='external', style='position:absolute; top:56%; left:53%; font-size: 13pt') 보성
-							a.province(href="/community/community/jeongup",rel='external', style='position:absolute; top:53%; left:58%; font-size: 13pt') 정읍
+							a.province(href="/community/community/damyang",rel='external', style='position:absolute; top:35%; left:39%; font-size: 13pt') 담양
+							a.province(href="/community/community/boseong",rel='external', style='position:absolute; top:50%; left:51%; font-size: 13pt') 보성
+							a.province(href="/community/community/jeongup",rel='external', style='position:absolute; top:28%; left:38%; font-size: 13pt') 정읍
 					div.wrapper(id="kyungsangdo_map",style="display:none")
 						div.btn_area
 							span.back(type="button",name="#community_1", value="back")
 							a#back(style="font-size:8pt", name="#community_1") BACK
 						div.map_wrapper
 							img.map(src="/images/map_kyungsangdo.png")
-							a.province(href="/community/community/jinju",rel='external', style='position:absolute; top:67%; left:38%; font-size: 13pt') 진주
-							a.province(href="/community/community/busan",rel='external', style='position:absolute; top:65%; left:57%; font-size: 13pt') 부산
-							a.province(href="/community/community/gyeongju",rel='external', style='position:absolute; top:74%; left:63%; font-size: 13pt') 경주	
+							a.province(href="/community/community/jinju",rel='external', style='position:absolute; top:60%; left:40%; font-size: 13pt') 진주
+							a.province(href="/community/community/busan",rel='external', style='position:absolute; top:62%; left:57%; font-size: 13pt') 부산
+							a.province(href="/community/community/gyeongju",rel='external', style='position:absolute; top:44%; left:63%; font-size: 13pt') 경주	
 					div.wrapper(id="kangwondo_map",style="display:none")
 						div.btn_area
 							span.back(type="button",name="#community_1", value="back")
 							a#back(style="font-size:8pt", name="#community_1") BACK
 						div.map_wrapper
 							img.map(src="/images/map_kangwondo.png")
-							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:67%; left:55%; font-size: 13pt') 평창
-							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 강릉
+							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:50%; left:55%; font-size: 13pt') 평창
+							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:37%; left:60%; font-size: 13pt') 강릉
 include ../bottom.jade
