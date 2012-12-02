@@ -232,57 +232,62 @@ $(document).ready(function(){
 	//완전히 저장
 	$(".btn_save").live("click",function(){
 		//ToDo. 제목을 저장 할 수 있는 패널이 필요
-
-		var data = [];
-		var i=0, j=0;
-		$('.plan_bar').each(function(){
-			var parent = this;
-			data[i] = []
-			$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
-				if($(this).attr('occupied') == 3) {
-					data[i][j] = {};
-					data[i][j]['occupied'] = $(this).attr('occupied');
-					data[i][j]['dept_station'] = $(this).attr('dept_station');
-					data[i][j]['arrv_station'] = $(this).attr('arrv_station');
-					data[i][j]['text'] = $(this).text();
-					data[i][j]['start_time'] = $(this).attr('hour');
-					data[i][j]['period'] = $(this).attr('period');
-					j++;
-				}
-				else if($(this).attr('occupied') == 1) {
-					data[i][j] = {};
-					data[i][j]['occupied'] = $(this).attr('occupied');
-					data[i][j]['place'] = $(this).attr('place');
-					data[i][j]['text'] = $(this).text();
-					data[i][j]['start_time'] = $(this).attr('hour');
-					data[i][j]['period'] = $(this).attr('period');
-					j++;
-				}					
+		var subject_panel = $("#subject_panel");
+		$.loadPopup(subject_panel);
+		$(".confirm_plan").live('click', function(event){
+			$.disablePopup(subject_panel);
+			var target = $(this);
+			var data = [];
+			var i=0, j=0;
+			$('.plan_bar').each(function(){
+				var parent = this;
+				data[i] = []
+				$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
+					if($(this).attr('occupied') == 3) {
+						data[i][j] = {};
+						data[i][j]['occupied'] = $(this).attr('occupied');
+						data[i][j]['dept_station'] = $(this).attr('dept_station');
+						data[i][j]['arrv_station'] = $(this).attr('arrv_station');
+						data[i][j]['text'] = $(this).text();
+						data[i][j]['start_time'] = $(this).attr('hour');
+						data[i][j]['period'] = $(this).attr('period');
+						j++;
+					}
+					else if($(this).attr('occupied') == 1) {
+						data[i][j] = {};
+						data[i][j]['occupied'] = $(this).attr('occupied');
+						data[i][j]['place'] = $(this).attr('place');
+						data[i][j]['text'] = $(this).text();
+						data[i][j]['start_time'] = $(this).attr('hour');
+						data[i][j]['period'] = $(this).attr('period');
+						j++;
+					}					
+				});
+				i++;
 			});
-			i++;
-		});
-		var index = $(".plan_index").attr('index');
-		var final_data = {};
-		final_data['subject']; //ToDo
-		final_data['data'] = [];
-		final_data['index'] = index;
-		final_data.data = data;
+			var index = $(".plan_index").attr('index');
+			var final_data = {};
+			final_data['subject'] = target.parent().find('.plan_subject').val(); //ToDo
+			final_data['data'] = [];
+			final_data['index'] = index;
+			final_data.data = data;
 
 
-		//ToDo
-		$.ajax({
-			type : 'POST',
-			dataType : 'json',
-			url : '/plan/write',
-			data : final_data, 
-			success : function(result) {
-				console.log('result', result);
-				alert('저장하였습니다.');
-				$(".plan_index").attr('index', result.index);			
-			},
-			error : function() {
-				alert('error!!!');
-			}
+			//ToDo
+			$.ajax({
+				type : 'POST',
+				dataType : 'json',
+				url : '/plan/write',
+				data : final_data, 
+				success : function(result) {
+					console.log('result', result);
+					alert('저장하였습니다.');
+					$(".plan_index").attr('index', result.index);			
+				},
+				error : function() {
+					alert('error!!!');
+				}
+			});
 		});
 	}); //end of live
 

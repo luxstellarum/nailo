@@ -1,16 +1,9 @@
 $(document).ready(function() {
 	$('.loader').hide();
 	// wrapper 높이를 구한다
-<<<<<<< HEAD
 	var window_height = $(window).height();
 	var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
 	$(".wrapper").css("height", wrapper_height);
-=======
-	//var window_height = $(window).height();
-	//var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
-	//alert(wrapper_height);
-	//$(".wrapper").css("height", wrapper_height + "px");
->>>>>>> 8909f0e82c4232463750aca77459c437537c8e01
 
 	// datepicker
 	$.ajax({
