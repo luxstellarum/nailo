@@ -126,7 +126,10 @@ module.exports = function(app){
 	app.post('/city/view', function(req, res) {
 		city.view(req, res);
 	});
-
+	// 도시 정보 보기
+	app.post('/city/count', function(req, res) {
+		city.get_count(req, res);
+	});
 
 
 	
@@ -221,6 +224,10 @@ module.exports = function(app){
 	app.post('/train/recommend', function(req, res) {
 		console.log('api.js call recommend_time');
 		train.recommend_time(req, res);
+	});
+
+	app.post('/train/direct_way', function(req, res) {
+		train.direct_way_recommend_time(req, res);
 	});
 	
 	/*******************************

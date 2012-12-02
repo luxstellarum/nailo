@@ -19,6 +19,7 @@ div#footer(data-position="fixed", data-role="footer")
 		div(class='btn_menu',align='center')
 			img.btn_more(src="/images/btn_more.png",width="30px", height="30px")
 	div#plan_bar
+		input.plan_index(type='hidden', index=0);
 		div.plan_bar_wrapper
 			li.droppable_hover
 			ul.plan_bar(day=1, style="width:400px;")
@@ -39,7 +40,7 @@ div#footer(data-position="fixed", data-role="footer")
 				li.plan_bar_hour(hour=15, occupied=0)
 				li.plan_bar_hour(hour=16, occupied=0)
 				li.plan_bar_hour(hour=17, occupied=0)
-				li.plan_bar_hour(hour=17, occupied=0)	
+				li.plan_bar_hour(hour=17, occupied=0)
 				li.plan_bar_hour(hour=19, occupied=0)
 				li.plan_bar_hour(hour=20, occupied=0)
 				li.plan_bar_hour(hour=21, occupied=0)

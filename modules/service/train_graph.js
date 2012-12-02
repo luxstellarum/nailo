@@ -23,7 +23,9 @@ module.exports = {
 		var evt = new event_emitter();
 		var transfer_stack = []; //환승역 정보
 		var top = -1;
-		var stack_value = {};
+		var is_visited = false;
+		var index = -1;
+		var visited = [];
 		console.log('find_path, dept and arrv : ', dept, arrv);
 		evt.on('find_path_1', function(evt, current, prev, i){
 			train_graph_db.get({station_1 : current}, prev, function(result) {
@@ -40,18 +42,50 @@ module.exports = {
 				//해당 역에서 갈 수 있는 역이 두 개 이상
 				else if(result != false && result.length > 1 ) {
 					console.log('find_path, case 2');
-					top++;
-					transfer_stack[top] = [];
-					transfer_stack[top] = result;
+					console.log(result);
+					for(var i =0; i < visited.length; i++) {
+						if(result[0].station_1 == visited[i])
+						{
+							is_visited = true;
+							break;
+						}
+					}
 
-					var index = transfer_stack[top].length-1;
-					if(transfer_stack[top][index].station_2 != arrv) {
-						evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);
-						transfer_stack[top].pop();	
+					if( is_visited == false) {
+						visited[visited.length] = result[0].station_1;
+						console.log('not_visited');
+						top++;
+						transfer_stack[top] = [];
+						transfer_stack[top] = result;
+						console.log('case2, stack  : ', transfer_stack);
+			
+						index = transfer_stack[top].length-1;
+
+						if(transfer_stack[top][index].station_2 != arrv) {
+							evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);
+							transfer_stack[top].pop();
+						}
+						else {
+							callback({result : true, dept_station : dept, arrv_station : arrv});
+						}
 					}
 					else {
-						callback({result : true, dept_station : dept, arrv_station : arrv});
+						is_visited = false;
+						console.log('visited' , transfer_stack[top]);
+						transfer_stack[top].pop();
+						index = transfer_stack[top].length-1;
+						if(index != -1 ) {
+							evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);		
+						}
+						else {
+							top--;
+							index = transfer_stack[top].length-1;
+							evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);		
+						}
+					
+
 					}
+					
 					
 					
 				}
@@ -60,14 +94,21 @@ module.exports = {
 					console.log('find_path, case 3');
 					callback({result : false});
 				}
-				else if(result == false && top > 0 ) {
+				else if(result == false && top > -1 ) {
+					index = transfer_stack[top].length-1;
 					console.log('find_path, case 4');
-					if( transfer_stack[top].length > 0 ) {
+					
+					if( index > -1 ) {
 						console.log('find_path, case 4_1');
-						var index = transfer_stack[top].length-1;
+
+						
 						if(transfer_stack[top][index].station_2 != arrv) {
 							evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);
+							
 							transfer_stack[top].pop();	
+							if(transfer_stack[top].length == 0) {
+								top--;
+							}
 						}
 						else {
 							callback({result : true, dept_station : dept, arrv_station : arrv});
@@ -75,11 +116,15 @@ module.exports = {
 					}
 					else {
 						console.log('find_path, case 4_2');
+						console.log(transfer_stack);
 						transfer_stack.pop();
 						top--;
+
 						if(top != -1 ) {
+							index = transfer_stack[top].length-1;
+							console.log('in 4_2, stack', transfer_stack[top]);
 							if(transfer_stack[top][index].station_2 != arrv) {
-								evt.emit('find_path_1', evt, result[i].station_2, transfer_stack[top]['station'], transfer_stack[top]['routes']);
+								evt.emit('find_path_1', evt, transfer_stack[top][index].station_2, transfer_stack[top][index].station_1, index);
 								transfer_stack[top].pop();
 							}
 							else {
@@ -92,7 +137,7 @@ module.exports = {
 					}
 				}
 				/*======================================================================================
-					1. {key : station, value : length} 쌍으로 이루어진 값이 들어가는 stack을 배열로 만듭니다.
+					1. 출발역과 도착역이 담긴 JSON object를 스택에 담습니다.
 					2. key = result[i].station_1; value = result.length; 그리고 array에 push!
 					3. 0번 루트를 따라가다가 값이 없으면 빽! 이때 i값이 0보다 크면 해당 포인트에서 갈 길이 남았다는 이야기.
 					4. 다 돌고나면 스택에서 빠집니다.팝팝팝.

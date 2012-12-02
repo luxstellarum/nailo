@@ -234,17 +234,21 @@ module.exports = {
 
 		condition_1['dept_station'] = dept_station;
 		console.log('in get_specific time, condition_1', condition_1);
+		//출발 역이 dept station인 시간표를 DB에서 긁어온다. 
 		train_db.get(condition_1, function(result){
+
 			evt.on('get_specific_time_table', function(evt, i, j){
 				if(i < result.length) {
-					if( parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time ){
+					console.log('get specific time, in if', result[i]);
+					if( (result[i].dept_time != '') && (parseInt( result[i].dept_time.split(':')[0], 10 ) >= require_dept_time) ){
+						
+						//출발 역이 일치하는 결과물의 '기차번호'를 획득하여 해당 노선에 도착역이 존재하는지를 체크
 						var condition = {};
 						condition['id'] = result[i].id;
 						condition['arrv_station'] = arrv_station;
-						
-
 						console.log('service train.js condition ', condition);
 						train_db.get( condition, function(result2) {
+							//근데 왜 결과가 안나오는 것 같지? -__ㅠ
 							console.log('get_specific_time', result2);
 						//그 기차 번호의 노선을 다 따와서 비교
 							if( result2.length > 0) {
@@ -252,8 +256,8 @@ module.exports = {
 								time_table['arrv_station'] = arrv_station;
 								time_table['dept_time'] = result[i].dept_time;
 								time_table['arrv_time'] = result2[0].arrv_time;
-								time_table['time_required'] = parseInt(time_tlabe.arrv_time.split(':')[0], 10 ) - parseInt(time_tlabe.dept_time.split(':')[0], 10 );
-								evt.emit('get_specific_time_table', evt, ++i, ++j);
+								time_table['time_required'] = parseInt(time_table.arrv_time.split(':')[0], 10 ) - parseInt(time_table.dept_time.split(':')[0], 10 );
+								//evt.emit('get_specific_time_table', evt, ++i, ++j);
 								callback(time_table);
 							}//end of if
 							else {
@@ -261,14 +265,101 @@ module.exports = {
 							}
 						});//end of get
 					}//end of if
+					else {
+						evt.emit('get_specific_time_table', evt, ++i, j);
+					}
 				}
 				else {
 					callback(false);
 				}
 			});//end of evt.on
+
 			evt.emit('get_specific_time_table', evt, 0, 0);
 		});//end of get
 	}//end of get_time_table	
+
+
+
+	,direct_way_recommend_time : function(req, res) {
+		var self = this;
+		var evt = new event_emitter();
+		//string으로 넘어온 train_plan을 JSON형식으로 파싱해줌
+		var train_plan = [];
+		train_plan = req.body.train_plan;
+		console.log(train_plan);
+		var length = train_plan.length -1 ;
+		var recommendation = {};
+		//기차시간 추천 이벤트 바인딩
+		self.get_station_info(train_plan[length-1].city_name, train_plan[length].city_name, function(result){
+			console.log('train.js result : ', result);
+			if(result != false ) {
+				evt.on('get_way', function(evt, ret1, ret2, i, j){
+					self.get_specific_time(ret1[i].station_name, ret2[j].station_name, 9, function(result2) {
+						console.log('train.js result2 : ', result2);
+						if(result2 != false) {
+							recommendation['dept_station'] = result2.dept_station;
+							recommendation['arrv_station'] = result2.arrv_station;
+							recommendation['dept_time'] = result2.dept_time;
+							recommendation['arrv_time'] = result2.arrv_time;
+							recommendation['time_required'] = result2.time_required;
+							recommendation['valid'] = true;
+							console.log('rec : ',recommendation);
+							res.json(recommendation);
+						}//end of if
+						else if(j < ret2.length-1){
+							evt.emit('get_way', evt, ret1, ret2, i, ++j);
+						}//end of else
+						else if(i < ret1.length-1){
+							evt.emit('get_way', evt, ret1, ret2, ++i, 0);
+						}
+						else {
+							res.json({result : false});
+						}
+					});//end of get_specific_time	
+				});//end of evt.on get_way
+
+				evt.emit('get_way',evt, result.city1, result.city2, 0, 0);
+				
+			}//end of if
+			else {
+				res.json({result : false});
+			}
+		});//end of compare_station
+	}//end of direct_way_recommend_time
+
+	,get_station_info : function(city1, city2, callback) {
+		//ToDo
+		var self = this;
+		var evt = new event_emitter();
+		var ret = {};
+
+		station_db.get_list({city_name : city1}, function(result1){
+			if(result1 != false) {
+				station_db.get_list({city_name : city2}, function(result2) {
+					if(result2 != false) {
+						ret['city1'] = [];
+						ret['city2'] = [];
+						ret['city1'] = result1;
+						ret['city2'] = result2;
+						callback(ret);
+					}//end of if
+					else {
+						callback(false);
+					}
+				});//end of inner get_list
+			}//end of if
+			else {
+				callback(false);
+			}
+		});//end of outer get_list
+	}//end of get_station_info
+
+
+
+
+
+
+///////추후 재활용 예정
 
 	//기차 시간 자동 추천
 	/*
@@ -292,7 +383,7 @@ module.exports = {
 		train_plan = req.body.train_plan;
 		console.log(train_plan);
 		var length = train_plan.length -1 ;
-		var recommendation = [];
+		var recommendation = {};
 		console.log('recommend_time ....!');
 		//기차시간 추천 이벤트 바인딩
 		self.compare_station(train_plan[length-1].city_name, train_plan[length].city_name, function(result){
@@ -301,21 +392,20 @@ module.exports = {
 				self.get_specific_time(result.dept_station, result.arrv_station, 9, function(result2) {
 					console.log('train.js result2 : ', result2);
 					if(result2 != false) {
-						recommendation[i] = {};
-						recommendation[i]['day'] = train_plan[length].day;
-						recommendation[i]['dept_station'] = result.dept_station;
-						recommendation[i]['arrv_station'] = result.arrv_station;
-						recommendation[i]['dept_time'] = result2.dept_time;
-						recommendation[i]['arrv_time'] = result2.arrv_time;
-						recommendation[i]['time_required'] = result2.time_required;
-						recommendation[i]['valid'] = true;
+						recommendation['day'] = train_plan[length].day;
+						recommendation['dept_station'] = result.dept_station;
+						recommendation['arrv_station'] = result.arrv_station;
+						recommendation['dept_time'] = result2.dept_time;
+						recommendation['arrv_time'] = result2.arrv_time;
+						recommendation['time_required'] = result2.time_required;
+						recommendation['valid'] = true;
+						console.log('rec : ',recommendation);
+						res.json(recommendation);
 					}//end of if
 					else{
 						res.json({result:false});
 					}
 					
-					res.json(recommendation);
-
 				})//end of get_specific_time
 			}//end of if
 			else {
@@ -380,8 +470,6 @@ module.exports = {
 			callback(result);
 		});
 	}
-
-
 }
 
 	/*** old code

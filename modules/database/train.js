@@ -87,7 +87,7 @@ module.exports = {
 	
 	,get_list : function(condition, callback) {
 		documents.find(condition, function(err, docs){
-			if(!err) {
+			if(docs.length > 0) {
 				callback(docs);
 			}//end of if
 			else {

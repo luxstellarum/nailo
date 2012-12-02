@@ -46,12 +46,12 @@ module.exports = {
 	,get : function (condition, prev_station, callback ) {
 		console.log('train_graph.js, get called', condition, prev_station);
 		documents.find(condition).nor([{station_2 : prev_station}]).exec(function(err, result) {
-			console.log('in train_graph.js result : ', result);
-			if(result) {
-				
+			console.log('in train_graph.js result : ', result.length);
+			if(result.length > 0) {
 				callback(result);
 			}
 			else {
+				console.log('in train_graph.js, reuslt callback false');
 				callback(false);
 			}
 		});//end of findOne
