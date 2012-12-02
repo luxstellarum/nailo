@@ -4,6 +4,17 @@
 var train_time_table = [];
 
  function set_train_time (dept, arrv, period, day, dept_time) {	
+
+ 	$(".train_set").each(function(){
+ 		target = $(this);
+ 		target.removeClass("filled");
+ 		target.removeClass("train_set");
+		target.attr("dept_station", "");
+		target.attr("arrv_station", "");
+		target.attr("occupied", 3);
+		target.text("");
+
+ 	})
 	console.log('set_train_time');
 	var ori_target = $('.plan_bar[day=' + day + ']').find('[hour=' + dept_time + ']');
 	var target = ori_target;
@@ -15,6 +26,7 @@ var train_time_table = [];
 	target.attr("arrv_station", arrv);
 	target.text(dept + '~' + arrv);
 	target.attr("occupied", 3);
+	target.attr("period", period);
 	target.addClass("filled");
 	
 	target.addClass("train_set");	
@@ -23,7 +35,8 @@ var train_time_table = [];
 
 	for ( var i=1; i<period; i++) {
 		target.css({
-			"background-color": "yellow"
+			"background-color": "yellow",
+			"opacity" : 0.5
 		});
 		target.attr("dept_station", dept);
 		target.attr("arrv_station", arrv);
@@ -43,7 +56,7 @@ var train_time_table = [];
 		
 }
 
-function get_train_time (city1, city2) {
+function get_train_time (city1, city2, day) {
 	var city = [];
 	city[0] = {};
 	city[0]['city_name'] = city1;
@@ -77,9 +90,16 @@ function get_train_time (city1, city2) {
 					train_time_table[length].dept_station,
 					train_time_table[length].arrv_station,
 					period,
-					train_time_table.length,
+					day,
 					dept_time
 				);		
+			}
+			else {
+				target = $("#sortable li[city_name_kor='"+city2+"']");
+				target.css({
+					'background-color' : 'gray',
+				});
+				target.attr('valid', 'false');
 			}
 		},
 		error : function() {
@@ -108,7 +128,8 @@ $(document).ready(function() {
 		});
 
 		$("#sortable li").each(function (){
-			$(this).unbind('click').bind('click', function() {
+			$(this).unbind('click');
+			$(this).bind('click', function() {
 				var nextPage = "#plan_" + $(this).attr('city_name');
 				changePage($(nextPage),'slide');
 			});
@@ -124,7 +145,7 @@ $(document).ready(function() {
 		});			
 
 		for(var i=0; i < selected_cities.length-1; i++ ) {
-			get_train_time(selected_cities[i], selected_cities[i+1]);
+			get_train_time(selected_cities[i], selected_cities[i+1], i+1);
 		}
 	});
 
@@ -137,7 +158,13 @@ $(document).ready(function() {
 
 		$("#sortable li").each(function (){
 			$(this).unbind('click');
-		})		
+			$(this).bind('click', function(event) {
+				var target = this;
+				if(confirm("해당 도시를 삭제하시겠습니까?") ) {
+					$(target).remove();
+				}
+			});
+		});		
 		
 		$(".btn_confirm").show();
 		$(".btn_continue").show();

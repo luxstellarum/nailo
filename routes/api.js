@@ -126,7 +126,10 @@ module.exports = function(app){
 	app.post('/city/view', function(req, res) {
 		city.view(req, res);
 	});
-
+	// 도시 정보 보기
+	app.post('/city/count', function(req, res) {
+		city.get_count(req, res);
+	});
 
 
 	

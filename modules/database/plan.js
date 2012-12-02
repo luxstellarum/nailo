@@ -34,6 +34,7 @@ module.exports = {
 	
 	// plan 생성하여 db 에 넣는다.
 	add : function(plan, callback){
+		console.log('plan', plan);
 		var self = this;
 		var doc = new documents();
 		
@@ -47,10 +48,10 @@ module.exports = {
 				
 				doc.save(function(err){
 					if(!err){
-						callback(true);
+						callback({result : true, index : result});
 					}
 					else{
-						callback(false);
+						callback({result : false});
 					}
 				}); 	// end of save
 			}
@@ -61,7 +62,7 @@ module.exports = {
 
 	// 새 plan 이 가질 index를 부여한다.
 	,get_index : function(callback) {
-		documents.findOne({}, function(err, result){
+		documents.findOne({}).sort('-index').exec(function(err, result){
 			if(!err) {
 				if(result != null) {
 					callback(result.index + 1);
@@ -116,11 +117,11 @@ module.exports = {
 		documents.update(condition, update, null, function(err){
 			if(!err){
 				console.log('plan.js : update_success');
-				callback(true);
+				callback({result : true});
 			}
 			else{
 				console.log('plan.js : update_fail');
-				callback(false);
+				callback({ result : false} );
 			}
 		}); 	// end of update
 	}	// end of update

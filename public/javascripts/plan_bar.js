@@ -202,6 +202,64 @@ $(document).ready(function(){
 		$('.plan_city').css('background-color', 'Red');
 	});
 
+
+	//완전히 저장
+	$(".btn_save").live("click",function(){
+		//ToDo. 제목을 저장 할 수 있는 패널이 필요
+
+		var data = [];
+		var i=0, j=0;
+		$('.plan_bar').each(function(){
+			var parent = this;
+			data[i] = []
+			$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
+				if($(this).attr('occupied') == 3) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['dept_station'] = $(this).attr('dept_station');
+					data[i][j]['arrv_station'] = $(this).attr('arrv_station');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}
+				else if($(this).attr('occupied') == 1) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['place'] = $(this).attr('place');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}					
+			});
+			i++;
+		});
+		var index = $(".plan_index").attr('index');
+		var final_data = {};
+		final_data['subject']; //ToDo
+		final_data['data'] = [];
+		final_data['index'] = index;
+		final_data.data = data;
+
+
+		//ToDo
+		$.ajax({
+			type : 'POST',
+			dataType : 'json',
+			url : '/plan/write',
+			data : final_data, 
+			success : function(result) {
+				console.log('result', result);
+			
+			},
+			error : function() {
+				alert('error!!!');
+			}
+		});
+	}); //end of live
+
+
 	$("#sortable").sortable({
 		update : function() {
 			set_sortable();

@@ -7,23 +7,19 @@ style
 	.plan_bar {
 		padding-left : 5px;
 	}
-div#footer(data-position="fixed")
+div#footer(data-position="fixed", data-role="footer")
 	include ./widget/hourpicker.jade
-	div(class='ui-grid-c', data-position="fixed", style='display:none;')
-		div(class='ui-block-a',align='center')
-			input#mypage(type='image',src="/images/btn_my.png",width="30px")
-		div(class='ui-block-b',align='center')
-			input#plan(type='image',src="/images/btn_plan.png",width="30px")
-		div(class='ui-block-c',align='center')
-			input.btn_beongae(type='image',src="/images/btn_community.png",width="30px")
-		div(class='ui-block-d',align='center', style='position:relative;')
-			input.btn_more(type='image',src="/images/btn_more.png",width="30px")
-	div#plan_status(style="background-color;blue")
-		div.time_indicator
-			span.0 0
-			span.12 12
-			span.24 24
+	div(class='menu_bar', data-position="fixed")
+		div(class='btn_menu',align='center')
+			img#mypage(src="/images/btn_my.png",width="30px", height="30px")
+		div(class='btn_menu',align='center')
+			img#plan(src="/images/btn_plan.png",width="30px", height="30px")
+		div(class='btn_menu',align='center')
+			img.btn_beongae(src="/images/btn_community.png",width="30px", height="30px")
+		div(class='btn_menu',align='center')
+			img.btn_more(src="/images/btn_more.png",width="30px", height="30px")
 	div#plan_bar
+		input.plan_index(type='hidden', index=0);
 		div.plan_bar_wrapper
 			li.droppable_hover
 			ul.plan_bar(day=1, style="width:400px;")

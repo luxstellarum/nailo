@@ -47,7 +47,7 @@ var self = module.exports = {
 	//도시 전체 목록을 받는다.
 	,list : function(req, res) {
 		var condition = {};
-		condition[do_name] = req.body.do_name;
+		condition['do_name'] = req.body.do_name;
 		city_db.get_list(condition, function(result){
 			if(result != false) {
 				console.log('service/city.js, list success');
@@ -63,8 +63,7 @@ var self = module.exports = {
 	//도시를 database에서 받아와서 결과에 따라 JSON형식으로 return
 	,view : function(req, res) {
 		var condition = {};
-		condition[index] = req.body.index;
-		
+		condition['index'] = req.body.index;	
 		city_db.get(condition, function(result){
 			if(result != false) {
 				console.log('service/city.js, view success');
@@ -77,6 +76,19 @@ var self = module.exports = {
 		}); //end of get
 	}//end of view
 
+	,get_count : function(req, res) {
+		var condition = {};
+		condition['city_name'] = req.body.city_name;
+		city_db.get_list(condition, function(result) {
+			console.log('get_count', result);
+			if(result.length > 0) {
+				res.json({'count' : result.length});
+			}
+			else {
+				res.json({'count' : 0});
+			}
+		});
+	}
 	
 	
 	

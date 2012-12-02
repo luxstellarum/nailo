@@ -62,8 +62,14 @@ $(document).ready(function() {
 		
 		var cnt = $("#sortable .city_name").length+1;
 		console.log('cnt', cnt);
-		var li = "<li class='city_name' cnt="+cnt+" city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"'>" + target.text() + "</li>";
+		var li = "<li class='city_name' cnt="+cnt+" city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"' valid='true'>" + target.text() + "</li>";
 		$("#sortable").append(li);
+		$("#sortable li:last").bind('click', function(event) {
+				var target = this;
+				if(confirm("해당 도시를 삭제하시겠습니까?") ) {
+					$(target).remove();
+				}
+		})
 		$('li').removeClass('ui-corner-bottom');
 			$('ul')
 				.addClass('ui-corner-top')

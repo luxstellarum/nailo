@@ -9,14 +9,15 @@ include ../top.jade
 		include ../city_name.jade
 		include ../widget/popup_menu.jade
 		div#plan_1(class="slide current")
-			div#header
+			div#header(data-role="header")
 				div.head_number1 1
 				div.head_number2(style="font-size:12pt") 도선택
 				p.menu_name 플랜
-				input.btn_save.btn1(type="button", value="SAVE")
 			include ../periodpicker.jade
 			include ../widget/trainpicker.jade
 			div.wrapper(id="plan_num")
+				div.btn_area
+					input.btn_save.btn1(type="button", value="SAVE")
 				div.map_wrapper
 					img.map(src="/images/map.png")
 					a.province(id="kangwondo",name="#plan_2",data-effect='slide',data-role="none", style='position:absolute; width:75px; height: 50px; top:20%; left:55%; z-index:2; font: 14pt bold black') 강원도
@@ -37,7 +38,7 @@ include ../top.jade
 		include ./kangneung_see.jade
 		include ./pyungchang_see.jade
 		include ./seoul_see.jade
-div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
-include ../bottom.jade
+		div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
+	include ../bottom.jade
 	
 		
