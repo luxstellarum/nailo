@@ -142,7 +142,9 @@ $(document).ready(function(){
 		if($(this).attr('id')=='notice')
 			location.href="/etc/notice";
 		else if($(this).attr('id')=='setting')
-			location.href="/etc/setting";				
+			location.href="/etc/setting";	
+		else if($(this).attr('id')=='question')
+			location.href="/etc/question";				
 	});
 
 });

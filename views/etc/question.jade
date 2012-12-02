@@ -1,0 +1,19 @@
+include ../top.jade
+		div(class="css3droppanel",align="center")
+			input(type="checkbox", id="paneltoggle")
+			label(for="paneltoggle",id="searchdrawer")
+			div(id="searchbrowser")
+				include ../search.jade
+		include ../widget/popup_menu.jade	
+		div#header
+			p.menu_name 도움말
+			hr
+			br
+		div(class="section")
+			div(style='margin-top:20px')
+				span(style='margin-left:15px;')
+					span
+						font(size='3')내용ㅎ
+					hr(style='margin-left:8px; margin-right:8px')
+
+include ../bottom.jade
