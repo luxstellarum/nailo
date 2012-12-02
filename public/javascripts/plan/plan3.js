@@ -152,7 +152,6 @@ $(document).ready(function() {
 
 
 function li_modify_mode () {
-	alert('modify_mode');
 	$("#sortable li").each(function (){
 		$(this).unbind('click');
 		$(this).bind('click', function(event) {
@@ -169,7 +168,6 @@ function li_modify_mode () {
 }
 
 function li_confirm_mode() {
-	alert('confirm_mode');
 	$("#sortable li").each(function (){
 		$(this).unbind('click');
 		$(this).bind('click', function() {
@@ -179,7 +177,6 @@ function li_confirm_mode() {
 	})		
 	//기차시간 추천 고고
 	$("#sortable li").each(function() {
-		alert('여긴 들어왔니?');
 		selected_cities[selected_cities.length] = $(this).text();
 	});			
 
