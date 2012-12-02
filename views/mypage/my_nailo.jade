@@ -1,18 +1,23 @@
 include ../top.jade
+			script(src="/javascripts/mypage/my_nailo.js")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
 					include ../search.jade	
 			include ../widget/popup_menu.jade	
-			div(class="header",style="margin-top:-40px")
-				h2(align='right',style='padding-right:5px') my > 나의 내일로
+			div#header
+				p.menu_name my > 나의 내일로
 				hr
 				br
 			div(class="section")
-				div(align='center',id="nailo_record")
-					div(align='left', style="background-color: #c30000;") 2011년 9월의 늦여름
-					div(align='left', style="background-color: #c34343;") 2010년 겨울 여행
-					div(align='left', style="background-color: #de5b5b;") 2011년 9월의 늦여름
-					div(align='left', style="background-color: #dca3a3;") 2011년 9월의 늦여름
+				div(align='center',id="pre_set0")
+					div(align='left', style="background-color: #c30000;") 
+				div(align='center',id="pre_set1",style="display:none")
+					div(align='left', style="background-color: #c34343;")
+				div(align='center',id="pre_set2",style="display:none") 
+					div(align='left', style="background-color: #de5b5b;")
+				div(align='center',id="pre_set3",style="display:none") 
+					div(align='left', style="background-color: #dca3a3;") 
+				div#nailo_record
 include ../bottom.jade

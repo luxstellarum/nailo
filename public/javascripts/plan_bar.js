@@ -143,7 +143,7 @@ $(document).ready(function(){
 		// plan이 짜여졌는지 아닌지...
 	$(".plan_bar_hour").droppable( drop_option );//end of droppbable
 
-	$(".filled").live('click', function(){
+	$(".filled:not(.train_set)").live('click', function(){
 		var target = $(this);
 		var target_place = target.attr("place");
 		$.loadPopup($('#hourpicker'));
@@ -174,6 +174,7 @@ $(document).ready(function(){
 		remove_place($(this));
 	});
 
+/*
 	//관광지로 넘어가는 파~트
 	$(".train_set").live('click', function(){
 		var city = $(this).attr('city_name');
@@ -183,7 +184,7 @@ $(document).ready(function(){
 				
 		changePage($(nextPage),effect);
 	});
-
+*/
 	// bottom.jade: 날짜를 지정하면 하단 plan bar에 스케줄이 뜬다
 	$('.btn_set').bind('click',function() {
 		$('.plan_bar').append('<li>');
@@ -258,6 +259,60 @@ $(document).ready(function(){
 				alert('error!!!');
 			}
 		});
+	}); //end of live
+
+	//완전히 저장
+	$(".btn_load").live("click",function(){
+		//ToDo
+		$.ajax({
+			type : 'POST',
+			dataType : 'json',
+			url : '/plan/write',
+			data : final_data, 
+			success : function(result) {
+				console.log('result', result);
+				alert('저장하였습니다.');
+				$(".plan_index").attr('index', result.index);			
+			},
+			error : function() {
+				alert('error!!!');
+			}
+		});
+		
+		var data = [];
+		var i=0, j=0;
+		$('.plan_bar').each(function(){
+			var parent = this;
+			data[i] = []
+			$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
+				if($(this).attr('occupied') == 3) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['dept_station'] = $(this).attr('dept_station');
+					data[i][j]['arrv_station'] = $(this).attr('arrv_station');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}
+				else if($(this).attr('occupied') == 1) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['place'] = $(this).attr('place');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}					
+			});
+			i++;
+		});
+		var index = $(".plan_index").attr('index');
+		var final_data = {};
+		final_data['subject']; //ToDo
+		final_data['data'] = [];
+		final_data['index'] = index;
+		final_data.data = data;
 	}); //end of live
 
 

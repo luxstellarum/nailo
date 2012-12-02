@@ -22,8 +22,6 @@ $(document).ready(function() {
 	}
 
 
-
-
 	/***********************************************************************/
 
 
@@ -50,7 +48,7 @@ $(document).ready(function() {
 		var input2 = end_year + '/' + end_month + '/' + end_day;
 		var date1 = new Date(input1);
 		var date2 = new Date(input2);
-		
+
 		var minutes = 1000*60;
 		var hours = minutes*60;
 		var days = hours*24;
@@ -121,7 +119,6 @@ function check_city (city) {
 		success : function( count ) {
 			if(count.count > 0) {
 				var trainpicker = $("#trainpicker");
-				selected_cities[0] = city;
 				var li = "<li class='city_name' cnt='0' city_name='' city_name_kor='"+city+"'>" + city + "</li>";
 				$("#sortable").append(li);
 				$.disablePopup(trainpicker);
