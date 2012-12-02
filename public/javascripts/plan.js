@@ -1,4 +1,5 @@
 $(document).ready(function() {
+<<<<<<< HEAD
 	// plan.jade: 도를 누르면, 도의 이름을 다음 '도시선택페이지' 상단에 뿌려준다
 	/*a.province').click(function() {
 		$.get('plan.js', function(data) {
@@ -8,6 +9,8 @@ $(document).ready(function() {
 		});
 	});*/
 
+=======
+>>>>>>> 33fec8ed47b102a6f3460e99d0332e21c2416a6c
 	// wrapper 높이를 구한다
 	//var window_height = $(window).height();
 	//var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
