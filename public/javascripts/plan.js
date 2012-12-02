@@ -50,9 +50,9 @@ $(document).ready(function() {
 	*/
 	$(".city2").unbind('click').bind("click", function(){
 		var target = $(this);
-		console.log(target);
-		train_plan[train_plan_flag] = {};
-		train_plan[train_plan_flag]['city_name'] = $(this).text();
+		// console.log(target);
+		// train_plan[train_plan_flag] = {};
+		// train_plan[train_plan_flag]['city_name'] = $(this).text();
 
 		selected_cities[selected_cities.length] = target.text();
 			
@@ -64,7 +64,16 @@ $(document).ready(function() {
 		console.log('cnt', cnt);
 		var li = "<li class='city_name' cnt="+cnt+" city_name='"+target.attr('city_name')+"' city_name_kor='"+target.text()+"'>" + target.text() + "</li>";
 		$("#sortable").append(li);
-		$("#sortable").sortable();
+		$('li').removeClass('ui-corner-bottom');
+			$('ul')
+				.addClass('ui-corner-top')
+				.removeClass('ui-corner-all')
+				.sortable({
+				'containment': 'parent',
+				'opacity': 0.6,
+				update: function(event, ui) {
+				}
+		});
 
 		var nextPage = "#plan_3";
 		

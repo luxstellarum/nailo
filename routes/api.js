@@ -222,6 +222,10 @@ module.exports = function(app){
 		console.log('api.js call recommend_time');
 		train.recommend_time(req, res);
 	});
+
+	app.post('/train/direct_way', function(req, res) {
+		train.direct_way_recommend_time(req, res);
+	});
 	
 	/*******************************
 		/service/plan.js

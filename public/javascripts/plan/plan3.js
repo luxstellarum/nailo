@@ -1,9 +1,15 @@
+/*
+	External Variables
+*/
+var train_time_table = [];
+
  function set_train_time (dept, arrv, period, day, dept_time) {	
 	console.log('set_train_time');
 	var ori_target = $('.plan_bar[day=' + day + ']').find('[hour=' + dept_time + ']');
 	var target = ori_target;
 	target.css({
-		"background-color": "yellow"
+		"background-color": "yellow",
+		"opacity" : 0.5
 	});
 	target.attr("dept_station", dept);
 	target.attr("arrv_station", arrv);
@@ -37,30 +43,42 @@
 		
 }
 
-function get_train_time (train_plan) {
+function get_train_time (city1, city2) {
+	var city = [];
+	city[0] = {};
+	city[0]['city_name'] = city1;
+	city[1] = {};
+	city[1]['city_name'] = city2;
+
 	console.log('get_train_time');
 	$.ajax({
 		type : 'POST',
 		dataType : 'json',
-		url : '/train/recommend',
-		data : { 'train_plan' : train_plan },
+		url : '/train/direct_way',
+		data : { 'train_plan' : city },
 		success : function(result) {
 			console.log('result', result);
-			if(result.result == true) {
-				train_time_table[train_time_table.length] = {};
-				train_time_table[train_time_table.length] = result;
-				var dept_time = parseInt(train_time_table[train_time_table.length].dept_time.split(':')[0], 10);
-				var arrv_time = parseInt(train_time_table[train_time_table.length].arrv_time.split(':')[0],10);
+			if(result.valid == true) {
+				var length = train_time_table.length;
+				train_time_table[length] = {};
+				train_time_table[length] = result;
+				var dept_time = parseInt(train_time_table[length].dept_time.split(':')[0], 10);
+				var arrv_time = parseInt(train_time_table[length].arrv_time.split(':')[0],10);
+				var overflow = parseInt(train_time_table[length].arrv_time.split(':')[1],10) - 
+								parseInt(train_time_table[length].dept_time.split(':')[1],10);
 				var period = arrv_time - dept_time;
 				if( dept_time > arrv_time ) {
 					period = (24 + arrv_time) - dept_time;
 				}
+				if( overflow > 0 ) {
+					period++;
+				}
 				set_train_time ( 
-					train_time_table[train_time_table.length].dept_station,
-					train_time_table[train_time_table.length].arrv_station,
+					train_time_table[length].dept_station,
+					train_time_table[length].arrv_station,
 					period,
-					train_time_table[train_time_table.length].dept_station,
-					train_time_table[train_time_table.length].dept_time
+					train_time_table.length,
+					dept_time
 				);		
 			}
 		},
@@ -71,7 +89,7 @@ function get_train_time (train_plan) {
 }
 
 $(document).ready(function() {
-	var train_time_table = [];
+
 
 	$('.btn_continue').live('click', function() {
 		//ToDo
@@ -98,9 +116,33 @@ $(document).ready(function() {
 		
 		$(".btn_confirm").hide();
 		$(".btn_continue").hide();
-		$(".btn_modify").show();			
+		$(".btn_modify").show();
 
+		//기차시간 추천 고고
+		$("sortable li").each(function() {
+			selected_cities[selected_cities.length] = $(this).text();
+		});			
+
+		for(var i=0; i < selected_cities.length-1; i++ ) {
+			get_train_time(selected_cities[i], selected_cities[i+1]);
+		}
 	});
 
-	
+	//plan3, 선택 수정버튼
+	$(".btn_modify").live('click', function() {
+		//ToDo
+		$("#sortable").sortable({
+			disabled : false
+		});
+
+		$("#sortable li").each(function (){
+			$(this).unbind('click');
+		})		
+		
+		$(".btn_confirm").show();
+		$(".btn_continue").show();
+		$(".btn_modify").hide();
+
+		selected_cities = [];
+	});
 });

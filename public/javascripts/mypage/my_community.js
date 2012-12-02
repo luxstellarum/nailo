@@ -31,8 +31,11 @@ $(document).ready(function(){
 									div.firstChild.appendChild(
 										document.createTextNode(" ["+item.city+"/"+item.event_month+"."+item.event_day+"/"
 																+item.start_hour+":"+item.start_minute+"] "+item.subject));
-									
 									$('#field').append(div);
+									$('.my_bun_show').click(function(){
+										location.href='/community/bun_show';
+
+									});
 								});
 							}
 							else{

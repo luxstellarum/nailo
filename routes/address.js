@@ -210,5 +210,12 @@ module.exports = function(app){
 	});
 
 
+	// map
+	app.get('/map/map', function(req, res){
+		res.render('map/map', {title:'index'});
+	});
+
+
+
 	
 }

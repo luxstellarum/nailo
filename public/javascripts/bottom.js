@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$('#plan').click(function(){
 		location.href='/plan/plan';
 	});
-	$('#community').click(function(){
+	$('.btn_beongae').click(function(){
 		location.href='/community/community';
 	});
 	$('.popup_beongae li').click(function(){

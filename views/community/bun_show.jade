@@ -7,13 +7,10 @@ include ../top.jade
 					include ../search.jade
 		include ../widget/popup_menu.jade
 		div.header_bunshow
-			span.city_bunshow(class="output_form",name="province") 부산
+			span.city_bunshow(class="output_form",name="province")
 			div(style="width:75px; display:inline-block; float:right; margin-right: 5px;")
 				input.btn_remove.btn3(id="remove_board",type="button",value="글 삭제",style="width:60px; height:20px; font-size:10pt; margin-right:5px")
-				span.no_bunshow NO.1423
-			span(style='position:absolute; bottom:5px; right:10px;margin-right:5px')
-				font(style="margin-bottom:0px")
-				font.output_form(name="index",style='margin-bottom:0px')
+				span.output_form(name="index") No. 
 		div.section_bunshow
 			table.tbl_bunshow(cellspacing='0',align='center')
 				tr
@@ -31,13 +28,18 @@ include ../top.jade
 						font.output_form(name="end_minute")
 						font 까지		
 				tr
-					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
+<<<<<<< HEAD
+					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;')
+										
 			ul.ul_comment
 				li.li_comment
 				li.li_comment
 				li.li_comment
 				li.li_comment
 				li.li_comment	
+=======
+					td.output_form(name="subject",align="center",colspan="2",style='padding-left:10px; border-bottom:thick solid gray;') 								
+>>>>>>> bce3f467d9e88b44b6f2a1ec23f43456069216b6
 			div(id="pre_set",style="display:none;")
 				span(id="id",style="padding:0 5px;") 
 				input(id="remove_comment",type="button",value="삭제",onclick="remove_item(this)",style="font-size:7pt; float:right; height:20px; margin-right:5px")

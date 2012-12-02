@@ -9,14 +9,15 @@ include ../top.jade
 		div#header
 			p.menu_name 번개생성
 		div.section.section_bunmake(style="padding-top:30px;")
+			img.btn_bunmake(src="/images/btn_bunmake.png")
 			table	
 				td.label_bunmake(valign='top',width='100px') 제목
 				td(width='200px')
 					span(style='margin-right:20px')
 						input.input_form.text1(type='text',style='width:180px;', name='subject')
 			table
-				input.input_form(type='hidden', value='test1', name='province')
-				input.input_form(type='hidden', value='test2', name='city')
+				input.input_form(type='hidden', name='province')
+				input.input_form(type='hidden', name='city')
 				td(valign='top',width='100px') 시간
 				td(width='200px')
 					span(style='margin-right:20px')
@@ -45,31 +46,19 @@ include ../top.jade
 				td(width='200px')
 					span(style='margin-right:20px')
 						input.input_form.text1(type='text',style='width:180px;', name='location')
+<<<<<<< HEAD
+=======
 						br
 						span(style='float:right; margin-right:20px;')
 							네이버 지도에 표시
 							input(type='checkbox', style='margin-bottom:0;width:15px; height:15px')
-			table
-				td(width='100px') 무엇을
-				td(valign='top',width='200px')
-					span(style='margin-right:20px')
-						table.tbl_what(cellpadding='5px',border='1',style='border-collapse:collapse',width="180px")
-							tr
-								td.td_rice(width="40px",align='center') 밥
-								td(width="40px",align='center') 술
-								td(width="40px",align='center') 놀이
-								td.td_etc(width="40px",align='center') 기타
+>>>>>>> bce3f467d9e88b44b6f2a1ec23f43456069216b6
 			table
 				td(width='100px') 인원
 				td(width='200px')
 					span(style='margin-right:20px')
 						input.input_form.text1(type='number',style='width:80px;', name='population')
 						명
-			table
-				td.label_bunmake(valign='top',width='100px') 내용
-				td(width='200px')
-					span(style='margin-right:20px')
-						textarea.input_form.text1(style='width:180px;', name='content')
 			form(id="submit",align='right',action="/community/bun_show",rel="export")
 				input.write_button.btn3(type='button',value='작성')
 include ../bottom.jade
