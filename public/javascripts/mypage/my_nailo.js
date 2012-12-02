@@ -14,7 +14,7 @@ $(document).ready(function(){
 						console.log('pre_set'+i%4);
 						div.innerHTML = document.getElementById('pre_set'+i%4).innerHTML;
 						
-						div.firstChild.appendChild(document.createTextNode(item.date+"년 "+item.subject));
+						div.firstChild.appendChild(document.createTextNode(item.subject));
 						$('#nailo_record').append(div);
 					});
 				}

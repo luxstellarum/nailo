@@ -1,11 +1,11 @@
 $(document).unbind().bind('pagecreate',function(){
 	var tmp = location.href.split('//')[1];
 	var city = tmp.split('/')[3];
-	setCity(city)
+	city_p=setCity(city)
 	
 	var community_board = {};
 	//community_board['city']="test2";	//테스트용 실제는 아래 코드 ㅎ
-	community_board['city']=city;
+	community_board['city']=city_p;
 	
 	$.ajax({
 		type: 'post',
@@ -47,6 +47,10 @@ $(document).unbind().bind('pagecreate',function(){
 			}
 		}
 	});
+	
+	$('.btn_bunmake').click(function(){
+		location.href="/community/bun_make?city="+city;
+	});
 
 	
 });
@@ -68,7 +72,7 @@ function setCity(city_name){
 	if(city_name=="busan")	name="부산";
 	
 	$('#selected_city').append(document.createTextNode(name));
-	
+	return name;
 };
 
 

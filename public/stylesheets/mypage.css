@@ -15,7 +15,7 @@
 }
 
 .btn_logout{
-	width: 13%;
+	width: 20%;
 	height: 60%;
 	margin-top: 1%;
 	margin-right: 5%;
@@ -67,11 +67,11 @@
 	list-style: none;
 }
 .ul_mypage li{
-	height: 15%;
+	height: 13%;
 	font-size: 13pt;
 	border-bottom: 1px solid gray;
 	border-top: 1px solid white;
-	padding-top: 5%;
+	padding-top: 3%;
 }
 .mypage_header{
 	height: 10%;

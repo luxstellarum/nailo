@@ -15,4 +15,16 @@ $(document).bind('pagecreate',function(){
 				$('#nickname').append(document.createTextNode("로그인이 필요합니다."));
 		}
 	});
+	$('.btn_logout').click(function(){
+		$.ajax({
+			type:'post',
+			url:'/member/logout',
+			success:function(data){
+				if(data.result == true){
+					alert(data.message);
+					location.reload();
+				}
+			}
+		});
+	});
 });

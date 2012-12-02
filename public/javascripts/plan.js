@@ -34,7 +34,7 @@ $(document).ready(function() {
 		var windowWidth = document.documentElement.clientWidth;
 		var windowHeight = document.documentElement.clientHeight;
 		var popupHeight = popup.height();
-		var popupWidth = popup.width();4hnn                                                                                                                                         
+		var popupWidth = popup.width();                                                                                                                                 
 		//중앙에 위치시키기 / centering
 		console.log(popupWidth, windowWidth);
 		popup.css({
