@@ -11,8 +11,9 @@ include ../top.jade
 						span.head_number1 1
 						span.head_number2(style="font-size:15pt") 도선택
 						p.menu_name 커뮤니티
-						input.btn_save.btn1(type="button", value="SAVE")
 					div.wrapper(id="plan_num")
+						div.btn_area
+							input.btn_save.btn1(type="button", value="SAVE")						
 						div.map_wrapper
 							img.map(src="/images/map.png")
 						span.bungae_cnt(id="kangwondo", style='top:17%; left:55%;') 70
@@ -30,41 +31,62 @@ include ../top.jade
 						span.head_number1 2
 						span.head_number2(style="font-size:15pt") 도시선택
 						p.menu_name 커뮤니티
-						input.btn_save.btn1(type="button", value="SAVE")
 					div.wrapper(id="kyunggido_map",style="display:none")
+						div.btn_area
+							span.back(type="button",name="#plan_1", value="back")
+							a#back(style="font-size:8pt", name="#plan_1") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						div.map_wrapper
 							img.map(src="/images/map_kyunggido.png")
 							a.province(href="/community/community/seoul",rel='external', style='position:absolute; top:40%; left:40%;') 서울	
 					div.wrapper(id="chungcheongdo_map",style="display:none;")
+						div.btn_area
+							span.back(type="button",name="#community_1", value="back")
+							a#back(style="font-size:8pt", name="#community_1") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						div.map_wrapper
 							img.map(src="/images/map_chungcheongdo.png", style="width: 90%; margin-top: 15%;")
 							a.province(href="/community/community/jecheon",rel='external', style='position:absolute; top:59%; left:22%; font-size: 13pt') 제천
 							a.province(href="/community/community/boryeong",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 보령
 					div.wrapper(id="jeollado_map",style="display:none")
+						div.btn_area
+							span.back(type="button",name="#community_1", value="back")
+							a#back(style="font-size:8pt", name="#community_1") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						div.map_wrapper
 							img.map(src="/images/map_jeollado.png")
 							a.province(href="/community/community/damyang",rel='external', style='position:absolute; top:48%; left:53%; font-size: 13pt') 담양
 							a.province(href="/community/community/boseong",rel='external', style='position:absolute; top:56%; left:53%; font-size: 13pt') 보성
 							a.province(href="/community/community/jeongup",rel='external', style='position:absolute; top:53%; left:58%; font-size: 13pt') 정읍
 					div.wrapper(id="kyungsangdo_map",style="display:none")
+						div.btn_area
+							span.back(type="button",name="#community_1", value="back")
+							a#back(style="font-size:8pt", name="#community_1") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						div.map_wrapper
 							img.map(src="/images/map_kyungsangdo.png")
 							a.province(href="/community/community/jinju",rel='external', style='position:absolute; top:67%; left:38%; font-size: 13pt') 진주
 							a.province(href="/community/community/busan",rel='external', style='position:absolute; top:65%; left:57%; font-size: 13pt') 부산
 							a.province(href="/community/community/gyeongju",rel='external', style='position:absolute; top:74%; left:63%; font-size: 13pt') 경주	
 					div.wrapper(id="kangwondo_map",style="display:none")
+						div.btn_area
+							span.back(type="button",name="#community_1", value="back")
+							a#back(style="font-size:8pt", name="#community_1") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						div.map_wrapper
 							img.map(src="/images/map_kangwondo.png")
 							a.province(href="/community/community/pyungchang",rel='external', style='position:absolute; top:67%; left:55%; font-size: 13pt') 평창
 							a.province(href="/community/community/kangneung",rel='external', style='position:absolute; top:47%; left:60%; font-size: 13pt') 강릉
-						
 				div(id="community_3",class="slide",style="height:100%")
 					div#header
 						span.head_number1 3
 						input.btn_save.btn1(type="button", value="SAVE")
 						span(id='selected_city',style='height:20px; margin-right:10px; margin-top:12px; font-size:25pt; float:right') 강릉
-					
 					div.section
+						div.btn_area
+							span.back(type="button",name="#community_2", value="back")
+							a#back(style="font-size:8pt", name="#community_2") BACK
+							input.btn_save.btn1(type="button", value="SAVE")
 						table(cellspacing='0',align='center',cellpadding='8px',
 							,style='border-top:thin solid gray; border-bottom:thin solid gray; width:100%; margin:10px; bottom:100px')
 								tr

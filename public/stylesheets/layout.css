@@ -47,8 +47,8 @@ body{
 	overflow-y: auto;
 }
 
-.map_wrapper, .btn_area{
-	background-color: #F2ECEC;
+.map_wrapper, .btn_area, .btn_menu{
+	background-color: #EEDCDC;
 }
 
 .btn_area{
@@ -63,8 +63,7 @@ body{
 
 #footer{
 	position: fixed;
-	line-height: 180px;
-	height: 180px;
+	height: 120px;
 	width: 100%;
 	z-index: 2;
 	bottom: 0px;
@@ -76,10 +75,12 @@ body{
 }
 
 #plan_bar{
+	position: absolute;
 	width: 100%;
 	height: 80px; 
 	background:gray; 
 	border-top: thick black;
+	bottom: 0px;
 	overflow:auto;
 }
 
@@ -137,7 +138,7 @@ body{
 	top: 2.3%;
 	left: 2.2%;
     height: 22.5px;
-    width: 25px;
+    width: 23px;
 	background-image: -webkit-gradient(linear, left top, right bottom,
           from(#7d828c),
           color-stop(0.5, #303749),
@@ -170,32 +171,18 @@ body{
 	z-index: 40;
 }
 
- .back2{
+.menu_bar{
 	position: absolute;
-	top: 9.9%;
-	left: -5px;
-	-webkit-background-size: 22px;
-	background-position: -2px -1.5px;
-	background-color: #4A6C9B;
-	background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, from(transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.0980392)), to(rgba(255, 255, 255, 0.298039)));
-	height: 25px;
-	width: 25px;
-	-webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
-	border-top-right-radius: 100px 40px;
-	border-top-left-radius: 30px 2px;
-	border-bottom-right-radius: 2px 30px;
-	border-bottom-left-radius: 40px 100px;
-	z-index: 1;
-	content: ' ';
-	border-left: 1.5px solid rgba(255, 255, 255, 0.298039);
-	box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0px inset, rgba(0, 0, 0, 0.498039) -1px 1px 1px inset;
-	-webkit-mask-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(rgb(0, 0, 0)), color-stop(0.33, rgb(0, 0, 0)), color-stop(0.5, transparent), to(transparent)); 
+	width: 100%;
+	height: 40px;
+	background-color: #EEDCDC;
 }
 
 .btn_menu{
 	width: 25%;
-	display: inline-block;
-	margin-bottom: 27px;
+	height: 40px;
+	float: left;
+	background-color: #EEDCDC;
 }
 
 /* + 버튼을 누르면 나오는 추가메뉴 팝업창 */

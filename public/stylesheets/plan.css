@@ -26,12 +26,17 @@
 
 
 #selected_area{
-	height:20px; 
-	margin-right:10px;
-	margin-top: 2%;
+	position: absolute;
+	right: 1%;
+	top: 1px;
+	font-size: 15pt;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: 3%;
 	color: white;
-	font-size:20pt; 
-	float:right;
+	text-shadow: 0 0 0;
+	display: inline-block;
+	float: right;
 }
 
 
