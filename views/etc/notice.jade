@@ -3,9 +3,10 @@ include ../top.jade
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-				include ../search.jade	
-		div(class="header")
-			h2(align='right',style='padding-right:5px') 공지사항
+				include ../search.jade
+		include ../widget/popup_menu.jade	
+		div#header
+			p.menu_name 공지사항
 			hr
 			br
 		div(class="section")

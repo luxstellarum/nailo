@@ -6,6 +6,15 @@ $(document).ready(function() {
 	//$(".wrapper").css("height", wrapper_height + "px");
 
 	// datepicker
+	$.ajax({
+		type:'post',
+		dataType:'json',
+		url:'/member/get_login_inform',
+		success:function(data){
+			if(data.user_id==undefined)
+				$('.btn_save').css("display","none");
+		}
+	});
 	var popupStatus = 0;
 
 	$.loadPopup = function(popup){

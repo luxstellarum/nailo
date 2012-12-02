@@ -7,6 +7,7 @@ include ../top.jade
 						include ../search.jade
 			div#container.background_theme
 				div#community_1.slide.current.background_theme_gray
+					include ../widget/popup_menu.jade
 					div#header
 						span.head_number1 1
 						span.head_number2(style="font-size:15pt") 도선택
@@ -32,7 +33,7 @@ include ../top.jade
 					div.wrapper(id="kyunggido_map",style="display:none")
 						div.btn_area
 							span.back(type="button",name="#plan_1", value="back")
-							a#back(style="font-size:8pt", name="#plan_1") BACK
+							a#back(style="font-size:8pt", name="#community_1") BACK
 						div.map_wrapper
 							img.map(src="/images/map_kyunggido.png")
 							a.province(href="/community/community/seoul",rel='external', style='position:absolute; top:40%; left:40%;') 서울	

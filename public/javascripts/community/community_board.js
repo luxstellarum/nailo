@@ -43,7 +43,6 @@ $(document).unbind().bind('pagecreate',function(){
 			}
 			else
 			{
-				alert('fail');
 			}
 		}
 	});
@@ -56,7 +55,10 @@ $(document).unbind().bind('pagecreate',function(){
 			success:function(data){
 				console.log(data);
 				if(!data.user_id)
+				{
 					alert("로그인이 필요한 기능입니다.");
+					location.href="/mypage/login";
+				}
 				else
 					location.href="/community/bun_make?city="+city;
 			}

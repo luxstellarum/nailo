@@ -40,6 +40,22 @@ $(document).ready(function(){
 			alert("내용을 입력하세요.");
 			return;
 		}
+		else if(!isNum($("input[name='population']").val())||$("input[name='event_month']").val()>12 ||$("input[name='event_month']").val()<1 ||$("input[name='event_day']").val()>31 || $("input[name='event_day']").val()<1  ){
+			alert("올바른 날짜를 입력하세요.");
+			return;
+		}
+		else if(!isNum($("input[name='population']").val())||$("input[name='start_hour']").val()>24 ||$("input[name='start_hour']").val()<0 || $("input[name='start_minte']").val()<0||$("input[name='start_minte']").val()>59){
+			alert("올바른 시작 시간을 입력하세요.");
+			return;
+		}
+		else if(!isNum($("input[name='population']").val())||$("input[name='end_hour']").val()<0||$("input[name='end_hour']").val()>24 || $("input[name='end_minte']").val()<0|| $("input[name='end_minte']").val()>59){
+			alert("끝나는 시간을 올바르게 입력하세요");
+			return;
+		}
+		else if($("input[name='population']").val()<0 || !isNum($("input[name='population']").val())){
+			alert("원하는 인원을 입력하세요.");
+			return;
+		}
 		//페이지에 존재하는 모든 input_form class 들을 찾아서
 		//차례대로 하나씩 아래 함수를 수행
 		$('.input_form').each(function(){

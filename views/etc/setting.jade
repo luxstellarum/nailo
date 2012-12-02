@@ -4,8 +4,9 @@ include ../top.jade
 			label(for="paneltoggle")
 			div(class="content")
 					include ../search.jade
-		div(class="header")
-			h2(align='right',style='padding-right:5px') 설정
+		include ../widget/popup_menu.jade
+		div#header
+			p.menu_name 설정
 			hr
 			br
 		div(class="section")
