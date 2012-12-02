@@ -251,7 +251,8 @@ $(document).ready(function(){
 			data : final_data, 
 			success : function(result) {
 				console.log('result', result);
-			
+				alert('저장하였습니다.');
+				$(".plan_index").attr('index', result.index);			
 			},
 			error : function() {
 				alert('error!!!');

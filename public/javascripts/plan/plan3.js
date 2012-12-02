@@ -127,26 +127,12 @@ $(document).ready(function() {
 			disabled : true
 		});
 
-		$("#sortable li").each(function (){
-			$(this).unbind('click');
-			$(this).bind('click', function() {
-				var nextPage = "#plan_" + $(this).attr('city_name');
-				changePage($(nextPage),'slide');
-			});
-		})		
-		
+		li_confirm_mode();
+
 		$(".btn_confirm").hide();
 		$(".btn_continue").hide();
 		$(".btn_modify").show();
 
-		//기차시간 추천 고고
-		$("sortable li").each(function() {
-			selected_cities[selected_cities.length] = $(this).text();
-		});			
-
-		for(var i=0; i < selected_cities.length-1; i++ ) {
-			get_train_time(selected_cities[i], selected_cities[i+1], i+1);
-		}
 	});
 
 	//plan3, 선택 수정버튼
@@ -155,21 +141,49 @@ $(document).ready(function() {
 		$("#sortable").sortable({
 			disabled : false
 		});
-
-		$("#sortable li").each(function (){
-			$(this).unbind('click');
-			$(this).bind('click', function(event) {
-				var target = this;
-				if(confirm("해당 도시를 삭제하시겠습니까?") ) {
-					$(target).remove();
-				}
-			});
-		});		
 		
+		li_modify_mode();
+
 		$(".btn_confirm").show();
 		$(".btn_continue").show();
 		$(".btn_modify").hide();
-
-		selected_cities = [];
 	});
 });
+
+
+function li_modify_mode () {
+	alert('modify_mode');
+	$("#sortable li").each(function (){
+		$(this).unbind('click');
+		$(this).bind('click', function(event) {
+			var target = this;
+			if(confirm("해당 도시를 삭제하시겠습니까?") ) {
+				$(target).remove();
+			}
+		});
+	});	
+	var length = selected_cities.length;
+	for(var i=0; i<length ; i++) {
+		selected_cities.pop();
+	}	
+}
+
+function li_confirm_mode() {
+	alert('confirm_mode');
+	$("#sortable li").each(function (){
+		$(this).unbind('click');
+		$(this).bind('click', function() {
+			var nextPage = "#plan_" + $(this).attr('city_name');
+			changePage($(nextPage),'slide');
+		});
+	})		
+	//기차시간 추천 고고
+	$("#sortable li").each(function() {
+		alert('여긴 들어왔니?');
+		selected_cities[selected_cities.length] = $(this).text();
+	});			
+
+	for(var i=0; i < selected_cities.length-1; i++ ) {
+		get_train_time(selected_cities[i], selected_cities[i+1], i+1);
+	}
+}

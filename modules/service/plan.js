@@ -28,7 +28,7 @@ module.exports = {
 				}
 				else{
 					console.log('service/plan.js, write._fail');
-					res.json({result:false});
+					res.json({result:false, index : req.body.index});
 				}
 			});
 		}

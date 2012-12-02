@@ -53,8 +53,6 @@ $(document).ready(function() {
 		// console.log(target);
 		// train_plan[train_plan_flag] = {};
 		// train_plan[train_plan_flag]['city_name'] = $(this).text();
-
-		selected_cities[selected_cities.length] = target.text();
 			
 		$('.city2').each(function(){
 			$(this).hide();
