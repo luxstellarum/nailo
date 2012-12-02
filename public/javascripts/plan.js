@@ -1,11 +1,27 @@
 $(document).ready(function() {
 	$('.loader').hide();
 	// wrapper 높이를 구한다
+<<<<<<< HEAD
 	var window_height = $(window).height();
 	var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
 	$(".wrapper").css("height", wrapper_height);
+=======
+	//var window_height = $(window).height();
+	//var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
+	//alert(wrapper_height);
+	//$(".wrapper").css("height", wrapper_height + "px");
+>>>>>>> 8909f0e82c4232463750aca77459c437537c8e01
 
 	// datepicker
+	$.ajax({
+		type:'post',
+		dataType:'json',
+		url:'/member/get_login_inform',
+		success:function(data){
+			if(data.user_id==undefined)
+				$('.btn_save').css("display","none");
+		}
+	});
 	var popupStatus = 0;
 
 	$.loadPopup = function(popup){
@@ -34,7 +50,7 @@ $(document).ready(function() {
 		var windowWidth = document.documentElement.clientWidth;
 		var windowHeight = document.documentElement.clientHeight;
 		var popupHeight = popup.height();
-		var popupWidth = popup.width();
+		var popupWidth = popup.width();                                                                                                                                 
 		//중앙에 위치시키기 / centering
 		console.log(popupWidth, windowWidth);
 		popup.css({

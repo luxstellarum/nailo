@@ -4,14 +4,15 @@ include ../top.jade
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-				include ../search.jade	
+				include ../search.jade
+		include ../widget/popup_menu.jade	
 		div#header
-			h3(align='right',style='padding-right:5px') My > 나의 커뮤니티 활동 내역
+			p.menu_name My > 나의 커뮤니티 활동 내역
 			hr
 			br
-		div(class="section")
+		div(class="section",style="margin-top:20px")
 			div(id="pre_set",style='display:none')
-				span.my_bun_show(style='margin-left:15px; font-size:3')
+				span.my_bun_show(style='margin-left:15px; font-size:10pt')
 				hr(style='margin-left:8px; margin-right:8px')
 			div(id="field")
 	

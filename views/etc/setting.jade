@@ -4,12 +4,13 @@ include ../top.jade
 			label(for="paneltoggle")
 			div(class="content")
 					include ../search.jade
-		div(class="header")
-			h2(align='right',style='padding-right:5px') 설정
+		include ../widget/popup_menu.jade
+		div#header
+			p.menu_name 설정
 			hr
 			br
 		div(class="section")
-			div(style='margin-bottom:40px')
+			div(style='margin-bottom:40px; margin-top:20px')
 				span(style='margin-left:15px;')
 					span
 						font(size='3')기본정보

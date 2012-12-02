@@ -6,18 +6,13 @@ include ../top.jade
 				div(id="searchbrowser")
 					include ../search.jade
 		div(id="community_3",style="height:100%")
+			include ../widget/popup_menu.jade
 			div#header
 				span.head_number1 3
-				input.btn_save.btn1(type="button", value="SAVE")
-				span(id='selected_city',style='height:20px; margin-right:7px; margin-top:8px; font-size:25pt; float:right; color: white; text-shadow: 0 0 0;') 
+				span(id='selected_city',style='height:20px; margin-right:7px; margin-top:8px; font-size:25pt; float:right; color: white; text-shadow: 0 0 0;')
 			div(class="section",style="margin-top:0px")
-				table(id="board_field",cellspacing='0',align='center',cellpadding='8px',
-					,style='border-top:thin solid gray; border-bottom:thin solid gray; width:100%; bottom:200px')
-						tr
-							td(style='padding-left:10px; border-bottom:thick solid gray;',width='40px') 시간
-							td(style='padding-left:10px; border-bottom:thick solid gray;',width='60px') 장소 
-							td(style='padding-left:10px; border-bottom:thick solid gray;') 무엇을
-							td(style='padding-left:10px; border-bottom:thick solid gray;') 인원
+				span.btn_area
+					img.btn_bunmake(src="/images/btn_bunmake.png") 
 				table(id="board_field",cellspacing='0',align='center',cellpadding='8px',
 					,style='border-top:thin solid gray; border-bottom:thin solid gray; width:100%; bottom:200px')
 						tr

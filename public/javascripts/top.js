@@ -133,6 +133,7 @@ $(document).ready(function(){
 		{
 			$('#header').css("display","none");
 			$('#container').css("display","none");
+			$('.slide').css("opacity","0");
 			$('#searchbrowser').css("height","350px");
 			$('#searchbrowser').css("overflow","auto");
 			$('#searchbrowser').focus().select();
@@ -142,6 +143,7 @@ $(document).ready(function(){
 
 			$('#header').css("display","block");
 			$('#container').css("display","block");
+			$('.slide').css("opacity","1");
 			$('#searchbrowser').css("height","10px");
 			$('#searchbrowser').css("overflow","hidden");
 		}
@@ -154,36 +156,27 @@ $(document).ready(function(){
 
 	// plan.jade가 시작되면 날짜선택창이 슬라이드다운된다
 	$("#periodpicker").slideDown();
-
 	
-
-	// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
-	$("input.btn_more").click(function(){
+			// bottom.jade: + 버튼을 클릭하면 추가메뉴를 선택할 수 있다
+	$(".btn_more").click(function(){
 		var submenu = $(".popup_othermenu");
-
 		// submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
 		if( submenu.is(":visible") ){
 			submenu.slideUp();
-		}else{
-			submenu.slideDown();
-		}
-		if( $(".popup_beongae").is(":visible")){
-			$(".popup_beongae").css("display", "none");
-		}
-	});
-	$("input.btn_beongae").click(function(){
-		var submenu = $(".popup_beongae");
 
-		// submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-		if( submenu.is(":visible") ){
-			submenu.slideUp();
 		}else{
 			submenu.slideDown();
 		}
-		if( $(".popup_othermenu").is(":visible")){
-			$(".popup_othermenu").css("display", "none");
-		}
 	});
+	$('.othermenu').click(function(){
+		if($(this).attr('id')=='notice')
+			location.href="/etc/notice";
+		else if($(this).attr('id')=='setting')
+			location.href="/etc/setting";	
+		else if($(this).attr('id')=='question')
+			location.href="/etc/question";				
+	});
+
 });
 
 

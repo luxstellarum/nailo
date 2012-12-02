@@ -40,8 +40,9 @@ module.exports = {
 	,list: function(req, res){
 		var current_page = req.body.current_page || 1;
 		var paging_size = 10;
-		var id = req.session.userid;
-		var condition = ({ 'id' : id });
+		var condition = {};
+		condition['id'] = req.session.userid;
+		console.log(req.session.userid);
 		plan_db.get_list(condition, current_page, paging_size, function(result){
 			if(result != false){
 				console.log('service/plan.js, list_success');

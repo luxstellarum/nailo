@@ -192,8 +192,8 @@ module.exports = function(app){
 	app.get('/etc/setting', function(req, res){
 		res.render('etc/setting', {title:'/etc/setting'});
 	});	
-	app.get('/etc/tip', function(req, res){
-		res.render('etc/tip', {title:'/etc/tip'});
+	app.get('/etc/question', function(req, res){
+		res.render('etc/question', {title:'/etc/tip'});
 	});	
 
 	//train
