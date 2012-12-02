@@ -49,7 +49,18 @@ $(document).unbind().bind('pagecreate',function(){
 	});
 	
 	$('.btn_bunmake').click(function(){
-		location.href="/community/bun_make?city="+city;
+		$.ajax({
+			type: 'post',
+			dataType: 'json',
+			url: '/member/get_login_inform',
+			success:function(data){
+				console.log(data);
+				if(!data.user_id)
+					alert("로그인이 필요한 기능입니다.");
+				else
+					location.href="/community/bun_make?city="+city;
+			}
+		});
 	});
 
 	
