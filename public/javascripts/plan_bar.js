@@ -15,7 +15,8 @@ var drop_option = {
 		var target = $(this);
 		var target_place = ui.draggable.context.innerText;
 		$(this).css({
-			"background-color": "yellow"
+			"background-color" : "black",
+			"opacity" : 0.5
 		});
 		$(this).attr("place", target_place);
 		$(this).text(target_place);
@@ -25,13 +26,13 @@ var drop_option = {
 		//plan_bar_hour_left = $(this).position().left;
 		$.loadPopup($('#hourpicker'));
 
-		$(".set_hour_btn").unbind().bind('click', function(){
+		$(".set_hour_btn").unbind('click').bind('click', function(){
 			var period = $(this).parent().find('.hours').val();
 			set_hours(target, period, target_place);
 			$.disablePopup($('#hourpicker'));
 		});//end of bind
 
-		$(".hour_set_cancel_btn").unbind().bind('click', function(){
+		$(".hour_set_cancel_btn").unbind('click').bind('click', function(){
 			$.disablePopup($('#hourpicker'));
 		});//end of bind
 
@@ -56,26 +57,29 @@ function next_day_scroll(amount){
 }
 
 function set_hours(target, period, target_place) {
+	console.log('set_hours', target, period, target_place);
 	target = target.parent().find('[place="'+target_place+'"]:first');
 	var remove_targets = $(target).parent().find('[place="'+target_place+'"]').not('[occupied=1]');
 	remove_targets.each(function(){
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
 		$(this).css({
-			"background-color" : "red"
+			"background-color" : "white",
+			"opacity" : 0.1
 		});
 		$(this).attr("occupied", 0);
 		$(this).removeClass("filled");
 	});
 
-	target.attr('period') = period;
+	target.attr('period', period);
 	
 	for(var i=1; i<period; i++) {
 		target = target.next();
 
 		console.log('target :', target);
 		target.css({
-			"background-color" : "yellow"
+			"background-color" : "black",
+			"opacity" : 0.5
 		});
 		target.attr("place", target_place);
 		//target.text(target_place);
@@ -93,7 +97,8 @@ function remove_place (target) {
 		$(this).attr("place", "");
 		$(this).text($(this).attr("hour"));
 		$(this).css({
-			"background-color" : "red"
+			"background-color" : "white",
+			"opacity" : 0.5
 		});
 		$(this).attr("occupied", 0);
 		$(this).removeClass("filled");
@@ -196,6 +201,65 @@ $(document).ready(function(){
 		$('.plan_city').css('left', plan_start);
 		$('.plan_city').css('background-color', 'Red');
 	});
+
+
+	//완전히 저장
+	$(".btn_save").live("click",function(){
+		//ToDo. 제목을 저장 할 수 있는 패널이 필요
+
+		var data = [];
+		var i=0, j=0;
+		$('.plan_bar').each(function(){
+			var parent = this;
+			data[i] = []
+			$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
+				if($(this).attr('occupied') == 3) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['dept_station'] = $(this).attr('dept_station');
+					data[i][j]['arrv_station'] = $(this).attr('arrv_station');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}
+				else if($(this).attr('occupied') == 1) {
+					data[i][j] = {};
+					data[i][j]['occupied'] = $(this).attr('occupied');
+					data[i][j]['place'] = $(this).attr('place');
+					data[i][j]['text'] = $(this).text();
+					data[i][j]['start_time'] = $(this).attr('hour');
+					data[i][j]['period'] = $(this).attr('period');
+					j++;
+				}					
+			});
+			i++;
+		});
+		var index = $(".plan_index").attr('index');
+		var final_data = {};
+		final_data['subject']; //ToDo
+		final_data['data'] = [];
+		final_data['index'] = index;
+		final_data.data = data;
+
+
+		//ToDo
+		$.ajax({
+			type : 'POST',
+			dataType : 'json',
+			url : '/plan/write',
+			data : final_data, 
+			success : function(result) {
+				console.log('result', result);
+				alert('저장하였습니다.');
+				$(".plan_index").attr('index', result.index);			
+			},
+			error : function() {
+				alert('error!!!');
+			}
+		});
+	}); //end of live
+
 
 	$("#sortable").sortable({
 		update : function() {

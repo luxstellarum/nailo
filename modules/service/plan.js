@@ -4,16 +4,35 @@ module.exports = {
 	
 	// 플랜 작성
 	write: function(req, res){
+		if(req.body.index==0) {
 			plan_db.add(req.body, function(result){
-				if(result == true){
+				if(result.result == true){
 					console.log('service/plan.js, write_success');
-					res.json({result:true});
+					res.json(result);
 				}
 				else{
 					console.log('service/plan.js, write._fail');
 					res.json({result:false});
 				}
 			}); 	// end of add
+		}//end of if
+
+		else {
+			var update = {};
+			update['subject'] = req.body.subject;
+			update['data'] = req.body.data;
+			plan_db.update( req.body.index, update, function(result) {
+				if(result.result == true){
+					console.log('service/plan.js, write_success');
+					res.json(result);
+				}
+				else{
+					console.log('service/plan.js, write._fail');
+					res.json({result:false, index : req.body.index});
+				}
+			});
+		}
+			
 	}	// end of write
 	
 	

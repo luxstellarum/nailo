@@ -1,4 +1,33 @@
 $(document).ready(function() {
+	/*==========================periodpicker init =======================*/
+	var today = new Date();
+
+	var thisyear = today.getFullYear();
+
+	for(var i=0; i<2; i++) {
+		var tmp = thisyear + i;
+		$(".period.start_year").append( '<option value='+tmp+'>'+tmp+'</option>');	
+		$(".period.end_year").append( '<option value='+tmp+'>'+tmp+'</option>');	
+		
+	}
+
+	for(var i=1; i<13; i++) {
+		$(".period.start_month").append( '<option value='+i+'>'+i+'</option>');	
+		$(".period.end_month").append( '<option value='+i+'>'+i+'</option>');	
+	}
+
+	for(var i=1; i<32; i++) {
+		$(".period.start_day").append( '<option value='+i+'>'+i+'</option>');	
+		$(".period.end_day").append( '<option value='+i+'>'+i+'</option>');		
+	}
+
+
+
+
+	/***********************************************************************/
+
+
+
 	var periodpicker = $("#periodpicker");
 	$.loadPopup(periodpicker);
 	$.centerPopup(periodpicker);
@@ -71,8 +100,8 @@ $(document).ready(function() {
 		$.loadPopup(trainpicker);
 		$.centerPopup(trainpicker);
 
-		$(".confirm_city").click(function (){
-			selected_cities[0] = $('.dept_city').val();
+		$(".confirm_city").bind('click', function (){
+			check_city($('.dept_city').val());
 		});
 	});
 
@@ -80,6 +109,26 @@ $(document).ready(function() {
 		var periodpicker = $("#periodpicker");
 		$.disablePopup(periodpicker);
 	});
-
-	
 });
+
+
+function check_city (city) {
+	$.ajax({
+		dataType : 'json',
+		type : 'POST',
+		url : '/city/count',
+		data : { 'city_name' : city },
+		success : function( count ) {
+			if(count.count > 0) {
+				var trainpicker = $("#trainpicker");
+				selected_cities[0] = city;
+				var li = "<li class='city_name' cnt='0' city_name='' city_name_kor='"+city+"'>" + city + "</li>";
+				$("#sortable").append(li);
+				$.disablePopup(trainpicker);
+			}
+			else {
+				alert("현재 서비스 되지 않는 도시입니다.");
+			}
+		}
+	})
+};

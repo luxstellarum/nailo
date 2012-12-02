@@ -1,14 +1,14 @@
 script(src="/javascripts/plan/plan3.js")
-style
-	#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-	#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-	#sortable li span { position: absolute; margin-left: -1.3em; }
+
 div#plan_3(class="slide")
 	div#header(style="margin-top:-10px")
 		span.head_number1 3
-		span.head_number2(style="font-size:15pt") > 선택한 도시 보기
-	input#back(type="button",name="#plan_2", value="back", style="position:absolute; top:70px;z-index:2002")
+		span.head_number2(style="font-size:15pt") 선택한 도시 보기
+	div.btn_area
+		a#back(style="font-size:8pt", name="#plan_2") BACK
+		input.btn_save.btn1(type="button", value="SAVE")
 	ul#sortable(style="position:absolute; z-index:9999",data-role="listview", data-inset="true")
 	div.plan3_btn_area(style="z-index:3000;")
-		input.btn_continue(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
-		input.btn_confirm(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")
+		input.btn_continue.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
+		input.btn_confirm.btn1(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")
+		input.btn_modify.btn1(type="button",value="선택 변경",name="modify",style="font-size: 7pt; display:none;")

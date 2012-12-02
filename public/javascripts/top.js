@@ -7,9 +7,6 @@ var train_plan_flag = 0;
 
 $(document).ready(function(){
 
-	$('input').select();
-    $('input').focus();
-    $('input').trigger('change');
 
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
