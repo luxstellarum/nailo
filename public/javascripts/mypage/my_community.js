@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	
 	var output_data={};
-	
+		
+
 	$.ajax({
 		type:'post',
 		dataType: 'json',
@@ -22,7 +23,7 @@ $(document).ready(function(){
 									var div = document.createElement('div');
 									div.innerHTML = document.getElementById('pre_set').innerHTML;
 									div.style.marginTop="0px";
-									div.setAttribute("name",item.index);
+									div.firstChild.setAttribute("name",item.index);
 									div.firstChild.style.overflow="hidden";
 									item.start_hour=SetZeros(item.start_hour,2);
 									item.start_minute=SetZeros(item.start_minute,2);
@@ -32,11 +33,12 @@ $(document).ready(function(){
 										document.createTextNode(" ["+item.city+"/"+item.event_month+"."+item.event_day+"/"
 																+item.start_hour+":"+item.start_minute+"] "+item.subject));
 									$('#field').append(div);
-									$('.my_bun_show').click(function(){
-										location.href='/community/bun_show';
-
-									});
 								});
+									$('.my_bun_show').click(function(){
+										console.log($(this).attr('name'));
+										
+										location.href='/community/bun_show?val='+$(this).attr('name');
+									});
 							}
 							else{
 								alert('fail');

@@ -47,9 +47,9 @@ $(document).unbind().bind('pagecreate',function(){
 								$.each(data,function(i,item){
 									var div = document.createElement('div');
 									div.innerHTML = document.getElementById('pre_set').innerHTML;
-									div.style.borderBottom = "thin solid gray";
 									div.style.margin = "15px 20px";
 									div.setAttribute("name",item.index);
+									console.log(item.name);
 									div.firstChild.appendChild(document.createTextNode(item.name+" > "+item.content));
 									
 									$('#field').append(div);
