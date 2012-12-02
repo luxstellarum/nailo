@@ -4,18 +4,16 @@ div#plan_3(class="slide")
 	div#header(style="margin-top:-10px")
 		span.head_number1 3
 		span.head_number2(style="font-size:15pt") 선택한 도시 보기
-	div.btn_area
-		a#back(style="font-size:8pt", name="#plan_2") BACK
-		input.btn_save.btn1(type="button", value="SAVE")
-	ul#sortable(style="position:absolute; z-index:9999")
-		li.city_cnt(cnt="1") 첫번째 도시 
-		li.city_name(cnt="1") 부산
-		li.city_cnt(cnt="2") 두번째 도시 
-		li.city_name(cnt="2") 부산
-		li.city_cnt(cnt="3") 세번째 도시 
-		li.city_name(cnt="3") 부산
-		li.city_cnt(cnt="4") 네번째 도시 
-		li.city_name(cnt="4") 부산
+	div.wrapper
+		div.btn_area
+			span.back(type="button",name="#plan_2", value="back")
+			a#back(style="font-size:8pt", name="#plan_2") BACK
+			input.btn_save.btn1(type="button", value="SAVE")
+		ul#sortable(style="position:absolute; z-index:9999")
+			li.city_name(cnt="1") 부산
+			li.city_name(cnt="2") 부산
+			li.city_name(cnt="3") 부산
+			li.city_name(cnt="4") 부산
 	div.plan3_btn_area(style="z-index:3000;")
 		input.btn_continue.btn1(type="button",value="선택 계속", name="insert",style="font-size: 7pt")
 		input.btn_confirm.btn1(type="button",value="선택 확정",name="confirm",style="font-size: 7pt")

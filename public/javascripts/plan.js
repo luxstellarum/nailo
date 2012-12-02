@@ -8,6 +8,13 @@ $(document).ready(function() {
 			$('.province_name').text(province);
 		});
 	});*/
+
+	// wrapper 높이를 구한다
+	var window_height = $(window).height();
+	var wrapper_height = window_height - 120 - 60;	// wrapper 높이는 header, footer을 뺸 나머지
+	alert(wrapper_height);
+	$(".wrapper").css("height", wrapper_height);
+
 	// datepicker
 	var popupStatus = 0;
 

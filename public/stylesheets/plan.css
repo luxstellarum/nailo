@@ -200,11 +200,9 @@ p.city{
 
 .plan3_btn_area{
 	position: absolute;
-	margin-top: -30px;
-	padding-right: 10px;
 	bottom: 150px;
 	right: 2%;
-	width: 100px;
+	width: 100%;
 }
 
 .plan_bar_wrapper{
@@ -257,7 +255,7 @@ p.city{
 }
 .city_name{
 	margin: 0 3px 3px 3px; 
-	height: 8%; 
+	height: 25px; 
 	opacity: 0.8;
 	background-color: #F7CFCF;
 	box-shadow: inset 1px 1px 3px #DFBBBB, 1px 1px 3px white;
@@ -288,4 +286,11 @@ p.city{
 }
 .city_name[cnt="7"]{
 	background-color: #F7CFCF;
+}
+
+/**** see.jade ****/
+.see_city_name{
+	color: white;
+	text-shadow: 0 0 0;
+	font-size: 14pt;
 }
