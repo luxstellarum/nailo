@@ -1,4 +1,33 @@
 $(document).ready(function() {
+	/*==========================periodpicker init =======================*/
+	var today = new Date();
+
+	var thisyear = today.getFullYear();
+
+	for(var i=0; i<2; i++) {
+		var tmp = thisyear + i;
+		$(".period.start_year").append( '<option value='+tmp+'>'+tmp+'</option>');	
+		$(".period.end_year").append( '<option value='+tmp+'>'+tmp+'</option>');	
+		
+	}
+
+	for(var i=1; i<13; i++) {
+		$(".period.start_month").append( '<option value='+i+'>'+i+'</option>');	
+		$(".period.end_month").append( '<option value='+i+'>'+i+'</option>');	
+	}
+
+	for(var i=1; i<32; i++) {
+		$(".period.start_day").append( '<option value='+i+'>'+i+'</option>');	
+		$(".period.end_day").append( '<option value='+i+'>'+i+'</option>');		
+	}
+
+
+
+
+	/***********************************************************************/
+
+
+
 	var periodpicker = $("#periodpicker");
 	$.loadPopup(periodpicker);
 	$.centerPopup(periodpicker);
