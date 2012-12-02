@@ -1,4 +1,13 @@
+$(document).bind('ajaxStart', function(){
+	$('.loader').show();
+})
+
+$(document).bind('ajaxStop', function(){
+	$('.loader').hide();
+})
+
 $(document).ready(function() {
+	$('.loader').hide();
 	/*==========================periodpicker init =======================*/
 	var today = new Date();
 

@@ -4,10 +4,40 @@
 var selected_cities = []; //선택한 도시 정보 저장
 var train_plan = [];
 var train_plan_flag = 0;
+$(document).bind('ajaxStart', function(){
+	$('.loader').show();
+	$('#mask').show();
+})
+
+$(document).bind('ajaxStop', function(){
+	$('.loader').hide();
+	$('#mask').hide();
+})
 
 $(document).ready(function(){
+	/*===== loader init ===========================*/
+	var loader_left = ($(window).width()/2) - $(".loader").width();
+	var loader_top = ($(window).height()/2) - $(".loader").height();
+	$('.loader').css({
+		'position' : 'absolute',
+		'top' : loader_top,
+		'left' : loader_left,
+		'z-index' : 100000
+	});
+	$('.loader').hide();
 
-
+	$('#mask').css({
+		'position':'absolute',
+		'left':0,
+		'top':0,
+		'z-index':90000,
+		'background-color' : '#000',
+		'opacity':0.7,
+		'display':'none',
+		'width' : $(window).width(),
+		'height' : $(window).height()
+	});
+	/*==============================================*/
 	var plan_city_cnt = 0; // plan bar에 추가된 계획영역개수
 
 	$('.slide a,#back').bind("touchstart mousedown",function(e){

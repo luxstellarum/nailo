@@ -77,14 +77,19 @@ function set_hours(target, period, target_place) {
 		target = target.next();
 
 		console.log('target :', target);
-		target.css({
-			"background-color" : "black",
-			"opacity" : 0.5
-		});
-		target.attr("place", target_place);
-		//target.text(target_place);
-		target.attr("occupied", 2);
-		target.addClass("filled"); 
+		if( target.attr('occupied') != 3 ) {
+			target.css({
+				"background-color" : "black",
+				"opacity" : 0.5
+			});
+			target.attr("place", target_place);
+			//target.text(target_place);
+			target.attr("occupied", 2);
+			target.addClass("filled"); 
+		}
+		else {
+			i=period;
+		}
 	}
 
 }
@@ -111,7 +116,27 @@ $(document).ready(function(){
 	var timeoutId = 0;
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
-	
+	$(".next_day").css({
+		'width' : $('.plan_bar').width()/24,
+		'height' : '80px',
+		'position' : 'absolute',
+		'left' : $(window).width() - ($('.plan_bar').width()/24),
+		'opacity' : 0.5,
+		'top' : '0px',
+		'background-color' : 'black',
+		'z-index' : 99999,
+
+	});
+	$(".prev_day").css({
+		'width' : $('.plan_bar').width()/24,
+		'height' : '80px',
+		'position' : 'absolute',
+		'left' : '0px',
+		'opacity' : 0.5,
+		'top' : '0px',
+		'background-color' : 'black',
+		'z-index' : 99999,
+	});
 	
 	$(".next_day").mousedown(function() {
 		timeoutId = setTimeout(next_day_scroll(window_width), 100);
@@ -261,8 +286,20 @@ $(document).ready(function(){
 		});
 	}); //end of live
 
-	//완전히 저장
+	//로드!!
 	$(".btn_load").live("click",function(){
+		$("#plan_bar li").each(function(){
+			target = $(this);
+			target.removeClass();
+			target.text();
+			target.attr('city_name', '');
+			target.attr('city_name_kor', '');
+			target.attr('occupied', 0);
+			target.css({
+				'background-color' : 'white',
+				'opacity' : 0.1
+			})
+		});
 		//ToDo
 		$.ajax({
 			type : 'POST',
@@ -278,7 +315,7 @@ $(document).ready(function(){
 				alert('error!!!');
 			}
 		});
-		
+
 		var data = [];
 		var i=0, j=0;
 		$('.plan_bar').each(function(){

@@ -11,10 +11,11 @@ var train_time_table = [];
  		target.removeClass("train_set");
 		target.attr("dept_station", "");
 		target.attr("arrv_station", "");
-		target.attr("occupied", 3);
+		target.attr("occupied", 0);
 		target.text("");
 
  	})
+ 	
 	console.log('set_train_time');
 	var ori_target = $('.plan_bar[day=' + day + ']').find('[hour=' + dept_time + ']');
 	var target = ori_target;
@@ -47,12 +48,12 @@ var train_time_table = [];
 		target = target.next();
 	}
 	
-	target = ori_target;
-	while(target.prev().attr("occupied") < 3) {
-		target = target.prev();
-		target.attr('city', dept);
-		target.addClass("train_set");
-	}
+	// target = ori_target;
+	// while(target.prev().attr("occupied") < 3) {
+	// 	target = target.prev();
+	// 	target.attr('city', dept);
+	// 	target.addClass("train_set");
+	// }
 		
 }
 

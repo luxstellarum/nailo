@@ -4,7 +4,6 @@ var drag_option = {
 	helper: "clone"
 };
 
-
 //page 로딩이 끝난 후에 각종 이벤트 및 함수를 로딩 
 $(document).ready(function(){
 	console.log("see.js");

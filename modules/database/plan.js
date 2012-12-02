@@ -131,7 +131,7 @@ module.exports = {
 	,get_list: function(condition, current_page, paging_size, callback){
 		var skip_size = (current_page * paging_size) - paging_size;
 		
-		documents.find({}).sort('-index').skip(skip_size).limit(paging_size).exec(function(err, docs){
+		documents.find(condition).sort('-index').skip(skip_size).limit(paging_size).exec(function(err, docs){
 			if(!err){
 				callback(docs);
 			}
