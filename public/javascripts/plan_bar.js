@@ -54,6 +54,14 @@ function dragcity( item) {
 
 function next_day_scroll(amount){
 	$('#plan_bar').scrollLeft($("#plan_bar").scrollLeft() + amount);
+
+	$(".next_day").css({
+		'left' : $(".next_day").offset().left + amount
+	})
+
+	$(".prev_day").css({
+		'left' : $(".prev_day").offset().left + amount
+	})
 }
 
 function set_hours(target, period, target_place) {
@@ -110,16 +118,6 @@ function remove_place (target) {
 	});
 }
 
-function set_plan_bar_controller (amount) {
-	$(".next_day").css({
-		'left' : $(".next_day").scrollLeft() + amount
-	})
-
-	$(".prev_day").css({
-		'left' : $(".prev_day").scrollLeft() + amount
-	})
-}
-
 $(document).ready(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
@@ -166,42 +164,30 @@ $(document).ready(function(){
 
 	$(".next_day").live('click', function(){
 		$("#plan_bar").scrollLeft( window_width );
-		console.log($('.next_day').position().left);
-		$(".next_day").css({
-			'left' : $(".next_day").position().left + window_width
-		});
-		$(".prev_day").css({
-			'left' : $(".prev_day").position().left + window_width
-		});
 	});	
 	
 	$(".prev_day").live('click', function(){
 		$("#plan_bar").scrollLeft( -window_width );
-		$(".next_day").css({
-			'left' : $(".next_day").offset().left - window_width
-		});
-		$(".prev_day").css({
-			'left' : $(".prev_day").offset().left - window_width
-		});
-	});	
+	});
+	// });	
 
-	// $(".next_day").mousedown(function() {
-	// 	timeoutId = setTimeout(next_day_scroll(window_width), 100);
-	// 	set_plan_bar_controller();
-	// 		}).bind('mouseleave', function() {
-	// 	clearTimeout(timeoutId);
-	// });
+	// // $(".next_day").mousedown(function() {
+	// // 	timeoutId = setTimeout(next_day_scroll(window_width), 100);
+	// // 	set_plan_bar_controller();
+	// // 		}).bind('mouseleave', function() {
+	// // 	clearTimeout(timeoutId);
+	// // });
 
-	// $(".prev_day").mousedown(function() {
-	// 	timeoutId = setTimeout(next_day_scroll(-window_width), 100);
-	// 	set_plan_bar_controller();
-	// 		}).bind('mouseleave', function() {
-	// 	clearTimeout(timeoutId);
-	// });
-	// bottom.jade: 시간표의 위치 선정
-	var span_width = $(".12").width();
-	$(".12").css("left", (window_width/2) - span_width);
-	$(".24").css("left", window_width - span_width*3);
+	// // $(".prev_day").mousedown(function() {
+	// // 	timeoutId = setTimeout(next_day_scroll(-window_width), 100);
+	// // 	set_plan_bar_controller();
+	// // 		}).bind('mouseleave', function() {
+	// // 	clearTimeout(timeoutId);
+	// // });
+	// // bottom.jade: 시간표의 위치 선정
+	// var span_width = $(".12").width();
+	// $(".12").css("left", (window_width/2) - span_width);
+	// $(".24").css("left", window_width - span_width*3);
 
 	// test!!! 플랜바 안에 시간구분을 위한 영역
 	var hour_width = $(".plan_bar").width()/24;
