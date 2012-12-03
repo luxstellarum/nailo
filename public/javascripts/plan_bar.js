@@ -53,15 +53,18 @@ function dragcity( item) {
 
 
 function next_day_scroll(amount){
+	console.log('amount :', amount);
 	$('#plan_bar').scrollLeft($("#plan_bar").scrollLeft() + amount);
-
+	var next_day_offset = parseInt($(".next_day").css('left').split('px')[0], 10) + amount;
+	var prev_day_offset = parseInt($(".prev_day").css('left').split('px')[0], 10) + amount;
+	
 	$(".next_day").css({
-		'left' : $(".next_day").offset().left + amount
-	})
+		'left' : next_day_offset
+	});
 
 	$(".prev_day").css({
-		'left' : $(".prev_day").offset().left + amount
-	})
+		'left' : prev_day_offset
+	});
 }
 
 function set_hours(target, period, target_place) {
@@ -163,11 +166,11 @@ $(document).ready(function(){
 	});
 
 	$(".next_day").live('click', function(){
-		$("#plan_bar").scrollLeft( window_width );
+		next_day_scroll( window_width );
 	});	
 	
 	$(".prev_day").live('click', function(){
-		$("#plan_bar").scrollLeft( -window_width );
+		next_day_scroll( -window_width );
 	});
 	// });	
 
