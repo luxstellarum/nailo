@@ -110,12 +110,37 @@ function remove_place (target) {
 	});
 }
 
+function set_plan_bar_controller (amount) {
+	$(".next_day").css({
+		'left' : $(".next_day").scrollLeft() + amount
+	})
+
+	$(".prev_day").css({
+		'left' : $(".prev_day").scrollLeft() + amount
+	})
+}
+
 $(document).ready(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 	var timeoutId = 0;
 	var maxwidth = 0;	// 리사이즈 시에 영역끼리 맞닿을 경우 너비를 제한하기 위한 변수
 
+	$("#plan_bar .plan_bar").sortable({
+		'disabled' : true
+	});
+	$("#plan_bar .plan_bar").draggable({
+		'disabled' : true
+	});
+
+	$("#plan_bar .plan_bar li").sortable({
+		'disabled' : true
+	});
+
+	$("#plan_bar .plan_bar li").draggable({
+		'disabled' : true
+	});
+	
 	$(".next_day").css({
 		'width' : $('.plan_bar').width()/24,
 		'height' : '80px',
@@ -127,6 +152,7 @@ $(document).ready(function(){
 		'z-index' : 99999,
 
 	});
+
 	$(".prev_day").css({
 		'width' : $('.plan_bar').width()/24,
 		'height' : '80px',
@@ -137,13 +163,41 @@ $(document).ready(function(){
 		'background-color' : 'black',
 		'z-index' : 99999,
 	});
-	
-	$(".next_day").mousedown(function() {
-		timeoutId = setTimeout(next_day_scroll(window_width), 100);
-			}).bind('mouseleave', function() {
-		clearTimeout(timeoutId);
-	});
 
+	$(".next_day").live('click', function(){
+		$("#plan_bar").scrollLeft( window_width );
+		console.log($('.next_day').position().left);
+		$(".next_day").css({
+			'left' : $(".next_day").position().left + window_width
+		});
+		$(".prev_day").css({
+			'left' : $(".prev_day").position().left + window_width
+		});
+	});	
+	
+	$(".prev_day").live('click', function(){
+		$("#plan_bar").scrollLeft( -window_width );
+		$(".next_day").css({
+			'left' : $(".next_day").offset().left - window_width
+		});
+		$(".prev_day").css({
+			'left' : $(".prev_day").offset().left - window_width
+		});
+	});	
+
+	// $(".next_day").mousedown(function() {
+	// 	timeoutId = setTimeout(next_day_scroll(window_width), 100);
+	// 	set_plan_bar_controller();
+	// 		}).bind('mouseleave', function() {
+	// 	clearTimeout(timeoutId);
+	// });
+
+	// $(".prev_day").mousedown(function() {
+	// 	timeoutId = setTimeout(next_day_scroll(-window_width), 100);
+	// 	set_plan_bar_controller();
+	// 		}).bind('mouseleave', function() {
+	// 	clearTimeout(timeoutId);
+	// });
 	// bottom.jade: 시간표의 위치 선정
 	var span_width = $(".12").width();
 	$(".12").css("left", (window_width/2) - span_width);

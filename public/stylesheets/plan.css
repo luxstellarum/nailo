@@ -64,7 +64,7 @@ p.city{
 	z-index:0;
 }
 
-#periodpicker, #subject_panel{
+#periodpicker, #subject_panel, #hourpicker{
 	position: absolute;
 	width: 90%;
 	height: 100px;
@@ -78,7 +78,7 @@ p.city{
 }
 
 
-#periodpicker ul, #daypicker ul, #trainpicker ul, #subject_panel ul{
+#periodpicker ul, #daypicker ul, #trainpicker ul, #subject_panel ul, #hourpicker ul{
 	color: #404240;
 	font-size: 13px;
 	list-style: none;
@@ -86,7 +86,7 @@ p.city{
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-#periodpicker li, #trainpicker li, #subject_panel ul{
+#periodpicker li, #trainpicker li, #subject_panel ul, #hourpicker ul{
 	list-style: none;
 	line-height: 2.5;
 	text-shadow: 0 0 0;
