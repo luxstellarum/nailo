@@ -33,15 +33,17 @@ var documents = mongoose.model('schedules', plan_schema);
 module.exports = {
 	
 	// plan 생성하여 db 에 넣는다.
-	add : function(plan, callback){
+	add : function(req, callback){
+
 		console.log('plan', plan);
 		var self = this;
+		var plan = req.body;
 		var doc = new documents();
 		
 		self.get_index(function(result){
 			if(result != false) {
 				// 값 넣기
-				doc.id = plan.id;
+				doc.id = req.session.userid;
 				doc.index = result;
 				doc.subject = plan.subject;
 				doc.data = plan.data;
@@ -80,9 +82,9 @@ module.exports = {
 	
 	
 	// 각 plan 의 index 를 받아아서 해당 id와 일치하는 plan 의 정보를 획득한다.
+	// 하나 전체를 가지고 오는 함수
 	,get: function(condition, callback){
-			var condition = { index: index};
-			documnets.find(condition, function(err, result){
+			documents.findOne(condition, function(err, result){
 				if(result){
 					callback(result);
 				}
@@ -128,6 +130,7 @@ module.exports = {
 	
 	
 	// plan의 목록에 대한 정보를 획득한다.
+	// 해당 id에 대해서 제목만 뽑아다가 갖다줌
 	,get_list: function(condition, current_page, paging_size, callback){
 		var skip_size = (current_page * paging_size) - paging_size;
 		

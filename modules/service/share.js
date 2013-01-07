@@ -6,6 +6,7 @@ module.exports = {
 	me2day_get_url : function(req, res) {
 		var url = "http://me2day.net/api/get_auth_url.xml?akey=6c85d3e6d8b2351f0db4a649aaf56c47";
 		content = req.query.me2_text_share;
+		console.log(content);
 		jsdom.env({
 			html : url,
 			scripts : ['https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'],
@@ -28,6 +29,7 @@ module.exports = {
 			var akey= '6c85d3e6d8b2351f0db4a649aaf56c47';
 			
 			var new_url = 'http://me2day.net/api/create_post.xml?post[body]='+content+'&uid='+user_id+'&ukey='+u_key+'&akey='+akey;
+			//new_url = encodeURIcomponent(new_url);
 			console.log(new_url);
 			jsdom.env({
 				html : new_url,

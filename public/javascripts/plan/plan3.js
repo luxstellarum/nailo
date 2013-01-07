@@ -101,6 +101,7 @@ function get_train_time (city1, city2, day) {
 					'background-color' : 'gray',
 				});
 				target.attr('valid', 'false');
+				target.addClass('not_valid');
 			}
 		},
 		error : function() {
@@ -133,6 +134,8 @@ $(document).ready(function() {
 		$(".btn_confirm").hide();
 		$(".btn_continue").hide();
 		$(".btn_modify").show();
+
+		$(".not_valid").unbind('click');
 
 	});
 
@@ -169,13 +172,6 @@ function li_modify_mode () {
 }
 
 function li_confirm_mode() {
-	$("#sortable li").each(function (){
-		$(this).unbind('click');
-		$(this).bind('click', function() {
-			var nextPage = "#plan_" + $(this).attr('city_name');
-			changePage($(nextPage),'slide');
-		});
-	})		
 	//기차시간 추천 고고
 	$("#sortable li").each(function() {
 		selected_cities[selected_cities.length] = $(this).text();
@@ -184,4 +180,12 @@ function li_confirm_mode() {
 	for(var i=0; i < selected_cities.length-1; i++ ) {
 		get_train_time(selected_cities[i], selected_cities[i+1], i+1);
 	}
+
+	$("#sortable li:not(.not_valid)").each(function (){
+		$(this).unbind('click');
+		$(this).bind('click', function() {
+			var nextPage = "#plan_" + $(this).attr('city_name');
+			changePage($(nextPage),'slide');
+		});
+	});
 }

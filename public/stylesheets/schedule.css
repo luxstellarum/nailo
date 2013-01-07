@@ -1,0 +1,22 @@
+.title {
+	font-weight: bold;
+}
+.schedule_form {
+	list-style: none;
+	padding : 0px;
+	margin : 0px;
+	font-size: 12px;
+}
+
+.schedule_form li{
+	list-style: none;
+}
+
+.schedule_form li:hover	{
+	background-color:#e5e5e5;
+}
+
+.schedule_form .day {
+	font-weight: bold;
+	border-bottom:1px solid #000;
+}
