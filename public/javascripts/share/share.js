@@ -84,7 +84,7 @@ $(document).ready(function(){
 	
 	// facebook
 	$('#fb_btn_share').click(function(){
-		var cite="http://localhost:3000/schedule/" + $('#share_plan option:selected').attr("index");
+		var cite="http://nailo.herokuapp.com//schedule/" + $('#share_plan option:selected').attr("index");
 		var fb_text_share = $('#share_plan').val();
 		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
 
