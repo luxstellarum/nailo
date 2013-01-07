@@ -4,17 +4,18 @@
 var train_time_table = [];
 
  function set_train_time (dept, arrv, period, day, dept_time) {	
+ 	console.log(dept, arrv, period, day, dept_time, 'hi');
+ 	// var target;
+ 	// $(".train_set").each(function(){
+ 	// 	target = $(this);
+ 	// 	target.removeClass("filled");
+ 	// 	target.removeClass("train_set");
+		// target.attr("dept_station", "");
+		// target.attr("arrv_station", "");
+		// target.attr("occupied", 0);
+		// target.text("");
 
- 	$(".train_set").each(function(){
- 		target = $(this);
- 		target.removeClass("filled");
- 		target.removeClass("train_set");
-		target.attr("dept_station", "");
-		target.attr("arrv_station", "");
-		target.attr("occupied", 0);
-		target.text("");
-
- 	})
+ 	// })
  	
 	console.log('set_train_time');
 	var ori_target = $('.plan_bar[day=' + day + ']').find('[hour=' + dept_time + ']');
@@ -71,7 +72,7 @@ function get_train_time (city1, city2, day) {
 		url : '/train/direct_way',
 		data : { 'train_plan' : city },
 		success : function(result) {
-			console.log('result', result);
+			console.log('get_train time result', result);
 			if(result.valid == true) {
 				var length = train_time_table.length;
 				train_time_table[length] = {};

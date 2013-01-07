@@ -277,12 +277,113 @@ $(document).ready(function(){
 		//ToDo. 제목을 저장 할 수 있는 패널이 필요
 		var subject_panel = $("#subject_panel");
 		$.loadPopup(subject_panel);
+		// $(".confirm_plan").live('click', function(event){
+		// 	$.disablePopup(subject_panel);
+		// 	var target = $(this);
+		// 	var data = [];
+		// 	//var i, j;
+		// 	//$('.plan_bar').each(function(){
+
+		// 	// i=0;
+
+		// 	// while($(".plan_bar")[i] != undefined) {
+		// 	// 	console.log($(".plan_bar")[i], 'i :', i);
+		// 	// 	var parent = $(".plan_bar")[i];
+		// 	// 	data[i] = []
+		// 	// 	var plans = [];
+		// 	// 	plans = $(parent).find('.plan_bar_hour').not('[occupied=2]').not('[occupied=0]');
+		// 	// 	j=0;
+		// 	// 	for(j=0; j<plans.length; j++) {
+		// 	// 		console.log('plan_bar_j : ', j);
+		// 	// 		if($(plans[j]).attr('occupied') == 3) {
+		// 	// 			data[i][j] = {};
+		// 	// 			data[i][j]['occupied'] = $(plans[j]).attr('occupied');
+		// 	// 			data[i][j]['dept_station'] = $(plans[j]).attr('dept_station');
+		// 	// 			data[i][j]['arrv_station'] = $(plans[j]).attr('arrv_station');
+		// 	// 			data[i][j]['text'] = $(plans[j]).text();
+		// 	// 			data[i][j]['start_time'] = $(plans[j]).attr('hour');
+		// 	// 			data[i][j]['period'] = $(plans[j]).attr('period');
+		// 	// 			console.log('첫번째 이프문은 되나?');
+		// 	// 		}
+		// 	// 		else if($(plans[j]).attr('occupied') == 1) {
+		// 	// 			data[i][j] = {};
+		// 	// 			data[i][j]['occupied'] = $(plans[j]).attr('occupied');
+		// 	// 			data[i][j]['place'] = $(plans[j]).attr('place');
+		// 	// 			data[i][j]['text'] = $(plans[j]).text();
+		// 	// 			data[i][j]['start_time'] = $(plans[j]).attr('hour');
+		// 	// 			data[i][j]['period'] = $(plans[j]).attr('period');
+		// 	// 			console.log('두번째 이프문은 되나?');
+		// 	// 		}
+		// 	// 		console.log('여긴 나오니?');					
+		// 	// 	}
+		// 	// 	i++;
+		// 	// 	console.log($(".plan_bar")[i], 'i++', i);
+		// 	// }
+
+		// 	for(var m=0; m< $(".plan_bar").length; m++) {
+		// 		(function(i) {
+		// 			var parent = $(".plan_bar")[i];
+		// 			data[i] = []
+		// 			var plans = [];
+		// 			var n=0;
+		// 			$(parent).find('.plan_bar_hour').not('[occupied=2]').not('[occupied=0]').each(function(){
+		// 				var self = this;
+		// 				(function(j){
+		// 					if($(plans[j]).attr('occupied') == 3) {
+		// 						data[i][j] = {};
+		// 						data[i][j]['occupied'] = $(self).attr('occupied');
+		// 						data[i][j]['dept_station'] = $(self).attr('dept_station');
+		// 						data[i][j]['arrv_station'] = $(self).attr('arrv_station');
+		// 						data[i][j]['text'] = $(self).text();
+		// 						data[i][j]['start_time'] = $(self).attr('hour');
+		// 						data[i][j]['period'] = $(self).attr('period');
+		// 					}
+		// 					else if($(plans[j]).attr('occupied') == 1) {
+		// 						data[i][j] = {};
+		// 						data[i][j]['occupied'] = $(self).attr('occupied');
+		// 						data[i][j]['place'] = $(self).attr('place');
+		// 						data[i][j]['text'] = $(self).text();
+		// 						data[i][j]['start_time'] = $(self).attr('hour');
+		// 						data[i][j]['period'] = $(self).attr('period');
+		// 					}
+		// 				})(n);
+		// 				n++;
+		// 			});
+
+		// 		// 	plans = $(parent).find('.plan_bar_hour').not('[occupied=2]').not('[occupied=0]');
+		// 		// 	for(var n=0; n< plans.length; n++) {
+		// 		// 		(function(j){
+		// 		// 			console.log('plan_bar_j : ', j);
+		// 		// 			if($(plans[j]).attr('occupied') == 3) {
+		// 		// 				data[i][j] = {};
+		// 		// 				data[i][j]['occupied'] = $(plans[j]).attr('occupied');
+		// 		// 				data[i][j]['dept_station'] = $(plans[j]).attr('dept_station');
+		// 		// 				data[i][j]['arrv_station'] = $(plans[j]).attr('arrv_station');
+		// 		// 				data[i][j]['text'] = $(plans[j]).text();
+		// 		// 				data[i][j]['start_time'] = $(plans[j]).attr('hour');
+		// 		// 				data[i][j]['period'] = $(plans[j]).attr('period');
+		// 		// 			}
+		// 		// 			else if($(plans[j]).attr('occupied') == 1) {
+		// 		// 				data[i][j] = {};
+		// 		// 				data[i][j]['occupied'] = $(plans[j]).attr('occupied');
+		// 		// 				data[i][j]['place'] = $(plans[j]).attr('place');
+		// 		// 				data[i][j]['text'] = $(plans[j]).text();
+		// 		// 				data[i][j]['start_time'] = $(plans[j]).attr('hour');
+		// 		// 				data[i][j]['period'] = $(plans[j]).attr('period');
+		// 		// 			}
+		// 		// 		})(n);				
+		// 		// 	}
+		// 			console.log(i, ":", data);
+		// 		})(m);
+		// 	}
+
 		$(".confirm_plan").live('click', function(event){
 			$.disablePopup(subject_panel);
 			var target = $(this);
 			var data = [];
 			var i=0, j=0;
 			$('.plan_bar').each(function(){
+				j=0;
 				var parent = this;
 				data[i] = []
 				$(parent).find('.plan_bar_hour').not('[occupied=2]').each(function(){
@@ -307,7 +408,7 @@ $(document).ready(function(){
 					}					
 				});
 				i++;
-			});
+			}); // end of each
 			var index = $(".plan_index").attr('index');
 			var final_data = {};
 			final_data['subject'] = target.parent().find('.plan_subject').val(); //ToDo
@@ -330,8 +431,8 @@ $(document).ready(function(){
 				error : function() {
 					alert('error!!!');
 				}
-			});
-		});
+			});//end of ajax
+		});//end of live
 	}); //end of live
 
 	//로드!!
