@@ -37,7 +37,7 @@ module.exports = {
 				encoding : 'binary',
 				done : function(err, window){ 	
 					var $ = window.$;
-					res.redirect('/');
+					res.redirect('/mypage/share_alert');
 				}//end of done
 			})//end of jsdom env
 		}

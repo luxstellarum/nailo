@@ -20,11 +20,12 @@ $(document).ready(function(){
 
 				}
 				else{
+					alert('success_search_ajax error');
 				}
 			} 	// end of success
 			
 			, error: function(data, status, err){
-				
+				alert('search_ajax error');
 			}	// end of error
 		}); 		// end of ajax
 	

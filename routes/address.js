@@ -208,6 +208,10 @@ module.exports = function(app){
 	app.get('/share/share', function(req, res){
 		res.render('share/share', {title:'index'});
 	});
+	
+	app.get('/mypage/share_alert', function(req, res){
+		res.render('mypage/share_alert', {title:'index'});
+	});
 
 	// map
 	app.get('/map/map', function(req, res){
