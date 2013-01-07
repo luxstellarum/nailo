@@ -87,15 +87,16 @@ var self = module.exports = {
 				// city_name 를 검색하는 경우 flag='f_city'
 				self.city_call(key, function(tmp){
 					final_result['city_extra'] = [];
+					final_result['station_name'] = [];
+					final_result['sights_name'] = [];
+
 					final_result['city_extra'] = tmp.city_extra;
 					console.log('in search js, seek, final_result city_extra', final_result, tmp);	
 								
 					self.station_call(key, function(tmp){
-						final_result['station_name'] = [];
 						final_result['station_name'] = tmp.station_name;
 							
 						self.sights_call(key, function(tmp){
-							final_result['sights_name'] = [];
 							final_result['sights_name'] = tmp.sights_name;
 							
 							callback(final_result);
