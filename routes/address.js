@@ -209,13 +209,14 @@ module.exports = function(app){
 		res.render('share/share', {title:'index'});
 	});
 
-
 	// map
 	app.get('/map/map', function(req, res){
 		res.render('map/map', {title:'index'});
 	});
 
-
+	app.get('/schedule/:index', function(req, res){
+		res.render('schedule/show', {title : 'plan'});
+	});
 
 	
 }
