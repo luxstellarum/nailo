@@ -64,7 +64,7 @@ $(document).ready(function(){
 	//kakao
 	$('#kakao_btn_share').click(function(){
 		var msg = $('#share_plan option:selected').attr("contents");
-		var url = "#";   
+		var url = "http://nailo.herokuapp.com/schedule/" + $('#share_plan option:selected').attr("index");   
 		var appid = "Ilowa Nailo";  
 		var appver = "1.0";    
 		var appname = "일로와 내일로";   
@@ -75,7 +75,8 @@ $(document).ready(function(){
 
 	//twitter
 	$('#twitter_btn_share').click(function(){
-			var url="https%3A%2F%2Ftestlink.com";
+			var url="http://nailo.herokuapp.com/schedule/" + $('#share_plan option:selected').attr("index");
+			url = encodeURI(url);
 			var appname="일로와 내일로";
 			var text = $('#share_plan').val();
 			location.href="https://twitter.com/intent/tweet?original referer="+url+"&text="+text+"&url="+url+"&via="+appname;
@@ -84,7 +85,7 @@ $(document).ready(function(){
 	
 	// facebook
 	$('#fb_btn_share').click(function(){
-		var cite="http://nailo.herokuapp.com//schedule/" + $('#share_plan option:selected').attr("index");
+		var cite="http://nailo.herokuapp.com/schedule/" + $('#share_plan option:selected').attr("index");
 		var fb_text_share = $('#share_plan').val();
 		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
 
