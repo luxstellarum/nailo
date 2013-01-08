@@ -132,6 +132,7 @@ var self = module.exports = {
 					final_result['city_name'] = [];
 					final_result['station_name'] = [];
 					final_result['sights_extra'] = [];
+					
 					final_result['city_name'] = tmp.city_name;
 					final_result['station_name'] = tmp.station_name;
 					final_result['sights_extra'] = tmp.sights_extra;
