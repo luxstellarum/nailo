@@ -5,35 +5,33 @@ $(document).ready(function(){
 		, dataType : "json"
 		, type : "post"
 		, success : function(list) {
-			var i,j,k, contents;
+			var i,j,k;
 			for(i=0; i < list.length; i++ ) {
-				console.log(list[i]);
-				for(j=0; j< list[i].data.length; j++) {
-					contents = "[ " + (j+1) + "일차 ] ";
-					contents = encodeURI(contents) + "%0D";
-					for(k=0; k< list[i].data[j].length; k++) {
-						(function(m){
-							if(list[i].data[j][m].occupied === '1') {
-							contents += 
-									encodeURI(parseInt(list[i].data[j][m].start_time,10) + "시 부터 " 
-									+ ( parseInt(list[i].data[j][m].start_time,10) + 
-										parseInt(list[i].data[j][m].period,10) ) + "시 까지") + "%0D";
-							contents += encodeURI(" * 관광지명 : " + list[i].data[j][m].text) + "%0D";
-							} // end of if
-							else if (list[i].data[j][m].occupied === '3') {
-								contents += 
-										encodeURI(parseInt(list[i].data[j][m].start_time,10) + "시 부터 " 
-										+ ( parseInt(list[i].data[j][m].start_time,10) + 
-											parseInt(list[i].data[j][m].period,10) ) + "시 까지") + "%0D";
-								contents += encodeURI(" * 기차 : " + list[i].data[j][m].text) + "%0D";
-							} //end of else if	
-						})(k);
-					}// end of for
-				} // end of for
+				// console.log(list[i]);
+				// for(j=0; j< list[i].data.length; j++) {
+				// 	var contents = "[ " + (j+1) + "일차 ] ";
+				// 	contents = encodeURI(contents) + "%0D";
+				// 	for(k=0; k< list[i].data[j].length; k++) {
+				// 		if(list[i].data[j][k].occupied === '1') {
+				// 			contents += 
+				// 					encodeURI(parseInt(list[i].data[j][k].start_time,10) + "시 부터 " 
+				// 					+ ( parseInt(list[i].data[j][k].start_time,10) + 
+				// 						parseInt(list[i].data[j][k].period,10) ) + "시 까지") + "%0D";
+				// 			contents += encodeURI(" * 관광지명 : " + list[i].data[j][k].text) + "%0D";
+				// 		} // end of if
+				// 		else if (list[i].data[j][k].occupied === '3') {
+				// 			contents += 
+				// 					encodeURI(parseInt(list[i].data[j][k].start_time,10) + "시 부터 " 
+				// 					+ ( parseInt(list[i].data[j][k].start_time,10) + 
+				// 						parseInt(list[i].data[j][k].period,10) ) + "시 까지") + "%0D";
+				// 			contents += encodeURI(" * 기차 : " + list[i].data[j][k].text) + "%0D";
+				// 		} //end of else if
+				// 	}// end of for
+				// } // end of for
 				var option = "<option index=";
 				option += list[i].index; 
-				option += " contents='"; 
-				option += contents + "'>"; 
+				// option += " contents='"; 
+				// option += contents + "'>"; 
 				option += list[i].subject + "</option>";
 				$('#share_plan option:last').after(option);
 			}//end of for
@@ -46,9 +44,9 @@ $(document).ready(function(){
 
 	// me2day
 	$('#me2_btn_share').click(function(){
-		var me2_text_share = $('#share_plan option:selected').attr("contents");
+		var me2_text_share = encodeURI("http://nailo.herokuapp.com/schedule/" + 
+							$('#share_plan option:selected').attr("index"));
 		
-
 		$.ajax({
 			url: "/share/me2day_get_url"
 			, dataType :"json"
@@ -88,8 +86,9 @@ $(document).ready(function(){
 	// facebook
 	$('#fb_btn_share').click(function(){
 		var cite="http://nailo.herokuapp.com/schedule/" + $('#share_plan option:selected').attr("index");
+		cite = encodeURI(cite);
 		var fb_text_share = $('#share_plan').val();
-		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite
+		var new_cite = "http://www.facebook.com/sharer/sharer.php?u="+cite;
 
 		location.href= new_cite;
 	});	// end of click

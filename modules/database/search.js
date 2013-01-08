@@ -234,17 +234,20 @@ var self = module.exports = {
 			tmp['sights_extra']= [];
 			tmp['city_name'] = [];
 			tmp['sights_name'] = [];
+			tmp['station_name'] = [];
 			evt.on('sights_db_get_list', function(evt, i){
 				if(i < result.length){
 					if(i=0){
 						tmp['sights_extra'] = result[i].sights_extra;
 						tmp['city_name'] = result[i].city_name;
 						tmp['sights_name'] = result[i].sights_name;
+						tmp['station_name'] = result[i].station_name;
 					}
 					else {
 						tmp['sights_extra'] = tmp['sights_extra'].concat(result[i].sights_extra);
 						tmp['city_name'] = tmp['city_name'].concat(result[i].city_name);
 						tmp['sights_name'] = tmp['sights_name'].concat(result[i].sights_name);
+						tmp['station_name'] = tmp['station_name'].concat(result[i].station_name);
 					}
 					evt.emit('sights_db_get_list', evt, ++i);
 				}
