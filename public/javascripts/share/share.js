@@ -5,27 +5,29 @@ $(document).ready(function(){
 		, dataType : "json"
 		, type : "post"
 		, success : function(list) {
-			var i,j,k;
+			var i,j,k, contents;
 			for(i=0; i < list.length; i++ ) {
 				console.log(list[i]);
 				for(j=0; j< list[i].data.length; j++) {
-					var contents = "[ " + (j+1) + "일차 ] ";
+					contents = "[ " + (j+1) + "일차 ] ";
 					contents = encodeURI(contents) + "%0D";
 					for(k=0; k< list[i].data[j].length; k++) {
-						if(list[i].data[j][k].occupied === '1') {
+						(function(m){
+							if(list[i].data[j][m].occupied === '1') {
 							contents += 
-									encodeURI(parseInt(list[i].data[j][k].start_time,10) + "시 부터 " 
-									+ ( parseInt(list[i].data[j][k].start_time,10) + 
-										parseInt(list[i].data[j][k].period,10) ) + "시 까지") + "%0D";
-							contents += encodeURI(" * 관광지명 : " + list[i].data[j][k].text) + "%0D";
-						} // end of if
-						else if (list[i].data[j][k].occupied === '3') {
-							contents += 
-									encodeURI(parseInt(list[i].data[j][k].start_time,10) + "시 부터 " 
-									+ ( parseInt(list[i].data[j][k].start_time,10) + 
-										parseInt(list[i].data[j][k].period,10) ) + "시 까지") + "%0D";
-							contents += encodeURI(" * 기차 : " + list[i].data[j][k].text) + "%0D";
-						} //end of else if
+									encodeURI(parseInt(list[i].data[j][m].start_time,10) + "시 부터 " 
+									+ ( parseInt(list[i].data[j][m].start_time,10) + 
+										parseInt(list[i].data[j][m].period,10) ) + "시 까지") + "%0D";
+							contents += encodeURI(" * 관광지명 : " + list[i].data[j][m].text) + "%0D";
+							} // end of if
+							else if (list[i].data[j][m].occupied === '3') {
+								contents += 
+										encodeURI(parseInt(list[i].data[j][m].start_time,10) + "시 부터 " 
+										+ ( parseInt(list[i].data[j][m].start_time,10) + 
+											parseInt(list[i].data[j][m].period,10) ) + "시 까지") + "%0D";
+								contents += encodeURI(" * 기차 : " + list[i].data[j][m].text) + "%0D";
+							} //end of else if	
+						})(k);
 					}// end of for
 				} // end of for
 				var option = "<option index=";
