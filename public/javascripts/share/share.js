@@ -29,7 +29,7 @@ $(document).ready(function(){
 				// 	}// end of for
 				// } // end of for
 				var option = "<option index=";
-				option += list[i].index; 
+				option += list[i].index + ">"; 
 				// option += " contents='"; 
 				// option += contents + "'>"; 
 				option += list[i].subject + "</option>";
