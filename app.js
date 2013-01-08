@@ -2,7 +2,10 @@
 /**
  * Module dependencies.
  */
- 	
+/****
+	by Team  Ilowa Nailo
+	Min Jung Lee, Jun Hong Son, Yong Su Ahn, Hee Su Park
+****/ 	
 var express = require('express')
 	, routes = require('./routes')
 	, user = require('./routes/user')
