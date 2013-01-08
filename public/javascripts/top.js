@@ -131,6 +131,7 @@ $(document).ready(function(){
 		var check = $(this).is(":checked");
 		if(check)
 		{
+			alert("역 검색시에는 마지막에 '역'글자를 빼고 검색해 주세요.");
 			$('#header').css("display","none");
 			$('#container').css("display","none");
 			$('.slide').css("opacity","0");
