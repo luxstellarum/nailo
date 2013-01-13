@@ -1,12 +1,12 @@
-include ../top.jade
+include ../frame/top.jade
 		script(src="/javascripts/plan/plan1.js")
 		script(src="/javascripts/plan/see.js")
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-					include ../search.jade
-		include ../city_name.jade
+					include ../frame/search.jade
+		include ./city_name.jade
 		include ../widget/popup_menu.jade
 		include ../widget/subject_panel.jade
 		include ../widget/hourpicker.jade
@@ -15,7 +15,7 @@ include ../top.jade
 				div.head_number1 1
 				div.head_number2(style="font-size:12pt") 도선택
 				p.menu_name 플랜
-			include ../periodpicker.jade
+			include ../widget/periodpicker.jade
 			include ../widget/trainpicker.jade
 			div.wrapper(id="plan_num")
 				div.btn_area
@@ -41,6 +41,6 @@ include ../top.jade
 		include ./pyungchang_see.jade
 		include ./seoul_see.jade
 		div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white; z-index:5;")
-	include ../bottom.jade
+	include ../frame/bottom.jade
 	
 		

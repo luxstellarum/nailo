@@ -1,10 +1,10 @@
-include ../top.jade
+include ../frame/top.jade
 		script(type="text/javascript", src="/javascripts/map/map.js")	
 		div(class="css3droppanel",align="center")
 			input(type="checkbox", id="paneltoggle")
 			label(for="paneltoggle",id="searchdrawer")
 			div(id="searchbrowser")
-					include ../search.jade	
+					include ../frame/search.jade	
 		include ../widget/popup_menu.jade
 		div#header
 			p.menu_name Map

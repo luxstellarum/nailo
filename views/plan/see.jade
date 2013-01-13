@@ -1,10 +1,10 @@
-include ../top.jade
+include ../frame/top.jade
 			script(src="/javascripts/plan/see.js", type="text/javascript")
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
-						include ../search.jade
+						include ../frame/search.jade
 			div.container
 				div.header
 					img(id="city_mark",src="/images/mark_kangneung.png",align="center") 
@@ -47,4 +47,4 @@ include ../top.jade
 						br
 						input(id="jeongdongjin",type="checkbox",style="z-index:3;opacity:0;")
 div(id="board",style="width:150px; height:50px; border:thin solid gray; display:none; background:white")
-include ../bottom.jade
+include ../frame/bottom.jade

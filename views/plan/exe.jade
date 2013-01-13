@@ -1,9 +1,9 @@
-include ../top.jade
+include ../frame/top.jade
 			div(class="css3droppanel",align="center")
 				input(type="checkbox", id="paneltoggle")
 				label(for="paneltoggle",id="searchdrawer")
 				div(id="searchbrowser")
-						include ../search.jade
+						include ../frame/search.jade
 			div(id="plan_3", class="slide current")
 				div.header(style="margin-top:-10px")
 					span(style='height:20px; padding-left:20px; font-size:45pt') 3
@@ -24,4 +24,4 @@ include ../top.jade
 				span
 					input(type="button",value="담기", name="insert",style="width:50px; height:20px; margin-right:5px; font-size:7pt")
 					input(type="button",value="확정",name="confirm",style="width:50px; height:20px;font-size:7pt")
-		include ../bottom.jade
+		include ../frame/bottom.jade
